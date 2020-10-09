@@ -1,0 +1,147 @@
+﻿@page "/IriTome/MainFragment"
+
+@using Microsoft.AspNetCore.Components;
+
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+    <meta charset="Shift-JIS" />
+    <meta http-equiv="content-language" content="ja" />
+    <meta name="google" content="notranslate" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <style>
+        @* bootstrapのスタイルを上書き *@ @* (ヘッダー下の空白を無くす) *@
+        .mb-3 { margin-bottom: 0.5rem; }
+
+        @* _Layoutの背景色等を上書き *@
+        .BackGr {
+            background: #80989b;
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            overflow: hidden;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <div>
+
+        @* 年月リストの表示（セレクトリスト） *@
+        @* @onchange : クラスから処理を呼び出せる *@
+        @* select内で設定したoptionのvalueを引数として持たせることが出来る *@
+
+        <select class="form-control" @onchange="@OnChangeEventNengetu">
+            @foreach (var Nengetu in NengetuList)
+            {
+                <option value="@Nengetu.dispNengetu"> @Nengetu.dispNengetu </option>
+            }
+        </select>
+
+        <p>@SelectedValue</p>
+
+        @if (SelectedFlg == true) { <p>選択されたの @SelectValue です</p> }
+
+
+        @* 区域リストの表示（セレクトリスト） *@
+
+        @*
+            <select onchange="OnChangeEventKuiki">
+                @foreach (var item in Model.KuikiList)
+                {
+                    <option value=@item.kuiki>@item.name</option>
+                }
+            </select>
+        *@
+
+    </div>
+
+
+    @* 取得した読者のリストを展開 *@
+    @*
+        @foreach (var item in Model.DokusyaList)
+        {
+            // 区域と順路の切り抜き処理
+            string kuiki = "";
+            string jun = "";
+
+            // 読者リストがnullではないかの判定
+            if (item != null)
+            {
+                // 区域の後ろに「区」を追加
+                kuiki = item.kuiki + "区";
+
+                // 順路の「.」を判定して前後で切り抜きを行い、間に「-」を挿入する。
+                // また、頭の0詰めを無くす
+                // 例） 「0001.00」 → 「1-00」
+
+                // 2020/10/01 藤原 upd
+                // もしも順路内に「.」が存在しない場合は、そのまま表示させる
+                if (item.junro.IndexOf('.') == -1)
+                {
+                    jun = item.junro;
+                }
+                else
+                {
+                    jun = item.junro.Substring(0, item.junro.IndexOf('.')).TrimStart('0')
+                    + "-" +
+                    item.junro.Substring(item.junro.LastIndexOf('.') + 1);
+                }
+            }
+
+            <a asp-page="./Detail" asp-route-id="@item.dokuCode" type="button" class="search-btn btn btn-outline-dark btn-block">
+                <span class="Kuiki">@kuiki</span>
+                <span class="Junro">@jun</span>
+                <span class="dokuCode">No.@Html.DisplayFor(modelItem => item.dokuCode)</span>
+                <span class="Name">@Html.DisplayFor(modelItem => item.name)</span>
+                <br />
+                <span class="address">@Html.DisplayFor(modelItem => item.addressRyaku)</span>
+                <span class="Banti">@Html.DisplayFor(modelItem => item.banti)</span>
+                <span class="Build">@Html.DisplayFor(modelItem => item.build)</span>
+                <br />
+                <span class="Tel">@Html.DisplayFor(modelItem => item.tel)</span>
+            </a>
+        }
+    *@
+
+</body>
+</html>
+
+
+@*
+    @functions {
+
+        void OnChangeEventNengetu(ChangeEventArgs e)
+        {
+            Model.KeepNengetu = e.Value.ToString();
+
+            // 読者情報の取得(読者番号:完全一致）
+            Model.IriList = Model.RtnIriList();
+
+            Model.TomeList = Model.RtnTomeList();
+        }
+
+        void OnChangeEventKuiki(ChangeEventArgs e)
+        {
+            Model.KeepKuiki = e.Value.ToString();
+
+            // 読者情報の取得(読者番号:完全一致）
+            Model.IriList = Model.RtnIriList();
+
+            Model.TomeList = Model.RtnTomeList();
+        }
+
+
+    }
+
+*@

@@ -1,0 +1,48 @@
+﻿@page "/ReceiveSettingsFragment"
+
+
+
+@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Threading.Tasks;
+@using Microsoft.AspNetCore;
+@using System.IO;
+@using Microsoft.AspNetCore.Http;
+
+
+<body class="bg-light">
+
+
+    <div>
+        <form method="post">
+
+            <h6></h6>
+ 
+            <label asp-for="Settings.Key_Mobile_No">サーバーIPアドレス</label>
+            <input id="name" @bind="@MobileIPAddress" class="form-control" />
+            <p></p>
+            <label class="text-white bg-danger"></label>
+
+            <input asp-page-handler="~/" type="submit" value="適用" class="btn btn-danger btn-block" />
+        </form>
+
+        <p></p>
+        <form method="post">
+            <input asp-page-handler="~/" type="submit" value="戻る" class="btn btn-secondary btn-block" />
+        </form>
+
+
+
+
+    </div>
+
+</body>
+
+
+
+@code {
+
+    private string MobileIPAddress { set; get; }
+
+}
