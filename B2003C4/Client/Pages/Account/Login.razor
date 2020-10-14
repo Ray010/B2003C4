@@ -1,7 +1,54 @@
 ﻿@page "/Login"
 
-<h3>Login</h3>
-
 @code {
 
 }
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+    <meta charset="Shift-JIS" />
+    <meta http-equiv="content-language" content="ja" />
+    <meta name="google" content="notranslate" />
+
+    <link rel="stylesheet" href="~/css/app.css" />
+
+    <style>
+
+        .width {
+            width: 95%;
+        }
+    </style>
+</head>
+
+<body>
+    <div align="center">
+
+            <!--未使用
+            <label asp-for="Input.Key_Mobile_No">キーモバイルナンバー[デバッグ用]</label>
+            <input asp-for="Input.Key_Mobile_No" class="form-control" placeholder="キーモバイルナンバー[デバッグ用]">
+            -->
+            <label asp-for="Input.Password">パスワードを入力してください。</label>
+            <input asp-for="Input.Password" class="width form-control" placeholder="パスワード">
+
+            <p></p>
+            <!--ログイン失敗時のメッセージ用↓-->
+            <label class="text-white bg-danger"></label>
+
+
+            
+            <button onclick="location.href='/'" type="button" class="width btn btn-primary">ログイン</button>
+
+
+        <p></p>
+
+        <hr size="2px" width="100%" color="FFFFFF" />
+
+        <button onclick="location.href='/ReceiveSettingsFragment'" type="button" class="width btn btn-secondary">設定</button>
+      
+        <p></p>  
+        
+        <button onclick="location.href='/Login'" type="button" class="width btn btn-danger">データ削除</button>        
+    </div>
+</body>
+</html>

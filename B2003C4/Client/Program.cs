@@ -15,11 +15,13 @@ using System.Security.Cryptography.X509Certificates;
 using Microsoft.Extensions.Options;
 using B2003C4.Client;
 
+
 namespace B2003C4
 {
     public class Program
     {
-        public static async Task Main(string[] args)
+
+            public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
@@ -35,6 +37,8 @@ namespace B2003C4
             builder.Services.AddSingleton(p => p.GetRequiredService<IConfiguration>().Get<AppSettings>());
 
             await builder.Build().RunAsync();
+
+           
         }
 
     }

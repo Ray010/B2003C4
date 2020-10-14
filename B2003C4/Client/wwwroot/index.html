@@ -1,14 +1,25 @@
 ﻿<!DOCTYPE html>
-<html>
+
+
+<html lang="ja">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>BlazorApp1</title>
+    <title>新聞モバイルシステム</title>
+    <link rel="apple-touch-icon" href="images/icon-512.png" sizes="512x512" />
     <base href="/" />
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="css/app.css" rel="stylesheet" />
     <link href="manifest.json" rel="manifest" />
+
+    <!--海老沼書き足し-->
+
+    <script src="./main.js"></script>
+    <link rel="manifest" href="./manifest.json" />
+
+
+    <!--海老沼終わり-->
 </head>
 
 <body>
@@ -61,7 +72,7 @@
     <script src="_framework/blazor.webassembly.js"></script>
 
 
-    
+
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js')
@@ -77,6 +88,7 @@
         }
     </script>
     <script src="FromBlazorFanc.js"></script>
+    <script src="./IndexedDB/SystemStatus.js"></script>
 
 
 </body>

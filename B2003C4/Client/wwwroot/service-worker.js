@@ -1,24 +1,57 @@
 // In development, always fetch from the network and do not enable offline support.
 // This is because caching would make development more difficult (changes would not
 // be reflected on the first load after each change).
-var cacheName = "B2003C4_cache_v1_2";
+
+
+var NAME = "Shinbun-SYSTEM-";
+var VERSION = "0.02";
+
+var CACHE_NAME = NAME + VERSION;
+
 
 var fileToCache = [
     './',
     //Html and css files
     './index.html',
-    './css/site.css',
     './css/app.css',
     './css/bootstrap/bootstrap.min.css',
     './css/open-iconic/font/css/open-iconic-bootstrap.min.css',
     './css/open-iconic/font/fonts/open-iconic.woff',
+
     //Blazor framework
     './_framework/blazor.webassembly.js',
     './_framework/blazor.boot.json',
+
     //Our additional files
     './manifest.json',
     './service-worker.js',
     './icon-512.png',
+    './appsettings.json',
+    './appsettings.Development.json',
+    './main.js',
+
+    //SiteURLs
+    '/Login', //ログインページ
+
+    '/ReceiveSettingsFragment', //モバイル設定
+
+    './ReceiveDataFragment', //データ受信
+
+
+    './IriTome/MainFragment', //入止表
+
+
+    '/Kako/KakoFragment', //過去台帳
+
+
+    '/Haitastu//SelJunroActivity', //配達
+
+
+    '/Kansa/KansaSearchFragment', //監査
+
+
+
+
     //The web assembly/.net dll's
     './_framework/wasm/dotnet.timezones.dat',
     './_framework/wasm/dotnet.3.2.0.js',
@@ -84,15 +117,19 @@ var fileToCache = [
 ];
 
 
+
+
+
 self.addEventListener('install', function (e) {
     console.log('[ServiceWorker] Install');
     e.waitUntil(
-        caches.open(cacheName).then(function (cache) {
+        caches.open(CACHE_NAME).then(function (cache) {
             console.log('[ServiceWorker] Caching app shell');
             return cache.addAll(fileToCache);
         })
     );
 });
+
 self.addEventListener('activate', event => {
     event.waitUntil(self.clients.claim());
 });

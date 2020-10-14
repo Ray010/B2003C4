@@ -41,5 +41,58 @@ namespace B2003C4.Client.Pages.IriTome
 
 
 
+        
+
+
+        //海老沼書き足しｽﾞｲ₍₍(ง˘ω˘)ว⁾⁾ｽﾞｲ（仮）
+
+        public int IriCount { get; set; }
+
+        public int TomeCount { get; set; }
+
+
+        List<Kuiki> IriKuiki1 = new List<Kuiki>()
+        {
+            new Kuiki("工藤　栄吉", "", "2002-2002"),
+            new Kuiki("工藤　栄", "", "2002-2002"),
+            new Kuiki("海老沼　綱木", "死後", "2002-2010"),
+            new Kuiki("エビヌマ　ツナキ", "死後", "1902-2010"),
+            
+        };
+        List<Kuiki> TomeKuiki1 = new List<Kuiki>()
+        {
+            new Kuiki("工藤　栄吉", "", "2002-2010"),
+            new Kuiki("工藤　栄吉", "", "2002-2010"),
+            new Kuiki("海老沼　綱木", "死後", "2002-2010"),
+            new Kuiki("エビヌマ　ツナキ", "カレ", "1902-2010"),
+            new Kuiki("エビヌマ　ツナキ", "カレ", "1902-2010"),
+
+        };
+
+
+        public class Kuiki
+        {
+
+            public string DokusyaName; //読者名
+            public string B; //？（死後とか書いてあるやつ)
+            public string Keiyaku;
+
+            public Kuiki(string dokusyaName, string b, string keiyaku)
+            {
+                DokusyaName = dokusyaName;
+
+                B = b;
+
+                Keiyaku = keiyaku;
+
+            }
+
+        }
+
+
+
+
+
+
     }
 }

@@ -1,4 +1,7 @@
-﻿@page "/IriTome/MainFragment"
+﻿<!--一部海老沼が仮で作っていますｶﾘｶﾘ　129行-->
+
+
+@page "/IriTome/MainFragment"
 
 @using Microsoft.AspNetCore.Components;
 
@@ -27,6 +30,25 @@
             overflow: hidden;
         }
 
+        @*仮*@
+        table {
+            display: table;
+            table-layout: fixed;
+            text-align: center;
+            width: 100%;
+            vertical-align: top;
+        }
+        .NameButtonMargin{
+            padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+
+        }
+        .TableMargin{
+            margin: 1em 1em 1em 1em;
+        }
+        .VerticalFix {
+            vertical-align: top;
+        }
+
     </style>
 
 
@@ -50,19 +72,20 @@
 
         <p>@SelectedValue</p>
 
-        @if (SelectedFlg == true) { <p>選択されたの @SelectValue です</p> }
+        @if (SelectedFlg == true)
+        {<p>選択されたの @SelectValue です</p> }
 
 
-        @* 区域リストの表示（セレクトリスト） *@
+    @* 区域リストの表示（セレクトリスト） *@
 
-        @*
-            <select onchange="OnChangeEventKuiki">
-                @foreach (var item in Model.KuikiList)
-                {
-                    <option value=@item.kuiki>@item.name</option>
-                }
-            </select>
-        *@
+    @*
+        <select onchange="OnChangeEventKuiki">
+            @foreach (var item in Model.KuikiList)
+            {
+                <option value=@item.kuiki>@item.name</option>
+            }
+        </select>
+    *@
 
     </div>
 
@@ -114,6 +137,120 @@
         }
     *@
 
+    <!--デモ用に海老沼が仮で作りましたｶﾘｶﾘ-->
+    <div>
+        <table>
+            <tbody>
+                <tr align="center">
+                    <th colspan="10">
+                        <button type="button" class="btn btn-primary btn-block">
+                            <table>
+                                <tr>
+                                    <th colspan="2">入</th>
+                                    <th colspan="2">@IriKuiki1.Count 件</th>
+                                </tr>
+                            </table>
+                        </button>
+                    </th>
+
+                    <th>&nbsp;</th>
+
+                    <th colspan="10">
+                        <button type="button" class="btn btn-danger btn-block">
+                            <table>
+                                <tr>
+                                    <th colspan="2">止</th>
+                                    <th colspan="2">@TomeCount 件</th>
+                                </tr>
+                            </table>
+                        </button>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th class="VerticalFix" colspan="10">
+                        <table>
+                            <!--foreath-->
+                            @foreach (var x in IriKuiki1)
+                            {
+
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btn-block NameButtonMargin">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="left" class="fontSizeMAX767" colspan="5">@x.DokusyaName</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" class="fontSizeMAX767" colspan="5">@x.B</td>
+                                                        <td class="border" colspan="1" rowspan="2">訪</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" class="fontSizeMAX767" colspan="4">@x.Keiyaku</td>
+
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            }
+                            <!--foreathEnd-->
+                        </table>
+                    </th>
+
+                    <th colspan="1">&nbsp;</th>
+
+                    <th class="VerticalFix" colspan="10">
+                        <table vertical-align="top">
+                            <!--foreath-->
+                            @foreach (var x in TomeKuiki1)
+                            {
+
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-danger btn-block NameButtonMargin">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="left" class="fontSizeMAX767" colspan="5">@x.DokusyaName</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" class="fontSizeMAX767" colspan="5">@x.B</td>
+                                                        <td class="border" colspan="1" rowspan="2">訪</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" class="fontSizeMAX767" colspan="4">@x.Keiyaku</td>
+
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            }
+                            <!--foreathEnd-->
+                        </table>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+    </div>
+    <h6>
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="Bug bi bi-bug" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6H4a3.99 3.99 0 0 1 1.333-2.982A3.983 3.983 0 0 1 8 2c1.025 0 1.959.385 2.666 1.018A3.989 3.989 0 0 1 12 6z" />
+        </svg>
+    </h6>
 </body>
 </html>
 
@@ -145,3 +282,4 @@
     }
 
 *@
+

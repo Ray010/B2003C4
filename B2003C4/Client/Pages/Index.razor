@@ -9,7 +9,9 @@
 *@
 
 
-<html>
+<html @onload="LoginIF">
+
+
 
 <head>
     <meta charset="Shift-JIS" />
@@ -25,8 +27,6 @@
 
 <body>
     <div class=" text-left">
-
-        <p><h3></h3></p>
 
         <button onclick="location.href='/IriTome/MainFragment'" type="button" class="btn-Base btn-Base-01 btn text-dark btn-outline-info">
             <div align="justify">
@@ -46,7 +46,7 @@
 
         <p></p>
 
-        <button onclick="location.href='/Kako/Kako'" type="button" class="btn-menu btn-Base-02 btn text-dark btn-outline-secondary">
+        <button onclick="location.href='/Kako/KakoFragment'" type="button" class="btn-menu btn-Base-02 btn text-dark btn-outline-secondary">
             <div align="left">
                 <h2>
 
@@ -62,19 +62,19 @@
         </button>
         <p></p>
 
-        <button onclick="location.href='/Haitastu/Haitatsu'" type="button" class="btn-menu btn text-dark btn-outline-secondary">
+        <button onclick="location.href='/Haitastu//SelJunroActivity'" type="button" class="btn-menu btn text-dark btn-outline-secondary">
             <h2>配達読者台帳</h2>
         </button>
 
         <p></p>
 
-        <button onclick="location.href='/Kansa/Kansa'" type="button" class="btn-menu btn text-dark btn-outline-secondary">
+        <button onclick="location.href='/Kansa/KansaSearchFragment'" type="button" class="btn-menu btn text-dark btn-outline-secondary">
             <h2>監査</h2>
         </button>
 
         <p></p>
 
-        <button onclick="location.href='/MobileSettings/DataRequest'" type="button" class="btn-menu btn-DateRequest btn text-dark btn-outline-secondary">
+        <button onclick="location.href='/ReceiveDataFragment'" type="button" class="btn-menu btn-DateRequest btn text-dark btn-outline-secondary">
             <div align="left">
                 <h3>
 
@@ -89,7 +89,25 @@
         </button>
 
         <p></p>
+        <h6>@A</h6>
 
     </div>
 </body>
 </html>
+
+@code{
+
+    public string A;
+
+    public async void LoginIF()
+    {
+
+
+        A = "Login";
+
+
+    }
+
+
+
+}

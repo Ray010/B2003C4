@@ -21,22 +21,21 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Build" Version="3.2.1" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.2.1" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
     <PackageReference Include="System.Net.Http.Json" Version="3.2.0" />
+	  
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Pages\DataReceive\" />
-    <Folder Include="Pages\Haitatsu\" />
-    <Folder Include="Pages\Kako\" />
-    <Folder Include="Pages\Kansa\" />
     <Folder Include="Pages\DataReceive\" />
-    <Folder Include="Pages\Haitatsu\" />
-    <Folder Include="Pages\Kako\" />
-    <Folder Include="Pages\Kansa\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\FromBlazorFanc.js" />
+    <None Include="wwwroot\IndexedDB\SystemStatus.js" />
     <None Include="wwwroot\service-worker.js" />
   </ItemGroup>
 
