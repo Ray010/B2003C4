@@ -1,2 +1,3 @@
 #ユーザー固有のフォルダを除外#
 .vs/
+/B2003C4/Server/debug.log

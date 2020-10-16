@@ -2,7 +2,6 @@
 // This is because caching would make development more difficult (changes would not
 // be reflected on the first load after each change).
 
-
 var NAME = "Shinbun-SYSTEM-";
 var VERSION = "0.02";
 
@@ -25,6 +24,8 @@ var fileToCache = [
     //Our additional files
     './manifest.json',
     './service-worker.js',
+    './idb.js',
+    './LocalNewsPaperContext.js',
     './icon-512.png',
     './appsettings.json',
     './appsettings.Development.json',
@@ -113,7 +114,10 @@ var fileToCache = [
     './_framework/_bin/WebAssembly.Bindings.dll',
     './_framework/_bin/WebAssembly.Net.WebSockets.dll',
     //The compiled project .dll's
-    './_framework/_bin/B2003C4.Client.dll'
+    './_framework/_bin/B2003C4.Client.dll',
+    './_framework/_bin/B2003C4.Shared.dll',
+    './_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication/AuthenticationService.js'
+
 ];
 
 
