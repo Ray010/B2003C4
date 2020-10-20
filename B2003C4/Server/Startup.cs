@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
+using B2003C4.Server.Data;
+using Microsoft.Net.Http.Headers;
 
 namespace B2003C4.Server
 {
@@ -24,6 +26,7 @@ namespace B2003C4.Server
         {
 
             services.AddControllersWithViews();
+            services.AddDbContext<NewsPaperContext>();
             services.AddRazorPages();
         }
 

@@ -1,0 +1,54 @@
+﻿@inject LocalNewsPaperContext LocalNewsPaperContext
+
+@if (isSynchronizing)
+{
+    <span>Updating...</span>
+}
+else if (lastSyncFailed)
+{
+    <span>Could not sync.</span>
+    <a class="toolbar-item toolbar-item-end toolbar-item-bg" @onclick="Synchronize">Retry</a>
+}
+else if (lastSyncFailed == false && isSynchronizing == false)
+{
+    <span>Sync done!!!</span>
+}
+else
+{
+    <span>Not Sync.</span>
+    <a class="toolbar-item toolbar-item-end" @onclick="Synchronize">Retry</a>
+}
+
+@code {
+
+    bool isSynchronizing;
+    bool lastSyncFailed;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Synchronize();
+    }
+
+    async Task Synchronize()
+    {
+        isSynchronizing = true;
+        lastSyncFailed = false;
+
+        try
+        {
+            await LocalNewsPaperContext.SynchronizeAsync();
+        }
+        catch (Exception ex)
+        {
+            lastSyncFailed = true;
+            Console.WriteLine(ex);
+        }
+        finally
+        {
+            lastSyncFailed = false;
+            isSynchronizing = false;
+        }
+
+    }
+
+}
