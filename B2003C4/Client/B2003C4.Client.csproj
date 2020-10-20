@@ -12,7 +12,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\service-worker.js" />
+    <TypeScriptCompile Remove="node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\service-worker.js_old" />
+    <Content Remove="wwwroot\SW_Old\service-worker.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +29,10 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="System.Net.Http.Json" Version="3.2.0" />
 	  
   </ItemGroup>
@@ -37,6 +46,7 @@
     <None Include="wwwroot\FromBlazorFanc.js" />
     <None Include="wwwroot\IndexedDB\SystemStatus.js" />
     <None Include="wwwroot\service-worker.js" />
+    <None Include="wwwroot\SW_Old\service-worker.js" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties wwwroot_4manifest_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

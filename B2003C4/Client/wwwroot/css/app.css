@@ -269,3 +269,46 @@ app {
     .Padding-Top {
         padding-top: 0em;
     }
+
+
+
+    /*--Card--------------------------------*/
+
+
+.Card_NameButtonMargin {
+    padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+}
+
+.Card_TableMargin {
+    margin: 1em 1em 1em 1em;
+}
+
+.Card_VerticalFix {
+    vertical-align: top;
+}
+
+.Card_parent {
+    position: relative;
+}
+
+.Card_child {
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+}
+
+.Card_NameButtonMarginChild {
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.Card_table_Fixed {
+    display: table;
+    table-layout: fixed;
+    text-align: center;
+    width: 100%;
+    vertical-align: top;
+}
+
+.Card_TableMargin0 {
+    margin: 0em 0em 0em 0em;
+}

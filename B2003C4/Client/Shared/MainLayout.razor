@@ -1,5 +1,9 @@
 ﻿@inherits LayoutComponentBase
 
+@inject IJSRuntime JSRuntime
+
+
+
 <div class="sidebar fixed-top">
     <NavMenu />
 
@@ -7,11 +11,19 @@
 
 <div class="main Page-Margin">
 
-    
-        <div class="top-row px-4 fixed-top">
-            おかえりなさいませ。
-        </div>
-    
+
+    <div class="top-row px-4 fixed-top">
+        おかえりなさいませ。 
+        
+        @if(true == NetworkState)
+        {
+        <div>サーバーステータス：接続</div>
+        } else
+        {
+        <div>サーバーステータス：未接続</div>
+        }
+    </div>
+
     <div class="content px-4">
         @Body
     </div>

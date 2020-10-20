@@ -1,0 +1,9 @@
+{
+  "name": "myproject",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@popperjs/core": "^2.5.3",
+    "i": "^0.3.6",
+    "workbox-sw": "^5.1.4"
+  }
+}

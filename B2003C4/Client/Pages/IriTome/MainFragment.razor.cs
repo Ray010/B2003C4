@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Components;
 
 namespace B2003C4.Client.Pages.IriTome
 {
@@ -46,6 +47,8 @@ namespace B2003C4.Client.Pages.IriTome
 
         //海老沼書き足しｽﾞｲ₍₍(ง˘ω˘)ว⁾⁾ｽﾞｲ（仮）
 
+        //仮-----------------------------------------------------------
+
         public int IriCount { get; set; }
 
         public int TomeCount { get; set; }
@@ -89,8 +92,18 @@ namespace B2003C4.Client.Pages.IriTome
 
         }
 
+        //-------------------------------------------------------------
+
+        [Inject]
+        protected NavigationManager Navi { get; set; }
 
 
+        public void JumpPage(string URLx)
+        {
+
+            Navi.NavigateTo(URLx);
+
+        }
 
 
 
