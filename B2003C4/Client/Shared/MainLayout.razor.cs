@@ -26,6 +26,10 @@ namespace B2003C4.Client.Shared
 
         }        
 
+
+
+
+
         public class OnlineState
         {
             
