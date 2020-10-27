@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
-namespace B2003C4.Client.Pages.IriTome
+namespace B2003C4.Client.Pages.Common
 {
     public partial class DokusyaActivity
     {

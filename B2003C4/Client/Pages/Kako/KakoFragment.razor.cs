@@ -146,6 +146,16 @@ namespace B2003C4.Client.Pages.Kako
         }
 
 
+        [Inject]
+        protected NavigationManager Navi { get; set; }
+        public void JumpPage(string URLx)
+        {
+
+            Navi.NavigateTo(URLx);
+
+        }
+
+
 
     }
 }

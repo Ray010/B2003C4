@@ -230,6 +230,10 @@ app {
         background: linear-gradient( 45deg, #adffc0 0%, #c9ffd5 100%);
     }
 
+.btn-Base-04 {
+    background: linear-gradient( 45deg, #ffeb3b 0%, #ffeb3b 100%);
+}
+
     /* btn-menu */
     .btn-menu {
         display: inline-block;
@@ -311,4 +315,38 @@ app {
 
 .Card_TableMargin0 {
     margin: 0em 0em 0em 0em;
+}
+.Card_TablePadding0 {
+    padding: 0em 0em 0em 0em;
+}
+
+.Bg_Color {
+    background-color: #ededed;
+}
+
+/*各機用に調整が必要*/
+.Scroll_Height_20 {
+    height: 20vw;
+}
+
+.Scroll_Height_40 {
+    height: 40vw;
+}
+
+@media (max-width: 320px) {
+
+    .Scroll_Height_20 {
+        height: 40vw;
+    }
+
+    .Scroll_Height_40 {
+        height: 90vw;
+    }
+
+    .fontSizeMAX767 {
+        font-size: 0.5rem;
+    }
+
+
+
 }

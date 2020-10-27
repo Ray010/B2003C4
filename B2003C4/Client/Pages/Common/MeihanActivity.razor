@@ -1,7 +1,4 @@
-﻿<!--一部海老沼が仮で作っていますｶﾘｶﾘ　129行-->
-
-@page "/IriTome/DokusyaActivity"
-@using Microsoft.AspNetCore.Components;
+﻿@page "/Common/MeihanActivity"
 
 <!DOCTYPE HTML>
 <html lang="ja">
@@ -96,9 +93,13 @@
             border: 0.1rem solid;
             border-color: #FFFFFF;
         }
-        .R-Border {
+        .R-Border-ColorW {
             border-right: 0.1rem solid;
             border-color: #FFFFFF;
+        }
+        .R-Border-ColorB {
+            border-right: 0.1rem solid;
+            border-color: #dee2e6;
         }
         .B-Border {
             border-bottom: 0.1rem solid;
@@ -119,7 +120,7 @@
         }
 
         .Button_Color {
-            background-color: @ButtonColor;
+            background-color: ;
 
         }
         .button_Fixed{
@@ -197,122 +198,77 @@
                             @foreach (var x in KoumokuList)
                             {
 
-                                <tr><td class="Border_Bottom">@x.Heading</td></tr>
+                                <tr><td class="Border_Bottom border-right">@x.Heading</td></tr>
 
                             }
                         </table>
-
                     </td>
-                        
 
                     <td class="td_padding_Fixed" colspan="9">
                         <table class="Card_VerticalFix" style="width:100%">
-                            @foreach (var x in KoumokuList)
+                            @foreach (var x in MeihanList)
                             {
-                                <tr class="Border_Bottom"><td>@x.Heading</td></tr>
+                                
+                                
+                            <tr class="Border_Bottom">
+                                @if (x.Heading == "")
+                                {
+                                    <td>&nbsp;</td>
+                                }
+                                else
+                                {
+                                    <td>@x.Heading</td>
+                                }
+                            </tr>
+
                             }
                         </table>
                     </td>
-
                 </tr>
             </table>
-
-            <button @onclick="@(s => JumpPage("/IriTome/Meet"))" type="button" class="btn bg-success Card_NameButtonMarginChild Card_fontSizeMAX767 Button_Child">訪</button>
         </div>
 
         <div class="fontSizeMAX767 Text_Color">
             <table class="Card_table_Fixed Border Bg_Sub_Color">
 
                 <tr>
-                    <td colspan="3" class="R-Border">銘版</td>
-                    <td colspan="6" class="R-Border">契約なんとか</td>
-                    <td colspan="5" class="td_padding_Fixed">
-                        <table class="Card_TableMargin0 Card_table_Fixed Bg_Sub_Color">
-                            <tr align="center">
-                                <td colspan="5" class="R-Border">契約者</td>
-                                <td colspan="2" class="R-Border">月数</td>
-                                <td colspan="1">配</td>
-                            </tr>
-
-                            <tr class="T-Border">
-                                <td colspan="8" class="Button_Color">
-                                    <button @onclick="ButtonChange" class="Text_Color Button_Color btn button_Fixed Card_TablePadding0">
-                                        <table class="Card_table_Fixed">
-                                            <tr>
-                                                <td colspan="3" class="R-Border fontSizeMAX767">
-                                                    @Riyu
-
-                                                </td>
-                                                <td colspan="5 " class="fontSizeMAX767">
-                                                    @Keiyaku
-
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </button>
-                                </td>
-                            </tr>
-                        </table>
-
-                    </td>
+                    <td colspan="6" class="R-Border-ColorB">品名</td>
+                    <td colspan="5" class="R-Border-ColorB">日付</td>
+                    <td colspan="3" >数量</td>
                 </tr>
             </table>
 
             @*表示部分*@
-            <div class="Scroll_Control Scroll_Height_40">
+        <div class="Scroll_Control Scroll_Height_40" style="color:#000000;">
 
+            
+        @foreach (var x in HinMeiList)
+        {
 
-                    @foreach (var x in MeihanList)
-                    {
+                <table class="border Button_Block_Fixed fontSizeMAX767 Card_table_Fixed Border_Bottom">
 
-                        <button @onclick="@(s => JumpPage("/IriTome/MeihanActivity"))" class="fontSizeMAX767 btn btn-info Button_Block_Fixed Button_Border_Fixed button_Fixed td_padding_Fixed">
-                            <table class="Card_table_Fixed Border_Bottom">
-                                
-                                <tr>
-                                    <td colspan="3" style="background-color: #ff0000;" >@x.MeihanName</td>
-                                    <td colspan="6" >@x.KeiyakuSt - @x.KeiyakuEd </td>
-                                    <td colspan="5" >
-                                        <table class="Card_TableMargin0 Card_table_Fixed">
-                                            <tr align="center">
-                                                <td colspan="5" >@x.KeiyakusyaName</td>
-                                                <td colspan="2" >@x.Tsukisu</td>
-                                                <td colspan="1">@x.Hey</td>
-                                            </tr>
+                    <tr>
 
-                                            <tr >
-                                                <td colspan="3" >
-                                                    @if(ButtonColor == "#01579B")
-                                                    {
-                                                        @x.Iririyu
-                                                    }
-                                                    else
-                                                    {
-                                                        @x.Tomeriyu
-                                                    }
-                                                </td>
-                                                <td colspan="5">
-                                                    @if (ButtonColor == "#01579B")
-                                                    {
-                                                        @x.Keiyakubi
-                                                    }
-                                                    else
-                                                    {
-                                                        @x.Tomebi
-                                                    }
-                                                </td>
-                                            </tr>
-                                        </table>
+                        @if (x.HinName == "")
+                        {
+                            <td colspan="6" class="R-Border-ColorB">&nbsp;</td>
+                            <td colspan="5" class="R-Border-ColorB">&nbsp;</td>
+                            <td colspan="3">&nbsp;</td>
+                        }
+                        else
+                        {
+                            <td colspan="6" class="R-Border-ColorB">@x.HinName</td>
+                            <td colspan="5" class="R-Border-ColorB">@x.Hiduke</td>
+                            <td colspan="3">@x.Suryou</td>
+                        }
 
-                                    </td>
-                                </tr>
-                            </table>
-                        </button>
-                    }
+                    </tr>
+                </table>
+            
+        }
+            
 
-            </div>
-
-
-
+        </div>
         </div>
     </div>
     <footer>
@@ -325,14 +281,6 @@
 
 
     </footer>
-
-
-    <button @onclick="@(s => GoToGoogleMap("宇都宮市平松本町1103-3"))" class="btn btn-warning button_Cube Text_Color Button_Padding_Fixed">
-        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-map" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98l4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z" />
-        </svg>
-    </button>
-
 </body>
 </html>
 

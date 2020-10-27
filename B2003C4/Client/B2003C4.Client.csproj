@@ -17,6 +17,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\IriTome\DokusyaActivity.razor.cs" />
+    <Compile Remove="Pages\IriTome\MeihanActivity.razor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\IriTome\DokusyaActivity.razor" />
+    <Content Remove="Pages\IriTome\Meet.razor" />
+    <Content Remove="Pages\IriTome\MeihanActivity.razor" />
     <Content Remove="wwwroot\service-worker.js_old" />
     <Content Remove="wwwroot\SW_Old\service-worker.js" />
   </ItemGroup>
