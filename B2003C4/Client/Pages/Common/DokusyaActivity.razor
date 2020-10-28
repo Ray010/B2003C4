@@ -11,8 +11,8 @@
     <meta http-equiv="content-language" content="ja" />
     <meta name="google" content="notranslate" />
 
-    <link rel="stylesheet" href="./css/bootstrap/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/app.css" />
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/app.css" />
 
     <style>
         @* bootstrapのスタイルを上書き *@ @* (ヘッダー下の空白を無くす) *@
@@ -98,7 +98,7 @@
         }
         .R-Border {
             border-right: 0.1rem solid;
-            border-color: #FFFFFF;
+
         }
         .B-Border {
             border-bottom: 0.1rem solid;
@@ -112,6 +112,9 @@
         }
         .ColorB {
             border-bottom-color: #000000;
+        }
+        .R-ColorW {
+            border-right-color: #E0E0E0;
         }
 
         .Bg_Sub_Color {
@@ -169,7 +172,7 @@
         .btn-info:hover {
             color: #000000;
             background-color: #CFD8DC;
-            border-color: ##CFD8DC;
+            border-color: #CFD8DC;
         }
 
         .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active,
@@ -179,6 +182,21 @@
             border-color: #90A4AE;
         }
 
+        .btnW{
+            color:#FFFFFF;
+        }
+
+
+        .Meihan_Color {
+            background-color: #00C853;
+        }
+        .R-Padding{
+            padding-left: 1rem;
+        }
+
+        .fontSizeMAX767_Fixed{
+            font-size: 1rem;
+        }
 
     </style>
 
@@ -189,7 +207,7 @@
     <!--デモ用に海老沼が仮で作りましたｶﾘｶﾘ-->
     <div class="Card_parent">
         <div class="Scroll_Control Scroll_Height_20 fontSizeMAX767 ">
-            <table class="Card_table_Fixed">
+            <table class="Card_table_Fixed  fontSizeMAX767_Fixed">
                 <tr class="Card_VerticalFix">
 
                     <td class="td_padding_Fixed" colspan="4">
@@ -197,7 +215,7 @@
                             @foreach (var x in KoumokuList)
                             {
 
-                                <tr><td class="Border_Bottom">@x.Heading</td></tr>
+                                <tr><td class="Border_Bottom R-Border R-ColorW">@x.Heading</td></tr>
 
                             }
                         </table>
@@ -206,10 +224,10 @@
                         
 
                     <td class="td_padding_Fixed" colspan="9">
-                        <table class="Card_VerticalFix" style="width:100%">
+                        <table class="Card_VerticalFix " style="width: 100% ; text-align:left;">
                             @foreach (var x in KoumokuList)
                             {
-                                <tr class="Border_Bottom"><td>@x.Heading</td></tr>
+                                <tr class="Border_Bottom R-Padding"><td>@x.Heading</td></tr>
                             }
                         </table>
                     </td>
@@ -217,15 +235,15 @@
                 </tr>
             </table>
 
-            <button @onclick="@(s => JumpPage("/IriTome/Meet"))" type="button" class="btn bg-success Card_NameButtonMarginChild Card_fontSizeMAX767 Button_Child">訪</button>
+            <button @onclick="@(s => JumpPage("./Common/Meet"))" type="button" class="btnW btn bg-success Card_NameButtonMarginChild Card_fontSizeMAX767 Button_Child">訪</button>
         </div>
 
         <div class="fontSizeMAX767 Text_Color">
             <table class="Card_table_Fixed Border Bg_Sub_Color">
 
                 <tr>
-                    <td colspan="3" class="R-Border">銘版</td>
-                    <td colspan="6" class="R-Border">契約なんとか</td>
+                    <td colspan="3" class="R-Border ">銘版</td>
+                    <td colspan="6" class="R-Border ">契約期間</td>
                     <td colspan="5" class="td_padding_Fixed">
                         <table class="Card_TableMargin0 Card_table_Fixed Bg_Sub_Color">
                             <tr align="center">
@@ -265,11 +283,11 @@
                     @foreach (var x in MeihanList)
                     {
 
-                        <button @onclick="@(s => JumpPage("/IriTome/MeihanActivity"))" class="fontSizeMAX767 btn btn-info Button_Block_Fixed Button_Border_Fixed button_Fixed td_padding_Fixed">
+                        <button @onclick="@(s => JumpPage("./IriTome/MeihanActivity"))" class="fontSizeMAX767 btn btn-info Button_Block_Fixed Button_Border_Fixed button_Fixed td_padding_Fixed">
                             <table class="Card_table_Fixed Border_Bottom">
                                 
                                 <tr>
-                                    <td colspan="3" style="background-color: #ff0000;" >@x.MeihanName</td>
+                                    <td colspan="3" class="btnW Meihan_Color">@x.MeihanName</td>
                                     <td colspan="6" >@x.KeiyakuSt - @x.KeiyakuEd </td>
                                     <td colspan="5" >
                                         <table class="Card_TableMargin0 Card_table_Fixed">
@@ -315,18 +333,7 @@
 
         </div>
     </div>
-    <footer>
-        <h6>
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="Bug bi bi-bug" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6H4a3.99 3.99 0 0 1 1.333-2.982A3.983 3.983 0 0 1 8 2c1.025 0 1.959.385 2.666 1.018A3.989 3.989 0 0 1 12 6z" />
-            </svg>
-        </h6>
-
-
-
-    </footer>
-
-
+   
     <button @onclick="@(s => GoToGoogleMap("宇都宮市平松本町1103-3"))" class="btn btn-warning button_Cube Text_Color Button_Padding_Fixed">
         <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-map" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98l4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z" />

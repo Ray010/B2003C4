@@ -13,7 +13,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\DataReceive\**" />
+    <Content Remove="Pages\DataReceive\**" />
+    <EmbeddedResource Remove="Pages\DataReceive\**" />
+    <None Remove="Pages\DataReceive\**" />
     <TypeScriptCompile Remove="node_modules\**" />
+    <TypeScriptCompile Remove="Pages\DataReceive\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,11 +51,6 @@
     </PackageReference>
     <PackageReference Include="System.Net.Http.Json" Version="3.2.0" />
 	  
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Pages\DataReceive\" />
-    <Folder Include="Pages\DataReceive\" />
   </ItemGroup>
 
   <ItemGroup>

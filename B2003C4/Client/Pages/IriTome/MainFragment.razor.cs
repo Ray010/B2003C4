@@ -9,10 +9,10 @@ namespace B2003C4.Client.Pages.IriTome
     {
         public Boolean SelectedFlg { get; set; } = false;
         string SelectedValue;
-        string SelectValue 
+        string SelectValue
         { get => SelectedValue; set { SelectedValue = value; } }
 
-        
+
 
         List<Nengetu> NengetuList = new List<Nengetu>() {
                     new Nengetu ("20/10", "2020年10月"),
@@ -38,7 +38,7 @@ namespace B2003C4.Client.Pages.IriTome
         */
         public void OnChangeEventNengetu(string X)
         {
-            SelectedValue =X;
+            SelectedValue = X;
             SelectedFlg = true;
         }
 
@@ -64,14 +64,51 @@ namespace B2003C4.Client.Pages.IriTome
             Kuiki_SelectedFlg = true;
         }
 
-
+        public void OnChangeEventKuikiX(EventArgs e)
+        {
+            Kuiki_SelectedValue = e.ToString();
+            Kuiki_SelectedFlg = true;
+        }
 
 
         //海老沼書き足しｽﾞｲ₍₍(ง˘ω˘)ว⁾⁾ｽﾞｲ（仮）
 
-        //仮-----------------------------------------------------------
 
-        public int IriCount { get; set; }
+
+        public Boolean IriActive { get; set; } = true;
+
+        public Boolean TomeActive { get; set; } = true;
+
+
+        public void IriButtonActive()
+        {
+            if(TomeActive == true )
+            {
+                TomeActive = false;
+            }
+            else
+            {
+                TomeActive = true;
+            }
+        }
+
+        public void TomeButtonActive()
+        {
+            if(IriActive == true )
+            {
+                IriActive = false;
+        }
+            else
+            {
+                IriActive = true;
+            }
+        }
+
+
+
+//仮-----------------------------------------------------------
+
+public int IriCount { get; set; }
 
         public int TomeCount { get; set; }
 

@@ -14,7 +14,7 @@ namespace B2003C4.Client.Pages.Kako
 
         string SelectedValue;
 
-        string Kuiki_SelectedValue;
+        string Kuiki_SelectedValue = "1";
 
         string SelectValue { get => SelectedValue; set { SelectedValue = value; } }
 

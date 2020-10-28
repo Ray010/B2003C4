@@ -13,9 +13,6 @@
     <meta http-equiv="content-language" content="ja" />
     <meta name="google" content="notranslate" />
 
-    <link rel="stylesheet" href="./css/bootstrap/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/app.css" />
-
     <style>
         @* bootstrapのスタイルを上書き *@ @* (ヘッダー下の空白を無くす) *@
         .mb-3 { margin-bottom: 0.5rem; }
@@ -49,105 +46,125 @@
     <table class="Card_table_Fixed Margin_Bottom Bg_Color">
         <tr>
             <td colspan="10">
-                <div class="dropdown">
-                    <button type="button" id="Nengetsu"
-                            class="btn btn-secondary btn-block dropdown-toggle"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false">
-                        @SelectValue
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="Nengetu">
-                        @foreach (var Nengetu in NengetuList)
-                        {
 
-                            <a @onclick="@(s => OnChangeEventNengetu(Nengetu.dispNengetu))" class="dropdown-item form-control" value="@Nengetu.dispNengetu"> @Nengetu.dispNengetu </a>
-                        }
-                    </div>
-                </div>
+
+                <!--未定-->
+                @*
+        <div class="dropdown">
+            <button type="button" id="Nengetsu"
+                    class="btn btn-secondary btn-block dropdown-toggle"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+                @SelectValue
+            </button>
+            <div class="dropdown-menu" aria-labelledby="Nengetu">
+                @foreach (var Nengetu in NengetuList)
+                {
+
+                    <a @onclick="@(s => OnChangeEventNengetu(Nengetu.dispNengetu))" class="dropdown-item form-control" value="@Nengetu.dispNengetu"> @Nengetu.dispNengetu </a>
+                }
+            </div>
+        </div>
+                *@
+
+                <select class="form-control" @onchange="@OnChangeEventNengetuX">
+                    @foreach (var Nengetu in NengetuList)
+                    {
+                        <option value="@Nengetu.dispNengetu"> @Nengetu.dispNengetu </option>
+                    }
+                </select>
+
+
             </td>
 
             <td>&nbsp;</td>
 
             <td colspan="10">
-                <div class="dropdown">
-                    <button type="button" id="Kuiki"
-                            class="btn btn-secondary btn-block dropdown-toggle"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false">
-                        @Kuiki_SelectValue 区
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="Kuiki">
 
+                <!--未定-->
+                @*
+        <div class="dropdown">
+            <button type="button" id="Kuiki"
+                    class="btn btn-secondary btn-block dropdown-toggle"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+                @Kuiki_SelectValue 区
+            </button>
+            <div class="dropdown-menu" aria-labelledby="Kuiki">
 
-                        @foreach (var Kuiki in IriKuiki)
+                @foreach (var Kuiki in IriKuiki)
+                {
+
+                    if (Y == Kuiki.KuikiNo)
+                    {
+
+                    }
+                    else
+                    {
+
+                        <a @onclick="@(s => OnChangeEventKuiki(Kuiki.KuikiNo))" class="dropdown-item form-control" value="@Kuiki.KuikiNo"> @Kuiki.KuikiNo 区 </a>
+                        //Y = Kuiki.KuikiNo;
+
+                    }
+
+                }
+            </div>
+        </div>
+                *@
+                <select class="form-control" @onchange="@OnChangeEventNengetuX">
+                    @foreach (var x in IriKuiki)
+                    {
+                        if (Y == x.KuikiNo)
                         {
 
-
-                            if (Y == Kuiki.KuikiNo)
-                            {
-
-                            }
-                            else
-                            {
-
-                                <a @onclick="@(s => OnChangeEventKuiki(Kuiki.KuikiNo))" class="dropdown-item form-control" value="@Kuiki.KuikiNo"> @Kuiki.KuikiNo 区 </a>
-                                //Y = Kuiki.KuikiNo;
-
-                            }
-
                         }
-                    </div>
-                </div>
+                        else
+                        {
+
+                            <option value="@x.KuikiNo"> @x.KuikiNo 区 </option>
+                            Y = x.KuikiNo;
+                        }
+                    }
+                </select>
             </td>
+            </tr>
+        </table>
 
 
 
 
-        </tr>
-    </table>
 
-
-
-
- 
         <div>
 
             @* 年月リストの表示（セレクトリスト） *@
-    @* @onchange : クラスから処理を呼び出せる *@
-    @* select内で設定したoptionのvalueを引数として持たせることが出来る *@
-
-    <select class="form-control" @onchange="@OnChangeEventNengetuX">
-        @foreach (var Nengetu in NengetuList)
-        {
-            <option value="@Nengetu.dispNengetu"> @Nengetu.dispNengetu </option>
-        }
-    </select>
-
-    <p>@SelectedValue</p>
-
-    @if (SelectedFlg == true)
-    {<p>選択されたの @SelectValue です</p>}
+                @* @onchange : クラスから処理を呼び出せる *@
+                @* select内で設定したoptionのvalueを引数として持たせることが出来る *@
 
 
-    @* 区域リストの表示（セレクトリスト） *@
+                @*
+        <p>@SelectedValue</p>
 
-    @*
+        @if (SelectedFlg == true)
+        {<p>選択されたの @SelectValue です</p>}
+                *@
+
+                @* 区域リストの表示（セレクトリスト） *@
+
+                @*
         <select onchange="OnChangeEventKuiki">
             @foreach (var item in Model.KuikiList)
             {
                 <option value=@item.kuiki>@item.name</option>
             }
         </select>
-    *@
+                *@
 
-    </div>
+                </div>
 
-    -->
-
-    @* 取得した読者のリストを展開 *@
-    @*
+                @* 取得した読者のリストを展開 *@
+                @*
         @foreach (var item in Model.DokusyaList)
         {
             // 区域と順路の切り抜き処理
@@ -191,122 +208,138 @@
                 <span class="Tel">@Html.DisplayFor(modelItem => item.tel)</span>
             </a>
         }
-    *@
+                *@
 
-    <!--デモ用に海老沼が仮で作りましたｶﾘｶﾘ-->
-    <div class="Bg_Color">
-        <table class="Card_table_Fixed Bg_Color">
-            
-                <tr align="center">
-                    <th colspan="10">
-                        <button type="button" class="btn btn-primary btn-block">
-                            <table class="Card_table_Fixed">
-                                <tr>
-                                    <th colspan="2">入</th>
-                                    <th colspan="2">@IriKuiki.Count 件</th>
-                                </tr>
-                            </table>
-                        </button>
-                    </th>
+                <!--デモ用に海老沼が仮で作りましたｶﾘｶﾘ-->
+                <div class="Bg_Color">
+                    <table class="Card_table_Fixed Bg_Color">
 
-                    <th>&nbsp;</th>
+                        <tr align="center">
+                            @if(IriActive == true) 
+                            { 
+                            <th colspan="10">
+                                <button @onclick="IriButtonActive" type="button" class="btn btn-primary btn-block">
+                                    <table class="Card_table_Fixed">
+                                        <tr>
+                                            <th colspan="2">入</th>
+                                            <th colspan="2">@IriKuiki.Count 件</th>
+                                        </tr>
+                                    </table>
+                                </button>
+                            </th>
+                            }
 
-                    <th colspan="10">
-                        <button type="button" class="btn btn-danger btn-block">
-                            <table class="Card_table_Fixed">
-                                <tr>
-                                    <th colspan="2">止</th>
-                                    <th colspan="2">@TomeCount 件</th>
-                                </tr>
-                            </table>
-                        </button>
-                    </th>
-                </tr>
-
-                <tr>
-                    <th class="Card_VerticalFix Card_parent" colspan="10">
-                        <table class="Card_table_Fixed">
-                            <!--foreath-->
-                            @foreach (var x in IriKuiki)
+                            @if (IriActive == true && TomeActive == true )
                             {
 
-                                <tr>
-                                    <td>
-                                        <div class="Card_parent">
-                                            <button @onclick="@(s => JumpPage("/Common/DokusyaActivity"))" type="button" class="btn btn-primary btn-block Card_NameButtonMargin">
-                                                <table class="Card_table_Fixed">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td align="left" class="fontSizeMAX767" colspan="5">@x.DokusyaName &nbsp;</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td align="left" class="fontSizeMAX767" colspan="5">@x.B &nbsp;</td>
-
-                                                        </tr>
-                                                        <tr>
-                                                            <td align="left" class="fontSizeMAX767" colspan="4">@x.Keiyaku &nbsp;</td>
-
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </button>
-                                            <button @onclick="@(s => JumpPage("/Common/Meet"))" type ="button" class="btn bg-secondary Card_NameButtonMarginChild Card_fontSizeMAX767 Card_child">訪</button>
-                                        </div>
-                                    </td>
-                                </tr>
-
+                                <th>&nbsp;</th>
+                            
                             }
-                            <!--foreathEnd-->
-                        </table>
-                    </th>
 
-                    <th colspan="1">&nbsp;</th>
 
-                    <th class="Card_VerticalFix" colspan="10">
-                        <table vertical-align="top">
-                            <!--foreath-->
-                            @foreach (var x in TomeKuiki)
+                            @if (TomeActive == true) {
+                            <th colspan="10">
+                                <button @onclick="TomeButtonActive" type="button" class="btn btn-danger btn-block">
+                                    <table class="Card_table_Fixed">
+                                        <tr>
+                                            <th colspan="2">止</th>
+                                            <th colspan="2">@TomeKuiki.Count 件</th>
+                                        </tr>
+                                    </table>
+                                </button>
+                            </th>
+                            }
+                        </tr>
+
+                        <tr>
+                            @if (IriActive == true)
                             {
-                                <tr>
-                                    <td>
-                                        <button type="button" class="btn btn-danger btn-block Card_NameButtonMargin">
-                                            <table>
-                                                <tbody>
-                                                    <tr>
-                                                        <td align="left" class="fontSizeMAX767" colspan="5">@x.DokusyaName</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="left" class="fontSizeMAX767" colspan="5">@x.B</td>
-                                                        <td class="border" colspan="1" rowspan="2">訪</td>
+                                <th class="Card_VerticalFix Card_parent" colspan="10">
+                                    <table class="Card_table_Fixed">
+                                        <!--foreath-->
+                                        @foreach (var x in IriKuiki)
+                                        {
 
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="left" class="fontSizeMAX767" colspan="4">@x.Keiyaku</td>
+                                            <tr>
+                                                <td>
+                                                    <div class="Card_parent">
+                                                        <button @onclick="@(s => JumpPage("./Common/DokusyaActivity"))" type="button" class="btn btn-primary btn-block Card_NameButtonMargin">
+                                                            <table class="Card_table_Fixed">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td align="left" class="fontSizeMAX767" colspan="5">@x.DokusyaName &nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="left" class="fontSizeMAX767" colspan="5">@x.B &nbsp;</td>
 
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="left" class="fontSizeMAX767" colspan="4">@x.Keiyaku &nbsp;</td>
 
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </button>
-                                    </td>
-                                </tr>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </button>
+                                                        <button @onclick="@(s => JumpPage("./Common/Meet"))" type="button" class="btn btnW btn bg-success Card_NameButtonMarginChild Card_fontSizeMAX767 Card_child">訪</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
 
+                                        }
+                                        <!--foreathEnd-->
+                                    </table>
+                                </th>
                             }
-                            <!--foreathEnd-->
-                        </table>
-                    </th>
-                </tr>
-
-        </table>
 
 
+                            @if (IriActive == true && TomeActive == true)
+                            {
+                                <th colspan="1">&nbsp;</th>
+                            }
 
-    </div>
-    <h6>
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="Bug bi bi-bug" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6H4a3.99 3.99 0 0 1 1.333-2.982A3.983 3.983 0 0 1 8 2c1.025 0 1.959.385 2.666 1.018A3.989 3.989 0 0 1 12 6z" />
-        </svg>
-    </h6>
+                            @if(TomeActive == true)
+                            { 
+                                <th class="Card_VerticalFix Card_parent" colspan="10">
+                                    <table class="Card_table_Fixed">
+                                        <!--foreath-->
+                                        @foreach (var x in TomeKuiki)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <div class="Card_parent">
+                                                        <button type="button" class="btn btn-danger btn-block Card_NameButtonMargin">
+                                                            <table>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td align="left" class="fontSizeMAX767" colspan="5">@x.DokusyaName &nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="left" class="fontSizeMAX767" colspan="5">@x.B &nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="left" class="fontSizeMAX767" colspan="4">@x.Keiyaku &nbsp;</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </button>
+                                                        <button @onclick="@(s => JumpPage("./Common/Meet"))" type="button" class="btn btnW bg-success Card_NameButtonMarginChild Card_fontSizeMAX767 Card_child">訪</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        }
+                                        <!--foreathEnd-->
+                                    </table>
+                                </th>
+                            }
+                            </tr>
+
+                    </table>
+
+
+
+                </div>
+
 </body>
 </html>
 
