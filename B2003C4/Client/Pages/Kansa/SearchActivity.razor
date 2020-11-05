@@ -1,5 +1,305 @@
 ﻿@page "/Kansa/SearchActivity"
+@page "/Kansa/SearchActivity/{DokuCodeParam}/{KuikiParam}"
 
-@code {
+@using Microsoft.AspNetCore.Components;
 
-}
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+    <meta charset="Shift-JIS" />
+    <meta http-equiv="content-language" content="ja" />
+    <meta name="google" content="notranslate" />
+
+    <style>
+        @* bootstrapのスタイルを上書き *@ @* (ヘッダー下の空白を無くす) *@
+        .mb-3 { margin-bottom: 0.5rem; }
+
+        @* _Layoutの背景色等を上書き *@
+        .BackGr {
+            background: #80989b;
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            overflow: hidden;
+
+        }
+
+        .Btn-Color{
+            background-color: #ffffff;
+        }
+
+        .Margin_Bottom{
+            margin-bottom: 2rem;
+        }
+
+
+                .mb-3 { margin-bottom: 0.5rem; }
+
+        @* _Layoutの背景色等を上書き *@
+        .BackGr {
+            background: #80989b;
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            overflow: hidden;
+        }
+        @*
+        table {
+            border: solid;
+
+        }
+        tr {
+            border: solid;
+        }
+        td {
+            border: solid;
+            border-width: 2px;
+
+        }
+        *@
+
+        .td_padding_Fixed{
+            padding: 0%;
+        }
+
+
+
+        .Scroll_Control {
+            width: 100%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+        .Scroll_Control::-webkit-scrollbar {
+            width: 0.3vw;
+            height: 5px;
+
+        }
+            .Scroll_Control::-webkit-scrollbar-thumb {
+            background: linear-gradient(0deg,#43e2c6,#3183d0);
+            border-radius: 3px;
+        }
+            @*
+        .Scroll_Control::-webkit-scrollbar-track {
+            background: rgba(100,100,100,100);
+        }
+                *@
+
+        .Card_child {
+            position: absolute;
+            bottom: 13rem;
+
+        }
+        .Button_Child{
+            position: absolute;
+            top: 0%;
+            right: 0%;
+
+        }
+
+        .px-4{
+            padding-top: 0em 0em 0em 0em;
+        }
+
+        .section {
+            margin-right: calc(50% - 50vw);
+            margin-left: calc(50% - 50vw);
+        }
+        .Border_Bottom {
+            border-bottom: outset;
+            width: 100%
+        }
+        .Border {
+            border: 0.1rem solid;
+            border-color: #FFFFFF;
+        }
+        .R-Border {
+            border-right: 0.1rem solid;
+
+        }
+        .B-Border {
+            border-bottom: 0.1rem solid;
+            border-color: #FFFFFF;
+
+        }
+        .T-Border {
+            border-top: 0.1rem solid;
+            border-color: #FFFFFF;
+
+        }
+        .ColorB {
+            border-bottom-color: #000000;
+        }
+        .R-ColorW {
+            border-right-color: #E0E0E0;
+        }
+
+        .Bg_Sub_Color {
+            background-color: #039BE5;
+        }
+
+        .Button_Color {
+            background-color: #FFFFFF;
+
+        }
+        .button_Fixed{
+            border-radius: 0;
+        }
+        .button_Cube {
+            border-radius: 100%;
+        }
+        .Text_Color{
+            color: #FFFFFF;
+        }
+        .btn:hover{
+            color: #FFFFFF;
+
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 85%
+        }
+        .Button_Padding_Fixed {
+            padding: 1rem;
+            bottom:2%;
+            right:2%;
+            position:fixed;
+        }
+
+        .Button_Border_Fixed{
+            border-bottom-width: 0px;
+        }
+        .Button_Block_Fixed{
+            width: calc(100% + 0.3vw);
+        }
+
+        .Position_Fixed{
+            position : fixed;
+        }
+
+
+        @*Info-Button改造*@
+
+        .btn-info{
+            color: #000000;
+            background-color: #FFFFFF;
+            border-color: #FFFFFF;
+        }
+        .btn-info:hover {
+            color: #000000;
+            background-color: #CFD8DC;
+            border-color: #CFD8DC;
+        }
+
+        .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active,
+        .show > .btn-info.dropdown-toggle {
+            color: #FFFFFF;
+            background-color: #90A4AE;
+            border-color: #90A4AE;
+        }
+
+        .btnW{
+            color:#FFFFFF;
+        }
+
+
+        .Meihan_Color {
+            background-color: #00C853;
+        }
+        .R-Padding{
+            padding-left: 1rem;
+        }
+
+        .fontSizeMAX767_Fixed{
+            font-size: 1rem;
+        }
+        .fontSizeMAX767_Fixed05 {
+            font-size: 0.5rem;
+        }
+        .Card_table_Fixed
+        {
+            text-align:left;
+        }
+
+        .Scroll_Height_40 {
+            height: 100vw;
+        }
+        .card-body{
+            padding:0.25rem;
+        }
+
+        .btn:hover {
+            color: #808080;
+        }
+            
+
+
+
+
+    </style>
+
+
+</head>
+
+<body class="Bg_Color">
+
+    <div class="Scroll_Control Scroll_Height_40 fontSizeMAX767 ">
+        <!--Foretch開始-->
+
+        @foreach (var x in DokusyaList)
+        {
+
+            if ((x.DokusyaCode == DokuCodeParam || "none" == DokuCodeParam) && (x.Kuiki == KuikiParam || "none" == KuikiParam))
+            {
+                Count++;
+
+
+                <button @onclick="@(s => JumpPage("./Common/DokusyaActivity"))" class="Button_Block_Fixed btn td_padding_Fixed">
+                    <div class="card ">
+                        <div class="card-body">
+
+                            <table class="Card_table_Fixed">
+                                <tr class="fontSizeMAX767">
+                                    <td colspan="1">@x.DokusyaStatus</td>
+                                    <td colspan="11">@x.DokusyaName</td>
+                                </tr>
+                                <tr class="fontSizeMAX767_Fixed05">
+                                    <td colspan="3">x.Junro</td>
+                                    <td colspan="9">@x.CityFullName</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </button>
+                
+
+
+            }
+            else
+            {
+                continue;
+            }
+        }
+    </div>
+    
+    <table class="Card_table_Fixed">
+        <tr>
+            @* Index.htmlにて実装予定
+                <td align="left">
+                    <button @onclick="@(s => JumpPage("./Kansa/KansaSearchFragment"))">戻る</button>
+                </td>
+            *@
+            <td align="right">
+                @Count 件
+            </td>
+        </tr>
+    </table>
+
+
+
+</body>
+</html>
+

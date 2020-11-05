@@ -7,7 +7,7 @@ function registSW() {
 
     if ("serviceWorker" in navigator) {
         window.addEventListener("load", function () {
-            navigator.serviceWorker.register("./service-worker.js", { scope: "/" }).then(function (registration) {
+            navigator.serviceWorker.register("./service-worker.js", { scope: "./" }).then(function (registration) {
                 console.log('serviceWorker registration successful with scope: ', registration.scope);
             }, function (err) {
                 console.log('serviceWorker registration failed: ', err);

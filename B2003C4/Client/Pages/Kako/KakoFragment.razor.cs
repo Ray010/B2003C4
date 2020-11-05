@@ -8,19 +8,29 @@ namespace B2003C4.Client.Pages.Kako
 {
     public partial class KakoFragment
     {
+        //年月関連
         public Boolean SelectedFlag { get; set; } = false;
 
+        string SelectedValue; //選択された月
+
+        string SelectValue { get => SelectedValue; set { SelectedValue = value; } } //選択された月（”年”、”月”こみ）
+
+
+        //区域関連
         public Boolean Kuiki_SelectedFlag { get; set; } = false;
 
-        string SelectedValue;
+        string Kuiki_SelectedValue = "1"; //選択された区域（数値のみ）
 
-        string Kuiki_SelectedValue = "1";
+        string Kuiki_SelectValue { get => SelectedValue; set { SelectedValue = value; } } //選択された区域（”区”こみ）
 
-        string SelectValue { get => SelectedValue; set { SelectedValue = value; } }
+        //その他
+        public int Count { get; set; } //検索結果の総数
 
-        string Kuiki_SelectValue { get => SelectedValue; set { SelectedValue = value; } }
 
         string TenpoNo { get; set; } = "0"; //仮
+
+
+        //仮データ
 
         List<Nengetu> NengetuList = new List<Nengetu>() {
                     new Nengetu ("20/10", "2020年10月"),
@@ -70,6 +80,8 @@ namespace B2003C4.Client.Pages.Kako
             new Dokusya("4" , "エビヌマ　ツナキ" , "平松本町２" , "1103-3256" , "つ朝" , "1911-2004"),
             new Dokusya("4" , "エビヌマ　ツナキⅤ" , "平松本町４" , "1103-56" , "" , ""),
         };
+
+
 
 
 
@@ -126,23 +138,37 @@ namespace B2003C4.Client.Pages.Kako
 
             }
 
-
-
         }
 
-
-
-
-        public void OnChangeEventNengetu(ChangeEventArgs e)
+        //検索総数(ページ開始直後)
+        protected override void OnInitialized()
         {
-            SelectedValue = e.Value.ToString();
-            SelectedFlag = true;
+            foreach (var x in DokusyaList)
+            {
+                if (Kuiki_SelectedValue == x.Kuiki)
+                {
+                    Count++;
+                }
+
+            }
+
         }
 
         public void OnChangeEventKuiki(ChangeEventArgs f)
         {
+            Count = 0;
             Kuiki_SelectedValue = f.Value.ToString();
             Kuiki_SelectedFlag = true;
+
+            //検索総数
+            foreach (var x in DokusyaList)
+            {
+                if (Kuiki_SelectedValue == x.Kuiki)
+                {
+                    Count++;
+                }
+            }
+
         }
 
 
@@ -155,7 +181,7 @@ namespace B2003C4.Client.Pages.Kako
 
         }
 
-
+        
 
     }
 }

@@ -32,9 +32,9 @@ var fileToCache = [
     './main.js',
 
     //SiteURLs
-    '/Login', //ログインページ
+    './Login', //ログインページ
 
-    '/ReceiveSettingsFragment', //モバイル設定
+    './ReceiveSettingsFragment', //モバイル設定
 
     './ReceiveDataFragment', //データ受信
 
@@ -42,13 +42,13 @@ var fileToCache = [
     './IriTome/MainFragment', //入止表
 
 
-    '/Kako/KakoFragment', //過去台帳
+    './Kako/KakoFragment', //過去台帳
 
 
-    '/Haitastu//SelJunroActivity', //配達
+    './Haitastu//SelJunroActivity', //配達
 
 
-    '/Kansa/KansaSearchFragment', //監査
+    './Kansa/KansaSearchFragment', //監査
 
 
 

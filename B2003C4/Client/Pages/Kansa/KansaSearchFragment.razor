@@ -2,6 +2,8 @@
 
 @page "/Kansa/KansaSearchFragment"
 @using Microsoft.AspNetCore.Components;
+@using B2003C4.Client.Pages.Kansa;
+
 
 <!DOCTYPE HTML>
 <html lang="ja">
@@ -69,7 +71,7 @@
         }
         .Border_Bottom {
             border-bottom: outset;
-            
+
         }
         .Border {
             border: 0.1rem solid;
@@ -164,8 +166,10 @@
             margin-bottom: 0.25rem;
         }
 
-        .card{
-            display:block;
+        .card {
+            display: block;
+            border-radius: 0;
+            box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.3);
         }
 
         .card_Bottom_Margin{
@@ -179,9 +183,18 @@
         .form-control{
             border: hidden;
             padding: 0rem;
+            height:auto;
         }
         .btn-block{
-            width: 70%;
+            width: 100%;
+        }
+        .Card_Fixed {
+            margin: 0.5rem 0rem 0.5rem 0rem;
+            padding: 0.5rem 0rem 0.5rem 0rem
+        }
+
+        .Margin_R{
+            padding-right:1rem;
         }
 
     </style>
@@ -189,190 +202,324 @@
 </head>
 
 
-<body style="overflow:hidden">
+<body style="overflow:hidden" class="Bg_Color">
     <!--デモ用に海老沼が仮で作りましたｶﾘｶﾘ-->
-
     <!--保留-->
-    <div class="card">
-        <div class="card-body card_Bottom_Margin">
-            <table class="Card_table_Fixed">
-                <tr>
-                    <td><button  @onclick="@(s => JumpPage("./Kansa/SearchActivity"))">検索</button></td>
-                    <td><button>クリア</button></td>
-                </tr>
-            </table>
+    @*
+        <EditForm Model="@formDataModel" OnValidSubmit="@(s => JumpResultPage("./Kansa/SearchActivity"))">
+
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+
+            <ValidationSummary Model="@formDataModel" />
+            <ValidationMessage For="@(() => formDataModel.Name)" />
+            <InputText id="name" @bind-Value="formDataModel.Name" />
+            <ValidationMessage For="@(() => formDataModel.Name)" />
+            <input @bind="inputValue" @bind:event="oninput" />
+            <button type="submit">Submit</button>
+
+            @code{
+                private uint? inputValue = null;
+
+            }
+        </EditForm>
+    *@
+    <form>
+        <div class="card">
+            <div class="card-body card_Bottom_Margin Card_Fixed">
+                <table class="Card_table_Fixed " style="width:50%;">
+                    <tr>
+                        @*<td><button @onclick="@(s => JumpPage("./Kansa/SearchActivity"))" type="submit" class="btn">検索</button></td>*@
+
+                        @*<td><button @onclick="@(s => JumpResultPage("./Kansa/SearchActivity"))" type="button" class="fontSizeMAX767 btn btn-primary btn-block">検索</button></td>*@
+                        <td><button type="submit" class="fontSizeMAX767 btn btn-primary btn-block">検索</button></td>
+                        <td><button @onclick="@Boom" class="fontSizeMAX767 btn btn-primary btn-block" type="reset">クリア</button></td>
+                    </tr>
+                </table>
+            </div>
         </div>
-    </div>
 
-
-    <div class="card fontSizeMAX767" >
-        <div class="card-body card_Bottom_Margin">
-            <table class="Card_table_Fixed">
-                <tr>
-                    <td colspan="2">読者No</td>
-                    <td colspan="10"><input type="text" class="form-control"></td>
-                    <td colspan="1">&nbsp;</td>
-                </tr>
-            </table>
+        <div class="card fontSizeMAX767 Card_Fixed">
+            <div class="card-body card_Bottom_Margin">
+                <table class="Card_table_Fixed">
+                    <tr>
+                        <td colspan="2">読者No</td>
+                        <td colspan="10" class="Border_Bottom">
+                            <input @bind="DokusyaCode" @bind:event="oninput" type="tel" class="form-control" maxlength="6" >
+                        </td>
+                        <td colspan="1">&nbsp;</td>
+                    </tr>
+                </table>
+            </div>
         </div>
-    </div>
 
-    <div class="card fontSizeMAX767">
-        <div class="card-body card_Bottom_Margin">
-            <table class="Card_table_Fixed fontSizeMAX767">
-                <tr>
-                    <td colspan="2">区域</td>
-                    <td colspan="2" class="Border_Bottom"><input type="text" class="form-control"></td>
-                    <td colspan="3">
+        <div class="card fontSizeMAX767 Card_Fixed">
+            <div class="card-body card_Bottom_Margin">
+                <table class="Card_table_Fixed fontSizeMAX767">
+                    <tr>
+                        <td colspan="2">区域</td>
+                        <td colspan="2" class="Border_Bottom"><input @bind="KuikiNo" @bind:event="oninput" type="tel" class="form-control" maxlength="2" ></td>
+                        <td colspan="3">
 
-                        <div class="dropdown" align="center" >
-                            <button type="button" id="Nengetsu"
-                                    class="btn btn-secondary btn-block dropdown-toggle"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false">
-                                @Kuiki_SelectValue
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="Nengetu">
-                                @foreach (var x in KuikiList)
-                                {
-
-                                    <a @onclick="@(s => OnChangeEventKuiki(x.KubunName))" class="dropdown-item form-control" value="@x.KubunName"> @x.KubunName </a>
-                                }
-                            </div>
-                        </div>
-                    </td>
-                    <td colspan="2" class="Border_Bottom"><input type="text" class="form-control"></td>
-                    <td colspan="1" class="Border_Bottom">-</td>
-                    <td colspan="2" class="Border_Bottom"><input type="text" class="form-control"> </td>
-                    <td colspan="1">&nbsp;</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <div class="card fontSizeMAX767">
-        <div class="card-bod card_Bottom_Margin">
-            <table class="Card_table_Fixed">
-                <tr>
-                    <td colspan="2">顧客名</td>
-                    <td colspan="10" class="Border_Bottom"><input type="text" class="form-control"></td>
-                    <td colspan="1">&nbsp;</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <div class="card fontSizeMAX767">
-        <div class="card-body card_Bottom_Margin">
-            <table class="Card_table_Fixed">
-                <tr>
-                    <td colspan="2">電話</td>
-                    <td colspan="10" class="Border_Bottom"><input type="text" class="form-control"></td>
-                    <td colspan="1">&nbsp;</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <div class="card fontSizeMAX767">
-        <div class="card-body card_Bottom_Margin">
-            <table class="Card_table_Fixed">
-                <tr>
-                    <td colspan="2">住所</td>
-                    <td colspan="10" class="Border_Bottom"><input type="text" class="form-control"></td>
-                    <td colspan="1">&nbsp;</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <div class="card fontSizeMAX767">
-        <div class="card-body card_Bottom_Margin">
-            <table class="Card_table_Fixed">
-                <tr>
-                    <td colspan="2">建物名</td>
-                    <td colspan="10" class="Border_Bottom"><input type="text" class="form-control"></td>
-                    <td colspan="1">&nbsp;</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <div class="card fontSizeMAX767">
-        <div class="card-body card_Bottom_Margin">
-            <table class="Card_table_Fixed">
-                <tr>
-                    <td colspan="2">室番</td>
-                    <td colspan="10" class="Border_Bottom"><input type="text" class=" form-control"></td>
-                    <td colspan="1">&nbsp;</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <div class="card fontSizeMAX767">
-        <div class="card-bod card_Bottom_Margin">
-                        <table class="Card_table_Fixed">
-
-                            @while (KubunCount <= KubunList.Count)
-                            {
-                                <tr>
-
-                                    @foreach (var x in KubunList)
+                            <div class="dropdown" align="center">
+                                <button type="button" id="Nengetsu"
+                                        class="btn btn-secondary btn-block dropdown-toggle"
+                                        data-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false">
+                                    @if(KuikiNo != null)
+                                    {
+                                        <span>@KuikiNo 区</span>
+                                    }
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="Nengetu">
+                                    @foreach (var x in KuikiList)
                                     {
 
-                                        if (KubunCount == 0)
-                                        {
-
-                                            <td rowspan="3" colspan="3">区分</td>
-                                            KubunCount++;
-
-                                        }
-
-                                        if (X > 1)
-                                        {
-                                            X--;
-                                            continue;
-                                        }
-
-                                        else if (KubunCount % 5 != 0)
-                                        {
-
-                                            <td colspan="10">
-                                                <input type="checkbox" name="@x.KubunCode" value="@x.KubunCode" />@x.KubunName
-                                            </td>
-                                            KubunCount++;
-
-                                        }
-                                        else if (KubunCount % 5 == 0)
-                                        {
-                                            X = KubunCount;
-                                            KubunCount++;
-                                            break;
-
-                                        }
-
-
-
+                                    <a @onclick="@(s => OnChangeEventKuiki(x.KuikiCode))" class="dropdown-item form-control" value="@x.KuikiName"> @x.KuikiName </a>
                                     }
+                                </div>
+                            </div>
+
+                        </td>
+                        <td colspan="2" class="Border_Bottom"><input @bind="Junro" @bind:event="oninput" maxlength="4" type="tel" class="form-control"></td>
+                        <td colspan="1" class="Border_Bottom">-</td>
+                        <td colspan="2" class="Border_Bottom"><input @bind="Junro_Sub" @bind:event="oninput" maxlength="2" type="tel" class="form-control"> </td>
+                        <td colspan="1">&nbsp;</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="card fontSizeMAX767 Card_Fixed">
+            <div class="card-bod card_Bottom_Margin">
+                <table class="Card_table_Fixed">
+                    <tr>
+                        <td colspan="2">顧客名</td>
+                        <td colspan="10" class="Border_Bottom"><input @bind="DokusyaName" maxlength="137" type="text" class="form-control"></td>
+                        <td colspan="1">&nbsp;</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card fontSizeMAX767 Card_Fixed">
+            <div class="card-body card_Bottom_Margin">
+                <table class="Card_table_Fixed">
+                    <tr>
+                        <td colspan="2">電話</td>
+                        <td colspan="1">(</td>
+                        <td colspan="2"><input input @bind="@PhoneNo" @bind:event="oninput"  type="tel" class="fontSizeMAX767 form-control"/></td>
+                        <td colspan="1">)</td>
+                        <td colspan="6" class="Border_Bottom"><input @bind="@PhoneNo_Sub" @bind:event="oninput"  type="tel" class="fontSizeMAX767 form-control"></td>
+                        <td colspan="1">&nbsp;</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card fontSizeMAX767 Card_Fixed">
+            <div class="card-body card_Bottom_Margin">
+                <table class="Card_table_Fixed">
+                   
+
+                    <tr>
+                        <td colspan="2">住所</td>
+                        <td colspan="11">
+                            <table>
+                                <tr>
+                                    
+                                    <td colspan="2" class="Margin_R ">町名</td>
+                                    <td colspan="2" class="Border_Bottom"><input @bind="CityAddress" type="text" class="form-control"></td>
+                                    <td colspan="4"><button>町名</button></td>
+
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="Margin_R">番地</td>
+                                    <td colspan="2" class="Border_Bottom"><input @bind="CityAddress" type="text" class="form-control"></td>
+                                    <td colspan="1">-</td>
+                                    <td colspan="2" class="Border_Bottom"><input @bind="CityAddress" type="text" class="form-control"></td>
+
                                 </tr>
 
-                            }
-                        </table>
+                            </table>
+                        </td>
+                    </tr>
+                    @*
+                    <tr>
+                        <td colspan="2" rowspan="2">住所</td>
+                        <td colspan="2">町名</td>
+                        <td colspan="2"><input @bind="CityAddress" type="text" class="form-control"></td>
+                        <td colspan="4"><button>町名</button></td>
+                        <td colspan="3">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">番地</td>
+                        <td colspan="2" class="Border_Bottom"><input @bind="CityAddress" type="text" class="form-control"></td>
+                        <td colspan="1">-</td>
+                        <td colspan="2"><input @bind="CityAddress" type="text" class="form-control"></td>
+                        <td colspan="4">&nbsp;</td>
+                    </tr>
+                    *@
 
+                </table>
+            </div>
         </div>
-    </div>
 
-    <footer>
-        <h6>
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="Bug bi bi-bug" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6H4a3.99 3.99 0 0 1 1.333-2.982A3.983 3.983 0 0 1 8 2c1.025 0 1.959.385 2.666 1.018A3.989 3.989 0 0 1 12 6z" />
-            </svg>
-        </h6>
+        <div class="card fontSizeMAX767 Card_Fixed">
+            <div class="card-body card_Bottom_Margin">
+                <table class="Card_table_Fixed">
+                    <tr>
+                        <td colspan="2">建物名</td>
+                        <td colspan="11">
+                            <table>
+                                <tr>
+                                    <td class="Margin_R">ｶﾅ</td>
+                                    <td class="Border_Bottom">
+                                        <input @bind="BuildingName" maxlength="10" type="text" class="form-control">
+                                    </td>
+                                    <td class="Margin_R">名称</td>
+                                    <td class="Border_Bottom"><input @bind="BuildingName" type="text" class="form-control"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card fontSizeMAX767 Card_Fixed">
+            <div class="card-body card_Bottom_Margin">
+                <table class="Card_table_Fixed">
+                    <tr>
+                        <td colspan="2">室番</td>
+                        <td colspan="10" class="Border_Bottom"><input @bind="ShitsuBan" maxlength="5" type="text" class=" form-control"></td>
+                        <td colspan="1">&nbsp;</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card fontSizeMAX767 Card_Fixed">
+            <div class="card-bod card_Bottom_Margin">
+                <table class="Card_table_Fixed">
+
+
+                    @while (true) //KubunList内に存在するボタンを描く
+                    {
+                        <tr>
+                            @foreach (var x in KubunList)
+                            {
+                                if (KubunCount == 0)
+                                {
+
+                                    <td rowspan="3" colspan="3">区分</td>
+                                    KubunCount++;
+
+                                }
+
+                                if (X > 1)
+                                {
+                                    X--;
+                                    continue;
+                                }
+
+                                else if (KubunCount % 5 != 0)
+                                {
+
+                                    <td colspan="10">
+                                        <input @bind="a" type="checkbox" name="@x.KubunCode" value="@x.KubunCode" />@x.KubunName
+                                    </td>
+                                    KubunCount++;
+
+                                }
+                                else if (KubunCount % 5 == 0)
+                                {
+                                    X = KubunCount;
+                                    KubunCount++;
+                                    break;
+
+                                }
+
+                            }
+                        </tr>
+                        if(KubunCount > KubunList.Count)
+                        {
+                            KubunCount = 0;
+                            break;
+                        }
+
+                    }
+                    
+                    
+                    
+
+                    @*
+                        <tr>
+                            <td rowspan="3" colspan="3">区分</td>
+                        </tr>
+
+                        <tr>
+
+                            @foreach (var x in KubunList)
+                            {
+
+                                <td colspan="10">
+                                    <input @onchange="@(s => ButtonX(x.KubunCode))" type="checkbox" name="@x.KubunCode" value="@x.KubunCode" />@x.KubunName
+                                </td>
+                            }
+                        </tr>
+
+        <tr>
 
 
 
-    </footer>
+            <td colspan="10">
+                <input @onchange="@(s => ButtonX("x.KubunName"))" type="checkbox" name="x.KubunCode" value="x.KubunCode" />x.KubunName
+
+            </td>
+
+        </tr>
+
+        @foreach (var x in ListX)
+        {
+            <tr>
+                <td> <input @onchange="@(s => ButtonX(x.X))" type="checkbox" name="@x.X" value="@x.X" /></td>
+            </tr>
+            }
+        }
+                    *@
+                </table>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body card_Bottom_Margin Card_Fixed">
+                <table class="Card_table_Fixed " style="width:50%;">
+                    <tr>
+                        @*<td><button @onclick="@(s => JumpPage("./Kansa/SearchActivity"))" type="submit" class="btn">検索</button></td>*@
+
+                        <td><button @onclick="@(s => JumpResultPage("./Kansa/SearchActivity"))" type="button" class="fontSizeMAX767 btn btn-primary btn-block">検索</button></td>
+                        <td><button @onclick="@Boom" class="fontSizeMAX767 btn btn-primary btn-block" type="reset">クリア</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="fontSizeMAX767 alert alert-warning" role="alert">
+            @MessageForError
+        </div>
+    </form>
+
 </body>
 </html>
+
+@code{
+
+    private FormDataModel formDataModel = new FormDataModel();
+
+
+
+}

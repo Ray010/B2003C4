@@ -3,36 +3,66 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using System.Dynamic;
+using Microsoft.Data.SqlClient.DataClassification;
+
+
 
 namespace B2003C4.Client.Pages.Kansa
 {
+
     public partial class KansaSearchFragment
     {
 
 
+        
+
+        static int x;
+        
 
         //海老沼書き足しｽﾞｲ₍₍(ง˘ω˘)ว⁾⁾ｽﾞｲ（仮）
 
         public int KubunCount { get; set; }
 
         public Boolean Kuiki_SelectFlg { get; set; } = false;
-        string Kuiki_SelectedValue;
-        string Kuiki_SelectValue
+        //string Kuiki_SelectedValue;
+        uint? Kuiki_SelectedValue;
+        uint? Kuiki_SelectValue
         { get => Kuiki_SelectedValue; set { Kuiki_SelectedValue = value; } }
 
 
-        public void OnChangeEventKuiki(string X)
-        {
-            Kuiki_SelectedValue = X;
-            Kuiki_SelectFlg = true;
+        public int KubunButton;
+        public int X;
+        public string y;
 
-        }
 
-        List<Kubun> KuikiList = new List<Kubun>()
+        public uint? DokusyaCode = null;
+        public uint? KuikiNo = null;
+        public uint? Junro;
+        public uint? Junro_Sub;
+        public string DokusyaName;
+        public uint PhoneNo;
+        public uint? PhoneNo_Sub;
+        public string CityAddress;
+        public string BuildingName;
+        public string ShitsuBan;
+
+        public string MessageForError; //エラーメッセ内容
+
+ //ユーザーが入力した値
+
+
+        public string a { get; set; }
+
+
+        List<Kuiki> KuikiList = new List<Kuiki>()
         {
-            new Kubun("",""),
-            new Kubun("1区","1"),
-            new Kubun("2区","2"),
+            new Kuiki("",null),
+            new Kuiki("1区",1),
+            new Kuiki("2区",2),
+            new Kuiki("3区",3),
+            new Kuiki("4区",4),
+            new Kuiki("5区",5),
         };
 
         List<Kubun> KubunList = new List<Kubun>()
@@ -51,8 +81,6 @@ namespace B2003C4.Client.Pages.Kansa
         };
 
 
-
-
         public class Kubun
         {
             public string KubunName { get; set; }
@@ -66,30 +94,87 @@ namespace B2003C4.Client.Pages.Kansa
 
         }
 
-
-        public int KubunButton;
-        public int X;
-
-        protected override async Task OnParametersSetAsync()
+        public class Kuiki
         {
-            KubunButton = KubunList.Count();
+            public string KuikiName { get; set; }
+            public uint? KuikiCode { get; set; }
+
+            public Kuiki(string kuikiName, uint? kuikiCode)
+            {
+                KuikiName = kuikiName;
+                KuikiCode = kuikiCode;
+            }
 
         }
 
 
+        public List<Kubun> Button ;
 
-        public void KubunS()
+
+        /*
+        protected override void OnInitialized()
         {
+            int Count=0;
+
+            for(int y = 1; y == 5; y++)
+            {
+                for(int x = 0; x == 4; x++)
+                    //Range(x*y,KubunList.Count))
+                {
+                    Button[y, x] = KubunList[x];
+                }
+            }
 
         }
+        */
+
+
+
+        public void Boom()
+        {
+            Kuiki_SelectValue = null;
+
+        }
+
+        public void ButtonX(string e)
+        {
+  
+            //.ToString();
+            //ListX.Add();
+
+        }
+        public void OnChangeEventKuiki(uint? X)
+        {
+            Kuiki_SelectedValue = X;
+            Kuiki_SelectFlg = true;
+            KuikiNo = Kuiki_SelectedValue;
+
+        }
+
 
         [Inject]
         protected NavigationManager Navi { get; set; }
-        public void JumpPage(string URLx)
+        public void JumpResultPage(string URLx)
         {
 
-            Navi.NavigateTo(URLx);
+            if (null == DokusyaCode && null == KuikiNo)
+            {
+                MessageForError = "0001：検索条件を１つ以上指定してください";
+            }
+            else { 
 
+
+                if (null == DokusyaCode)
+                {
+                    DokusyaCode = null; 
+                }
+                if(null == KuikiNo)
+                {
+                    KuikiNo = null;
+                }
+
+                Navi.NavigateTo(URLx + "/" + DokusyaCode + "/" + KuikiNo);
+            }
         }
     }
 }

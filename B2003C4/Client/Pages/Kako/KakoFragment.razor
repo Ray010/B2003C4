@@ -68,7 +68,7 @@
         @* select内で設定したoptionのvalueを引数として持たせることが出来る *@
         <table>
             <tr>
-                <th colspan="5">
+                <td colspan="5">
                     <select class="form-control" @onchange="@OnChangeEventKuiki">
 
                         @foreach (var x in TenpoKuiki)
@@ -81,42 +81,44 @@
                             }
                         }
                     </select>
-                </th>
-                <th colspan="5">
+                </td>
+                <td align="right" colspan="5">
 
-                    <select class="form-control" @onchange="@OnChangeEventNengetu">
-                        @foreach (var Nengetu in NengetuList)
-                        {
-                            <option value="@Nengetu.dispNengetu"> @Nengetu.dispNengetu </option>
-                        }
-                    </select>
-
-                </th>
+                    @Count 件
+                    @*
+                        <select class="form-control" @onchange="@OnChangeEventNengetu">
+                            @foreach (var Nengetu in NengetuList)
+                            {
+                                <option value="@Nengetu.dispNengetu"> @Nengetu.dispNengetu </option>
+                            }
+                        </select>
+                    *@
+                </td>
 
             </tr>
             <!--
-    <tr>
-        <p>@SelectedValue</p>
-        <p>@Kuiki_SelectedValue</p>
+            <tr>
+                <p>@SelectedValue</p>
+                <p>@Kuiki_SelectedValue</p>
 
-        @if (SelectedFlag == true)
-        {
-            <p>選択されたの @SelectValue です</p>
-        }
+                @if (SelectedFlag == true)
+                {
+                    <p>選択されたの @SelectValue です</p>
+                }
 
 
-        @* 区域リストの表示（セレクトリスト） *@
+                @* 区域リストの表示（セレクトリスト） *@
 
-        @*
-    <select onchange="OnChangeEventKuiki">
-    @foreach (var item in Model.KuikiList)
-    {
-    <option value=@item.kuiki>@item.name</option>
-    }
-    </select>
-        *@
-    </tr>
-        -->
+                @*
+            <select onchange="OnChangeEventKuiki">
+            @foreach (var item in Model.KuikiList)
+            {
+            <option value=@item.kuiki>@item.name</option>
+            }
+            </select>
+                *@
+            </tr>
+                -->
         </table>
 
         <table class="Card_parent">
@@ -147,7 +149,7 @@
                                 </button>
 
                                 <button @onclick="@(s => JumpPage("./Common/Meet"))" type="button" class="btn btnW btn bg-success Card_NameButtonMarginChild Card_fontSizeMAX767 Card_child">訪</button>
-                            
+
                             </div>
                         </td>
                     </tr>
@@ -158,5 +160,5 @@
 
         </table>
     </div>
-    </body>
+</body>
 </html>
