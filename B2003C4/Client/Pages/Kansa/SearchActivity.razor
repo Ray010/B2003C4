@@ -1,7 +1,8 @@
-﻿@page "/Kansa/SearchActivity"
-@page "/Kansa/SearchActivity/{DokuCodeParam}/{KuikiParam}"
+﻿@page  "/Kansa/SearchActivity"
+@page "/Kansa/SearchActivity/{Param}"
 
 @using Microsoft.AspNetCore.Components;
+@using System.Web;
 
 <!DOCTYPE HTML>
 <html lang="ja">
@@ -234,57 +235,44 @@
         .btn:hover {
             color: #808080;
         }
-            
-
-
-
 
     </style>
-
-
 </head>
 
 <body class="Bg_Color">
 
     <div class="Scroll_Control Scroll_Height_40 fontSizeMAX767 ">
+
+        @*
+        @CheckMasterX
+        @Param
+        @Param.IndexOf("$")
+        @ParamList.IndexOf(new Status(CheckResultParam,""));
+        @formDataModel.PhoneNo_Sub
+        @DokusyaStatusList.IndexOf(DokusyaPalam)
+        *@
         <!--Foretch開始-->
-
-        @foreach (var x in DokusyaList)
+        @foreach (var x in DokusyaSearchEdList)
         {
-
-            if ((x.DokusyaCode == DokuCodeParam || "none" == DokuCodeParam) && (x.Kuiki == KuikiParam || "none" == KuikiParam))
-            {
-                Count++;
-
-
-                <button @onclick="@(s => JumpPage("./Common/DokusyaActivity"))" class="Button_Block_Fixed btn td_padding_Fixed">
-                    <div class="card ">
-                        <div class="card-body">
-
-                            <table class="Card_table_Fixed">
-                                <tr class="fontSizeMAX767">
-                                    <td colspan="1">@x.DokusyaStatus</td>
-                                    <td colspan="11">@x.DokusyaName</td>
-                                </tr>
-                                <tr class="fontSizeMAX767_Fixed05">
-                                    <td colspan="3">x.Junro</td>
-                                    <td colspan="9">@x.CityFullName</td>
-                                </tr>
-                            </table>
-                        </div>
+            <button @onclick="@(s => JumpPage("./Common/DokusyaActivity"))" class="Button_Block_Fixed btn td_padding_Fixed">
+                <div class="card ">
+                    <div class="card-body">
+                        <table class="Card_table_Fixed">
+                            <tr class="fontSizeMAX767">
+                                <td colspan="1">@x.DokusyaStatus</td>
+                                <td colspan="11">@x.DokusyaName</td>
+                            </tr>
+                            <tr class="fontSizeMAX767_Fixed05">
+                                <td colspan="3">x.Junro</td>
+                                <td colspan="9">@x.CityFullName</td>
+                            </tr>
+                        </table>
                     </div>
-                </button>
-                
-
-
-            }
-            else
-            {
-                continue;
-            }
+                </div>
+            </button>
         }
     </div>
-    
+
     <table class="Card_table_Fixed">
         <tr>
             @* Index.htmlにて実装予定
@@ -302,4 +290,9 @@
 
 </body>
 </html>
+
+@code{
+    private FormDataModel formDataModel = new FormDataModel();
+
+}
 

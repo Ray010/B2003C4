@@ -1,0 +1,39 @@
+﻿
+@page "/Kansa/KansaParent"
+
+
+<h3>KansaParent</h3>
+
+@switch (formDataModel.PhaseNo)
+{
+    case 0:
+        goto default;
+
+    case 1:
+        <KansaSearchFragment @bind-Phase1Data="formDataModel" />
+        goto default;
+
+    case 2:
+        <SearchActivity @bind-Phase2Data="formDataModel" />
+        goto default;
+
+    default:
+
+        break;
+
+}
+
+
+@formDataModel.ToString()
+
+@*public EventCallback<string> PageNameChanged { get; set; }で変えた際はyearも変わる*@
+@formDataModel.DokusyaCode
+@formDataModel.PhaseNo
+
+
+@code {
+    private FormDataModel formDataModel = new FormDataModel();
+
+}
+
+

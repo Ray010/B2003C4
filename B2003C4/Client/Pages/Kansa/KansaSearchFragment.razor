@@ -3,6 +3,7 @@
 @page "/Kansa/KansaSearchFragment"
 @using Microsoft.AspNetCore.Components;
 @using B2003C4.Client.Pages.Kansa;
+@using Microsoft.JSInterop;
 
 
 <!DOCTYPE HTML>
@@ -195,6 +196,7 @@
 
         .Margin_R{
             padding-right:1rem;
+            padding-left:0.2rem;
         }
 
     </style>
@@ -233,9 +235,9 @@
                         @*<td><button @onclick="@(s => JumpPage("./Kansa/SearchActivity"))" type="submit" class="btn">検索</button></td>*@
 
                         @*<td><button @onclick="@(s => JumpResultPage("./Kansa/SearchActivity"))" type="button" class="fontSizeMAX767 btn btn-primary btn-block">検索</button></td>*@
-                        <td><button type="submit" class="fontSizeMAX767 btn btn-primary btn-block">検索</button></td>
-                        <td><button @onclick="@Boom" class="fontSizeMAX767 btn btn-primary btn-block" type="reset">クリア</button></td>
-                    </tr>
+                        <td><button @onclick="UpdateModelDataOrPhaseShift" type="button" class="fontSizeMAX767 btn btn-primary btn-block">検索</button></td>
+                        <td><button @onclick="@Clear" class="fontSizeMAX767 btn btn-primary btn-block" type="reset">クリア</button></td>
+                    </tr><!--Clear-->
                 </table>
             </div>
         </div>
@@ -246,7 +248,7 @@
                     <tr>
                         <td colspan="2">読者No</td>
                         <td colspan="10" class="Border_Bottom">
-                            <input @bind="DokusyaCode" @bind:event="oninput" type="tel" class="form-control" maxlength="6" >
+                            <input @bind="Phase1Data.DokusyaCode" @bind:event="oninput" type="tel" class="form-control" maxlength="6">
                         </td>
                         <td colspan="1">&nbsp;</td>
                     </tr>
@@ -259,7 +261,7 @@
                 <table class="Card_table_Fixed fontSizeMAX767">
                     <tr>
                         <td colspan="2">区域</td>
-                        <td colspan="2" class="Border_Bottom"><input @bind="KuikiNo" @bind:event="oninput" type="tel" class="form-control" maxlength="2" ></td>
+                        <td colspan="2" class="Border_Bottom"><input @bind="Phase1Data.KuikiNo" @bind:event="oninput" type="tel" class="form-control" maxlength="2"></td>
                         <td colspan="3">
 
                             <div class="dropdown" align="center">
@@ -268,7 +270,7 @@
                                         data-toggle="dropdown"
                                         aria-haspopup="true"
                                         aria-expanded="false">
-                                    @if(KuikiNo != null)
+                                    @if (KuikiNo != null)
                                     {
                                         <span>@KuikiNo 区</span>
                                     }
@@ -277,27 +279,28 @@
                                     @foreach (var x in KuikiList)
                                     {
 
-                                    <a @onclick="@(s => OnChangeEventKuiki(x.KuikiCode))" class="dropdown-item form-control" value="@x.KuikiName"> @x.KuikiName </a>
+                                        <a @onclick="@(s => OnChangeEventKuiki(x.KuikiCode))" class="dropdown-item form-control" value="@x.KuikiName"> @x.KuikiName </a>
                                     }
                                 </div>
                             </div>
 
                         </td>
-                        <td colspan="2" class="Border_Bottom"><input @bind="Junro" @bind:event="oninput" maxlength="4" type="tel" class="form-control"></td>
+                        <td colspan="2" class="Border_Bottom"><input @bind="Phase1Data.Junro" @bind:event="oninput" maxlength="4" type="tel" class="form-control"></td>
                         <td colspan="1" class="Border_Bottom">-</td>
-                        <td colspan="2" class="Border_Bottom"><input @bind="Junro_Sub" @bind:event="oninput" maxlength="2" type="tel" class="form-control"> </td>
+                        <td colspan="2" class="Border_Bottom"><input @bind="Phase1Data.Junro_Sub" @bind:event="oninput" maxlength="2" type="tel" class="form-control"> </td>
                         <td colspan="1">&nbsp;</td>
                     </tr>
                 </table>
             </div>
         </div>
-        
+
         <div class="card fontSizeMAX767 Card_Fixed">
             <div class="card-bod card_Bottom_Margin">
                 <table class="Card_table_Fixed">
                     <tr>
                         <td colspan="2">顧客名</td>
-                        <td colspan="10" class="Border_Bottom"><input @bind="DokusyaName" maxlength="137" type="text" class="form-control"></td>
+                        <td colspan="2" class="Border_Bottom"><input @bind="Phase1Data.DokusyaKanaName" maxlength="137" type="text" class="form-control">kana</td>
+                        <td colspan="8" class="Border_Bottom"><input @bind="Phase1Data.DokusyaName" maxlength="137" type="text" class="form-control"></td>
                         <td colspan="1">&nbsp;</td>
                     </tr>
                 </table>
@@ -309,11 +312,13 @@
                 <table class="Card_table_Fixed">
                     <tr>
                         <td colspan="2">電話</td>
-                        <td colspan="1">(</td>
-                        <td colspan="2"><input input @bind="@PhoneNo" @bind:event="oninput"  type="tel" class="fontSizeMAX767 form-control"/></td>
-                        <td colspan="1">)</td>
-                        <td colspan="6" class="Border_Bottom"><input @bind="@PhoneNo_Sub" @bind:event="oninput"  type="tel" class="fontSizeMAX767 form-control"></td>
+                        @*カッコつきだと使いにくいので保留
+        <td colspan="1">(</td>
+        <td colspan="2"><input input @bind="@PhoneNo" @bind:event="oninput" type="tel" class="fontSizeMAX767 form-control" /></td>
+        <td colspan="1">)</td>*@
+                        <td colspan="6" class="Border_Bottom"><input @bind="@Phase1Data.PhoneNo_Sub" @bind:event="oninput" maxlength="10" type="tel" class="fontSizeMAX767 form-control"></td>
                         <td colspan="1">&nbsp;</td>
+                        <td>@Phase1Data.PhoneNo_Sub</td>
                     </tr>
                 </table>
             </div>
@@ -322,24 +327,24 @@
         <div class="card fontSizeMAX767 Card_Fixed">
             <div class="card-body card_Bottom_Margin">
                 <table class="Card_table_Fixed">
-                   
+
 
                     <tr>
                         <td colspan="2">住所</td>
                         <td colspan="11">
                             <table>
                                 <tr>
-                                    
+
                                     <td colspan="2" class="Margin_R ">町名</td>
-                                    <td colspan="2" class="Border_Bottom"><input @bind="CityAddress" type="text" class="form-control"></td>
+                                    <td colspan="2" class="Border_Bottom"><input @bind="Phase1Data.CityName" type="text" class="form-control"></td>
                                     <td colspan="4"><button>町名</button></td>
 
                                 </tr>
                                 <tr>
                                     <td colspan="2" class="Margin_R">番地</td>
-                                    <td colspan="2" class="Border_Bottom"><input @bind="CityAddress" type="text" class="form-control"></td>
-                                    <td colspan="1">-</td>
-                                    <td colspan="2" class="Border_Bottom"><input @bind="CityAddress" type="text" class="form-control"></td>
+                                    <td colspan="2" class="Border_Bottom"><input @bind="Phase1Data.CityAddress" type="text" class="form-control"></td>
+                                    <td colspan="1" style="padding:0rem 1rem 0rem 1rem;">-</td>
+                                    <td colspan="2" class="Border_Bottom"><input @bind="Phase1Data.CityAddress" type="text" class="form-control"></td>
 
                                 </tr>
 
@@ -347,20 +352,20 @@
                         </td>
                     </tr>
                     @*
-                    <tr>
-                        <td colspan="2" rowspan="2">住所</td>
-                        <td colspan="2">町名</td>
-                        <td colspan="2"><input @bind="CityAddress" type="text" class="form-control"></td>
-                        <td colspan="4"><button>町名</button></td>
-                        <td colspan="3">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">番地</td>
-                        <td colspan="2" class="Border_Bottom"><input @bind="CityAddress" type="text" class="form-control"></td>
-                        <td colspan="1">-</td>
-                        <td colspan="2"><input @bind="CityAddress" type="text" class="form-control"></td>
-                        <td colspan="4">&nbsp;</td>
-                    </tr>
+                        <tr>
+                            <td colspan="2" rowspan="2">住所</td>
+                            <td colspan="2">町名</td>
+                            <td colspan="2"><input @bind="CityAddress" type="text" class="form-control"></td>
+                            <td colspan="4"><button>町名</button></td>
+                            <td colspan="3">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">番地</td>
+                            <td colspan="2" class="Border_Bottom"><input @bind="CityAddress" type="text" class="form-control"></td>
+                            <td colspan="1">-</td>
+                            <td colspan="2"><input @bind="CityAddress" type="text" class="form-control"></td>
+                            <td colspan="4">&nbsp;</td>
+                        </tr>
                     *@
 
                 </table>
@@ -375,12 +380,15 @@
                         <td colspan="11">
                             <table>
                                 <tr>
+
+                                    @*現在カナ入力で漢字が入力できるため保留*@
                                     <td class="Margin_R">ｶﾅ</td>
                                     <td class="Border_Bottom">
-                                        <input @bind="BuildingName" maxlength="10" type="text" class="form-control">
+                                        <input @bind="@Phase1Data.BuildingKanaName" @bind:event="oninput"  @onchange="(s => ConvertString(Phase1Data.BuildingKanaName))" maxlength="10" type="text" class="form-control">
                                     </td>
                                     <td class="Margin_R">名称</td>
-                                    <td class="Border_Bottom"><input @bind="BuildingName" type="text" class="form-control"></td>
+                                    <td class="Border_Bottom"><input @bind="Phase1Data.BuildingName" type="text" class="form-control"></td>
+                                    
                                 </tr>
                             </table>
                         </td>
@@ -394,7 +402,7 @@
                 <table class="Card_table_Fixed">
                     <tr>
                         <td colspan="2">室番</td>
-                        <td colspan="10" class="Border_Bottom"><input @bind="ShitsuBan" maxlength="5" type="text" class=" form-control"></td>
+                        <td colspan="10" class="Border_Bottom"><input @bind="Phase1Data.ShitsuBan" @bind:event="oninput" maxlength="5" type="tel" class=" form-control"></td>
                         <td colspan="1">&nbsp;</td>
                     </tr>
                 </table>
@@ -406,8 +414,15 @@
                 <table class="Card_table_Fixed">
 
 
+
+
+
+
+
+
                     @while (true) //KubunList内に存在するボタンを描く
                     {
+                        Console.Write("WhileTrue");
                         <tr>
                             @foreach (var x in KubunList)
                             {
@@ -429,7 +444,7 @@
                                 {
 
                                     <td colspan="10">
-                                        <input @bind="a" type="checkbox" name="@x.KubunCode" value="@x.KubunCode" />@x.KubunName
+                                        <input type="checkbox" @onchange="eventArgs => { CheckBoxResulte(x.KubunCode, eventArgs.Value); }" name="@x.KubunCode" value="@x.KubunCode" />@x.KubunName
                                     </td>
                                     KubunCount++;
 
@@ -444,57 +459,56 @@
 
                             }
                         </tr>
-                        if(KubunCount > KubunList.Count)
+                        if (KubunCount > KubunList.Count)
                         {
                             KubunCount = 0;
                             break;
                         }
-
                     }
-                    
-                    
-                    
+
+
+
 
                     @*
+                                        <tr>
+                                            <td rowspan="3" colspan="3">区分</td>
+                                        </tr>
+
+                                        <tr>
+
+                                            @foreach (var x in KubunList)
+                                            {
+
+                                                <td colspan="10">
+                                                    <input @onchange="@(s => ButtonX(x.KubunCode))" type="checkbox" name="@x.KubunCode" value="@x.KubunCode" />@x.KubunName
+                                                </td>
+                                            }
+                                        </tr>
+
                         <tr>
-                            <td rowspan="3" colspan="3">区分</td>
+
+
+
+                            <td colspan="10">
+                                <input @onchange="@(s => ButtonX("x.KubunName"))" type="checkbox" name="x.KubunCode" value="x.KubunCode" />x.KubunName
+
+                            </td>
+
                         </tr>
 
-                        <tr>
-
-                            @foreach (var x in KubunList)
-                            {
-
-                                <td colspan="10">
-                                    <input @onchange="@(s => ButtonX(x.KubunCode))" type="checkbox" name="@x.KubunCode" value="@x.KubunCode" />@x.KubunName
-                                </td>
+                        @foreach (var x in ListX)
+                        {
+                            <tr>
+                                <td> <input @onchange="@(s => ButtonX(x.X))" type="checkbox" name="@x.X" value="@x.X" /></td>
+                            </tr>
                             }
-                        </tr>
-
-        <tr>
-
-
-
-            <td colspan="10">
-                <input @onchange="@(s => ButtonX("x.KubunName"))" type="checkbox" name="x.KubunCode" value="x.KubunCode" />x.KubunName
-
-            </td>
-
-        </tr>
-
-        @foreach (var x in ListX)
-        {
-            <tr>
-                <td> <input @onchange="@(s => ButtonX(x.X))" type="checkbox" name="@x.X" value="@x.X" /></td>
-            </tr>
-            }
-        }
+                        }
                     *@
                 </table>
 
             </div>
         </div>
-
+        @CheckResult
         <div class="card">
             <div class="card-body card_Bottom_Margin Card_Fixed">
                 <table class="Card_table_Fixed " style="width:50%;">
@@ -502,7 +516,7 @@
                         @*<td><button @onclick="@(s => JumpPage("./Kansa/SearchActivity"))" type="submit" class="btn">検索</button></td>*@
 
                         <td><button @onclick="@(s => JumpResultPage("./Kansa/SearchActivity"))" type="button" class="fontSizeMAX767 btn btn-primary btn-block">検索</button></td>
-                        <td><button @onclick="@Boom" class="fontSizeMAX767 btn btn-primary btn-block" type="reset">クリア</button></td>
+                        <td><button @onclick="@Clear" class="fontSizeMAX767 btn btn-primary btn-block" type="reset">クリア</button></td>
                     </tr>
                 </table>
             </div>
@@ -512,14 +526,11 @@
             @MessageForError
         </div>
     </form>
-
 </body>
 </html>
 
 @code{
 
     private FormDataModel formDataModel = new FormDataModel();
-
-
 
 }

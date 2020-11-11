@@ -56,6 +56,7 @@
   <ItemGroup>
     <None Include="wwwroot\FromBlazorFanc.js" />
     <None Include="wwwroot\IndexedDB\SystemStatus.js" />
+    <None Include="wwwroot\JS\KansaSearchFragment.razor.js" />
     <None Include="wwwroot\service-worker.js" />
     <None Include="wwwroot\SW_Old\service-worker.js" />
   </ItemGroup>

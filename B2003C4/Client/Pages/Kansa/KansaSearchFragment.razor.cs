@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using System.Dynamic;
 using Microsoft.Data.SqlClient.DataClassification;
-
-
+using System.Text;
+using Microsoft.JSInterop;
+using System.Security.Cryptography.X509Certificates;
 
 namespace B2003C4.Client.Pages.Kansa
 {
@@ -15,7 +16,43 @@ namespace B2003C4.Client.Pages.Kansa
     {
 
 
+        //精神と時の部屋
+        [Parameter]
+        public FormDataModel Phase1Data { get; set; }
+        [Parameter]
+        public EventCallback<FormDataModel> Phase1DataChanged { get; set; }
         
+
+
+
+        private async Task UpdateModelDataOrPhaseShift()
+        {
+            //nullCheck!!
+            Phase1Data.DokusyaCode = Phase1Data.DokusyaCode ?? 0;
+            Phase1Data.KuikiNo = Phase1Data.KuikiNo ?? 0;
+            Phase1Data.Junro = Phase1Data.Junro ?? 0;
+            Phase1Data.Junro_Sub = Phase1Data.Junro_Sub ?? 0;
+            Phase1Data.DokusyaName = Phase1Data.DokusyaName ?? "none";
+            Phase1Data.DokusyaKanaName = Phase1Data.DokusyaKanaName ?? "none";
+            Phase1Data.PhoneNo = Phase1Data.PhoneNo ?? 0;
+            Phase1Data.PhoneNo_Sub = Phase1Data.PhoneNo_Sub ?? "none";
+            Phase1Data.CityName = Phase1Data.CityName ?? "none";
+            Phase1Data.CityAddress = Phase1Data.CityAddress ?? "none";
+            Phase1Data.BuildingName = Phase1Data.BuildingName ?? "none";
+            Phase1Data.BuildingKanaName = Phase1Data.BuildingKanaName ?? "none";
+            Phase1Data.ShitsuBan = Phase1Data.ShitsuBan ?? 0;
+            Phase1Data.CheckResult = Phase1Data.CheckResult ?? "none";
+            //終わり
+
+            Phase1Data.PhaseNo = 2;
+            await Phase1DataChanged.InvokeAsync(Phase1Data);
+            StateHasChanged();
+
+        }
+
+        //-------------------------------------------------------
+
+        public string strX = "\u24C8 \u2075 \u221E";
 
         static int x;
         
@@ -41,11 +78,14 @@ namespace B2003C4.Client.Pages.Kansa
         public uint? Junro;
         public uint? Junro_Sub;
         public string DokusyaName;
-        public uint PhoneNo;
-        public uint? PhoneNo_Sub;
+        public string DokusyaKanaName;
+        public uint? PhoneNo;
+        public string PhoneNo_Sub;
+        public string CityName;
         public string CityAddress;
-        public string BuildingName;
-        public string ShitsuBan;
+        public string BuildingName; //建物名
+        public string BuildingKanaName; //建物名(カナ)
+        public uint? ShitsuBan;
 
         public string MessageForError; //エラーメッセ内容
 
@@ -103,6 +143,7 @@ namespace B2003C4.Client.Pages.Kansa
             {
                 KuikiName = kuikiName;
                 KuikiCode = kuikiCode;
+
             }
 
         }
@@ -128,12 +169,17 @@ namespace B2003C4.Client.Pages.Kansa
         }
         */
 
+        protected override void OnParametersSet()
+        {
+            Console.WriteLine("OnRef");
+        }
 
 
-        public void Boom()
+
+        public void Clear()
         {
             Kuiki_SelectValue = null;
-
+            CheckResult = null;
         }
 
         public void ButtonX(string e)
@@ -157,24 +203,130 @@ namespace B2003C4.Client.Pages.Kansa
         public void JumpResultPage(string URLx)
         {
 
+            string url = "";
+
             if (null == DokusyaCode && null == KuikiNo)
             {
                 MessageForError = "0001：検索条件を１つ以上指定してください";
             }
-            else { 
+            else {
 
-
+                if (null == CheckResult)
+                {
+                    url += "/CheckResult=" + CheckResult;
+                    CheckResult = "none";
+                }
                 if (null == DokusyaCode)
                 {
-                    DokusyaCode = null; 
+                    url += "/DokuCode=" + DokusyaCode;
+                    DokusyaCode = 0; 
                 }
                 if(null == KuikiNo)
                 {
-                    KuikiNo = null;
+                    url += "/KuikiNo=" + KuikiNo;
+                    KuikiNo = 0;
+                }
+                if(null == Junro)
+                {
+                    url += "/Junro=" + Junro;
+                    Junro = 0;
+                }
+                if(null == Junro_Sub)
+                {
+                    url += "/Junro_Sub=" + Junro_Sub;
+                    Junro_Sub = 0;
+                }
+                if(null == DokusyaName)
+                {
+                    url += "/DokusyaName=" + DokusyaName;
+                    DokusyaName = "none";
+                }
+                if (null == DokusyaKanaName)
+                {
+                    url += "/DokusyaKanaName=" + DokusyaKanaName;
+                    DokusyaKanaName = "none";
+                }
+                //stringの可能性
+                if (null == PhoneNo)
+                {
+                    url += "/PhoneNo=" + PhoneNo;
+                    PhoneNo = 000;
+                }
+                //stringの可能性
+                if(null == PhoneNo_Sub)
+                {
+                    url += "/PhoneNo_Sub=" + PhoneNo_Sub;
+                    PhoneNo_Sub = "none";
+                }
+                if (null == CityName)
+                {
+                    url += "/CityName=" + CityName;
+                    CityName = "none";
                 }
 
-                Navi.NavigateTo(URLx + "/" + DokusyaCode + "/" + KuikiNo);
+                if (null == CityAddress)
+                {
+                    url += "/CityAddress=" + CityAddress;
+                    CityAddress = "none";
+                }
+                if(null == BuildingName)
+                {
+                    url += "/BuildingName=" + BuildingName;
+                    BuildingName = "none";
+                }
+                if(null == BuildingKanaName)
+                {
+                    url += "/BuildingKanaName=" + BuildingKanaName;
+                    BuildingKanaName = "none";
+                }
+                if(null == ShitsuBan)
+                {
+                    url += "/ShitsuBan=" + ShitsuBan;
+                    ShitsuBan = 0;
+                }
+
+                Console.Write(url);
+
+                Navi.NavigateTo(URLx + "/" + CheckResult +"$" + DokusyaCode + "$" + KuikiNo + "$" +  Junro + "$" + Junro_Sub + "$" + DokusyaName + "$" + DokusyaKanaName + "$" + PhoneNo + "$" + PhoneNo_Sub + "$" + CityAddress + "$" + BuildingName + "$" + BuildingKanaName + "$" + ShitsuBan);
+
+                //Navi.NavigateTo(URLx + "/" + DokusyaCode + "/" + KuikiNo);
+
+                //Navi.NavigateTo(URLx + "/" + DokusyaCode + "/" + KuikiNo + "/" + Junro + "/" + Junro_Sub + "/" + DokusyaName + "/" + DokusyaKanaName + "/" + PhoneNo + "/" + PhoneNo_Sub + "/" + CityAddress + "/" + BuildingName + "/" + BuildingKanaName + "/" + ShitsuBan + "/" + CheckResult + "/");
             }
         }
+
+        public string CheckResult { get; set; }
+
+        public void CheckBoxResulte(string Code , object CheckedValue)
+        {
+
+            CheckResult = CheckResult + Code + "or";
+        
+        }
+
+        //JavaScript
+
+        [Inject]
+        private IJSRuntime JSRuntime { get; set; }
+
+        public  string ConvertText;
+
+        public string A;
+        public Boolean B =false;
+
+
+
+
+        public async void ConvertString(string X) 
+        {
+            //ConvertText 
+            ConvertText = await JSRuntime.InvokeAsync<string> ("Convert", X);
+            Console.WriteLine("Return is : " + ConvertText);
+            BuildingKanaName = ConvertText;
+
+            StateHasChanged();
+        }
+
+
     }
 }
