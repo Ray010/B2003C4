@@ -198,6 +198,7 @@
             padding-right:1rem;
             padding-left:0.2rem;
         }
+        
 
     </style>
 
@@ -270,9 +271,9 @@
                                         data-toggle="dropdown"
                                         aria-haspopup="true"
                                         aria-expanded="false">
-                                    @if (KuikiNo != null)
+                                    @if (Phase1Data.KuikiNo != null)
                                     {
-                                        <span>@KuikiNo 区</span>
+                                        <span>@Phase1Data.KuikiNo 区</span>
                                     }
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="Nengetu">
@@ -422,7 +423,7 @@
 
                     @while (true) //KubunList内に存在するボタンを描く
                     {
-                        Console.Write("WhileTrue");
+
                         <tr>
                             @foreach (var x in KubunList)
                             {
@@ -444,7 +445,7 @@
                                 {
 
                                     <td colspan="10">
-                                        <input type="checkbox" @onchange="eventArgs => { CheckBoxResulte(x.KubunCode, eventArgs.Value); }" name="@x.KubunCode" value="@x.KubunCode" />@x.KubunName
+                                        <input type="checkbox" @onchange="eventArgs => { CheckBoxResulte(x.KubunCode); }" name="@x.KubunCode" value="@x.KubunCode"  /> @x.KubunName
                                     </td>
                                     KubunCount++;
 
@@ -526,11 +527,12 @@
             @MessageForError
         </div>
     </form>
+    
 </body>
 </html>
 
 @code{
 
-    private FormDataModel formDataModel = new FormDataModel();
+    private FormSearchDataModel formDataModel = new FormSearchDataModel();
 
 }

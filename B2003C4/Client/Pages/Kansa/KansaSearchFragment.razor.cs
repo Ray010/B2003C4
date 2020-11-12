@@ -15,49 +15,24 @@ namespace B2003C4.Client.Pages.Kansa
     public partial class KansaSearchFragment
     {
 
-
+        //海老沼書き足しｽﾞｲ₍₍(ง˘ω˘)ว⁾⁾ｽﾞｲ（仮
         //精神と時の部屋
         [Parameter]
-        public FormDataModel Phase1Data { get; set; }
+        public FormSearchDataModel Phase1Data { get; set; }
         [Parameter]
-        public EventCallback<FormDataModel> Phase1DataChanged { get; set; }
+        public EventCallback<FormSearchDataModel> Phase1DataChanged { get; set; }
         
-
-
 
         private async Task UpdateModelDataOrPhaseShift()
         {
-            //nullCheck!!
-            Phase1Data.DokusyaCode = Phase1Data.DokusyaCode ?? 0;
-            Phase1Data.KuikiNo = Phase1Data.KuikiNo ?? 0;
-            Phase1Data.Junro = Phase1Data.Junro ?? 0;
-            Phase1Data.Junro_Sub = Phase1Data.Junro_Sub ?? 0;
-            Phase1Data.DokusyaName = Phase1Data.DokusyaName ?? "none";
-            Phase1Data.DokusyaKanaName = Phase1Data.DokusyaKanaName ?? "none";
-            Phase1Data.PhoneNo = Phase1Data.PhoneNo ?? 0;
-            Phase1Data.PhoneNo_Sub = Phase1Data.PhoneNo_Sub ?? "none";
-            Phase1Data.CityName = Phase1Data.CityName ?? "none";
-            Phase1Data.CityAddress = Phase1Data.CityAddress ?? "none";
-            Phase1Data.BuildingName = Phase1Data.BuildingName ?? "none";
-            Phase1Data.BuildingKanaName = Phase1Data.BuildingKanaName ?? "none";
-            Phase1Data.ShitsuBan = Phase1Data.ShitsuBan ?? 0;
-            Phase1Data.CheckResult = Phase1Data.CheckResult ?? "none";
-            //終わり
-
             Phase1Data.PhaseNo = 2;
             await Phase1DataChanged.InvokeAsync(Phase1Data);
             StateHasChanged();
-
         }
 
         //-------------------------------------------------------
 
-        public string strX = "\u24C8 \u2075 \u221E";
-
-        static int x;
-        
-
-        //海老沼書き足しｽﾞｲ₍₍(ง˘ω˘)ว⁾⁾ｽﾞｲ（仮）
+      
 
         public int KubunCount { get; set; }
 
@@ -71,7 +46,6 @@ namespace B2003C4.Client.Pages.Kansa
         public int KubunButton;
         public int X;
         public string y;
-
 
         public uint? DokusyaCode = null;
         public uint? KuikiNo = null;
@@ -89,6 +63,8 @@ namespace B2003C4.Client.Pages.Kansa
 
         public string MessageForError; //エラーメッセ内容
 
+
+        public string Checked = "checked";
  //ユーザーが入力した値
 
 
@@ -143,58 +119,27 @@ namespace B2003C4.Client.Pages.Kansa
             {
                 KuikiName = kuikiName;
                 KuikiCode = kuikiCode;
-
             }
-
         }
-
-
-        public List<Kubun> Button ;
-
-
-        /*
-        protected override void OnInitialized()
-        {
-            int Count=0;
-
-            for(int y = 1; y == 5; y++)
-            {
-                for(int x = 0; x == 4; x++)
-                    //Range(x*y,KubunList.Count))
-                {
-                    Button[y, x] = KubunList[x];
-                }
-            }
-
-        }
-        */
 
         protected override void OnParametersSet()
         {
             Console.WriteLine("OnRef");
         }
 
-
-
         public void Clear()
         {
             Kuiki_SelectValue = null;
             CheckResult = null;
+            Phase1Data = new FormSearchDataModel();
+            Phase1DataChanged.InvokeAsync(Phase1Data);
         }
 
-        public void ButtonX(string e)
-        {
-  
-            //.ToString();
-            //ListX.Add();
-
-        }
         public void OnChangeEventKuiki(uint? X)
         {
             Kuiki_SelectedValue = X;
             Kuiki_SelectFlg = true;
-            KuikiNo = Kuiki_SelectedValue;
-
+            Phase1Data.KuikiNo = Kuiki_SelectedValue;
         }
 
 
@@ -211,11 +156,6 @@ namespace B2003C4.Client.Pages.Kansa
             }
             else {
 
-                if (null == CheckResult)
-                {
-                    url += "/CheckResult=" + CheckResult;
-                    CheckResult = "none";
-                }
                 if (null == DokusyaCode)
                 {
                     url += "/DokuCode=" + DokusyaCode;
@@ -297,11 +237,13 @@ namespace B2003C4.Client.Pages.Kansa
 
         public string CheckResult { get; set; }
 
-        public void CheckBoxResulte(string Code , object CheckedValue)
+        public void CheckBoxResulte(string Code)
         {
-
-            CheckResult = CheckResult + Code + "or";
-        
+            Array.Resize(ref Phase1Data.CheckResult, Phase1Data.CheckResult.Length + 1);
+            Phase1Data.CheckResult[Phase1Data.CheckResult.Length - 1] = Code;
+            Phase1DataChanged.InvokeAsync(Phase1Data);
+            Console.WriteLine(Phase1Data.CheckResult[Phase1Data.CheckResult.Length - 1]);
+            Console.WriteLine(Phase1Data.CheckResult.Length);
         }
 
         //JavaScript

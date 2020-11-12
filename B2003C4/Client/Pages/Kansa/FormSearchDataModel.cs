@@ -3,19 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.Dynamic;
 
 namespace B2003C4.Client.Pages.Kansa
 {
-    public class FormDataModel
+    public class FormSearchDataModel
     {
 
+        //画面制御用
         public uint? PhaseNo { get; set; }=1;
+
+        public string ShiftReason { get; set; }
+        public string Etc { get; set; }
+
 
         [DataType(DataType.PhoneNumber)]
         public string Name { get; set; }
 
         [DataType(DataType.PhoneNumber)]
         public uint? DokuCode { get; set; } = null;
+
+
+        //検索条件格納用
 
         public uint? DokusyaCode = null;
         
@@ -44,7 +53,7 @@ namespace B2003C4.Client.Pages.Kansa
         
         public uint? ShitsuBan;
 
-        public string CheckResult;
+        public string[] CheckResult = new string[0] { };
 
 
     }
