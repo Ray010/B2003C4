@@ -83,10 +83,15 @@ namespace B2003C4.Client.Pages.Kansa
                     {
                         CheckResultNull = true;
                     }
+                    else if (Phase2Data.CheckResult.Length == 0)
+                    {
+                        CheckResultNull = true;
+                    }
                 }
                 catch(ArgumentNullException)
                 {
                     CheckResultNull = true;
+                    Console.WriteLine("Catch: true");
                 }
                 //StartWithのnullチェック終わり
 
