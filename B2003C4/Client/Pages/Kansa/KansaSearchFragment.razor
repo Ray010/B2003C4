@@ -208,7 +208,7 @@
 <body style="overflow:hidden" class="Bg_Color">
     <!--デモ用に海老沼が仮で作りましたｶﾘｶﾘ-->
     <!--保留-->
-
+    @*
     <EditForm Model="@formDataModel" OnValidSubmit="sha">
 
         <DataAnnotationsValidator />
@@ -220,6 +220,7 @@
         <ValidationSummary Model="@formDataModel" />
         <ValidationMessage For="@(() => formDataModel.Name)" />
     </EditForm>
+    *@
     @code{
         public void sha()
         {
@@ -559,7 +560,7 @@
 
 @code{
 
-    private FormSearchDataModel formDataModel = new FormSearchDataModel();
-    
+
+
 
 }

@@ -61,6 +61,7 @@ namespace B2003C4.Client.Pages.Kansa
 
 
         //ダミーデータ
+        /*
         public List<Dokusya> DokusyaList = new List<Dokusya>
         {
             new Dokusya("Gendoku",117,1,0001,00,"加藤　次男","ｶﾄｳ","080-0888-0088","戸部町1","9","","",null,"M"),
@@ -140,7 +141,8 @@ namespace B2003C4.Client.Pages.Kansa
                 CityFullName = cityName + cityAddress;
                 M = m;
             }
-
+        
         }
+        */
     }
 }

@@ -10,11 +10,11 @@
         goto default;
 
     case 1:
-        <KansaSearchFragment @bind-Phase1Data="formDataModel" />
+        <KansaSearchFragment @bind-Phase1Data="formDataModel" @bind-DBSourceData="DBData"/>
         goto default;
 
     case 2:
-        <SearchActivity @bind-Phase2Data="formDataModel" />
+        <SearchActivity @bind-Phase2Data="formDataModel" @bind-DBSourceData="DBData"/>
         goto default;
 
     default:
@@ -31,7 +31,7 @@
 
 @code {
     private FormSearchDataModel formDataModel = new FormSearchDataModel();
-
+    private DummyDataModel DBData = new DummyDataModel();
 }
 
 

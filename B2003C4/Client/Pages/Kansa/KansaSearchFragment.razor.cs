@@ -8,6 +8,7 @@ using Microsoft.Data.SqlClient.DataClassification;
 using System.Text;
 using Microsoft.JSInterop;
 using System.Security.Cryptography.X509Certificates;
+using B2003C4.Client.Data;
 
 namespace B2003C4.Client.Pages.Kansa
 {
@@ -21,6 +22,14 @@ namespace B2003C4.Client.Pages.Kansa
         public FormSearchDataModel Phase1Data { get; set; }
         [Parameter]
         public EventCallback<FormSearchDataModel> Phase1DataChanged { get; set; }
+
+        [Parameter]
+        public DummyDataModel DBSourceData { get; set; }
+
+        [Parameter]
+        public EventCallback<DummyDataModel> DBSourceDataChanged { get; set; }
+
+
 
         private async Task UpdateModelDataOrPhaseShift()
         {
@@ -135,7 +144,7 @@ namespace B2003C4.Client.Pages.Kansa
                 }
             }
 
-            foreach(var CityName in Phase1Data.DokusyaList)
+            foreach(var CityName in DBSourceData.DokusyaList)
             {
                 if(Array.IndexOf(CityList , CityName.CityName) == -1)
                 {
