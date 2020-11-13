@@ -99,14 +99,21 @@
 
     <footer><button id="go-back">戻る</button></footer>
 
-    <!--
-    <script type="text/javascript">
-        document.getElementById('go-back').addEventListener('click', () => {
-            history.back();
-        });
+    
+            <script type="text/javascript">
 
-    </script>
-        -->
+                window.addEventListener("popstate", function (e) {
+
+                    history.pushState(null, null, null);
+                    return;
+
+                });
+
+                document.getElementById('go-back').addEventListener('click', () => {
+                    history.back();
+                });
+            </script>
+        
 </body>
 
 </html>

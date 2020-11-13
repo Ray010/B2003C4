@@ -259,7 +259,6 @@ namespace B2003C4.Client.Pages.Kansa
         {
 
             Navi.NavigateTo(URLx);
-
         }
 
         public async Task PhaseShift(uint ShiftNo , string ShiftReason ,string etc)

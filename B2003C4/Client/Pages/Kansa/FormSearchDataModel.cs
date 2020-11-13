@@ -27,7 +27,8 @@ namespace B2003C4.Client.Pages.Kansa
         //検索条件格納用
 
         public uint? DokusyaCode = null;
-        
+
+        [Range(1, 10, ErrorMessage = "Accommodation invalid (1-100000).")]
         public uint? KuikiNo = null;
         
         public uint? Junro;
@@ -54,6 +55,8 @@ namespace B2003C4.Client.Pages.Kansa
         public uint? ShitsuBan;
 
         public string[] CheckResult = new string[0] { };
+
+        //public List<string> CheckResult = new List<string>();
 
 
     }

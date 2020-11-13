@@ -414,52 +414,48 @@
             <div class="card-bod card_Bottom_Margin">
                 <table class="Card_table_Fixed">
 
-
-
-
-
-
-
-
                     @while (true) //KubunList内に存在するボタンを描く
                     {
 
-                        <tr>
-                            @foreach (var x in KubunList)
+                    <tr>
+                        @foreach (var x in KubunList)
+                        {
+                            if (KubunCount == 0)
                             {
-                                if (KubunCount == 0)
-                                {
-
-                                    <td rowspan="3" colspan="3">区分</td>
-                                    KubunCount++;
-
-                                }
-
-                                if (X > 1)
-                                {
-                                    X--;
-                                    continue;
-                                }
-
-                                else if (KubunCount % 5 != 0)
-                                {
-
-                                    <td colspan="10">
-                                        <input type="checkbox" @onchange="eventArgs => { CheckBoxResulte(x.KubunCode); }" name="@x.KubunCode" value="@x.KubunCode"  /> @x.KubunName
-                                    </td>
-                                    KubunCount++;
-
-                                }
-                                else if (KubunCount % 5 == 0)
-                                {
-                                    X = KubunCount;
-                                    KubunCount++;
-                                    break;
-
-                                }
-
+                                <td rowspan="3" colspan="3">区分</td>
+                                KubunCount++;
                             }
-                        </tr>
+
+                            if (X > 1)
+                            {
+                                X--;
+                                continue;
+                            }
+
+                            else if (KubunCount % 5 != 0)
+                            {
+                                if (x.Active == "checked")
+                                {
+                                    <td colspan="10">
+                                        <input type="checkbox" @onchange="eventArgs => { CheckBoxResulte(x.KubunCode); }" name="@x.KubunCode" value="@x.KubunCode" checked /> @x.KubunName
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td colspan="10">
+                                        <input type="checkbox" @onchange="eventArgs => { CheckBoxResulte(x.KubunCode); }" name="@x.KubunCode" value="@x.KubunCode" /> @x.KubunName
+                                    </td>
+                                }
+                                KubunCount++;
+                            }
+                            else if (KubunCount % 5 == 0)
+                            {
+                                X = KubunCount;
+                                KubunCount++;
+                                break;
+                            }
+                        }
+                    </tr>
                         if (KubunCount > KubunList.Count)
                         {
                             KubunCount = 0;
@@ -516,7 +512,7 @@
                     <tr>
                         @*<td><button @onclick="@(s => JumpPage("./Kansa/SearchActivity"))" type="submit" class="btn">検索</button></td>*@
 
-                        <td><button @onclick="@(s => JumpResultPage("./Kansa/SearchActivity"))" type="button" class="fontSizeMAX767 btn btn-primary btn-block">検索</button></td>
+                        <td><button @onclick="@UpdateModelDataOrPhaseShift" type="button" class="fontSizeMAX767 btn btn-primary btn-block">検索</button></td>
                         <td><button @onclick="@Clear" class="fontSizeMAX767 btn btn-primary btn-block" type="reset">クリア</button></td>
                     </tr>
                 </table>
@@ -524,7 +520,7 @@
         </div>
 
         <div class="fontSizeMAX767 alert alert-warning" role="alert">
-            @MessageForError
+            エラー
         </div>
     </form>
     

@@ -21,7 +21,6 @@ namespace B2003C4.Client.Pages.Kansa
         public FormSearchDataModel Phase1Data { get; set; }
         [Parameter]
         public EventCallback<FormSearchDataModel> Phase1DataChanged { get; set; }
-        
 
         private async Task UpdateModelDataOrPhaseShift()
         {
@@ -29,10 +28,8 @@ namespace B2003C4.Client.Pages.Kansa
             await Phase1DataChanged.InvokeAsync(Phase1Data);
             StateHasChanged();
         }
-
         //-------------------------------------------------------
 
-      
 
         public int KubunCount { get; set; }
 
@@ -42,34 +39,13 @@ namespace B2003C4.Client.Pages.Kansa
         uint? Kuiki_SelectValue
         { get => Kuiki_SelectedValue; set { Kuiki_SelectedValue = value; } }
 
-
         public int KubunButton;
         public int X;
         public string y;
 
-        public uint? DokusyaCode = null;
-        public uint? KuikiNo = null;
-        public uint? Junro;
-        public uint? Junro_Sub;
-        public string DokusyaName;
-        public string DokusyaKanaName;
-        public uint? PhoneNo;
-        public string PhoneNo_Sub;
-        public string CityName;
-        public string CityAddress;
-        public string BuildingName; //建物名
-        public string BuildingKanaName; //建物名(カナ)
-        public uint? ShitsuBan;
-
-        public string MessageForError; //エラーメッセ内容
-
-
         public string Checked = "checked";
+
  //ユーザーが入力した値
-
-
-        public string a { get; set; }
-
 
         List<Kuiki> KuikiList = new List<Kuiki>()
         {
@@ -83,17 +59,17 @@ namespace B2003C4.Client.Pages.Kansa
 
         List<Kubun> KubunList = new List<Kubun>()
         {
-            new Kubun("未読","Midoku"),
-            new Kubun("現読","Gendoku"),
-            new Kubun("予約","Yoyaku"),
-            new Kubun("止め","Tome"),
-            new Kubun("休読","Kyudoku"),
-            new Kubun("保留","Horyu"),
-            new Kubun("発証","Hassyo"),
-            new Kubun("順路","Junro"),
-            new Kubun("不良","Huryo"),
-            new Kubun("空家","Akiya"),
-            new Kubun("他現","Tagen"),
+            new Kubun("未読","Midoku",""),
+            new Kubun("現読","Gendoku",""),
+            new Kubun("予約","Yoyaku",""),
+            new Kubun("止め","Tome",""),
+            new Kubun("休読","Kyudoku",""),
+            new Kubun("保留","Horyu",""),
+            new Kubun("発証","Hassyo",""),
+            new Kubun("順路","Junro",""),
+            new Kubun("不良","Huryo",""),
+            new Kubun("空家","Akiya",""),
+            new Kubun("他現","Tagen",""),
         };
 
 
@@ -102,14 +78,16 @@ namespace B2003C4.Client.Pages.Kansa
             public string KubunName { get; set; }
             public string KubunCode { get; set; }
 
-            public Kubun(string kubunName , string kubunCode)
+            public string Active;
+
+            public Kubun(string kubunName , string kubunCode , string active)
             {
                 KubunName = kubunName;
                 KubunCode = kubunCode;
+                Active = active;
             }
-
         }
-
+        
         public class Kuiki
         {
             public string KuikiName { get; set; }
@@ -122,9 +100,23 @@ namespace B2003C4.Client.Pages.Kansa
             }
         }
 
-        protected override void OnParametersSet()
+        protected override void OnInitialized()
         {
-            Console.WriteLine("OnRef");
+            for(int x = 0; x <= Phase1Data.CheckResult.Length ; x++)
+            {
+                foreach(var y in KubunList)
+                {
+                    try
+                    { 
+                        if(y.KubunCode.Contains(Phase1Data.CheckResult[x]) == true )
+                        {
+                            y.Active = "checked";
+                        }
+                    }
+                    catch(IndexOutOfRangeException)
+                    { }
+                }
+            }
         }
 
         public void Clear()
@@ -142,12 +134,12 @@ namespace B2003C4.Client.Pages.Kansa
             Phase1Data.KuikiNo = Kuiki_SelectedValue;
         }
 
-
+        /*
         [Inject]
         protected NavigationManager Navi { get; set; }
+        
         public void JumpResultPage(string URLx)
         {
-
             string url = "";
 
             if (null == DokusyaCode && null == KuikiNo)
@@ -234,16 +226,25 @@ namespace B2003C4.Client.Pages.Kansa
                 //Navi.NavigateTo(URLx + "/" + DokusyaCode + "/" + KuikiNo + "/" + Junro + "/" + Junro_Sub + "/" + DokusyaName + "/" + DokusyaKanaName + "/" + PhoneNo + "/" + PhoneNo_Sub + "/" + CityAddress + "/" + BuildingName + "/" + BuildingKanaName + "/" + ShitsuBan + "/" + CheckResult + "/");
             }
         }
-
+        */
         public string CheckResult { get; set; }
 
         public void CheckBoxResulte(string Code)
         {
-            Array.Resize(ref Phase1Data.CheckResult, Phase1Data.CheckResult.Length + 1);
-            Phase1Data.CheckResult[Phase1Data.CheckResult.Length - 1] = Code;
-            Phase1DataChanged.InvokeAsync(Phase1Data);
-            Console.WriteLine(Phase1Data.CheckResult[Phase1Data.CheckResult.Length - 1]);
-            Console.WriteLine(Phase1Data.CheckResult.Length);
+
+            if(Array.IndexOf(Phase1Data.CheckResult , Code ) != -1)
+            {
+                Phase1Data.CheckResult[Array.IndexOf(Phase1Data.CheckResult, Code)] = Phase1Data.CheckResult[Phase1Data.CheckResult.Length - 1];
+                Array.Resize(ref Phase1Data.CheckResult, Phase1Data.CheckResult.Length - 1);
+            } 
+            else
+            {
+                Array.Resize(ref Phase1Data.CheckResult, Phase1Data.CheckResult.Length + 1);
+                Phase1Data.CheckResult[Phase1Data.CheckResult.Length - 1] = Code;
+                Phase1DataChanged.InvokeAsync(Phase1Data);
+                Console.WriteLine(Phase1Data.CheckResult[Phase1Data.CheckResult.Length - 1]);
+                Console.WriteLine(Phase1Data.CheckResult.Length);
+            }
         }
 
         //JavaScript
@@ -253,22 +254,14 @@ namespace B2003C4.Client.Pages.Kansa
 
         public  string ConvertText;
 
-        public string A;
-        public Boolean B =false;
-
-
-
-
         public async void ConvertString(string X) 
         {
             //ConvertText 
             ConvertText = await JSRuntime.InvokeAsync<string> ("Convert", X);
             Console.WriteLine("Return is : " + ConvertText);
-            BuildingKanaName = ConvertText;
+            Phase1Data.BuildingKanaName = ConvertText;
 
             StateHasChanged();
         }
-
-
     }
 }
