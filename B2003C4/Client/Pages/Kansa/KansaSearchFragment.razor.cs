@@ -27,6 +27,8 @@ namespace B2003C4.Client.Pages.Kansa
             Phase1Data.PhaseNo = 2;
             await Phase1DataChanged.InvokeAsync(Phase1Data);
             StateHasChanged();
+        
+           
         }
         //-------------------------------------------------------
 
@@ -38,6 +40,16 @@ namespace B2003C4.Client.Pages.Kansa
         uint? Kuiki_SelectedValue;
         uint? Kuiki_SelectValue
         { get => Kuiki_SelectedValue; set { Kuiki_SelectedValue = value; } }
+
+
+
+        public Boolean CityName_SelectFlg { get; set; } = false;
+        //string Kuiki_SelectedValue;
+        string CityName_SelectedValue;
+        string CityName_SelectValue
+        { get => CityName_SelectedValue; set { CityName_SelectedValue = value; } }
+
+
 
         public int KubunButton;
         public int X;
@@ -75,6 +87,8 @@ namespace B2003C4.Client.Pages.Kansa
 
         public class Kubun
         {
+            
+
             public string KubunName { get; set; }
             public string KubunCode { get; set; }
 
@@ -100,6 +114,9 @@ namespace B2003C4.Client.Pages.Kansa
             }
         }
 
+        public string[] CityList = new string[0] { };
+        public int CityCount;
+
         protected override void OnInitialized()
         {
             for(int x = 0; x <= Phase1Data.CheckResult.Length ; x++)
@@ -117,6 +134,17 @@ namespace B2003C4.Client.Pages.Kansa
                     { }
                 }
             }
+
+            foreach(var CityName in Phase1Data.DokusyaList)
+            {
+                if(Array.IndexOf(CityList , CityName.CityName) == -1)
+                {
+                    Array.Resize(ref CityList, CityList.Length + 1);
+                    CityList[CityList.Length - 1] = CityName.CityName;
+                }
+
+            }
+            CityCount = CityList.Count();
         }
 
         public void Clear()
@@ -131,7 +159,14 @@ namespace B2003C4.Client.Pages.Kansa
         {
             Kuiki_SelectedValue = X;
             Kuiki_SelectFlg = true;
-            Phase1Data.KuikiNo = Kuiki_SelectedValue;
+            Phase1Data.S_KuikiNo = Kuiki_SelectedValue;
+        }
+
+        public void OnChangeEventCityName(string X)
+        {
+            CityName_SelectedValue = X;
+            CityName_SelectFlg = true;
+            Phase1Data.S_CityName = CityName_SelectedValue;
         }
 
         /*
@@ -236,6 +271,7 @@ namespace B2003C4.Client.Pages.Kansa
             {
                 Phase1Data.CheckResult[Array.IndexOf(Phase1Data.CheckResult, Code)] = Phase1Data.CheckResult[Phase1Data.CheckResult.Length - 1];
                 Array.Resize(ref Phase1Data.CheckResult, Phase1Data.CheckResult.Length - 1);
+
             } 
             else
             {
@@ -259,7 +295,9 @@ namespace B2003C4.Client.Pages.Kansa
             //ConvertText 
             ConvertText = await JSRuntime.InvokeAsync<string> ("Convert", X);
             Console.WriteLine("Return is : " + ConvertText);
-            Phase1Data.BuildingKanaName = ConvertText;
+            Phase1Data.S_BuildingKanaName = ConvertText;
+
+
 
             StateHasChanged();
         }

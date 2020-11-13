@@ -39,7 +39,7 @@ namespace B2003C4.Client.Pages.Kansa
                 //StartWithのnullチェック
                 try
                 {
-                    DokusyaNameNull = x.DokusyaName.StartsWith(Phase2Data.DokusyaName);
+                    DokusyaNameNull = x.DokusyaName.StartsWith(Phase2Data.S_DokusyaName);
                 }
                 catch(ArgumentNullException)
                 {
@@ -47,7 +47,7 @@ namespace B2003C4.Client.Pages.Kansa
                 }
                 try
                 {
-                    DokusyaKanaNameNull = x.DokusyaKanaName.StartsWith(Phase2Data.DokusyaKanaName);
+                    DokusyaKanaNameNull = x.DokusyaKanaName.StartsWith(Phase2Data.S_DokusyaKanaName);
                 }
                 catch (ArgumentNullException)
                 {
@@ -55,7 +55,7 @@ namespace B2003C4.Client.Pages.Kansa
                 }
                 try
                 {
-                    PhoneNo_SubNull = x.PhoneNo_Sub.StartsWith(Phase2Data.PhoneNo_Sub);
+                    PhoneNo_SubNull = x.PhoneNo_Sub.StartsWith(Phase2Data.S_PhoneNo_Sub);
                 }
                 catch (ArgumentNullException)
                 {
@@ -63,7 +63,7 @@ namespace B2003C4.Client.Pages.Kansa
                 }
                 try
                 {
-                    BuildingNameNull = x.BuildingName.StartsWith(Phase2Data.BuildingName);
+                    BuildingNameNull = x.BuildingName.StartsWith(Phase2Data.S_BuildingName);
                 }
                 catch (ArgumentNullException)
                 {
@@ -71,7 +71,7 @@ namespace B2003C4.Client.Pages.Kansa
                 }
                 try
                 {
-                    BuildingKanaNameNull = x.BuildingKanaName.StartsWith(Phase2Data.BuildingKanaName);
+                    BuildingKanaNameNull = x.BuildingKanaName.StartsWith(Phase2Data.S_BuildingKanaName);
                 }
                 catch (ArgumentNullException)
                 {
@@ -97,15 +97,15 @@ namespace B2003C4.Client.Pages.Kansa
 
 
                 if (
-                (x.DokusyaCode == Phase2Data.DokusyaCode || null == Phase2Data.DokusyaCode) &&
-                (x.Kuiki == Phase2Data.KuikiNo || null == Phase2Data.KuikiNo) &&
-                (x.Junro == Phase2Data.Junro || null == Phase2Data.Junro) &&
-                (x.Junro_Sub == Phase2Data.Junro_Sub || null == Phase2Data.Junro_Sub) &&
+                (x.DokusyaCode == Phase2Data.S_DokusyaCode || null == Phase2Data.S_DokusyaCode) &&
+                (x.Kuiki == Phase2Data.S_KuikiNo || null == Phase2Data.S_KuikiNo) &&
+                (x.Junro == Phase2Data.S_Junro || null == Phase2Data.S_Junro) &&
+                (x.Junro_Sub == Phase2Data.S_Junro_Sub || null == Phase2Data.S_Junro_Sub) &&
                 DokusyaNameNull &&
                 DokusyaKanaNameNull &&
                 PhoneNo_SubNull &&
-                (x.CityName == Phase2Data.CityName || null == Phase2Data.CityName) &&
-                (x.CityAddress == Phase2Data.CityAddress || null == Phase2Data.CityAddress) &&
+                (x.CityName == Phase2Data.S_CityName || null == Phase2Data.S_CityName) &&
+                (x.CityAddress == Phase2Data.S_CityAddress || null == Phase2Data.S_CityAddress) &&
                 BuildingNameNull &&
                 BuildingKanaNameNull &&
                 (x.ShitsuBan == Phase2Data.ShitsuBan || null == Phase2Data.ShitsuBan) &&
