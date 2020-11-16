@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace B2003C4.Client.Data
 {
@@ -26,7 +27,11 @@ namespace B2003C4.Client.Data
         public class Dokusya
         {
             public string DokusyaStatus; //読者の状態（現、休、止　等）
+
+            [StringLength(4, ErrorMessage = "Name is too long.")]
             public uint DokusyaCode; //読者コード
+
+
             public uint Kuiki; //区域
             public uint Junro;
             public uint Junro_Sub;

@@ -209,17 +209,17 @@
     <!--デモ用に海老沼が仮で作りましたｶﾘｶﾘ-->
     <!--保留-->
     @*
-    <EditForm Model="@formDataModel" OnValidSubmit="sha">
+        <EditForm Model="@formDataModel" OnValidSubmit="sha">
 
-        <DataAnnotationsValidator />
-        <ValidationSummary />
+            <DataAnnotationsValidator />
+            <ValidationSummary />
 
-        <InputData @bind-value="@formDataModel.S_DokusyaCode" @bind-value:event="oninput" />
-        <ValidationMessage For="@(() => formDataModel.S_DokusyaCode)" />
+            <InputData @bind-value="@formDataModel.S_DokusyaCode" @bind-value:event="oninput" />
+            <ValidationMessage For="@(() => formDataModel.S_DokusyaCode)" />
 
-        <ValidationSummary Model="@formDataModel" />
-        <ValidationMessage For="@(() => formDataModel.Name)" />
-    </EditForm>
+            <ValidationSummary Model="@formDataModel" />
+            <ValidationMessage For="@(() => formDataModel.Name)" />
+        </EditForm>
     *@
     @code{
         public void sha()
@@ -251,7 +251,7 @@
                         <td colspan="2">読者No</td>
                         <td colspan="10" class="Border_Bottom">
                             <input @bind="Phase1Data.S_DokusyaCode" @bind:event="oninput" type="tel" class="form-control" maxlength="6">
-                            
+
                         </td>
                         <td colspan="1">&nbsp;</td>
                     </tr>
@@ -363,14 +363,6 @@
                                             </div>
                                         </div>
                                     </td>
-
-
-
-
-
-
-
-
                                 </tr>
                                 <tr>
                                     <td colspan="2" class="Margin_R">番地</td>

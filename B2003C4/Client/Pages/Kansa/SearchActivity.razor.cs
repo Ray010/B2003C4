@@ -17,20 +17,35 @@ namespace B2003C4.Client.Pages.Kansa
         public int Count { get; set; }
 
 
-        //精神と時の部屋
+        //Phase1から受け取ったサーチしたいデータ-----------------------------------------------------------
         [Parameter]
         public FormSearchDataModel Phase2Data { get; set; }
 
         [Parameter]
         public EventCallback<FormSearchDataModel> Phase2DataChanged { get; set; }
+        //--------------------------------------------------------------------------------------------------
 
+        //サーチにかけるソースデータ（DB）------------------------------------------------------------------
         [Parameter]
         public DummyDataModel DBSourceData { get; set; }
 
         [Parameter]
         public EventCallback<DummyDataModel> DBSourceDataChanged { get; set; }
+        //--------------------------------------------------------------------------------------------------
 
-        List<DummyDataModel.Dokusya> DokusyaSearchEdList = new List<DummyDataModel.Dokusya> { };
+        //受け渡し用のリザルトデータ------------------------------------------------------------------------
+        [Parameter]
+        public DummyDataModel.Dokusya SearchResultData { get; set; }
+
+        [Parameter]
+        public EventCallback<DummyDataModel> SearchResultDataChanged { get; set; }
+        //--------------------------------------------------------------------------------------------------
+
+        List<DummyDataModel> DokusyaSearchEdList = new List<DummyDataModel.Dokusya> { };
+
+
+
+
 
         protected override Task OnInitializedAsync()
         {
@@ -181,6 +196,13 @@ namespace B2003C4.Client.Pages.Kansa
             Phase2Data.Etc = etc;
             await Phase2DataChanged.InvokeAsync(Phase2Data);
             StateHasChanged();
+        }
+
+
+        public void ValueForModel(DummyDataModel.Dokusya X)
+        {
+
+            X.
         }
 
 

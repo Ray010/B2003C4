@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using B2003C4.Client.Data;
+using B2003C4.Client.Pages.Kansa;
 
 namespace B2003C4.Client.Pages.Common
 {
@@ -10,7 +12,38 @@ namespace B2003C4.Client.Pages.Common
     {
 
         //海老沼書き足しｽﾞｲ₍₍(ง˘ω˘)ว⁾⁾ｽﾞｲ（仮）
-        
+        //バインド受け取り
+        [Parameter]
+        public DummyDataModel CommonPhase1 { get; set; }
+        [Parameter]
+        public EventCallback<DummyDataModel> CommonPhase1Changed { get; set; }
+
+        [Parameter]
+        public DummyDataModel DBSourceData { get; set; }
+
+        [Parameter]
+        public EventCallback<DummyDataModel> DBSourceDataChanged { get; set; }
+
+        /*
+        private async Task UpdateModelDataOrPhaseShift()
+        {
+            CommonPhase1.PhaseNo = 2;
+            await CommonPhase1Changed.InvokeAsync(CommonPhase1);
+            StateHasChanged();
+
+
+        }
+        */
+
+        protected override void OnInitialized()
+        {
+            
+
+
+
+        }
+
+
         public int Count { get; set; }
 
         public string temp;
@@ -34,6 +67,11 @@ namespace B2003C4.Client.Pages.Common
             new Koumoku ("ランク","Lank"),
 
         };
+
+        
+
+
+
 
         List<Dokusya> DokusyaList = new List<Dokusya>()
         {

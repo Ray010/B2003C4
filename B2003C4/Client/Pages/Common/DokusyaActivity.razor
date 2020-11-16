@@ -210,28 +210,11 @@
             <table class="Card_table_Fixed  fontSizeMAX767_Fixed">
                 <tr class="Card_VerticalFix">
 
-                    <td class="td_padding_Fixed" colspan="4">
-                        <table class="Card_VerticalFix" style="width:100%">
-                            @foreach (var x in KoumokuList)
-                            {
-
-                                <tr><td class="Border_Bottom R-Border R-ColorW">@x.Heading</td></tr>
-
-                            }
-                        </table>
-
-                    </td>
-                        
-
-                    <td class="td_padding_Fixed" colspan="9">
-                        <table class="Card_VerticalFix " style="width: 100% ; text-align:left;">
-                            @foreach (var x in KoumokuList)
-                            {
-                                <tr class="Border_Bottom R-Padding"><td>@x.Heading</td></tr>
-                            }
-                        </table>
-                    </td>
-
+                    @foreach (var x in KoumokuList)
+                    {
+                        <td class="td_padding_Fixed Border_Bottom R-Border R-ColorW" colspan="4">@x.Heading</td>
+                        <td class="td_padding_Fixed" colspan="9">@x.Heading</td>            
+                      }
                 </tr>
             </table>
 
@@ -344,5 +327,5 @@
 </html>
 
 @code {
-
+    private DummyDataModel DBData = new DummyDataModel();
 }

@@ -254,7 +254,25 @@
         <!--Foretch開始-->
         @foreach (var x in DokusyaSearchEdList)
         {
+            @*
             <button @onclick="@(s => JumpPage("./Common/DokusyaActivity"))" class="Button_Block_Fixed btn td_padding_Fixed">
+                <div class="card ">
+                    <div class="card-body">
+                        <table class="Card_table_Fixed">
+                            <tr class="fontSizeMAX767">
+                                <td colspan="1">@x.DokusyaStatus</td>
+                                <td colspan="11">@x.DokusyaName</td>
+                            </tr>
+                            <tr class="fontSizeMAX767_Fixed05">
+                                <td colspan="3">x.Junro</td>
+                                <td colspan="9">@x.CityFullName</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </button>
+            *@
+            <button @onclick="@(s => ValueForModel(x))" class="Button_Block_Fixed btn td_padding_Fixed">
                 <div class="card ">
                     <div class="card-body">
                         <table class="Card_table_Fixed">
@@ -285,6 +303,8 @@
             </td>
         </tr>
     </table>
+
+
 
 
 
