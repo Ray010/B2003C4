@@ -90,7 +90,7 @@
         }
         .Border_Bottom {
             border-bottom: outset;
-            width: 100%
+
         }
         .Border {
             border: 0.1rem solid;
@@ -208,15 +208,17 @@
     <div class="Card_parent">
         <div class="Scroll_Control Scroll_Height_20 fontSizeMAX767 ">
             <table class="Card_table_Fixed  fontSizeMAX767_Fixed">
-                <tr class="Card_VerticalFix">
 
-                    @foreach (var x in KoumokuList)
-                    {
-                        <td class="td_padding_Fixed Border_Bottom R-Border R-ColorW" colspan="4">@x.Heading</td>
-                        <td class="td_padding_Fixed" colspan="9">@x.Heading</td>            
-                      }
+
+                @foreach (var x in KoumokuList)
+                {
+                <tr class="Card_VerticalFix">
+                    <td class="td_padding_Fixed Border_Bottom R-Border R-ColorW" colspan="4">@x.Heading</td>
+                    <td class="td_padding_Fixed" colspan="9">@x.Value</td>
                 </tr>
-            </table>
+                        }
+
+                </table>
 
             <button @onclick="@(s => JumpPage("./Common/Meet"))" type="button" class="btnW btn bg-success Card_NameButtonMarginChild Card_fontSizeMAX767 Button_Child">訪</button>
         </div>

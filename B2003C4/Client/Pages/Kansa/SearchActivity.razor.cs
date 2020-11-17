@@ -35,20 +35,21 @@ namespace B2003C4.Client.Pages.Kansa
 
         //受け渡し用のリザルトデータ------------------------------------------------------------------------
         [Parameter]
-        public DummyDataModel.Dokusya SearchResultData { get; set; }
+        public FormSearchDataModel SearchResultData { get; set; }
 
         [Parameter]
-        public EventCallback<DummyDataModel> SearchResultDataChanged { get; set; }
+        public EventCallback<FormSearchDataModel> SearchResultDataChanged { get; set; }
         //--------------------------------------------------------------------------------------------------
 
-        List<DummyDataModel> DokusyaSearchEdList = new List<DummyDataModel.Dokusya> { };
+        List<DummyDataModel.Dokusya> DokusyaSearchEdList = new List<DummyDataModel.Dokusya> { };
 
-
+        
 
 
 
         protected override Task OnInitializedAsync()
         {
+
             foreach (var x in DBSourceData.DokusyaList)
             {
                 Boolean DokusyaNameNull = false;
@@ -199,10 +200,30 @@ namespace B2003C4.Client.Pages.Kansa
         }
 
 
-        public void ValueForModel(DummyDataModel.Dokusya X)
+        public async Task ValueForModel(DummyDataModel.Dokusya X)
         {
+            Console.WriteLine( X.DokusyaCode);
+            Console.WriteLine(X.DokusyaName);
+            Console.WriteLine(X.BuildingKanaName);
 
-            X.
+
+            //---------------------------------------------
+            
+
+
+
+
+            SearchResultData.S_DokusyaCode = X.DokusyaCode;
+            SearchResultData.S_DokusyaName = X.DokusyaName;
+            SearchResultData.S_BuildingName = X.BuildingName;
+            SearchResultData.S_CityName = X.CityName;
+            SearchResultData.S_CityAddress = X.CityAddress;
+            SearchResultData.S_PhoneNo_Sub = X.PhoneNo_Sub;
+            SearchResultData.S_KuikiNo = X.Kuiki;
+
+            await SearchResultDataChanged.InvokeAsync(SearchResultData);
+            await PhaseShift(3,"","");
+
         }
 
 

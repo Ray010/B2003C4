@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using B2003C4.Client.Data;
 using B2003C4.Client.Pages.Kansa;
+using System.Text;
 
 namespace B2003C4.Client.Pages.Common
 {
@@ -14,9 +15,9 @@ namespace B2003C4.Client.Pages.Common
         //海老沼書き足しｽﾞｲ₍₍(ง˘ω˘)ว⁾⁾ｽﾞｲ（仮）
         //バインド受け取り
         [Parameter]
-        public DummyDataModel CommonPhase1 { get; set; }
+        public FormSearchDataModel CommonPhase1 { get; set; }
         [Parameter]
-        public EventCallback<DummyDataModel> CommonPhase1Changed { get; set; }
+        public EventCallback<FormSearchDataModel> CommonPhase1Changed { get; set; }
 
         [Parameter]
         public DummyDataModel DBSourceData { get; set; }
@@ -37,12 +38,19 @@ namespace B2003C4.Client.Pages.Common
 
         protected override void OnInitialized()
         {
-            
-
-
-
-        }
-
+            Console.WriteLine(CommonPhase1.S_DokusyaName);
+            Console.WriteLine(CommonPhase1.S_DokusyaCode);
+            KoumokuList[0].Value = CommonPhase1.S_DokusyaCode.ToString();
+            KoumokuList[1].Value = CommonPhase1.S_DokusyaName;
+            KoumokuList[2].Value = CommonPhase1.S_BuildingName;
+            KoumokuList[3].Value = CommonPhase1.S_CityName+ " " + CommonPhase1.S_CityAddress;
+            KoumokuList[4].Value = CommonPhase1.S_PhoneNo_Sub;
+            KoumokuList[5].Value = " " ; //CommonPhase1.S_MiseBikou;
+            KoumokuList[6].Value = " "; // CommonPhase1.S_Junro_Bikou;
+            KoumokuList[7].Value = " "; //CommonPhase1.S_MoneyRemarks;
+            KoumokuList[8].Value = " "; //CommonPhase1.S_Class;
+            KoumokuList[9].Value = " "; //CommonPhase1.S_Lank;
+        } 
 
         public int Count { get; set; }
 
@@ -55,23 +63,18 @@ namespace B2003C4.Client.Pages.Common
 
         List <Koumoku> KoumokuList = new List<Koumoku>()
         {
-            new Koumoku ("読者番号","DokusyaNo"),
-            new Koumoku ("読者名","DokusyaName"),
-            new Koumoku ("建物名","BuildingName"),
-            new Koumoku ("町名","CityFullName"),
-            new Koumoku ("電話番号","PhoneNo"),
-            new Koumoku ("店備考","TenpoRemarks"),
-            new Koumoku ("順路備考","JunroRemarks"),
-            new Koumoku ("集金メモ","MoneyRemarks"),
-            new Koumoku ("分類","Class"),
-            new Koumoku ("ランク","Lank"),
+            new Koumoku ("読者番号","DokusyaNo",""),
+            new Koumoku ("読者名","DokusyaName",""),
+            new Koumoku ("建物名","BuildingName",""),
+            new Koumoku ("町名","CityFullName",""),
+            new Koumoku ("電話番号","PhoneNo",""),
+            new Koumoku ("店備考","TenpoRemarks",""),
+            new Koumoku ("順路備考","JunroRemarks",""),
+            new Koumoku ("集金メモ","MoneyRemarks",""),
+            new Koumoku ("分類","Class",""),
+            new Koumoku ("ランク","Lank",""),
 
         };
-
-        
-
-
-
 
         List<Dokusya> DokusyaList = new List<Dokusya>()
         {
@@ -94,7 +97,7 @@ namespace B2003C4.Client.Pages.Common
             new Meihan("114514","朝","19/19","20/11","海老沼団","11","","先起こし","19/11/19","契約","25/12"),
         };
 
-
+        
         public class Dokusya //読者情報格納用（仮）
         {
             public string DokusyaNo; //読者番号
@@ -124,13 +127,16 @@ namespace B2003C4.Client.Pages.Common
 
             public string HeadingCode;
 
+            public string Value;
 
-            public Koumoku(string heading , string headingCode)
+            public Koumoku(string heading , string headingCode , string value)
             {
                 Heading = heading;
 
                 HeadingCode = headingCode;
 
+                Value = value;
+                
             }
 
         }
@@ -175,11 +181,13 @@ namespace B2003C4.Client.Pages.Common
         {
 
             Navi.NavigateTo(URLx);
-
+        
         }
 
         public void ButtonChange()
         {
+            
+
 
             if(ButtonColor == "#01579B")
             {
@@ -201,7 +209,8 @@ namespace B2003C4.Client.Pages.Common
 
         public void GoToGoogleMap(string address)
         {
-            Navi.NavigateTo("https://www.google.com/maps/search/?api=1&query=" + address);
+            //Navi.NavigateTo("https://www.google.com/maps/search/?api=1&query=" + address);
+            Console.WriteLine(typeof(FormSearchDataModel).Name);
         }
 
 
