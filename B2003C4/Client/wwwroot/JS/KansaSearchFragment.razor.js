@@ -1,4 +1,6 @@
-﻿function Convert(text) {
+﻿
+//文字変換----------------------------------------------------------------------------
+function Convert(text) {
 
     OldText = text;
     console.log(OldText);
@@ -73,4 +75,54 @@
 
     return NewText;
 
+}
+//------------------------------------------------------------------------------------
+
+
+var CurrentURL;
+//ブラウザバック制御------------------------------------------------------------------
+
+function IfURL(CurrentUrl , phaseNo) {
+    CurrentURL = CurrentUrl;
+    if (BackButton == true) {
+
+        return PhaseNo;
+    } else {
+        return phaseNo;
+    }
+    ;
+
+}
+
+var PhaseNo;
+function PhaseNo(Phaseno) {
+    PhaseNo = Phaseno;
+}
+
+var BackButton;
+
+
+history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
+window.addEventListener('popstate',function (e) {
+
+
+    alert('ブラウザバックを検知しました。');
+    //DotNet.invokeMethod('B2003C4', 'ReturnShift');
+
+    /*
+    if (CurrentURL == "Kansa/KansaParent") {
+        BackButton = true;
+        PhaseNo--;
+    }
+
+    history.pushState(null, null, /Kansa/KansaParent);
+    return;
+    */
+});
+function CallFuncBlazor() {
+    DotNet.invokeMethod('Kansa', 'JSFunc')
+}
+window.WriteCSharpMessageToConsole = (dotnetHelper) => {
+    dotnetHelper.invokeMethodAsync('GetHelloMessage')
+        .then(message => console.log(message));
 }

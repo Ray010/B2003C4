@@ -10,6 +10,7 @@ using Microsoft.JSInterop;
 using System.Security.Cryptography.X509Certificates;
 using B2003C4.Client.Data;
 
+
 namespace B2003C4.Client.Pages.Kansa
 {
 
@@ -65,6 +66,8 @@ namespace B2003C4.Client.Pages.Kansa
         public string y;
 
         public string Checked = "checked";
+
+
 
  //ユーザーが入力した値
 

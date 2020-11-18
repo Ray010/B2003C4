@@ -200,17 +200,14 @@ namespace B2003C4.Client.Pages.Common
                 ButtonColor = "#01579B";
                 Riyu = "入理由";
                 Keiyaku = "契約日";
-
-
-
             }
 
         }
 
         public void GoToGoogleMap(string address)
         {
-            //Navi.NavigateTo("https://www.google.com/maps/search/?api=1&query=" + address);
-            Console.WriteLine(typeof(FormSearchDataModel).Name);
+            Navi.NavigateTo("https://www.google.com/maps/search/?api=1&query=" + CommonPhase1.S_CityName +
+                "丁目" + CommonPhase1.S_CityAddress);
         }
 
 

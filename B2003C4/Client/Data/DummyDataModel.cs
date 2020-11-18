@@ -24,6 +24,10 @@ namespace B2003C4.Client.Data
             new Dokusya("Kyudoku",1955,2,0099,00,"東京都庁","ﾄｳｷｮｳ","00-0000-0000","西新宿２丁目","8-1","","",null,"M"),
         };
 
+
+
+
+
         public class Dokusya
         {
             public string DokusyaStatus; //読者の状態（現、休、止　等）
