@@ -1,15 +1,14 @@
-﻿@*
-    <style>
-        .box {
-            transition: all 300ms 0s ease;
-        }
+﻿
+<style>
 
-        .active {
-            transform: translateY(300px);
-        }
-    </style>
-*@
+    .Button {
+        width: 100%;
+        background-color: #00000000;
+        padding: 0rem;
+        
+    }
 
+</style>
 
 <div class="top-row pl-4 navbar navbar-dark ">
     <a class="navbar-brand" href="">新聞モバイルシステム</a>
@@ -18,38 +17,46 @@
     </button>
 </div>
 
-
-
 @*<div class="box @NavMenuTogle" @onclick="ToggleNavMenu">*@
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
 
     <ul class="nav flex-column">
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> ホーム
-            </NavLink>
+            <button align="left" class="btn Button" @onclick="@(s =>JumpPage(""))">
+                <NavLink class="nav-link" Match="NavLinkMatch.All">
+                    <span class="oi oi-home" aria-hidden="true"></span> ホーム
+                </NavLink>
+            </button>
         </li>
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="./IriTome/MainFragment">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> 入止表
-            </NavLink>
+            <button align="left" class="btn Button" @onclick="@(s =>JumpPage("/IriTome/MainFragment"))">
+                <NavLink class="nav-link">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> 入止表
+                </NavLink>
+            </button>
         </li>
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="./Kako/KakoFragment">
-                <span class="oi oi-document" aria-hidden="true"></span> 過去台帳
-            </NavLink>
+            <button align="left" class="btn Button" @onclick="@(s =>JumpPage("/Kako/KakoFragment"))">
+                <NavLink class="nav-link">
+                    <span class="oi oi-document" aria-hidden="true"></span> 過去台帳
+                </NavLink>
+            </button>
         </li>
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="./Kansa/KansaSearchFragment">
-                <span class="oi oi-eye" aria-hidden="true"></span> 監査
-            </NavLink>
+            <button align="left" class="btn Button" @onclick="@(s =>JumpPage("/Kansa/KansaSearchFragment"))">
+                <NavLink class="nav-link">
+                    <span class="oi oi-eye" aria-hidden="true"></span> 監査
+                </NavLink>
+            </button>
         </li>
 
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="./Login">
-                <span class="oi oi-power-standby" aria-hidden="true"></span> ログアウト
-            </NavLink>
+            <button align="left" class="btn Button" @onclick="@(s =>JumpPage("/Login"))">
+                <NavLink class="nav-link">
+                    <span class="oi oi-power-standby" aria-hidden="true"></span> ログアウト
+                </NavLink>
+            </button>
         </li>
 
     </ul>

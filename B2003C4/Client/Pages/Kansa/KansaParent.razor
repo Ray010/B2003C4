@@ -4,18 +4,21 @@
 @using B2003C4.Client.Pages.Common;
 
 <h3>KansaParent</h3>
-<button type="button" @onclick="WriteToConsole">a</button>
+
+@formDataModel.PhaseNo
 
 @code {
-    private async Task WriteToConsole()
-    {
-        await jsRuntime.InvokeVoidAsync("WriteCSharpMessageToConsole", DotNetObjectReference.Create(this));
-    }
-
     [JSInvokable]
-    public Task<string> GetHelloMessage()
+    public Task<string> GetHelloMessage1()
     {
         var message = "Hello from a C# instance";
+        return Task.FromResult(message);
+    }
+
+    [JSInvokable("GetHelloMessage")]
+    public static Task GetHelloMessage()
+    {
+        var message = "Hello from C#";
         return Task.FromResult(message);
     }
 }
