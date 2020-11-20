@@ -1,0 +1,62 @@
+﻿<h3>IriTomeParent</h3>
+
+@inject IJSRuntime jsRuntime
+@using B2003C4.Client.Data;
+@using B2003C4.Client.Pages.Common;
+
+@formDataModel.PhaseNo
+@ResultData.PhaseNo
+@CurrentPage.PhaseNo
+
+@*https://chrissainty.com/using-javascript-interop-in-razor-components-and-blazor/*@
+@if(CurrentPage.State)
+{
+    Rewrite();
+}
+
+
+
+@switch (formDataModel.PhaseNo)
+{
+    
+
+    case 0:
+        goto default;
+
+    case 1:
+
+        <MainFragment @bind-Phase1Data="formDataModel" @bind-DBSourceData="DBData" @bind-SearchResultData="ResultData" />
+        goto End;
+
+    case 2:
+        <DokusyaActivity @bind-CommonPhase1="formDataModel" @bind-DBSourceData="DBData" />
+        goto End;
+
+
+    End:
+        write();
+        break;
+
+
+    default:
+
+        <div>ハンドリングエラー:存在しないページ（PhaseNo:@formDataModel.S_PhoneNo )</div>
+        break;
+
+}
+
+@*public EventCallback<string> PageNameChanged { get; set; }で変えた際はyearも変わる*@
+
+
+@code {
+    private FormSearchDataModel formDataModel = new FormSearchDataModel();
+    private DummyDataModel DBData = new DummyDataModel();
+    private FormSearchDataModel ResultData = new FormSearchDataModel();
+}
+
+
+
+
+@code {
+
+}

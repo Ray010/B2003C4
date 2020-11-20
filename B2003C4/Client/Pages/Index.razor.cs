@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using System.Web;
 using Microsoft.JSInterop;
+using B2003C4.Client.Data;
 
 
 namespace B2003C4.Client.Pages
@@ -28,10 +29,18 @@ namespace B2003C4.Client.Pages
         }
 
 
-        public void JumpPage(string URLx)
-        {
-            JSRuntime.InvokeVoidAsync("JumpPage", Navi.BaseUri + URLx);
-        }
+        [Parameter]
+        public FormSearchDataModel CurrentPage { get; set; }
+        [Parameter]
+        public EventCallback<FormSearchDataModel> CurrentPageChanged { get; set; }
 
+        public async Task JumpPage(string URLx)
+        {
+
+            CurrentPage.CurrentURL = CurrentPage.IndexURL;
+            CurrentPage.IndexURL = URLx;
+            await CurrentPageChanged.InvokeAsync(CurrentPage);
+            StateHasChanged();
+        }
     }
 }

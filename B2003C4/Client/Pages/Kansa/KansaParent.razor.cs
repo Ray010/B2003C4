@@ -20,7 +20,7 @@ namespace B2003C4.Client.Pages.Kansa
         private IJSRuntime JSRuntime { get; set; }
 
         [Inject]
-        public NavigationManager CurrentURL { get; set; }
+        public NavigationManager Navi { get; set; }
 
 
         public string ConvertText;
@@ -29,10 +29,11 @@ namespace B2003C4.Client.Pages.Kansa
         protected override async void OnInitialized()
         {
 
-            URLParam = CurrentURL.ToBaseRelativePath(CurrentURL.Uri);
-            //await JSRuntime.InvokeVoidAsync("Back" , CurrentURL.Uri);
+            URLParam = Navi.ToBaseRelativePath(Navi.Uri);
+            formDataModel.PhaseNo = await JSRuntime.InvokeAsync<uint>("PhaseNo");
+            
+            //await JSRuntime.InvokeVoidAsync("PhaseShift" , formDataModel.PhaseNo);
             //string PNo
-            //formDataModel.PhaseNo = await JSRuntime.InvokeAsync<uint>("IfURL", URLParam,formDataModel.PhaseNo);
             //formDataModel.PhaseNo = uint.Parse(PNo);
             Console.WriteLine("れんだりんぐとぅるー");
 

@@ -7,13 +7,20 @@ using System.Dynamic;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace B2003C4.Client.Pages.Kansa
+namespace B2003C4.Client.Data
 {
     public class FormSearchDataModel
     {
 
         //画面制御用
+        public Boolean State { get; set; } = false;
+
         public uint? PhaseNo { get; set; } = 1;
+
+        public string IndexURL { get; set; } ="Index"; //とび先のURL
+
+        public string CurrentURL { get; set; } //とび前のURL
+
 
         public string ShiftReason { get; set; }
         public string Etc { get; set; }

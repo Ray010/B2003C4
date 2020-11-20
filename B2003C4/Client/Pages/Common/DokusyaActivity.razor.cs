@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using B2003C4.Client.Data;
-using B2003C4.Client.Pages.Kansa;
+
 using System.Text;
 
 namespace B2003C4.Client.Pages.Common

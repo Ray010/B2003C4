@@ -1,35 +1,86 @@
 ﻿@inherits LayoutComponentBase
 
-@inject IJSRuntime JSRuntime
-
 <style>
 
     .bg {
         background-color: #ededed;
     }
+
+    .wrapper {
+        position: relative;
+    }
+
+    footer {
+        width: 100%;
+        position: fixed;
+        bottom: 2vh;
+        left: 20vw;
+    }
 </style>
 
 <div class="sidebar fixed-top">
-    <NavMenu />
+    <NavMenu @bind-CurrentPage="formSearchModel"/>
 
 </div>
 
-<div class="main Page-Margin bg">
+<div class="wrapper main Page-Margin bg">
 
 
     <div class="top-row px-4 fixed-top">
- 
-        
-        @if(true == NetworkState)
+
+
+        @if (true == true)
         {
-        <div>サーバーステータス：接続</div>
-        } else
+            <div>サーバーステータス：接続</div>
+        }
+        else
         {
-        <div>サーバーステータス：未接続</div>
+            <div>サーバーステータス：未接続</div>
         }
     </div>
 
     <div class="content px-4 Bg_Color">
-        @Body
+        @*@Body*@
+
+        @formSearchModel.PhaseNo
+        @switch (formSearchModel.IndexURL)
+        {
+            case "":
+
+                break;
+
+            case "Index":
+                <Index @bind-CurrentPage="formSearchModel" />
+                break;
+
+            case "IriTome":
+                <IriTomeParent @bind-CurrentPage="formSearchModel" />
+                break;
+
+            case "Kako":
+                <KakoParent @bind-CurrentPage="formSearchModel" />
+                break;
+
+            case "Kansa":
+                <KansaParent @bind-CurrentPage="formSearchModel" />
+                break;
+        }
+        
+
+
     </div>
 </div>
+<footer>
+    <div>
+        <button @onclick="BackPage">戻る</button>
+    </div>
+</footer>
+
+
+@code{
+    @using B2003C4.Client.Data;
+    @using B2003C4.Client.Pages.IriTome;
+    @using B2003C4.Client.Pages.Kako;
+    @using B2003C4.Client.Pages.Kansa;
+    public FormSearchDataModel formSearchModel = new FormSearchDataModel();
+}

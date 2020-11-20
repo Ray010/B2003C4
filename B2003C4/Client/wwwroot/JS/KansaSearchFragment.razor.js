@@ -74,14 +74,29 @@ function Convert(text) {
     console.log(NewText);
 
     return NewText;
-
 }
 //------------------------------------------------------------------------------------
 
-
 var CurrentURL;
+var PhaseNo = 1;
 //ブラウザバック制御------------------------------------------------------------------
 
-function JumpPage(URLx) {
+function JumpPage(URLx, currentURL) {
+    CurrentURL = currentURL;
     location.replace(URLx); //ブラウザバックを使用させないため。
+}
+
+function Back(URLy) {
+    PhaseNo--;
+    location.replace(URLy); 
+}
+
+function PhaseNo() {
+    console.log(PhaseNo)
+    return PhaseNo;
+}
+
+function PhaseShift(Phase) {
+    PhaseNo = Phase;
+
 }

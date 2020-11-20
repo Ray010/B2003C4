@@ -23,28 +23,28 @@
 
     <ul class="nav flex-column">
         <li class="nav-item px-3">
-            <button align="left" class="btn Button" @onclick="@(s =>JumpPage(""))">
+            <button align="left" class="btn Button" @onclick="@(s =>JumpPage("Index"))">
                 <NavLink class="nav-link" Match="NavLinkMatch.All">
                     <span class="oi oi-home" aria-hidden="true"></span> ホーム
                 </NavLink>
             </button>
         </li>
         <li class="nav-item px-3">
-            <button align="left" class="btn Button" @onclick="@(s =>JumpPage("/IriTome/MainFragment"))">
+            <button align="left" class="btn Button" @onclick="@(s =>JumpPage("IriTome"))">
                 <NavLink class="nav-link">
                     <span class="oi oi-list-rich" aria-hidden="true"></span> 入止表
                 </NavLink>
             </button>
         </li>
         <li class="nav-item px-3">
-            <button align="left" class="btn Button" @onclick="@(s =>JumpPage("/Kako/KakoFragment"))">
+            <button align="left" class="btn Button" @onclick="@(s =>JumpPage("Kako"))">
                 <NavLink class="nav-link">
                     <span class="oi oi-document" aria-hidden="true"></span> 過去台帳
                 </NavLink>
             </button>
         </li>
         <li class="nav-item px-3">
-            <button align="left" class="btn Button" @onclick="@(s =>JumpPage("/Kansa/KansaSearchFragment"))">
+            <button align="left" class="btn Button" @onclick="@(s =>JumpPage("Kansa"))">
                 <NavLink class="nav-link">
                     <span class="oi oi-eye" aria-hidden="true"></span> 監査
                 </NavLink>
@@ -52,7 +52,7 @@
         </li>
 
         <li class="nav-item px-3">
-            <button align="left" class="btn Button" @onclick="@(s =>JumpPage("/Login"))">
+            <button align="left" class="btn Button" @onclick="@(s =>JumpPage("Login"))">
                 <NavLink class="nav-link">
                     <span class="oi oi-power-standby" aria-hidden="true"></span> ログアウト
                 </NavLink>

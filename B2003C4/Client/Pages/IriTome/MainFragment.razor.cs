@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Components;
+
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System.Runtime.CompilerServices;
 using System.Diagnostics.CodeAnalysis;
-using System.Security.Cryptography.X509Certificates;
+
+
+using B2003C4.Client.Data;
 
 namespace B2003C4.Client.Pages.IriTome
 {
@@ -23,7 +25,25 @@ namespace B2003C4.Client.Pages.IriTome
         int? Kuiki_SelectValue
         { get => Kuiki_SelectedValue; set { Kuiki_SelectedValue = value; } }
 
-        public int[] Kuiki; //区域の数
+        public uint[] Kuiki; //区域の数
+
+
+        [Parameter]
+        public FormSearchDataModel Phase1Data { get; set; }
+        [Parameter]
+        public EventCallback<FormSearchDataModel> Phase1DataChanged { get; set; }
+
+        [Parameter]
+        public DummyDataModel DBSourceData { get; set; }
+
+        [Parameter]
+        public EventCallback<DummyDataModel> DBSourceDataChanged { get; set; }
+
+        [Parameter]
+        public FormSearchDataModel SearchResultData { get; set; }
+        [Parameter]
+        public EventCallback<FormSearchDataModel> SearchResultDataChanged { get; set; }
+
 
 
         //その他
@@ -68,7 +88,7 @@ namespace B2003C4.Client.Pages.IriTome
             Y = null;
         }
         */
-        
+
         /*
         public void OnChangeEventKuiki(string X)
         {
@@ -78,14 +98,10 @@ namespace B2003C4.Client.Pages.IriTome
         }
         */
 
-
-
-
         //海老沼書き足しｽﾞｲ₍₍(ง˘ω˘)ว⁾⁾ｽﾞｲ（仮）
 
 
-
-
+        /*
         List<Dokusya> IriDokusyaList = new List<Dokusya>()
         {
             new Dokusya(1,"工藤　栄吉", "", 2010,2102),
@@ -159,28 +175,45 @@ namespace B2003C4.Client.Pages.IriTome
             }
 
         }
-
+        */
         //-------------------------------------------------------------
+
+        List<DummyDataModel.Dokusya> IriDokusyaList = new List<DummyDataModel.Dokusya>();
+        List<DummyDataModel.Dokusya> TomeDokusyaList = new List<DummyDataModel.Dokusya>();
 
 
 
         protected override void OnInitialized()
         {
             //区域総数
-            int IriTemp = 0;
-            int[] IriKuiki = new int[0];
+            uint IriTemp = 0;
+            uint[] IriKuiki = new uint[0];
 
-            int TomeTemp = 0;
-            int[] TomeKuiki = new int[0];
+            uint TomeTemp = 0;
+            uint[] TomeKuiki = new uint[0];
 
+            foreach(var IriTome in DBSourceData.DokusyaList)
+            {
+                if(IriTome.DokusyaStatus == "Gendoku")
+                {
+                    IriDokusyaList.Add(IriTome);
+                } else if(IriTome.DokusyaStatus == "Tome")
+                {
+                    TomeDokusyaList.Add(IriTome);
+                }
+                else
+                {
+                    continue;
+                }
+            }
 
             foreach (var x in IriDokusyaList)
             {
-                if(IriTemp != x.KuikiNo )
+                if(IriTemp != x.Kuiki )
                 {
                     Array.Resize(ref IriKuiki, IriKuiki.Length + 1);
-                    IriKuiki[IriKuiki.Length -1] = x.KuikiNo;
-                    IriTemp = x.KuikiNo;
+                    IriKuiki[IriKuiki.Length -1] = x.Kuiki;
+                    IriTemp = x.Kuiki;
                 }
                 else
                 {
@@ -189,11 +222,11 @@ namespace B2003C4.Client.Pages.IriTome
             }
             foreach (var x in TomeDokusyaList)
             {
-                if(TomeTemp != x.KuikiNo)
+                if(TomeTemp != x.Kuiki)
                 {
                     Array.Resize(ref TomeKuiki, TomeKuiki.Length + 1);
-                    TomeKuiki[TomeKuiki.Length -1] = x.KuikiNo;
-                    TomeTemp = x.KuikiNo;
+                    TomeKuiki[TomeKuiki.Length -1] = x.Kuiki;
+                    TomeTemp = x.Kuiki;
                 }
                 else
                 {
@@ -217,7 +250,7 @@ namespace B2003C4.Client.Pages.IriTome
 
             foreach(var x in IriDokusyaList)
             {
-                if( Kuiki_SelectedValue == x.KuikiNo)
+                if( Kuiki_SelectedValue == x.Kuiki)
                 {
                     IriCount++;
                 }
@@ -228,7 +261,7 @@ namespace B2003C4.Client.Pages.IriTome
             }
             foreach(var x in TomeDokusyaList)
             {
-                if( Kuiki_SelectedValue == x.KuikiNo)
+                if( Kuiki_SelectedValue == x.Kuiki)
                 {
                     TomeCount++;
                 }
@@ -253,10 +286,10 @@ namespace B2003C4.Client.Pages.IriTome
             {
 
 
-                if(Kuiki_SelectedValue == x.KuikiNo &&
+                if(Kuiki_SelectedValue == x.Kuiki &&
                   (SelectValue == x.KeiyakuSt || SelectValue == null))
 
-                //if (Kuiki_SelectedValue == x.KuikiNo)
+                //if (Kuiki_SelectedValue == x.Kuiki)
                 {
                     IriCount++;
                 }
@@ -268,10 +301,10 @@ namespace B2003C4.Client.Pages.IriTome
             foreach (var x in TomeDokusyaList)
             {
 
-                if (Kuiki_SelectedValue == x.KuikiNo &&
+                if (Kuiki_SelectedValue == x.Kuiki &&
                     (SelectValue -1 == x.KeiyakuEd || SelectValue == null))
 
-                    //if (Kuiki_SelectedValue == x.KuikiNo)
+                    //if (Kuiki_SelectedValue == x.Kuiki)
                 {
                     TomeCount++;
                 }
@@ -305,10 +338,10 @@ namespace B2003C4.Client.Pages.IriTome
             {
 
 
-                if (Kuiki_SelectedValue == x.KuikiNo &&
+                if (Kuiki_SelectedValue == x.Kuiki &&
                   (SelectValue == x.KeiyakuSt || SelectValue == null))
 
-                //if (Kuiki_SelectedValue == x.KuikiNo)
+                //if (Kuiki_SelectedValue == x.Kuiki)
                 {
                     IriCount++;
                 }
@@ -320,10 +353,10 @@ namespace B2003C4.Client.Pages.IriTome
             foreach (var x in TomeDokusyaList)
             {
 
-                if (Kuiki_SelectedValue == x.KuikiNo &&
+                if (Kuiki_SelectedValue == x.Kuiki &&
                     (SelectValue - 1 == x.KeiyakuEd || SelectValue == null))
 
-                //if (Kuiki_SelectedValue == x.KuikiNo)
+                //if (Kuiki_SelectedValue == x.Kuiki)
                 {
                     TomeCount++;
                 }
@@ -366,11 +399,19 @@ namespace B2003C4.Client.Pages.IriTome
         protected NavigationManager Navi { get; set; }
 
 
-        public void JumpPage(string URLx)
+        public async void JumpPage(DummyDataModel.Dokusya OnDokusya)
         {
+            SearchResultData.S_DokusyaCode = OnDokusya.DokusyaCode;
+            SearchResultData.S_DokusyaName = OnDokusya.DokusyaName;
+            SearchResultData.S_BuildingName = OnDokusya.BuildingName;
+            SearchResultData.S_CityName = OnDokusya.CityName;
+            SearchResultData.S_CityAddress = OnDokusya.CityAddress;
+            SearchResultData.S_PhoneNo_Sub = OnDokusya.PhoneNo_Sub;
+            SearchResultData.S_KuikiNo = OnDokusya.Kuiki;
 
-            Navi.NavigateTo(URLx);
-
+            SearchResultData.PhaseNo = 2;
+            await SearchResultDataChanged.InvokeAsync(SearchResultData);
+            StateHasChanged();
         }
 
 
