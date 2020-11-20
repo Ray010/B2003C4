@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using B2003C4.Client.Data;
 
 namespace B2003C4.Client.Pages.Kako
 {
     public partial class KakoFragment
     {
+
         //年月関連
         public Boolean SelectedFlag { get; set; } = false;
 
@@ -25,6 +27,31 @@ namespace B2003C4.Client.Pages.Kako
 
         //その他
         public int Count { get; set; } //検索結果の総数
+
+
+        [Parameter]
+        public FormSearchDataModel Phase1Data { get; set; }
+        [Parameter]
+        public EventCallback<FormSearchDataModel> Phase1DataChanged { get; set; }
+
+        [Parameter]
+        public DummyDataModel DBSourceData { get; set; }
+
+        [Parameter]
+        public EventCallback<DummyDataModel> DBSourceDataChanged { get; set; }
+
+        [Parameter]
+        public FormSearchDataModel SearchResultData { get; set; }
+        [Parameter]
+        public EventCallback<FormSearchDataModel> SearchResultDataChanged { get; set; }
+
+
+        List<DummyDataModel.Dokusya> DokusyaList = new List<DummyDataModel.Dokusya>();
+
+
+
+
+
 
 
         string TenpoNo { get; set; } = "0"; //仮
@@ -59,6 +86,8 @@ namespace B2003C4.Client.Pages.Kako
 
         };
 
+
+        /*
         List<Dokusya> DokusyaList = new List<Dokusya>()
         {
             new Dokusya("1" , "桜井　清" , "妻田北１" , "12-41" , "あ朝" , "1911-2004"),
@@ -80,7 +109,7 @@ namespace B2003C4.Client.Pages.Kako
             new Dokusya("4" , "エビヌマ　ツナキ" , "平松本町２" , "1103-3256" , "つ朝" , "1911-2004"),
             new Dokusya("4" , "エビヌマ　ツナキⅤ" , "平松本町４" , "1103-56" , "" , ""),
         };
-
+        */
 
 
 
@@ -145,7 +174,7 @@ namespace B2003C4.Client.Pages.Kako
         {
             foreach (var x in DokusyaList)
             {
-                if (Kuiki_SelectedValue == x.Kuiki)
+                if (Kuiki_SelectedValue == x.Kuiki.ToString())
                 {
                     Count++;
                 }
@@ -163,7 +192,7 @@ namespace B2003C4.Client.Pages.Kako
             //検索総数
             foreach (var x in DokusyaList)
             {
-                if (Kuiki_SelectedValue == x.Kuiki)
+                if (Kuiki_SelectedValue == x.Kuiki.ToString())
                 {
                     Count++;
                 }
@@ -174,14 +203,23 @@ namespace B2003C4.Client.Pages.Kako
 
         [Inject]
         protected NavigationManager Navi { get; set; }
-        public void JumpPage(string URLx)
+        public async void JumpPage(DummyDataModel.Dokusya OnDokusya)
         {
 
-            Navi.NavigateTo(URLx);
+            SearchResultData.S_DokusyaCode = OnDokusya.DokusyaCode;
+            SearchResultData.S_DokusyaName = OnDokusya.DokusyaName;
+            SearchResultData.S_BuildingName = OnDokusya.BuildingName;
+            SearchResultData.S_CityName = OnDokusya.CityName;
+            SearchResultData.S_CityAddress = OnDokusya.CityAddress;
+            SearchResultData.S_PhoneNo_Sub = OnDokusya.PhoneNo_Sub;
+            SearchResultData.S_KuikiNo = OnDokusya.Kuiki;
 
+            SearchResultData.PhaseNo = 2;
+            await SearchResultDataChanged.InvokeAsync(SearchResultData);
+            StateHasChanged();
         }
 
-        
-
     }
+
 }
+
