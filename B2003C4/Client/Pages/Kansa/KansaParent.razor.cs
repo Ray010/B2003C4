@@ -6,7 +6,8 @@ using B2003C4.Client.Pages;
 using B2003C4.Client.Pages.Common;
 using Microsoft.JSInterop;
 using Microsoft.AspNetCore.Components;
-using B2003C4.Client.Pages.Kansa;
+using B2003C4.Client.Data;
+
 
 
 namespace B2003C4.Client.Pages.Kansa
@@ -26,9 +27,16 @@ namespace B2003C4.Client.Pages.Kansa
         public string ConvertText;
         public string URLParam;
 
+        [Parameter]
+        public FormSearchDataModel CurrentPage { get; set; }
+        [Parameter]
+        public EventCallback<FormSearchDataModel> CurrentPageChanged { get; set; }
+
+
+
         protected override async void OnInitialized()
         {
-
+            /*
             URLParam = Navi.ToBaseRelativePath(Navi.Uri);
             formDataModel.PhaseNo = await JSRuntime.InvokeAsync<uint>("PhaseNo");
             
@@ -36,8 +44,30 @@ namespace B2003C4.Client.Pages.Kansa
             //string PNo
             //formDataModel.PhaseNo = uint.Parse(PNo);
             Console.WriteLine("れんだりんぐとぅるー");
+            */
+        }
+
+        public void Rewrite() //フェーズを戻るとk
+        {
+            formDataModel = CurrentPage;
+            ResultData = CurrentPage;
+
+        }
+        public void write() //次のフェーズに行く
+        {
+            if (formDataModel.PhaseNo != ResultData.PhaseNo)
+            {
+                formDataModel = ResultData;
+                CurrentPage.PhaseNo = ResultData.PhaseNo;
+                CurrentPageChanged.InvokeAsync(CurrentPage);
+            }
 
         }
 
+
     }
+
+
+
+
 }

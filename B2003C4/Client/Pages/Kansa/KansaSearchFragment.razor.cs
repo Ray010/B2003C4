@@ -30,12 +30,17 @@ namespace B2003C4.Client.Pages.Kansa
         [Parameter]
         public EventCallback<DummyDataModel> DBSourceDataChanged { get; set; }
 
+        [Parameter]
+        public FormSearchDataModel SearchResultData { get; set; }
+        [Parameter]
+        public EventCallback<FormSearchDataModel> SearchResultDataChanged { get; set; }
+
 
 
         private async Task UpdateModelDataOrPhaseShift()
         {
-            Phase1Data.PhaseNo = 2;
-            await Phase1DataChanged.InvokeAsync(Phase1Data);
+            SearchResultData.PhaseNo = 2;
+            await SearchResultDataChanged.InvokeAsync(SearchResultData);
             StateHasChanged();
         
            
@@ -308,8 +313,6 @@ namespace B2003C4.Client.Pages.Kansa
             ConvertText = await JSRuntime.InvokeAsync<string> ("Convert", X);
             Console.WriteLine("Return is : " + ConvertText);
             Phase1Data.S_BuildingKanaName = ConvertText;
-
-
 
             StateHasChanged();
         }

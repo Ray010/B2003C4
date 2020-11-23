@@ -7,33 +7,30 @@
 
 <h3>KansaParent</h3>
 
-@formDataModel.PhaseNo
-
 @code {
-    [JSInvokable]
-    public Task<string> GetHelloMessage1()
-    {
-        var message = "Hello from a C# instance";
-        return Task.FromResult(message);
-    }
+    @*
+        [JSInvokable]
+        public Task<string> GetHelloMessage1()
+        {
+            var message = "Hello from a C# instance";
+            return Task.FromResult(message);
+        }
 
-    [JSInvokable("GetHelloMessage")]
-    public static Task GetHelloMessage()
-    {
-        var message = "Hello from C#";
-        return Task.FromResult(message);
-    }
+        [JSInvokable("GetHelloMessage")]
+        public static Task GetHelloMessage()
+        {
+            var message = "Hello from C#";
+            return Task.FromResult(message);
+        }
+    *@
 }
 @*https://chrissainty.com/using-javascript-interop-in-razor-components-and-blazor/*@
 
 
-
-
-
-
-
-
-
+@if (CurrentPage.State)
+{
+    Rewrite();
+}
 
 @switch (formDataModel.PhaseNo)
 {
@@ -41,15 +38,21 @@
         goto default;
 
     case 1:
-        <KansaSearchFragment @bind-Phase1Data="formDataModel" @bind-DBSourceData="DBData" />
-        break;
+        <KansaSearchFragment @bind-Phase1Data="formDataModel" @bind-DBSourceData="DBData" @bind-SearchResultData="ResultData" />
+        goto End;
 
     case 2:
         <SearchActivity @bind-Phase2Data="formDataModel" @bind-SearchResultData="ResultData" @bind-DBSourceData="DBData" />
-        break;
+        goto End;
 
     case 3:
         <DokusyaActivity @bind-CommonPhase1="ResultData" @bind-DBSourceData="DBData" />
+        goto End;
+
+
+
+    End:
+        write();
         break;
 
 
@@ -59,9 +62,6 @@
         break;
 
 }
-
-@URLParam
-@formDataModel.ToString()
 
 @*public EventCallback<string> PageNameChanged { get; set; }で変えた際はyearも変わる*@
 
