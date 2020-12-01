@@ -25,6 +25,14 @@ namespace B2003C4.Client.Pages.Common
         [Parameter]
         public EventCallback<DummyDataModel> DBSourceDataChanged { get; set; }
 
+        [Parameter]
+        public KoudokuDummyData KoudokuList { get; set; }
+
+        [Parameter]
+        public EventCallback<KoudokuDummyData> KoudokuListChanged { get; set; }
+
+        List<Koudoku> S_KoudokuList; //検索済み購読リスト
+        
         /*
         private async Task UpdateModelDataOrPhaseShift()
         {
@@ -50,6 +58,18 @@ namespace B2003C4.Client.Pages.Common
             KoumokuList[7].Value = " "; //CommonPhase1.S_MoneyRemarks;
             KoumokuList[8].Value = " "; //CommonPhase1.S_Class;
             KoumokuList[9].Value = " "; //CommonPhase1.S_Lank;
+
+            foreach(var Temp_KoudokuList in KoudokuList.KoudokuList)
+            {
+                if(CommonPhase1.S_DokusyaCode == Temp_KoudokuList.DokuCode)
+                {
+                    S_KoudokuList.Add(Temp_KoudokuList);
+                }
+                else
+                {
+                    continue;
+                }
+            }
         } 
 
         public int Count { get; set; }

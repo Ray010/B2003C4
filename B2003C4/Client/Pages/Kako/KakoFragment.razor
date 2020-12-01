@@ -59,8 +59,6 @@
 </head>
 
 <body>
-
-
     <div>
 
         @* 年月リストの表示（セレクトリスト） *@
@@ -122,10 +120,8 @@
         </table>
 
         <table class="Card_parent">
-            @foreach (var x in DokusyaList)
+            @foreach (var x in TomeDokusyaList)
             {
-                if (Kuiki_SelectedValue == x.Kuiki.ToString())
-                {
                     <tr>
                         <td>
                             <div class="Card_parent">
@@ -153,11 +149,8 @@
                             </div>
                         </td>
                     </tr>
-
-                }
+             
             }
-
-
         </table>
     </div>
 </body>

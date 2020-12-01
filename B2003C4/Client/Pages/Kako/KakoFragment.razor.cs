@@ -21,7 +21,7 @@ namespace B2003C4.Client.Pages.Kako
         //区域関連
         public Boolean Kuiki_SelectedFlag { get; set; } = false;
 
-        string Kuiki_SelectedValue = "1"; //選択された区域（数値のみ）
+        uint Kuiki_SelectedValue = 1; //選択された区域（数値のみ）
 
         string Kuiki_SelectValue { get => SelectedValue; set { SelectedValue = value; } } //選択された区域（”区”こみ）
 
@@ -46,7 +46,7 @@ namespace B2003C4.Client.Pages.Kako
         public EventCallback<FormSearchDataModel> SearchResultDataChanged { get; set; }
 
 
-        List<DummyDataModel.Dokusya> DokusyaList = new List<DummyDataModel.Dokusya>();
+        List<DummyDataModel.Dokusya> TomeDokusyaList = new List<DummyDataModel.Dokusya>();
 
 
 
@@ -85,6 +85,12 @@ namespace B2003C4.Client.Pages.Kako
             new Kuiki("2","5","5区"),
 
         };
+
+
+
+
+
+
 
 
         /*
@@ -172,11 +178,16 @@ namespace B2003C4.Client.Pages.Kako
         //検索総数(ページ開始直後)
         protected override void OnInitialized()
         {
-            foreach (var x in DokusyaList)
+            foreach (var x in DBSourceData.DokusyaList)
             {
-                if (Kuiki_SelectedValue == x.Kuiki.ToString())
+                if (Kuiki_SelectedValue == x.Kuiki)
                 {
+                    TomeDokusyaList.Add(x);
                     Count++;
+                }
+                else
+                {
+                    continue;
                 }
 
             }
@@ -186,15 +197,21 @@ namespace B2003C4.Client.Pages.Kako
         public void OnChangeEventKuiki(ChangeEventArgs f)
         {
             Count = 0;
-            Kuiki_SelectedValue = f.Value.ToString();
+            Kuiki_SelectedValue = uint.Parse(f.Value.ToString());
             Kuiki_SelectedFlag = true;
+            TomeDokusyaList.Clear();
 
             //検索総数
-            foreach (var x in DokusyaList)
+            foreach (var x in DBSourceData.DokusyaList)
             {
-                if (Kuiki_SelectedValue == x.Kuiki.ToString())
+                if (Kuiki_SelectedValue == x.Kuiki)
                 {
+                    TomeDokusyaList.Add(x);
                     Count++;
+                }
+                else
+                {
+                    continue;
                 }
             }
 
