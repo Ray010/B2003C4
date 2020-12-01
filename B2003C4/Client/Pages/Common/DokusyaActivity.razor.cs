@@ -31,7 +31,7 @@ namespace B2003C4.Client.Pages.Common
         [Parameter]
         public EventCallback<KoudokuDummyData> KoudokuListChanged { get; set; }
 
-        List<Koudoku> S_KoudokuList; //検索済み購読リスト
+        List<Koudoku> S_KoudokuList { get; set; } = new List<Koudoku>(); //検索済み購読リスト
         
         /*
         private async Task UpdateModelDataOrPhaseShift()
@@ -59,6 +59,8 @@ namespace B2003C4.Client.Pages.Common
             KoumokuList[8].Value = " "; //CommonPhase1.S_Class;
             KoumokuList[9].Value = " "; //CommonPhase1.S_Lank;
 
+            Console.WriteLine(KoudokuList.KoudokuList[0].DokuCode);
+            
             foreach(var Temp_KoudokuList in KoudokuList.KoudokuList)
             {
                 if(CommonPhase1.S_DokusyaCode == Temp_KoudokuList.DokuCode)
@@ -70,6 +72,7 @@ namespace B2003C4.Client.Pages.Common
                     continue;
                 }
             }
+            
         } 
 
         public int Count { get; set; }

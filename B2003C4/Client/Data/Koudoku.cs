@@ -7,12 +7,12 @@ namespace B2003C4.Client.Data
 {
     public class Koudoku
     {
-        public double DokuCode { get; set; } //読者番号
-        public double OyaMgCode { get; set; } //親銘版コード
+        public uint DokuCode { get; set; } //読者番号
+        public uint OyaMgCode { get; set; } //親銘版コード
         public string MgNo { get; set; } //銘版No
-        public double No { get; set; } //#(?)
-        public double MgCode { get; set; }  //銘版コード
-        public double Busuu { get; set; } //部数
+        public uint No { get; set; } //#(?)
+        public uint MgCode { get; set; }  //銘版コード
+        public uint Busuu { get; set; } //部数
         public string KeiyakuSt { get; set; } //契約開始
         public string KeiyakuEd { get; set; } //契約終了
         public string Keiyakusya { get; set; } //契約者名
@@ -21,10 +21,10 @@ namespace B2003C4.Client.Data
         public string TomeRiyuu { get; set; } //止理由
         public string TomeDay { get; set; }　//止日
         public string MgName { get; set; } //銘版名
-        public double GaitoFlg { get; set; } //該当フラグ
-        public double KakuzaiNo { get; set; } //拡材No
+        public uint GaitoFlg { get; set; } //該当フラグ
+        public uint KakuzaiNo { get; set; } //拡材No
         public string Kubun { get; set; } //区分
-        public double Tsukisu { get; set; } //月数
+        public uint Tsukisu { get; set; } //月数
         public string Haitatsubi { get; set; } //配達日
         public string DispHaitatsu { get; set; } //表示配達日
         public string KeiyakuKbn { get; set; } //契約区分
@@ -32,11 +32,11 @@ namespace B2003C4.Client.Data
 
 
         public Koudoku(
-            double dokuCode,
-            double oyaMgCode,
+            uint dokuCode,
+            uint oyaMgCode,
             string mgNo,
-            double mgCode,
-            double busuu,
+            uint mgCode,
+            uint busuu,
             string keiyakuSt,
             string keiyakuEd,
             string keiyakusya,
@@ -44,10 +44,10 @@ namespace B2003C4.Client.Data
             string tomeRiyuu,
             string tomeDay,
             string mgName,
-            double gaitoFlg,
-            double kakuzaiNo,
+            uint gaitoFlg,
+            uint kakuzaiNo,
             string kubun,
-            double tsukisu,
+            uint tsukisu,
             string haitatsubi,
             string dispHaitatsu,
             string keiyakukbn,
