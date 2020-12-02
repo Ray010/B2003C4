@@ -3,14 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.JSInterop;
 using Microsoft.AspNetCore.Components;
-
-
-
-
-
-
+using B2003C4.Client.Data;
 
 namespace B2003C4.Client.Shared
 {
@@ -34,8 +28,32 @@ namespace B2003C4.Client.Shared
         }
         */
 
+        protected override void OnInitialized()
+        {
+
+        }
+
         public void BackPage()
         {
+            if (formSearchModel.Back_History.Count <= 1)
+            {
+                //BackHistoryに値が入っていない場合エラー
+                Console.WriteLine("予期せぬエラー");
+                formSearchModel.Back_History.Clear();
+                formSearchModel.IndexURL = "Index";
+                StateHasChanged();
+            }
+            else 
+            {
+                Console.WriteLine("OK");
+                formSearchModel = formSearchModel.Back_History[formSearchModel.Back_History.Count - 2];
+                StateHasChanged();
+                //formSearchModel.Back_History.RemoveAt(formSearchModel.Back_History.Count - 1);
+            }
+
+
+
+            /*
             if (formSearchModel.PhaseNo == 1)
             {
                 formSearchModel.IndexURL = formSearchModel.CurrentURL;
@@ -48,8 +66,8 @@ namespace B2003C4.Client.Shared
                 StateHasChanged();
 
             }
-            Console.WriteLine(formSearchModel.IndexURL);
-            Console.WriteLine(formSearchModel.CurrentURL);
+            */
+
         }
 
 

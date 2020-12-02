@@ -59,8 +59,6 @@ namespace B2003C4.Client.Pages.Common
             KoumokuList[8].Value = " "; //CommonPhase1.S_Class;
             KoumokuList[9].Value = " "; //CommonPhase1.S_Lank;
 
-            Console.WriteLine(KoudokuList.KoudokuList[0].DokuCode);
-            
             foreach(var Temp_KoudokuList in KoudokuList.KoudokuList)
             {
                 if(CommonPhase1.S_DokusyaCode == Temp_KoudokuList.DokuCode)
@@ -72,6 +70,10 @@ namespace B2003C4.Client.Pages.Common
                     continue;
                 }
             }
+            CommonPhase1.Back_History.Add(CommonPhase1);
+            CommonPhase1Changed.InvokeAsync(CommonPhase1);
+
+            Console.WriteLine("DokusyaActivity");
             
         } 
 

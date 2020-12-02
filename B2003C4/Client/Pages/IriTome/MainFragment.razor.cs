@@ -271,6 +271,10 @@ namespace B2003C4.Client.Pages.IriTome
                 }
             }
 
+            Phase1Data.Back_History.Add(Phase1Data);
+            Phase1DataChanged.InvokeAsync(Phase1Data);
+
+            Console.WriteLine("MainFragment");
         }
 
         //区域
@@ -401,16 +405,18 @@ namespace B2003C4.Client.Pages.IriTome
 
         public async void JumpPage(DummyDataModel.Dokusya OnDokusya)
         {
-            SearchResultData.S_DokusyaCode = OnDokusya.DokusyaCode;
-            SearchResultData.S_DokusyaName = OnDokusya.DokusyaName;
-            SearchResultData.S_BuildingName = OnDokusya.BuildingName;
-            SearchResultData.S_CityName = OnDokusya.CityName;
-            SearchResultData.S_CityAddress = OnDokusya.CityAddress;
-            SearchResultData.S_PhoneNo_Sub = OnDokusya.PhoneNo_Sub;
-            SearchResultData.S_KuikiNo = OnDokusya.Kuiki;
+            Phase1Data.Back_History.Add(Phase1Data);
 
-            SearchResultData.PhaseNo = 2;
-            await SearchResultDataChanged.InvokeAsync(SearchResultData);
+            Phase1Data.S_DokusyaCode = OnDokusya.DokusyaCode;
+            Phase1Data.S_DokusyaName = OnDokusya.DokusyaName;
+            Phase1Data.S_BuildingName = OnDokusya.BuildingName;
+            Phase1Data.S_CityName = OnDokusya.CityName;
+            Phase1Data.S_CityAddress = OnDokusya.CityAddress;
+            Phase1Data.S_PhoneNo_Sub = OnDokusya.PhoneNo_Sub;
+            Phase1Data.S_KuikiNo = OnDokusya.Kuiki;
+
+            Phase1Data.PhaseNo = 2;
+            await Phase1DataChanged.InvokeAsync(Phase1Data);
             StateHasChanged();
         }
 
