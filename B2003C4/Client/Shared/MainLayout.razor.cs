@@ -11,6 +11,11 @@ namespace B2003C4.Client.Shared
     public partial class MainLayout
     {
 
+
+
+        //各ページと値を共有させる。
+        public FormSearchDataModel formSearchModel = new FormSearchDataModel();
+
         [Inject]
         private IJSRuntime JSRuntime { get; set; }
 
@@ -30,12 +35,18 @@ namespace B2003C4.Client.Shared
 
         protected override void OnInitialized()
         {
-
+            Console.WriteLine("MainLayout-----------------------------");
+            foreach (var i in formSearchModel.Back_History)
+            {
+                Console.WriteLine(i.IndexURL);
+                Console.WriteLine(i.Back_History.Count);
+            }
+            Console.WriteLine("MainLayout-----------------------------");
         }
 
         public void BackPage()
         {
-            if (formSearchModel.Back_History.Count <= 1)
+            if (formSearchModel.Back_History.Count <= 0)
             {
                 //BackHistoryに値が入っていない場合エラー
                 Console.WriteLine("予期せぬエラー");
@@ -45,10 +56,23 @@ namespace B2003C4.Client.Shared
             }
             else 
             {
-                Console.WriteLine("OK");
+                Console.WriteLine("ButtonOn↓-----------------------------");
                 formSearchModel = formSearchModel.Back_History[formSearchModel.Back_History.Count - 2];
-                StateHasChanged();
                 //formSearchModel.Back_History.RemoveAt(formSearchModel.Back_History.Count - 1);
+                
+
+                foreach (var i in formSearchModel.Back_History)
+                {
+                    Console.WriteLine(i.IndexURL);
+                    Console.WriteLine(i.Back_History.Count);
+                    for(int y = 0; y < i.Back_History.Count; y++)
+                    {
+                        Console.WriteLine("┗" + i.Back_History[y].IndexURL);
+                    }
+                }
+               
+                Console.WriteLine("ButtonOn-----------------------------");
+                //StateHasChanged();
             }
 
 

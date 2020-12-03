@@ -271,10 +271,36 @@ namespace B2003C4.Client.Pages.IriTome
                 }
             }
 
+
+
+
+
+            //---------------------------------------------------------
+            //履歴の処理
+
+            /*
             Phase1Data.Back_History.Add(Phase1Data);
             Phase1DataChanged.InvokeAsync(Phase1Data);
+            */
 
-            Console.WriteLine("MainFragment");
+            Phase1Data.Back_History.Add(Phase1Data.Deep_Copy());   //.Add(CurrentPage);
+            Phase1DataChanged.InvokeAsync(Phase1Data);
+
+            foreach (var i in Phase1Data.Back_History)
+            {
+                Console.WriteLine(i.IndexURL);
+                Console.WriteLine(i.Back_History.Count);
+                for (int y = 0; y < i.Back_History.Count; y++)
+                {
+                    Console.WriteLine("┗" + i.Back_History[y].IndexURL);
+                }
+            }
+
+
+
+            //System.Threading.Thread.Sleep(1000);
+
+            Console.WriteLine("MainFragment OK");
         }
 
         //区域

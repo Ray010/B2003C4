@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace B2003C4.Client.Data
 {
+    [Serializable]
     public class FormSearchDataModel
     {
 

@@ -70,8 +70,19 @@ namespace B2003C4.Client.Pages.Common
                     continue;
                 }
             }
-            CommonPhase1.Back_History.Add(CommonPhase1);
+            CommonPhase1.Back_History.Add(CommonPhase1.Deep_Copy());   //.Add(CurrentPage);
             CommonPhase1Changed.InvokeAsync(CommonPhase1);
+
+            foreach (var i in CommonPhase1.Back_History)
+            {
+                Console.WriteLine(i.IndexURL);
+                Console.WriteLine(i.Back_History.Count);
+                for (int y = 0; y < i.Back_History.Count; y++)
+                {
+                    Console.WriteLine("┗" + i.Back_History[y].IndexURL);
+                }
+            }
+
 
             Console.WriteLine("DokusyaActivity");
             

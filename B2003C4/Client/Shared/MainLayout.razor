@@ -50,6 +50,8 @@
     <div class="content px-4 Bg_Color">
         @*@Body*@
 
+        @formSearchModel.Back_History.Count
+
         @switch (formSearchModel.IndexURL)
         {
             case "":
@@ -80,6 +82,7 @@
 
 
 
+
 </div>
 
     <div>
@@ -102,6 +105,6 @@
     @using B2003C4.Client.Pages.IriTome;
     @using B2003C4.Client.Pages.Kako;
     @using B2003C4.Client.Pages.Kansa;
-    public FormSearchDataModel formSearchModel = new FormSearchDataModel();
+    
 
 }
