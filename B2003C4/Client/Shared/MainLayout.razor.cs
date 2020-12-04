@@ -10,99 +10,108 @@ namespace B2003C4.Client.Shared
 {
     public partial class MainLayout
     {
-
-
-
         //各ページと値を共有させる。
         public FormSearchDataModel formSearchModel = new FormSearchDataModel();
 
+        //JavaScript関連
         [Inject]
         private IJSRuntime JSRuntime { get; set; }
 
+        //ナビゲーター
         [Inject]
         public NavigationManager Navi { get; set; }
 
-        //public int 
-        /*
-        public async void BackPage()
-        {
-            await JSRuntime.InvokeVoidAsync("Back", Navi.Uri);
-            //formDataModel.PhaseNo = await JSRuntime.InvokeAsync<uint>("IfURL", URLParam,formDataModel.PhaseNo);
-            StateHasChanged();
-            Console.WriteLine("OK");
-        }
-        */
-
         protected override void OnInitialized()
         {
-            Console.WriteLine("MainLayout-----------------------------");
-            foreach (var i in formSearchModel.Back_History)
+            Console.WriteLine(formSearchModel.Next_History.Count);
+        }
+
+
+
+        public void NextPage()
+        {
+            if(formSearchModel.Next_History.Count <= 0)
             {
-                Console.WriteLine(i.IndexURL);
-                Console.WriteLine(i.Back_History.Count);
+                //何もしない
             }
-            Console.WriteLine("MainLayout-----------------------------");
+
+            else if(formSearchModel.Next_History.Count >= 1)
+            {
+                try
+                {
+                    formSearchModel = formSearchModel.Next_History[formSearchModel.Next_History.Count - (formSearchModel.Next_History.Count - 1) - 1];
+                }
+                catch(System.ArgumentOutOfRangeException e)
+                {
+                    Console.WriteLine("予期せぬエラー -> MainLayout:001(配列不正)");
+                    formSearchModel.Back_History.Clear();
+                    formSearchModel.Next_History.Clear();
+                    formSearchModel.IndexURL = "Index";
+                    StateHasChanged();
+                }
+            }
+            else
+            {
+                Console.WriteLine("予期せぬエラー -> MainLayout:002(Back_Historyエラー)");
+                formSearchModel.Back_History.Clear();
+                formSearchModel.Next_History.Clear();
+                formSearchModel.IndexURL = "Index";
+                StateHasChanged();
+            }
         }
 
         public void BackPage()
         {
-            if (formSearchModel.Back_History.Count <= 0)
+            Console.WriteLine("ButtonOn↓-----------------------------");
+            if (formSearchModel.Back_History.Count <= 1)
             {
-                //BackHistoryに値が入っていない場合エラー
-                Console.WriteLine("予期せぬエラー");
-                formSearchModel.Back_History.Clear();
-                formSearchModel.IndexURL = "Index";
-                StateHasChanged();
+                //何もしない
             }
-            else 
+            else if(1 < formSearchModel.Back_History.Count)
             {
-                Console.WriteLine("ButtonOn↓-----------------------------");
-                formSearchModel = formSearchModel.Back_History[formSearchModel.Back_History.Count - 2];
-                //formSearchModel.Back_History.RemoveAt(formSearchModel.Back_History.Count - 1);
-                
-
-                foreach (var i in formSearchModel.Back_History)
+                try
                 {
-                    Console.WriteLine(i.IndexURL);
-                    Console.WriteLine(i.Back_History.Count);
-                    for(int y = 0; y < i.Back_History.Count; y++)
+                    //現在値、退避用
+                    FormSearchDataModel Temp_formSearchModel;
+                    Temp_formSearchModel = formSearchModel.Back_History[formSearchModel.Back_History.Count - 1].Deep_Copy();
+                    
+                    formSearchModel = formSearchModel.Back_History[formSearchModel.Back_History.Count - 2];
+                    formSearchModel.Next_History.Add(Temp_formSearchModel.Deep_Copy());
+
+                    //デバッグ用
+                    foreach (var i in formSearchModel.Back_History)
                     {
-                        Console.WriteLine("┗" + i.Back_History[y].IndexURL);
-                    }
+                        Console.WriteLine(i.IndexURL);
+                        Console.WriteLine(i.Back_History.Count);
+                        for (int y = 0; y < i.Back_History.Count; y++)
+                        {
+                            Console.WriteLine("┗" + i.Back_History[y].IndexURL);
+                        }
+                    }   
+                    //StateHasChanged();
                 }
-               
-                Console.WriteLine("ButtonOn-----------------------------");
-                //StateHasChanged();
-            }
-
-
-
-            /*
-            if (formSearchModel.PhaseNo == 1)
-            {
-                formSearchModel.IndexURL = formSearchModel.CurrentURL;
-                StateHasChanged();
+                catch (System.ArgumentOutOfRangeException e) //Back_History-2の位置に値が入っていなかったとき
+                {
+                    Console.WriteLine("予期せぬエラー -> MainLayout:003(配列不正)");
+                    formSearchModel.Back_History.Clear();
+                    formSearchModel.Next_History.Clear();
+                    formSearchModel.IndexURL = "Index";
+                    StateHasChanged();
+                }
             }
             else
             {
-                formSearchModel.PhaseNo = formSearchModel.PhaseNo - 1;
-                formSearchModel.State = true;
+                //BackHistoryに値が入っていない場合エラー
+                Console.WriteLine("予期せぬエラー -> MainLayout:004(Back_Historyエラー)");
+                formSearchModel.Back_History.Clear();
+                formSearchModel.Next_History.Clear();
+                formSearchModel.IndexURL = "Index";
                 StateHasChanged();
-
             }
-            */
-
+            Console.WriteLine("ButtonOn-----------------------------");
         }
 
-
-
-
-
-
-
-
-
-        /*保留
+        /*接続状態表示（保留）
         //public static ValueTask<Boolean> NetworkState { get; set; }
 
         public static Boolean NetworkState { get; set; }

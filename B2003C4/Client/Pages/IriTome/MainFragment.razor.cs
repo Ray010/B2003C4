@@ -286,18 +286,6 @@ namespace B2003C4.Client.Pages.IriTome
             Phase1Data.Back_History.Add(Phase1Data.Deep_Copy());   //.Add(CurrentPage);
             Phase1DataChanged.InvokeAsync(Phase1Data);
 
-            foreach (var i in Phase1Data.Back_History)
-            {
-                Console.WriteLine(i.IndexURL);
-                Console.WriteLine(i.Back_History.Count);
-                for (int y = 0; y < i.Back_History.Count; y++)
-                {
-                    Console.WriteLine("┗" + i.Back_History[y].IndexURL);
-                }
-            }
-
-
-
             //System.Threading.Thread.Sleep(1000);
 
             Console.WriteLine("MainFragment OK");
@@ -431,8 +419,6 @@ namespace B2003C4.Client.Pages.IriTome
 
         public async void JumpPage(DummyDataModel.Dokusya OnDokusya)
         {
-            Phase1Data.Back_History.Add(Phase1Data);
-
             Phase1Data.S_DokusyaCode = OnDokusya.DokusyaCode;
             Phase1Data.S_DokusyaName = OnDokusya.DokusyaName;
             Phase1Data.S_BuildingName = OnDokusya.BuildingName;
