@@ -1,0 +1,22 @@
+﻿@page "/TimeRoom/Parent"
+
+<h1>Parent Component</h1>
+
+<p>Parent <code>year</code>: @year</p>
+
+<button @onclick="UpdateYear">Update Parent <code>year</code></button>
+
+<Child @bind-Year1="year" @bind-Year1:event="YearChanged" />
+@*Bind- 子コンポーネントに代入したい値　*@
+
+<Child @bind-Year="year" @bind-Year:event="YearChanged" />
+
+@code {
+    private Random r = new Random();
+    private int year = 1979;
+
+    private void UpdateYear()
+    {
+        year = r.Next(1950, 2021);
+    }
+}

@@ -1,0 +1,226 @@
+﻿@page "/ReceiveDataFragment"
+
+
+@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Threading.Tasks;
+@using Microsoft.AspNetCore;
+@using System.IO;
+
+
+
+@inject IJSRuntime JSRuntime;
+@inject HttpClient httpClient
+
+
+
+
+
+
+<html>
+
+<head>
+
+    <meta charset="Shift-JIS" />
+    <meta http-equiv="content-language" content="ja" />
+    <meta name="google" content="notranslate" />
+    <style type="text/css">
+
+        table {
+            display: table;
+            table-layout: fixed;
+            text-align: center;
+            width: 100%;
+        }
+
+        .form-check-inline {
+            margin-right: 0rem;
+        }
+
+        .table-top-margin{
+            margin-top: 3rem;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h6>受信するデータを選択して、<p></p>データ受信をタップしてください。</h6>
+
+    <div class="card" style="width: 100%">
+        <table class="table table-sm">
+            <tbody>
+                <tr align="center">
+                    <th colspan="3">&nbsp;</th>
+                    <th><button type="button" class="Bug btn btn-primary">入止</button></th>
+                    <th><button type="button" class="Bug btn btn-primary">過去</button></th>
+                    <th><button type="button" class="Bug btn btn-primary">配達</button></th>
+                    <th><button type="button" class="Bug btn btn-primary">監査</button></th>
+                </tr>
+
+
+                @foreach (var x in TenpoList)
+                {
+
+                    <tr>
+                        <td align="left" colspan="7">@x.TenpoName</td>
+                    </tr>
+
+                    TenpoNoTemp = x.TenpoNo;
+
+                    foreach (var y in ReceiveTenpoFileList)
+                    {
+
+                        if (TenpoNoTemp == y.TenpoNo)
+                        {
+
+                            <tr align="center">
+
+                                <td align="right" class="Chktext-Base" colspan="3">@y.KuikiNo</td>
+
+                                <!--入止のDBファイルの確認-->
+                                @if (true == y.IriTome)
+                                {
+
+                                    <td><input class="form-check form-check-inline" type="checkbox" id="check4" checked></td>
+
+                                }
+                                else
+                                {
+
+                                    <td><input class="form-check form-check-inline" type="checkbox" id="check4" disabled></td>
+
+                                }
+                                <!--入止のDBファイルの確認終わり-->
+                                <!--過去のDBファイルの確認-->
+                                @if (true == y.Kako)
+                                {
+
+                                    <td><input class="form-check form-check-inline" type="checkbox" id="check4" checked></td>
+
+                                }
+                                else
+                                {
+
+                                    <td><input class="form-check form-check-inline" type="checkbox" id="check4" disabled></td>
+
+                                }
+                                <!--過去のDBファイルの確認終わり-->
+                                <!--配達のDBファイルの確認-->
+                                @if (true == y.Haitatsu)
+                                {
+
+                                    <td><input class="form-check form-check-inline" type="checkbox" id="check4" checked></td>
+
+                                }
+                                else
+                                {
+
+                                    <td><input class="form-check form-check-inline" type="checkbox" id="check4" disabled></td>
+
+                                }
+                                <!--配達のDBファイルの確認終わり-->
+                                <!--監査のDBファイルの確認-->
+                                @if (true == y.Kansa)
+                                {
+
+                                    <td><input class="form-check form-check-inline" type="checkbox" id="check4" checked></td>
+
+                                }
+                                else
+                                {
+
+                                    <td><input class="form-check form-check-inline" type="checkbox" id="check4" disabled></td>
+
+                                }
+                                <!--監査のDBファイルの確認終わり-->
+
+                            </tr>
+
+                        }
+
+                    }
+
+                }
+
+
+            </tbody>
+        </table>
+
+
+
+    </div>
+    <table class="table-top-margin">
+
+        <tr align="center">
+            <th colspan="1">&nbsp;</th>
+            <th colspan="3"><button type="button" class="Bug btn btn-secondary btn-block">全選択</button></th>
+            <th colspan="1">&nbsp;</th>
+            <th colspan="3"><button type="button" class="Bug btn btn-secondary btn-block">全解除</button></th>
+            <th colspan="1">&nbsp;</th>            
+        </tr>
+        <tr>
+            <th colspan="1">&nbsp;</th>
+            <th colspan="7"><button type="button" class="Bug btn btn-primary btn-block">データ受信</button></th>
+            <th colspan="1">&nbsp;</th>
+
+        </tr>
+
+
+
+    </table>
+
+
+
+
+    <h6>
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="Bug bi bi-bug" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6H4a3.99 3.99 0 0 1 1.333-2.982A3.983 3.983 0 0 1 8 2c1.025 0 1.959.385 2.666 1.018A3.989 3.989 0 0 1 12 6z" />
+        </svg>
+    </h6>
+
+
+</body>
+</html>
+
+
+
+
+@code {
+
+    /*とりあえず保留
+
+    private DirectoryInfo di;
+
+    private FileInfo[] dx;
+
+    public string IriDomeDBPath = @"~/";
+
+    string ParamX;
+
+    string CountX;
+
+    public async void callJS()
+    {
+        string Param = "ninnin";
+        await JSRuntime.InvokeVoidAsync("FromBlazorFanc",Param);
+        ParamX = await JSRuntime.InvokeAsync<string>("FromBlazorFanc");
+        CountX = await JSRuntime.InvokeAsync<string>("SystemStatus");
+
+    }
+
+
+
+    private void IncrementCount()
+    {
+
+        di = new DirectoryInfo(IriDomeDBPath).Root;
+        dx = di.GetFiles();
+
+
+    }
+    */
+
+}

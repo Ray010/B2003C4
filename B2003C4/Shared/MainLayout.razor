@@ -1,0 +1,121 @@
+﻿@inherits LayoutComponentBase
+
+<style>
+
+    .bg {
+        background-color: #ededed;
+    }
+
+    .wrapper {
+        position: relative;
+    }
+
+    footer {
+        width: 100%;
+        position: fixed;
+        bottom: 0vh;
+        left: 0vw;
+    }
+
+    @*ボタン関連-------------------------------------------*@
+    .Text_Color {
+        color: #FFFFFF;
+    }
+
+    #Back_button_Fixed {
+        padding: 1rem;
+        bottom: 2vh;
+        left: 4vw;
+        position: fixed;
+        border-radius: 100%;
+    }
+    #Next_button_Fixed {
+        padding: 1rem;
+        bottom: 16vh;
+        left: 4vw;
+        position: fixed;
+        border-radius: 100%;
+    }
+</style>
+
+<div class="sidebar fixed-top">
+    <NavMenu @bind-CurrentPage="formSearchModel" />
+
+</div>
+
+<div class="wrapper main Page-Margin bg">
+
+
+    <div class="top-row px-4 fixed-top">
+
+
+        @if (true == true)
+        {
+            <div>サーバーステータス：接続</div>
+        }
+        else
+        {
+            <div>サーバーステータス：未接続</div>
+        }
+    </div>
+
+    <div class="content px-4 Bg_Color">
+        @*@Body*@
+
+        @switch (formSearchModel.IndexURL)
+        {
+            case "":
+
+                break;
+
+            case "Index":
+                <Index @bind-CurrentPage="formSearchModel" />
+                break;
+
+            case "IriTome":
+                <IriTomeParent @bind-CurrentPage="formSearchModel" />
+                break;
+
+            case "Kako":
+                <KakoParent @bind-CurrentPage="formSearchModel" />
+                break;
+
+            case "Kansa":
+                <KansaParent @bind-CurrentPage="formSearchModel" />
+                break;
+        }
+
+
+
+    </div>
+</div>
+
+<div>
+    <button id="Next_button_Fixed" class="btn btn-warning Text_Color" @onclick="NextPage">
+        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-bar-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z" />
+        </svg>
+    </button>
+</div>
+
+<div>
+    <button id="Back_button_Fixed" class="btn btn-warning Text_Color" @onclick="BackPage">
+        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-bar-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z" />
+        </svg>
+    </button>
+</div>
+
+
+
+
+
+
+@code{
+    @using B2003C4.Data;
+    @using B2003C4.Pages.IriTome;
+    @using B2003C4.Pages.Kako;
+    @using B2003C4.Pages.Kansa;
+
+
+}
