@@ -61,8 +61,14 @@ namespace B2003C4.Pages.IriTome
         {
             //CurrentPageChanged.InvokeAsync(CurrentPage);
         }
+
+        public List<string> DebugText = new List<string>{
+            new string("Start"),
         
-        void a()
+        };
+
+        
+        void Debug()
         {
             /*
             Random rnd = new Random();
@@ -71,16 +77,16 @@ namespace B2003C4.Pages.IriTome
 
             StateHasChanged();
             */
+            DebugText.Clear();
             string msg = "IriTomeParent ->";
             Console.WriteLine("IriTomeParent↓---------------------------");
+            DebugText.Add("IriTomeParent↓---------------------------");
+
             Console.WriteLine("リセット");
-            Console.WriteLine(msg+"IndexURL " + CurrentPage.IndexURL) ;
-            Console.WriteLine(msg+"PhaseNo "+CurrentPage.PhaseNo);
-            Console.WriteLine(msg + C);
 
             foreach (var i in CurrentPage.Back_History)
             {
-                Console.WriteLine("Baxk------------------------------------");
+                Console.WriteLine("Back------------------------------------");
                 Console.WriteLine(i.IndexURL);
                 Console.WriteLine(i.Back_History.Count);
                 for (int y = 0; y < i.Back_History.Count; y++)
@@ -88,6 +94,16 @@ namespace B2003C4.Pages.IriTome
                     Console.WriteLine("┗" + i.Back_History[y].IndexURL);
                 }
                 Console.WriteLine("----------------------------------------");
+
+                DebugText.Add("Back------------------------------------");
+                DebugText.Add(i.IndexURL);
+
+                for (int y = 0; y < i.Back_History.Count; y++)
+                {
+                    DebugText.Add("┗" + i.Back_History[y].IndexURL);
+                }
+                DebugText.Add("----------------------------------------");
+
             }
 
             foreach (var i in CurrentPage.Next_History)
@@ -101,17 +117,13 @@ namespace B2003C4.Pages.IriTome
                 }
                 Console.WriteLine("----------------------------------------");
             }
-
-
             Console.WriteLine("IriTomeParent OK");
             Console.WriteLine("IriTome---------------------------");
         }
 
-        public int C;
         protected override void OnInitialized()
         {
-            //CurrentPageChanged.InvokeAsync(CurrentPage);
-            C++;
+
         }
     }
 }

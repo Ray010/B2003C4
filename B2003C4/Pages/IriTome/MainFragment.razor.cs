@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System.Runtime.CompilerServices;
 using System.Diagnostics.CodeAnalysis;
 
-
+using B2003C4.Class;
 using B2003C4.Data;
 
 namespace B2003C4.Pages.IriTome
@@ -284,6 +284,12 @@ namespace B2003C4.Pages.IriTome
             */
 
             Phase1Data.Back_History.Add(Phase1Data.Deep_Copy());   //.Add(CurrentPage);
+
+            if (Phase1Data.Back_History.Count >= 10)
+            {
+                Console.WriteLine("Dele");
+                Phase1Data.Back_History.RemoveRange(0, Phase1Data.Back_History.Count - 6);
+            }
             Phase1DataChanged.InvokeAsync(Phase1Data);
 
             //System.Threading.Thread.Sleep(1000);

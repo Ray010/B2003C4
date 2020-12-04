@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Components.Web;
 using System.Web;
 using Microsoft.JSInterop;
 using B2003C4.Data;
+using B2003C4.Class;
 using System.Runtime.Serialization.Formatters.Binary;
 
 
@@ -29,25 +30,24 @@ namespace B2003C4.Pages
         public FormSearchDataModel Base_CurrentPage;
 
 
+        [Parameter]
+        public FormSearchDataModel CurrentPage { get; set; }
+
+        [Parameter]
+        public EventCallback<FormSearchDataModel> CurrentPageChanged { get; set; }
+
+        private FormSearchDataModel _currentPage;
+
+
         protected override void OnInitialized()
         {
-            //JSRuntime.InvokeVoidAsync("Back",Navi.Uri);
             CurrentPage.Back_History.Add(CurrentPage.Deep_Copy());   //.Add(CurrentPage);
-            CurrentPageChanged.InvokeAsync(CurrentPage);
-            Console.WriteLine(msg + CurrentPage.Back_History.Count); //バックhistoryが何個あるか
-            //CurrentPageChanged.InvokeAsync(CurrentPage);
-
-            /*
-            //デバッグ用
-            Console.WriteLine("Index---------------------------");
-            foreach(var i in CurrentPage.Back_History)
+            if(CurrentPage.Back_History.Count >= 5)
             {
-                Console.WriteLine(msg + i.IndexURL);
+                Console.WriteLine("Dele");
+                CurrentPage.Back_History.RemoveRange(0, 2);
             }
-            Console.WriteLine(msg + "OK");
-            Console.WriteLine("Index---------------------------");
-            */
-
+            CurrentPageChanged.InvokeAsync(CurrentPage);
         }
 
         void Up()
@@ -55,72 +55,15 @@ namespace B2003C4.Pages
             CurrentPage.S_DokusyaCode = CurrentPage.S_DokusyaCode + 1;
             CurrentPageChanged.InvokeAsync(CurrentPage);
             Console.WriteLine(msg + "UP" + _currentPage.IndexURL);
-
         }
-
-
-        [Parameter]
-        public FormSearchDataModel CurrentPage { get; set; }
-        /*
-        [Parameter]
-        public FormSearchDataModel CurrentPage
-        {
-            get { return _currentPage; }
-            set
-            {
-                _currentPage = value;
-                Console.WriteLine("02" + msg + _currentPage.IndexURL);
-                if (Equals(_currentPage, Base_CurrentPage))
-                {
-                    CurrentPageChanged.InvokeAsync(CurrentPage);
-                    Base_CurrentPage = CurrentPage;
-                    Console.WriteLine(msg + "ValueReplace");
-                }
-            }
-        }
-        */
-
-        [Parameter]
-        public EventCallback<FormSearchDataModel> CurrentPageChanged { get; set; }
-
-        private FormSearchDataModel _currentPage;
 
         public async void JumpPage(string URLx)
         {
-            //Base_CurrentPage = 
-            //Console.WriteLine(CurrentPage.Deep_Copy().IndexURL);
-            //CurrentPage.Back_History.Add(Base_CurrentPage);
-
-            //CurrentPage.Back_History.Add(CurrentPage);
-
-            Console.WriteLine("Index1---------------------------");
-            foreach (var i in CurrentPage.Back_History)
-            {
-                Console.WriteLine(msg + i.IndexURL);
-                Console.WriteLine(msg + i.Back_History.Count); //i番目のhistoryバックの中に何個入っているか
-                //Console.WriteLine(msg + i.Back_History[0].IndexURL);
-            }
-            Console.WriteLine(msg + "OK");
-            Console.WriteLine("Index1---------------------------");
-
             CurrentPage.CurrentURL = CurrentPage.IndexURL;
             CurrentPage.IndexURL = URLx;
+            CurrentPage.PhaseNo = 1;
             await CurrentPageChanged.InvokeAsync(CurrentPage);
-
-
-            /*デバッグ用
-            Console.WriteLine("Index2---------------------------");
-            foreach (var i in CurrentPage.Back_History)
-            {
-                Console.WriteLine(msg + i.IndexURL);
-                Console.WriteLine(msg + i.Back_History.Count);
-                Console.WriteLine(msg + i.Back_History[i.Back_History.Count -1 ].IndexURL);
-            }
-            Console.WriteLine(msg + "OK");
-            Console.WriteLine("Index2---------------------------");
-            */
-            
-            
+                        
             StateHasChanged();
         }
     }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using B2003C4.Data;
+using B2003C4.Class;
 
 namespace B2003C4.Shared
 {
@@ -26,15 +27,12 @@ namespace B2003C4.Shared
             Console.WriteLine(formSearchModel.Next_History.Count);
         }
 
-
-
         public void NextPage()
         {
             if(formSearchModel.Next_History.Count <= 0)
             {
                 //何もしない
             }
-
             else if(formSearchModel.Next_History.Count >= 1)
             {
                 try
@@ -76,6 +74,11 @@ namespace B2003C4.Shared
                     Temp_formSearchModel = formSearchModel.Back_History[formSearchModel.Back_History.Count - 1].Deep_Copy();
                     
                     formSearchModel = formSearchModel.Back_History[formSearchModel.Back_History.Count - 2];
+                    if (formSearchModel.Back_History.Count >= 5)
+                    {
+                        Console.WriteLine("Dele");
+                        formSearchModel.Back_History.RemoveRange(0, 2 );
+                    }
                     formSearchModel.Next_History.Add(Temp_formSearchModel.Deep_Copy());
 
                     //デバッグ用
@@ -109,6 +112,14 @@ namespace B2003C4.Shared
                 StateHasChanged();
             }
             Console.WriteLine("ButtonOn-----------------------------");
+        }
+
+        public void test()
+        {
+            for(int i=0;i<=10;i++)
+            { 
+                formSearchModel.Back_History.Add(formSearchModel);
+            }
         }
 
         /*接続状態表示（保留）

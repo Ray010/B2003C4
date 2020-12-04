@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
-namespace B2003C4.Data
+namespace B2003C4.Class
 {
     public static class DeepCopy
     {

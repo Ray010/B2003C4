@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using B2003C4.Data;
+using B2003C4.Class;
 
 using System.Text;
 
@@ -46,8 +47,6 @@ namespace B2003C4.Pages.Common
 
         protected override void OnInitialized()
         {
-            Console.WriteLine(CommonPhase1.S_DokusyaName);
-            Console.WriteLine(CommonPhase1.S_DokusyaCode);
             KoumokuList[0].Value = CommonPhase1.S_DokusyaCode.ToString();
             KoumokuList[1].Value = CommonPhase1.S_DokusyaName;
             KoumokuList[2].Value = CommonPhase1.S_BuildingName;
@@ -70,22 +69,14 @@ namespace B2003C4.Pages.Common
                     continue;
                 }
             }
+
             CommonPhase1.Back_History.Add(CommonPhase1.Deep_Copy());   //.Add(CurrentPage);
-            CommonPhase1Changed.InvokeAsync(CommonPhase1);
-
-            foreach (var i in CommonPhase1.Back_History)
+            if (CommonPhase1.Back_History.Count >= 5)
             {
-                Console.WriteLine(i.IndexURL);
-                Console.WriteLine(i.Back_History.Count);
-                for (int y = 0; y < i.Back_History.Count; y++)
-                {
-                    Console.WriteLine("┗" + i.Back_History[y].IndexURL);
-                }
+                Console.WriteLine("Dele");
+                CommonPhase1.Back_History.RemoveRange(0,  2);
             }
-
-
-            Console.WriteLine("DokusyaActivity");
-            
+            CommonPhase1Changed.InvokeAsync(CommonPhase1);
         } 
 
         public int Count { get; set; }
@@ -109,13 +100,11 @@ namespace B2003C4.Pages.Common
             new Koumoku ("集金メモ","MoneyRemarks",""),
             new Koumoku ("分類","Class",""),
             new Koumoku ("ランク","Lank",""),
-
         };
 
         List<Dokusya> DokusyaList = new List<Dokusya>()
         {
             new Dokusya("114514","えびぬま　つなき","えびぬますかいたわーX 114514","海老沼北１","１１４－５１４","11-4514-1919")
-
         };
 
         List<Meihan> MeihanList = new List<Meihan>()
@@ -132,7 +121,6 @@ namespace B2003C4.Pages.Common
             new Meihan("114514","朝","19/19","20/11","海老沼団","10","","先起こし","19/11/19","契約","25/12"),
             new Meihan("114514","朝","19/19","20/11","海老沼団","11","","先起こし","19/11/19","契約","25/12"),
         };
-
         
         public class Dokusya //読者情報格納用（仮）
         {
@@ -144,7 +132,6 @@ namespace B2003C4.Pages.Common
             public string CityFullName; //二人は住所
             public string PhoneNo; //電話番号
 
-
             public Dokusya(string dokusyaNo , string dokusyaName , string buildingName , string cityName ,string cityAddress , string phoneNo )
             {
                 DokusyaNo = dokusyaNo;
@@ -152,7 +139,6 @@ namespace B2003C4.Pages.Common
                 BuildingName = buildingName;
                 CityFullName = cityName + cityAddress;
                 PhoneNo = phoneNo;
-
             }
 
         }
@@ -172,7 +158,6 @@ namespace B2003C4.Pages.Common
                 HeadingCode = headingCode;
 
                 Value = value;
-                
             }
 
         }
@@ -222,9 +207,6 @@ namespace B2003C4.Pages.Common
 
         public void ButtonChange()
         {
-            
-
-
             if(ButtonColor == "#01579B")
             {
                 ButtonColor = "#B71C1C";
@@ -245,8 +227,6 @@ namespace B2003C4.Pages.Common
             Navi.NavigateTo("https://www.google.com/maps/search/?api=1&query=" + CommonPhase1.S_CityName +
                 "丁目" + CommonPhase1.S_CityAddress);
         }
-
-
 
     }
 }

@@ -6,51 +6,38 @@
 
 @*https://chrissainty.com/using-javascript-interop-in-razor-components-and-blazor/*@
 
-
-@*
-    @if(CurrentPage.State)
-    {
-        Rewrite();
-    }
-*@
-
-
 @switch (CurrentPage.PhaseNo)
 {
-
-
     case 0:
         goto default;
 
     case 1:
-
         <MainFragment @bind-Phase1Data="CurrentPage" @bind-DBSourceData="DBData" @bind-SearchResultData="ResultData" />
-        Console.WriteLine("1");
         goto End;
 
     case 2:
         <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" @bind-KoudokuList="KoudokuList" />
-        Console.WriteLine("2");
         goto End;
 
-
     End:
-        Console.WriteLine("True");
-        write();
         break;
 
 
     default:
-
         <div>ハンドリングエラー:存在しないページ（PhaseNo:@CurrentPage.S_PhoneNo )</div>
         break;
 
 }
 
-<button @onclick="a">デバッグ用</button>
+<button @onclick="Debug">デバッグ用</button>
+
+@foreach(var x in DebugText)
+{
+    <div>@x</div>
+}
+
 
 @*public EventCallback<string> PageNameChanged { get; set; }で変えた際はyearも変わる*@
-
 
 @code {
     //private FormSearchDataModel formDataModel = new FormSearchDataModel();
