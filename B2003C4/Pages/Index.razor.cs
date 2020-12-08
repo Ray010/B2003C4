@@ -41,11 +41,11 @@ namespace B2003C4.Pages
 
         protected override void OnInitialized()
         {
-            CurrentPage.Back_History.Add(CurrentPage.Deep_Copy());   //.Add(CurrentPage);
-            if(CurrentPage.Back_History.Count >= 5)
+            History.Back_History.Add(CurrentPage.Deep_Copy());   //.Add(CurrentPage);
+            if(History.Back_History.Count >= 5)
             {
                 Console.WriteLine("Dele");
-                CurrentPage.Back_History.RemoveRange(0, 2);
+                History.Back_History.RemoveRange(0, 2);
             }
             CurrentPageChanged.InvokeAsync(CurrentPage);
         }

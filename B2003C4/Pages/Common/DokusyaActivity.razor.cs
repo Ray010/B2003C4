@@ -70,11 +70,11 @@ namespace B2003C4.Pages.Common
                 }
             }
 
-            CommonPhase1.Back_History.Add(CommonPhase1.Deep_Copy());   //.Add(CurrentPage);
-            if (CommonPhase1.Back_History.Count >= 5)
+            History.Back_History.Add(CommonPhase1.Deep_Copy());   //.Add(CurrentPage);
+            if (History.Back_History.Count >= 5)
             {
                 Console.WriteLine("Dele");
-                CommonPhase1.Back_History.RemoveRange(0,  2);
+                History.Back_History.RemoveRange(0,  2);
             }
             CommonPhase1Changed.InvokeAsync(CommonPhase1);
         } 

@@ -24,26 +24,26 @@ namespace B2003C4.Shared
 
         protected override void OnInitialized()
         {
-            Console.WriteLine(formSearchModel.Next_History.Count);
+            Console.WriteLine(History.Next_History.Count);
         }
 
         public void NextPage()
         {
-            if(formSearchModel.Next_History.Count <= 0)
+            if(History.Next_History.Count <= 0)
             {
                 //何もしない
             }
-            else if(formSearchModel.Next_History.Count >= 1)
+            else if(History.Next_History.Count >= 1)
             {
                 try
                 {
-                    formSearchModel = formSearchModel.Next_History[formSearchModel.Next_History.Count - (formSearchModel.Next_History.Count - 1) - 1];
+                    formSearchModel = History.Next_History[History.Next_History.Count - (History.Next_History.Count - 1) - 1];
                 }
                 catch(System.ArgumentOutOfRangeException e)
                 {
                     Console.WriteLine("予期せぬエラー -> MainLayout:001(配列不正)");
-                    formSearchModel.Back_History.Clear();
-                    formSearchModel.Next_History.Clear();
+                    History.Back_History.Clear();
+                    History.Next_History.Clear();
                     formSearchModel.IndexURL = "Index";
 
                 }
@@ -51,8 +51,8 @@ namespace B2003C4.Shared
             else
             {
                 Console.WriteLine("予期せぬエラー -> MainLayout:002(Back_Historyエラー)");
-                formSearchModel.Back_History.Clear();
-                formSearchModel.Next_History.Clear();
+                History.Back_History.Clear();
+                History.Next_History.Clear();
                 formSearchModel.IndexURL = "Index";
 
             }
@@ -61,55 +61,59 @@ namespace B2003C4.Shared
         public void BackPage()
         {
             Console.WriteLine("ButtonOn↓-----------------------------");
-            if (formSearchModel.Back_History.Count <= 1)
+            if (History.Back_History.Count <= 1)
             {
                 //何もしない
             }
-            else if(1 < formSearchModel.Back_History.Count)
+            else if(1 < History.Back_History.Count)
             {
                 try
                 {
                     //現在値、退避用
                     FormSearchDataModel Temp_formSearchModel;
-                    Temp_formSearchModel = formSearchModel.Back_History[formSearchModel.Back_History.Count - 1].Deep_Copy();
-                    
-                    formSearchModel = formSearchModel.Back_History[formSearchModel.Back_History.Count - 2];
-                    if (formSearchModel.Back_History.Count >= 5)
+                    Temp_formSearchModel = History.Back_History[History.Back_History.Count - 1]; //.Deep_Copy(); //今の値をTempにDコピー
+
+                    formSearchModel = null;
+                    formSearchModel = History.Back_History[History.Back_History.Count - 2].Deep_Copy(); //ひとつ前の値をコピー
+                    if (History.Back_History.Count >= 5) //削除処理
                     {
                         Console.WriteLine("Dele");
-                        formSearchModel.Back_History.RemoveRange(0, 2 );
-                    }
-                    formSearchModel.Next_History.Add(Temp_formSearchModel.Deep_Copy());
+                        History.Back_History.RemoveRange(0, 2 );
+                    } //ここまで
+
+                    History.Next_History.Add(Temp_formSearchModel.Deep_Copy());
 
                     //デバッグ用
-                    foreach (var i in formSearchModel.Back_History)
+                    foreach (var i in History.Back_History)
                     {
                         Console.WriteLine(i.IndexURL);
+                        /*
                         Console.WriteLine(i.Back_History.Count);
                         for (int y = 0; y < i.Back_History.Count; y++)
                         {
                             Console.WriteLine("┗" + i.Back_History[y].IndexURL);
                         }
+                        */
                     }   
                     //StateHasChanged();
                 }
                 catch (System.ArgumentOutOfRangeException e) //Back_History-2の位置に値が入っていなかったとき
                 {
                     Console.WriteLine("予期せぬエラー -> MainLayout:003(配列不正)");
-                    formSearchModel.Back_History.Clear();
-                    formSearchModel.Next_History.Clear();
+                    History.Back_History.Clear();
+                    History.Next_History.Clear();
                     formSearchModel.IndexURL = "Index";
-                    StateHasChanged();
+
                 }
             }
             else
             {
                 //BackHistoryに値が入っていない場合エラー
                 Console.WriteLine("予期せぬエラー -> MainLayout:004(Back_Historyエラー)");
-                formSearchModel.Back_History.Clear();
-                formSearchModel.Next_History.Clear();
+                History.Back_History.Clear();
+                History.Next_History.Clear();
                 formSearchModel.IndexURL = "Index";
-                StateHasChanged();
+
             }
             Console.WriteLine("ButtonOn-----------------------------");
         }
@@ -118,7 +122,7 @@ namespace B2003C4.Shared
         {
             for(int i=0;i<=10;i++)
             { 
-                formSearchModel.Back_History.Add(formSearchModel);
+                History.Back_History.Add(formSearchModel);
             }
         }
 

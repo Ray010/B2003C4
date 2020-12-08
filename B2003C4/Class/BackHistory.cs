@@ -11,12 +11,14 @@ namespace B2003C4.Class
     {
         public BackHistory(FormSearchDataModel formList , EventCallback<FormSearchDataModel> formListChanged)
         {
+            /*
             formList.Back_History.Add(formList.Deep_Copy());
             if(formList.Back_History.Count == 10)
             {
                 formList.Back_History.RemoveRange(0, 5);
             }
             formListChanged.InvokeAsync(formList);
+            */
         }
     }
 }

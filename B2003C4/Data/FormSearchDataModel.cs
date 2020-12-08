@@ -66,9 +66,7 @@ namespace B2003C4.Data
 
         //public List<string> CheckResult = new List<string>();
 
-        public List<FormSearchDataModel> Next_History { get; set; } = new List<FormSearchDataModel>();
 
-        public List<FormSearchDataModel> Back_History { get; set; } = new List<FormSearchDataModel>();
     }
 
 }

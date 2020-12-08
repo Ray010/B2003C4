@@ -84,37 +84,43 @@ namespace B2003C4.Pages.IriTome
 
             Console.WriteLine("リセット");
 
-            foreach (var i in CurrentPage.Back_History)
+            foreach (var i in History.Back_History)
             {
                 Console.WriteLine("Back------------------------------------");
                 Console.WriteLine(i.IndexURL);
+                /*
                 Console.WriteLine(i.Back_History.Count);
                 for (int y = 0; y < i.Back_History.Count; y++)
                 {
                     Console.WriteLine("┗" + i.Back_History[y].IndexURL);
                 }
                 Console.WriteLine("----------------------------------------");
+                */
 
                 DebugText.Add("Back------------------------------------");
                 DebugText.Add(i.IndexURL);
 
+                /*
                 for (int y = 0; y < i.Back_History.Count; y++)
                 {
                     DebugText.Add("┗" + i.Back_History[y].IndexURL);
                 }
+                */
                 DebugText.Add("----------------------------------------");
 
             }
 
-            foreach (var i in CurrentPage.Next_History)
+            foreach (var i in History.Next_History)
             {
                 Console.WriteLine("Next------------------------------------");
                 Console.WriteLine(i.IndexURL);
+                /*
                 Console.WriteLine(i.Next_History.Count);
                 for (int y = 0; y < i.Next_History.Count; y++)
                 {
                     Console.WriteLine("┗" + i.Next_History[y].IndexURL);
                 }
+                */
                 Console.WriteLine("----------------------------------------");
             }
             Console.WriteLine("IriTomeParent OK");

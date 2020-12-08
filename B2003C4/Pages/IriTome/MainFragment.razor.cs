@@ -283,12 +283,12 @@ namespace B2003C4.Pages.IriTome
             Phase1DataChanged.InvokeAsync(Phase1Data);
             */
 
-            Phase1Data.Back_History.Add(Phase1Data.Deep_Copy());   //.Add(CurrentPage);
+            History.Back_History.Add(Phase1Data.Deep_Copy());   //.Add(CurrentPage);
 
-            if (Phase1Data.Back_History.Count >= 10)
+            if (History.Back_History.Count >= 10)
             {
                 Console.WriteLine("Dele");
-                Phase1Data.Back_History.RemoveRange(0, Phase1Data.Back_History.Count - 6);
+                History.Back_History.RemoveRange(0, History.Back_History.Count - 6);
             }
             Phase1DataChanged.InvokeAsync(Phase1Data);
 
