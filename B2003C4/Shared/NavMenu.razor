@@ -7,11 +7,21 @@
         padding: 0rem;
         
     }
+    .btn-Title {
+        display: inline-block;
+        color: black;
+
+    }
+    .btn-Title:not(:disabled):not(.disabled):active,
+    .btn-Title:not(:disabled):not(.disabled).active,
+    .show > .btn-menu.dropdown-toggle {
+        background-color: rgba(0, 0, 0, 0.00);
+    }
 
 </style>
 
 <div class="top-row pl-4 navbar navbar-dark ">
-    <a class="navbar-brand" href="">新聞モバイルシステム</a>
+    <button type="button" class="btn btn-Title navbar-brand" @onclick="@(s =>JumpPage("Index"))">新聞モバイルシステム</button>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -60,10 +70,30 @@
         </li>
 
         <li class="nav-item px-3" align="Right">
+            <div class="dropdown">
+                <button type="button" id="Ver"
+                        class="btn btn-secondary dropdown-toggle"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false">
+                    Ver:0.4.201209
+                </button>
+                <div class="dropdown-menu" aria-labelledby="Var">
+                    @foreach (var x in Varsion_History)
+                    {
+                        <span class="dropdown-item-text">@x</span>
+                    }
+
+                </div>
+            </div>
+
+
+
             <!--バージョン:メジャー.マイナー.最終更新日-->
-            Ver:0.3.201204
+            @*Var:0.4.201209*@
             @*0.2.201204 -> 戻る進むボタン追加(IriTomeのみ)*@
             @*0.3.201204 -> Blazor Server化*@
+            @*0.4.201209 -> メニュー画面をご指摘いただいた内容に変更*@
         </li>
 
     </ul>
@@ -81,4 +111,12 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
+
+    public List<string> Varsion_History = new List<string>
+    {
+        new string("0.2.201204 -> 戻る進むボタン追加(IriTomeのみ)"),
+        new string("0.3.201204 -> Blazor Server化"),
+        new string("0.4.201209 -> メニュー画面をご指摘いただいた内容に変更"),
+    };
+
 }

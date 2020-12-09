@@ -27,6 +27,7 @@ namespace B2003C4.Shared
             Console.WriteLine(History.Next_History.Count);
         }
 
+        /*
         public void NextPage()
         {
             if(History.Next_History.Count <= 0)
@@ -57,7 +58,7 @@ namespace B2003C4.Shared
 
             }
         }
-
+        */
         public void BackPage()
         {
             Console.WriteLine("ButtonOn↓-----------------------------");
@@ -65,36 +66,39 @@ namespace B2003C4.Shared
             {
                 //何もしない
             }
+            /*
+            else if((formSearchModel.IriActive == false || formSearchModel.TomeActive == false)&& 
+                    formSearchModel.IndexURL == "IriTome" && formSearchModel.PhaseNo == 1)
+            {
+                formSearchModel.IriActive = true;
+                formSearchModel.TomeActive = true;
+
+            }
+            */
             else if(1 < History.Back_History.Count)
             {
                 try
                 {
                     //現在値、退避用
-                    FormSearchDataModel Temp_formSearchModel;
-                    Temp_formSearchModel = History.Back_History[History.Back_History.Count - 1]; //.Deep_Copy(); //今の値をTempにDコピー
+                    //FormSearchDataModel Temp_formSearchModel;
+                    //Temp_formSearchModel = History.Back_History[History.Back_History.Count - 1]; //.Deep_Copy(); //今の値をTempにDコピー 進がなくなったため無効化
 
                     formSearchModel = null;
                     formSearchModel = History.Back_History[History.Back_History.Count - 2].Deep_Copy(); //ひとつ前の値をコピー
-                    if (History.Back_History.Count >= 5) //削除処理
+                    History.Back_History.RemoveAt(History.Back_History.Count - 1);
+
+                    /*
+                    if (History.Back_History.Count >= 12) //削除処理
                     {
                         Console.WriteLine("Dele");
                         History.Back_History.RemoveRange(0, 2 );
                     } //ここまで
+                    */
 
-                    History.Next_History.Add(Temp_formSearchModel.Deep_Copy());
+                    //History.Next_History.Add(Temp_formSearchModel.Deep_Copy()); 進がなくなったため無効化
 
-                    //デバッグ用
-                    foreach (var i in History.Back_History)
-                    {
-                        Console.WriteLine(i.IndexURL);
-                        /*
-                        Console.WriteLine(i.Back_History.Count);
-                        for (int y = 0; y < i.Back_History.Count; y++)
-                        {
-                            Console.WriteLine("┗" + i.Back_History[y].IndexURL);
-                        }
-                        */
-                    }   
+
+                    formSearchModel.HistoryBackState = true;
                     //StateHasChanged();
                 }
                 catch (System.ArgumentOutOfRangeException e) //Back_History-2の位置に値が入っていなかったとき

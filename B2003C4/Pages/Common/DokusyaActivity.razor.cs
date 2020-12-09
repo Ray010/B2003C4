@@ -70,13 +70,16 @@ namespace B2003C4.Pages.Common
                 }
             }
 
-            History.Back_History.Add(CommonPhase1.Deep_Copy());   //.Add(CurrentPage);
-            if (History.Back_History.Count >= 5)
+            if(CommonPhase1.HistoryBackState == false)
             {
-                Console.WriteLine("Dele");
-                History.Back_History.RemoveRange(0,  2);
+                History.Back_History.Add(CommonPhase1.Deep_Copy());   //.Add(CurrentPage);
+                CommonPhase1Changed.InvokeAsync(CommonPhase1);
             }
-            CommonPhase1Changed.InvokeAsync(CommonPhase1);
+            else if (CommonPhase1.HistoryBackState == true)
+            {
+                CommonPhase1.HistoryBackState = false;
+                CommonPhase1Changed.InvokeAsync(CommonPhase1);
+            }
         } 
 
         public int Count { get; set; }
@@ -201,7 +204,12 @@ namespace B2003C4.Pages.Common
         public void JumpPage(string URLx)
         {
 
-            Navi.NavigateTo(URLx);
+
+
+            CommonPhase1.PhaseNo = 12;
+            CommonPhase1Changed.InvokeAsync(CommonPhase1);
+
+            //Navi.NavigateTo(URLx);
         
         }
 

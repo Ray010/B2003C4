@@ -10,5 +10,9 @@ namespace B2003C4.Data
         public static List<FormSearchDataModel> Next_History { get; set; } = new List<FormSearchDataModel>();
 
         public static List<FormSearchDataModel> Back_History { get; set; } = new List<FormSearchDataModel>();
+
+
+
+
     }
 }

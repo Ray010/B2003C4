@@ -12,6 +12,19 @@ namespace B2003C4.Data
     [Serializable]
     public class FormSearchDataModel
     {
+        //MainLayout-----------------------------------------
+        public Boolean HistoryBackState { get; set; } = false; //戻るボタンでページバックしたか
+        //---------------------------------------------------
+
+
+        //IriTome--------------------------------------------
+        public Boolean IriActive { get; set; } = true;
+
+        public Boolean TomeActive { get; set; } = true;
+        //---------------------------------------------------
+
+
+
 
         //画面制御用
         public Boolean State { get; set; } = false;

@@ -212,10 +212,11 @@
                         <!--入止ボタンで画面いっぱいに表示-->
 
                         <tr align="center">
-                            @if (IriActive == true)
+                            @if (Phase1Data.IriActive == true)
                             {
                                 <th colspan="10">
-                                    <button @onclick="IriButtonActive" type="button" class="btn btn-primary btn-block">
+                                    <button @onclick="@(s => ButtonActive("Iri"))" type="button" class="btn btn-primary btn-block">
+                                    @*<button @onclick="IriButtonActive" type="button" class="btn btn-primary btn-block">*@
                                         <table class="Card_table_Fixed">
                                             <tr>
                                                 <th colspan="2">入</th>
@@ -226,7 +227,7 @@
                                 </th>
                             }
 
-                            @if (IriActive == true && TomeActive == true)
+                            @if (Phase1Data.IriActive == true && Phase1Data.TomeActive == true)
                             {
 
                                 <th>&nbsp;</th>
@@ -234,10 +235,11 @@
                             }
 
 
-                            @if (TomeActive == true)
+                            @if (Phase1Data.TomeActive == true)
                             {
                                 <th colspan="10">
-                                    <button @onclick="TomeButtonActive" type="button" class="btn btn-danger btn-block">
+                                    <button @onclick="@(s =>ButtonActive("Tome"))" type="button" class="btn btn-danger btn-block">
+                                    @*<button @onclick="TomeButtonActive" type="button" class="btn btn-danger btn-block">*@
                                         <table class="Card_table_Fixed">
                                             <tr>
                                                 <th colspan="2">止</th>
@@ -245,7 +247,7 @@
                                             </tr>
                                         </table>
                                     </button>
-                                </th>
+</th>
                             }
                         </tr>
 
@@ -253,7 +255,7 @@
 
 
                         <tr>
-                            @if (IriActive == true)
+                            @if (Phase1Data.IriActive == true)
                             {
                                 <th class="Card_VerticalFix Card_parent" colspan="10">
                                     <table class="Card_table_Fixed">
@@ -285,7 +287,7 @@
                                                                 </tbody>
                                                             </table>
                                                         </button>
-                                                        <button type="button" class="btn btnW btn bg-success Card_NameButtonMarginChild Card_fontSizeMAX767 Card_child">訪</button>
+                                                        @*<button type="button" class="btn btnW btn bg-success Card_NameButtonMarginChild Card_fontSizeMAX767 Card_child">訪</button>*@
                                                         @*@onclick="@(s => JumpPage("./Common/Meet"))"*@
                                                     </div>
                                                 </td>
@@ -298,12 +300,12 @@
                             }
 
 
-                            @if (IriActive == true && TomeActive == true)
+                            @if (Phase1Data.IriActive == true && Phase1Data.TomeActive == true)
                             {
                                 <th colspan="1">&nbsp;</th>
                             }
 
-                            @if (TomeActive == true)
+                            @if (Phase1Data.TomeActive == true)
                             {
                                 <th class="Card_VerticalFix Card_parent" colspan="10">
                                     <table class="Card_table_Fixed">
@@ -333,7 +335,7 @@
                                                                     </tbody>
                                                                 </table>
                                                             </button>
-                                                            <button  type="button" class="btn btnW bg-success Card_NameButtonMarginChild Card_fontSizeMAX767 Card_child">訪</button>
+                                                            @*<button  type="button" class="btn btnW bg-success Card_NameButtonMarginChild Card_fontSizeMAX767 Card_child">訪</button> 訪問ボタン *@
                                                             @*@onclick="@(s => JumpPage("./Common/Meet"))"*@
                                                         </div>
                                                     </td>

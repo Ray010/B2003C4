@@ -38,16 +38,94 @@ namespace B2003C4.Pages
 
         private FormSearchDataModel _currentPage;
 
+        public Boolean Tenpo_SelectFlg { get; set; } = false;
+        string Tenpo_SelectedValue;
+        string Tenpo_SelectValue
+        { get => Tenpo_SelectedValue; set { Tenpo_SelectedValue = value; } } 
+
+
+        //Dummy---------------------------------------------------------------------------------------------
+
+
+
+
+        //店舗情報
+
+        List<Tenpo> TenpoList = new List<Tenpo>
+        {
+            new Tenpo(1, "ASA 紅葉ヶ丘"),
+            new Tenpo(1, "ASA 紅葉ヶ丘2"),
+            new Tenpo(1, "ASA 紅葉ヶ丘3"),
+            new Tenpo(1, "ASA 紅葉ヶ丘4"),
+
+        };
+
+        public class Tenpo
+        {
+            public uint TenpoNo; //店舗番号
+            public string TenpoName; //店舗名
+
+            public Tenpo(uint tenpoNo, string tenpoName)
+            {
+                TenpoNo = tenpoNo;
+                TenpoName = tenpoName;
+            }
+
+        }
+
+
+
+
+
+        //処理---------------------------------------------------------------------------------------------
 
         protected override void OnInitialized()
         {
-            History.Back_History.Add(CurrentPage.Deep_Copy());   //.Add(CurrentPage);
-            if(History.Back_History.Count >= 5)
+            //表示
+            if(Tenpo_SelectedValue == null)
             {
-                Console.WriteLine("Dele");
-                History.Back_History.RemoveRange(0, 2);
+                Tenpo_SelectedValue = TenpoList[0].TenpoName;
             }
-            CurrentPageChanged.InvokeAsync(CurrentPage);
+
+
+            int Count = 0;
+            //履歴
+            if(CurrentPage.HistoryBackState == false)
+            {
+                foreach (var x in History.Back_History)
+                {
+                    if (x.IndexURL == "Index")
+                    {
+                        if (Count != 0)
+                        {
+                            History.Back_History.RemoveRange(0, Count) ;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        Count++;
+                        continue;
+                    }
+                }
+
+                History.Back_History.Add(CurrentPage.Deep_Copy());   //.Add(CurrentPage);
+                
+                /*
+                if(History.Back_History.Count >= 5)
+                {
+                    Console.WriteLine("Dele");
+                    History.Back_History.RemoveRange(0, 2);
+                }
+                */
+
+                CurrentPageChanged.InvokeAsync(CurrentPage);
+            }
+            else if(CurrentPage.HistoryBackState == true)
+            {
+                CurrentPage.HistoryBackState = false;
+                CurrentPageChanged.InvokeAsync(CurrentPage);
+            }
         }
 
         void Up()
@@ -56,6 +134,15 @@ namespace B2003C4.Pages
             CurrentPageChanged.InvokeAsync(CurrentPage);
             Console.WriteLine(msg + "UP" + _currentPage.IndexURL);
         }
+
+        public void OnChangeEventTenpo(string Tenpo)
+        {
+            Tenpo_SelectedValue = Tenpo;
+            Tenpo_SelectFlg = true;
+
+            // S_Tenpo=Tenpo_SelectedValue
+        }
+
 
         public async void JumpPage(string URLx)
         {

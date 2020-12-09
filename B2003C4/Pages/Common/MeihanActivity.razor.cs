@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using B2003C4.Data;
+using B2003C4.Class;
 
 namespace B2003C4.Pages.Common
 {
@@ -11,6 +13,12 @@ namespace B2003C4.Pages.Common
 
 
         //海老沼書き足しｽﾞｲ₍₍(ง˘ω˘)ว⁾⁾ｽﾞｲ（仮）
+
+
+        [Parameter]
+        public FormSearchDataModel CommonPhase2 { get; set; }
+        [Parameter]
+        public EventCallback<FormSearchDataModel> CommonPhase2Changed { get; set; }
 
         public int Count { get; set; }
 
@@ -117,6 +125,10 @@ namespace B2003C4.Pages.Common
 
         }
 
+
+
+
+
         public class HinMei
         {
             public string HinName;
@@ -172,6 +184,25 @@ namespace B2003C4.Pages.Common
             Navi.NavigateTo(URLx);
 
         }
+
+        protected override void OnInitialized()
+        {
+
+
+
+            //-------------------------------------------------------------------------------
+            if (CommonPhase2.HistoryBackState == false)
+            {
+                History.Back_History.Add(CommonPhase2.Deep_Copy());   //.Add(CurrentPage);
+                CommonPhase2Changed.InvokeAsync(CommonPhase2);
+            }
+            else if (CommonPhase2.HistoryBackState == true)
+            {
+                CommonPhase2.HistoryBackState = false;
+                CommonPhase2Changed.InvokeAsync(CommonPhase2);
+            }
+        }
+
 
         public void GoToGoogleMap(string address)
         {

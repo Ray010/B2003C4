@@ -1,6 +1,4 @@
-﻿<h3>IriTomeParent</h3>
-
-@inject IJSRuntime jsRuntime
+﻿@inject IJSRuntime jsRuntime
 @using B2003C4.Data;
 @using B2003C4.Pages.Common;
 
@@ -15,8 +13,12 @@
         <MainFragment @bind-Phase1Data="CurrentPage" @bind-DBSourceData="DBData" @bind-SearchResultData="ResultData" />
         goto End;
 
-    case 2:
+    case 11:
         <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" @bind-KoudokuList="KoudokuList" />
+        goto End;
+
+    case 12:
+        <MeihanActivity @bind-CommonPhase2="CurrentPage" />
         goto End;
 
     End:
@@ -29,13 +31,15 @@
 
 }
 
-<button @onclick="Debug">デバッグ用</button>
+@*
+    <button @onclick="Debug">デバッグ用</button>
 
-@foreach(var x in DebugText)
-{
-    <div>@x</div>
-}
+    @foreach (var x in DebugText)
+    {
+        <div>@x</div>
+    }
 
+*@
 
 @*public EventCallback<string> PageNameChanged { get; set; }で変えた際はyearも変わる*@
 

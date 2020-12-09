@@ -146,7 +146,7 @@
         }
         .Button_Padding_Fixed {
             padding: 1rem;
-            bottom:15vh;
+            bottom:2vh;
             left:75vw;
             position:fixed;
         }
@@ -217,11 +217,13 @@
                         <td class="td_padding_Fixed Border_Bottom R-Border R-ColorW" colspan="4">@x.Heading</td>
                         <td class="td_padding_Fixed Border_Bottom" colspan="9">@x.Value</td>
                     </tr>
-                 }
+                }
 
-                </table>
+            </table>
 
-            <button @onclick="@(s => JumpPage("./Common/Meet"))" type="button" class="btnW btn bg-success Card_NameButtonMarginChild Card_fontSizeMAX767 Button_Child">訪</button>
+            @*
+        <button @onclick="@(s => JumpPage("./Common/Meet"))" type="button" class="btnW btn bg-success Card_NameButtonMarginChild Card_fontSizeMAX767 Button_Child">訪</button>
+            *@
         </div>
 
         <div class="fontSizeMAX767 Text_Color">
@@ -320,7 +322,7 @@
         </div>
     </div>
    
-    <button @onclick="@(s => GoToGoogleMap("宇都宮市平松本町1103-3"))" class="btn btn-warning button_Cube Text_Color Button_Padding_Fixed">
+    <button @onclick="@(s => GoToGoogleMap("MAP"))" class="btn btn-warning button_Cube Text_Color Button_Padding_Fixed">
         <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-map" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98l4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z" />
         </svg>

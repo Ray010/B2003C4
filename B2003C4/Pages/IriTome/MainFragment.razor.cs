@@ -282,15 +282,17 @@ namespace B2003C4.Pages.IriTome
             Phase1Data.Back_History.Add(Phase1Data);
             Phase1DataChanged.InvokeAsync(Phase1Data);
             */
-
-            History.Back_History.Add(Phase1Data.Deep_Copy());   //.Add(CurrentPage);
-
-            if (History.Back_History.Count >= 10)
+            if(Phase1Data.HistoryBackState == false)
             {
-                Console.WriteLine("Dele");
-                History.Back_History.RemoveRange(0, History.Back_History.Count - 6);
+                History.Back_History.Add(Phase1Data.Deep_Copy());   //.Add(CurrentPage);
+                Phase1DataChanged.InvokeAsync(Phase1Data);
             }
-            Phase1DataChanged.InvokeAsync(Phase1Data);
+            else if (Phase1Data.HistoryBackState == true)
+            {
+                Phase1Data.HistoryBackState = false;
+                Phase1DataChanged.InvokeAsync(Phase1Data);
+            }
+            
 
             //System.Threading.Thread.Sleep(1000);
 
@@ -394,27 +396,73 @@ namespace B2003C4.Pages.IriTome
         //年月終わり
 
 
-        public void IriButtonActive() //入ボタンが押されたとき入を全画面に表示する
+
+        public Boolean ButtonState = false;
+        public void ButtonActive(string ButtonName)
         {
-            if (TomeActive == true)
+            if(ButtonName == "Iri")
             {
-                TomeActive = false;
+                if (Phase1Data.TomeActive == true)
+                {
+                    Phase1Data.TomeActive = false;
+                }
+                else
+                {
+                    Phase1Data.TomeActive = true;
+                }
+            }
+            else if(ButtonName == "Tome")
+            {
+                if (Phase1Data.IriActive == true)
+                {
+                    Phase1Data.IriActive = false;
+                }
+                else
+                {
+                    Phase1Data.IriActive = true;
+                }
+            }
+
+            if(ButtonState == false)
+            {
+                History.Back_History.Add(Phase1Data.Deep_Copy());
+                ButtonState = true;
+            }
+            else if((Phase1Data.IriActive == true && Phase1Data.TomeActive == true) && ButtonState == true)
+            {
+                History.Back_History.RemoveAt(History.Back_History.Count - 1);
+                ButtonState = false;
+
             }
             else
             {
-                TomeActive = true;
+                History.Back_History[History.Back_History.Count - 1] = Phase1Data.Deep_Copy();
+            }
+            Phase1DataChanged.InvokeAsync(Phase1Data);
+        }
+
+
+        public void IriButtonActive() //入ボタンが押されたとき入を全画面に表示する
+        {
+            if (Phase1Data.TomeActive == true)
+            {
+                Phase1Data.TomeActive = false;
+            }
+            else
+            {
+                Phase1Data.TomeActive = true;
             }
 
         }
         public void TomeButtonActive() //止ボタンが押されたとき止を全画面に表示する
         {
-            if (IriActive == true)
+            if (Phase1Data.IriActive == true)
             {
-                IriActive = false;
+                Phase1Data.IriActive = false;
             }
             else
             {
-                IriActive = true;
+                Phase1Data.IriActive = true;
             }
 
         }
@@ -433,7 +481,7 @@ namespace B2003C4.Pages.IriTome
             Phase1Data.S_PhoneNo_Sub = OnDokusya.PhoneNo_Sub;
             Phase1Data.S_KuikiNo = OnDokusya.Kuiki;
 
-            Phase1Data.PhaseNo = 2;
+            Phase1Data.PhaseNo = 11;
             await Phase1DataChanged.InvokeAsync(Phase1Data);
             StateHasChanged();
         }

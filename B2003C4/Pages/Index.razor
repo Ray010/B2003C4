@@ -57,18 +57,63 @@
             background: linear-gradient( 45deg, #808080 0%, #808080 100%);
         }
 
+        .btn-Tenpo {
+            display: inline-block;
+            color: black;
+            width: 100%;
+            text-align:left;
+        }
+
+
+            .btn-Tenpo:not(:disabled):not(.disabled):active,
+            .btn-Tenpo:not(:disabled):not(.disabled).active,
+            .show > .btn-menu.dropdown-toggle {
+                background-color: rgba(0, 0, 0, 0.00);
+            }
+
+
+        .Tenpo {
+            font-size: 1.5rem;
+            width: 100%;
+        }
+
     </style>
 
 </head>
 
 <body>
     <div class=" text-left Bg_Color">
+        <!--店舗選択-->
+        @*下からポップするタイプ（未定
+        <select name="Tenpo" class="form-control" @onchange="a">
+        </select>
+        *@
+
+        <div class="dropdown">
+            <button type="button" id="Tenpo" 
+                    class="btn btn-Tenpo Button_Margin dropdown-toggle"
+                    align="left"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+                <span class="Tenpo">
+                    @Tenpo_SelectedValue
+                </span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="Tenpo" style="width:100%;">
+                @foreach (var Temp_Tenpo in TenpoList)
+                {
+                    <a @onclick="@(s => OnChangeEventTenpo(Temp_Tenpo.TenpoName))" class="dropdown-item form-control">@Temp_Tenpo.TenpoName</a>
+                }
+            </div>
+        </div>
+        
         <!--入止-->
         <button @onclick="@(s => JumpPage("IriTome"))" type="button" class="Button_Margin btn-Base btn-Base-01 btn text-dark btn-outline-info">
             <div align="justify">
                 <table class="Card_table_Fixed">
                     <tr>
-                        <td align="center" colspan="1"><span class="Index_Font_Size oi oi-list-rich"></span></td>
+                        <td align="center" colspan="2"><span class="Index_Font_Size oi oi-list-rich"></span></td>
                         <td align="left" colspan="10" class="Index_Font_Size">入止表</td>
                     </tr>
                     <tr>
@@ -90,7 +135,7 @@
             <div align="justify">
                 <table class="Card_table_Fixed">
                     <tr>
-                        <td align="center" colspan="1"><span class="Index_Font_Size oi oi-document"></span></td>
+                        <td align="center" colspan="2"><span class="Index_Font_Size oi oi-document"></span></td>
                         <td align="left" colspan="10" class="Index_Font_Size">過去台帳</td>
                     </tr>
                     <tr>
@@ -133,7 +178,7 @@
             <div align="justify">
                 <table class="Card_table_Fixed">
                     <tr>
-                        <td align="center" colspan="1"><span class="Index_Font_Size oi oi-eye"></span></td>
+                        <td align="center" colspan="2"><span class="Index_Font_Size oi oi-eye"></span></td>
                         <td align="left" colspan="10" class="Index_Font_Size">監査</td>
                     </tr>
                     <tr>
