@@ -77,16 +77,6 @@ namespace B2003C4.Shared
             */
             else if(1 < History.Back_History.Count)
             {
-                if(formSearchModel.ButtonState == true)
-                {
-                    formSearchModel.ButtonState = false;
-                }
-                else
-                {
-                    formSearchModel.ButtonState = true;
-                }
-
-
                 try
                 {
                     //現在値、退避用
@@ -106,10 +96,28 @@ namespace B2003C4.Shared
                     */
 
                     //History.Next_History.Add(Temp_formSearchModel.Deep_Copy()); 進がなくなったため無効化
-
-
-                    formSearchModel.HistoryBackState = true;
-                    //StateHasChanged();
+                    
+                    //入止め固有処理
+                    if(formSearchModel.IndexURL == "IriTome")
+                    { 
+                        if(formSearchModel.ButtonState != true)
+                        {
+                            Console.WriteLine("肉");
+                            formSearchModel.HistoryBackState = true;
+                        }
+                        else
+                        {
+                            //入り止めにてボタンが押された状態で戻るボタンを押されたとき
+                            //次ページで”HistoryBackState”がTrueにならないようにする。
+                            History.Back_History[History.Back_History.Count - 1].ButtonState = false;
+                            formSearchModel.ButtonState = false;
+                        }
+                    }
+                    else
+                    {
+                        formSearchModel.HistoryBackState = true;
+                    }
+                    StateHasChanged();
                 }
                 catch (System.ArgumentOutOfRangeException e) //Back_History-2の位置に値が入っていなかったとき
                 {

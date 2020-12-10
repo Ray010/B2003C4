@@ -13,7 +13,7 @@
 
 
 
-@switch (formDataModel.PhaseNo)
+@switch (CurrentPage.PhaseNo)
 {
 
 
@@ -22,11 +22,11 @@
 
     case 1:
 
-        <KakoFragment @bind-Phase1Data="formDataModel" @bind-DBSourceData="DBData" @bind-SearchResultData="ResultData" />
+        <KakoFragment @bind-Phase1Data="CurrentPage" @bind-DBSourceData="DBData" @bind-SearchResultData="ResultData" />
         goto End;
 
     case 2:
-        <DokusyaActivity @bind-CommonPhase1="formDataModel" @bind-DBSourceData="DBData" @bind-KoudokuList="KoudokuDummyData" />
+        <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" @bind-KoudokuList="KoudokuDummyData" />
         goto End;
 
 

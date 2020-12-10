@@ -8,6 +8,7 @@ using System.Text;
 using Microsoft.JSInterop;
 
 using B2003C4.Data;
+using B2003C4.Class;
 
 
 namespace B2003C4.Pages.Kansa
@@ -161,6 +162,19 @@ namespace B2003C4.Pages.Kansa
 
             }
             CityCount = CityList.Count();
+
+            //---------------------------------------------------------
+            //履歴の処理
+            if (Phase1Data.HistoryBackState == false)
+            {
+                History.Back_History.Add(Phase1Data.Deep_Copy());   //.Add(CurrentPage);
+                Phase1DataChanged.InvokeAsync(Phase1Data);
+            }
+            else if (Phase1Data.HistoryBackState == true)
+            {
+                Phase1Data.HistoryBackState = false;
+                Phase1DataChanged.InvokeAsync(Phase1Data);
+            }
         }
 
         public void Clear()

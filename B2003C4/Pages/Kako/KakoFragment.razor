@@ -53,6 +53,16 @@
             color: #FFFFFF;
         }
 
+        .btn-KakoButton {
+            border-radius: 0;
+            background-color: #ffffff;
+        }
+
+            .btn-KakoButton:not(:disabled):not(.disabled):active,
+            .btn-KakoButton:not(:disabled):not(.disabled).active,
+            .show > .btn-menu.dropdown-toggle {
+            }
+
     </style>
 
 
@@ -94,7 +104,7 @@
                 </td>
 
             </tr>
-            <!--
+            @*
             <tr>
                 <p>@SelectedValue</p>
                 <p>@Kuiki_SelectedValue</p>
@@ -105,18 +115,17 @@
                 }
 
 
-                @* 区域リストの表示（セレクトリスト） *@
+                @* 区域リストの表示（セレクトリスト
 
-                @*
             <select onchange="OnChangeEventKuiki">
             @foreach (var item in Model.KuikiList)
             {
             <option value=@item.kuiki>@item.name</option>
             }
             </select>
-                *@
+
             </tr>
-                -->
+            *@
         </table>
 
         <table class="Card_parent">
@@ -125,7 +134,7 @@
                     <tr>
                         <td>
                             <div class="Card_parent">
-                                <button @onclick="@(s => JumpPage(x))" type="button" class="btn btn-primary btn-block">
+                                <button @onclick="@(s => JumpPage(x))" type="button" class="btn btn-KakoButton btn-block">
                                     <table>
                                         <tr>
                                             <td colspan="9" align="left">@x.DokusyaName</td>
@@ -144,7 +153,7 @@
                                     </table>
                                 </button>
 
-                                <button type="button" class="btn btnW btn bg-success Card_NameButtonMarginChild Card_fontSizeMAX767 Card_child">訪</button>
+                                @*<button type="button" class="btn btnW btn bg-success Card_NameButtonMarginChild Card_fontSizeMAX767 Card_child">訪</button>*@
                                 @*@onclick="@(s => JumpPage("./Common/Meet"))"*@
                             </div>
                         </td>

@@ -173,15 +173,12 @@ namespace B2003C4.Pages.IriTome
 
 
             }
-
         }
         */
         //-------------------------------------------------------------
 
         List<DummyDataModel.Dokusya> IriDokusyaList = new List<DummyDataModel.Dokusya>();
         List<DummyDataModel.Dokusya> TomeDokusyaList = new List<DummyDataModel.Dokusya>();
-
-
 
         protected override void OnInitialized()
         {
@@ -197,7 +194,8 @@ namespace B2003C4.Pages.IriTome
                 if(IriTome.DokusyaStatus == "Gendoku")
                 {
                     IriDokusyaList.Add(IriTome);
-                } else if(IriTome.DokusyaStatus == "Tome")
+                } 
+                else if(IriTome.DokusyaStatus == "Tome")
                 {
                     TomeDokusyaList.Add(IriTome);
                 }
@@ -244,9 +242,7 @@ namespace B2003C4.Pages.IriTome
                 //Array.Copy(TomeKuiki, Kuiki, TomeKuiki.Length); //保留
                 Kuiki = TomeKuiki;
             }
-
             //区域総数終わり
-
 
             foreach(var x in IriDokusyaList)
             {
@@ -271,10 +267,6 @@ namespace B2003C4.Pages.IriTome
                 }
             }
 
-
-
-
-
             //---------------------------------------------------------
             //履歴の処理
 
@@ -292,17 +284,13 @@ namespace B2003C4.Pages.IriTome
                 Phase1Data.HistoryBackState = false;
                 Phase1DataChanged.InvokeAsync(Phase1Data);
             }
-            
-
             //System.Threading.Thread.Sleep(1000);
-
             Console.WriteLine("MainFragment OK");
         }
 
         //区域
         public void OnChangeEventKuikiX(ChangeEventArgs e)
         {
-
             Kuiki_SelectedValue = int.Parse(e.Value.ToString());
             Kuiki_SelectedFlg = true;
             IriCount = 0;
@@ -310,8 +298,6 @@ namespace B2003C4.Pages.IriTome
 
             foreach (var x in IriDokusyaList)
             {
-
-
                 if(Kuiki_SelectedValue == x.Kuiki &&
                   (SelectValue == x.KeiyakuSt || SelectValue == null))
 
@@ -326,7 +312,6 @@ namespace B2003C4.Pages.IriTome
             }
             foreach (var x in TomeDokusyaList)
             {
-
                 if (Kuiki_SelectedValue == x.Kuiki &&
                     (SelectValue -1 == x.KeiyakuEd || SelectValue == null))
 
@@ -339,14 +324,12 @@ namespace B2003C4.Pages.IriTome
                     continue;
                 }
             }
-
         }
         //区域終わり
 
         //年月
         public void OnChangeEventNengetuX(ChangeEventArgs e)
         {
-
             IriCount = 0;
             TomeCount = 0;
 
@@ -362,8 +345,6 @@ namespace B2003C4.Pages.IriTome
 
             foreach (var x in IriDokusyaList)
             {
-
-
                 if (Kuiki_SelectedValue == x.Kuiki &&
                   (SelectValue == x.KeiyakuSt || SelectValue == null))
 
@@ -378,7 +359,6 @@ namespace B2003C4.Pages.IriTome
             }
             foreach (var x in TomeDokusyaList)
             {
-
                 if (Kuiki_SelectedValue == x.Kuiki &&
                     (SelectValue - 1 == x.KeiyakuEd || SelectValue == null))
 
@@ -391,13 +371,9 @@ namespace B2003C4.Pages.IriTome
                     continue;
                 }
             }
-
         }
         //年月終わり
 
-
-
-       
         public void ButtonActive(string ButtonName)
         {
             if(ButtonName == "Iri")
@@ -421,21 +397,21 @@ namespace B2003C4.Pages.IriTome
                 {
                     Phase1Data.IriActive = true;
                 }
-                Console.WriteLine("Else IF");
             }
 
             if((Phase1Data.IriActive == true && Phase1Data.TomeActive == true))
             {
-
                 History.Back_History.RemoveAt(History.Back_History.Count - 1);
-                //Phase1Data.ButtonState = false;
+                History.Back_History[History.Back_History.Count - 1].ButtonState = false;
+                Phase1Data.ButtonState = false;
 
             }
             else
             {
 
+                History.Back_History[History.Back_History.Count-1].ButtonState = true;
                 History.Back_History.Add(Phase1Data.Deep_Copy());
-
+                
             }
             Phase1DataChanged.InvokeAsync(Phase1Data);
         }

@@ -31,13 +31,22 @@
 
 }
 
-@*
-    <button @onclick="Debug">デバッグ用</button>
 
-    @foreach (var x in DebugText)
+
+@*
+        @foreach (var x in History.Back_History)
     {
-        <div>@x</div>
+        <div>@x.IndexURL @x.PhaseNo @x.ButtonState</div>
     }
+
+
+
+        <button @onclick="Debug">デバッグ用</button>
+
+        @foreach (var x in DebugText)
+        {
+            <div>@x</div>
+        }
 
 *@
 

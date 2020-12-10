@@ -94,19 +94,22 @@ namespace B2003C4.Pages
             {
                 foreach (var x in History.Back_History)
                 {
+                    Count++;
                     if (x.IndexURL == "Index")
                     {
-                        if (Count != 0)
+                        if (Count != 1)
                         {
-                            History.Back_History.RemoveRange(0, Count) ;
+                            Console.WriteLine("Del");
+                            History.Back_History.RemoveRange(0, Count-1) ;
                             break;
                         }
                     }
                     else
                     {
-                        Count++;
+                        
                         continue;
                     }
+
                 }
 
                 History.Back_History.Add(CurrentPage.Deep_Copy());   //.Add(CurrentPage);
