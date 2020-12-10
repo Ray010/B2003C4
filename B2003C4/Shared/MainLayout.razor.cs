@@ -77,6 +77,16 @@ namespace B2003C4.Shared
             */
             else if(1 < History.Back_History.Count)
             {
+                if(formSearchModel.ButtonState == true)
+                {
+                    formSearchModel.ButtonState = false;
+                }
+                else
+                {
+                    formSearchModel.ButtonState = true;
+                }
+
+
                 try
                 {
                     //現在値、退避用

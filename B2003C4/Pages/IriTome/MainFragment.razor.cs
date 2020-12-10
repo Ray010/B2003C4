@@ -397,7 +397,7 @@ namespace B2003C4.Pages.IriTome
 
 
 
-        public Boolean ButtonState = false;
+       
         public void ButtonActive(string ButtonName)
         {
             if(ButtonName == "Iri")
@@ -421,22 +421,21 @@ namespace B2003C4.Pages.IriTome
                 {
                     Phase1Data.IriActive = true;
                 }
+                Console.WriteLine("Else IF");
             }
 
-            if(ButtonState == false)
+            if((Phase1Data.IriActive == true && Phase1Data.TomeActive == true))
             {
-                History.Back_History.Add(Phase1Data.Deep_Copy());
-                ButtonState = true;
-            }
-            else if((Phase1Data.IriActive == true && Phase1Data.TomeActive == true) && ButtonState == true)
-            {
+
                 History.Back_History.RemoveAt(History.Back_History.Count - 1);
-                ButtonState = false;
+                //Phase1Data.ButtonState = false;
 
             }
             else
             {
-                History.Back_History[History.Back_History.Count - 1] = Phase1Data.Deep_Copy();
+
+                History.Back_History.Add(Phase1Data.Deep_Copy());
+
             }
             Phase1DataChanged.InvokeAsync(Phase1Data);
         }

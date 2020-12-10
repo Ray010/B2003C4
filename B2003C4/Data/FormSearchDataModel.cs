@@ -21,6 +21,8 @@ namespace B2003C4.Data
         public Boolean IriActive { get; set; } = true;
 
         public Boolean TomeActive { get; set; } = true;
+
+        public Boolean ButtonState = false;
         //---------------------------------------------------
 
 

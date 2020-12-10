@@ -36,6 +36,27 @@
             margin-bottom: 2rem;
         }
 
+        .btn-IriButton {
+            border-radius: 0;
+            background-color: #ffffff;
+        }
+            .btn-IriButton:not(:disabled):not(.disabled):active,
+            .btn-IriButton:not(:disabled):not(.disabled).active,
+            .show > .btn-menu.dropdown-toggle {
+                
+            }
+
+        .btn-TomeButton {
+            border-radius: 0;
+            background-color: #ffffff;
+        }
+
+            .btn-IriButton:not(:disabled):not(.disabled):active,
+            .btn-IriButton:not(:disabled):not(.disabled).active,
+            .show > .btn-menu.dropdown-toggle {
+            }
+
+
 
     </style>
 
@@ -215,7 +236,7 @@
                             @if (Phase1Data.IriActive == true)
                             {
                                 <th colspan="10">
-                                    <button @onclick="@(s => ButtonActive("Iri"))" type="button" class="btn btn-primary btn-block">
+                                    <button @onclick="@(s => ButtonActive("Iri"))" type="button" class="btn btn-primary btn-block  " >
                                     @*<button @onclick="IriButtonActive" type="button" class="btn btn-primary btn-block">*@
                                         <table class="Card_table_Fixed">
                                             <tr>
@@ -269,7 +290,7 @@
                                             <tr>
                                                 <td>
                                                     <div class="Card_parent">
-                                                        <button @onclick="@(s => JumpPage(x))" type="button" class="btn btn-primary btn-block Card_NameButtonMargin">
+                                                        <button @onclick="@(s => JumpPage(x))" type="button" class="btn btn-IriButton btn-block Card_NameButtonMargin">
                                                             @*JumpPage("./Common/DokusyaActivity")*@
                                                             <table class="Card_table_Fixed">
                                                                 <tbody>
@@ -319,7 +340,7 @@
                                                 <tr>
                                                     <td>
                                                         <div class="Card_parent">
-                                                            <button @onclick="@(s => JumpPage(x))" type="button" class="btn btn-danger btn-block Card_NameButtonMargin">
+                                                            <button @onclick="@(s => JumpPage(x))" type="button" class="btn btn-TomeButton btn-block Card_NameButtonMargin">
                                                                 @*JumpPage("./Common/DokusyaActivity")*@
                                                                 <table>
                                                                     <tbody>
