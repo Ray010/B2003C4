@@ -39,11 +39,12 @@ namespace B2003C4.Pages.IriTome
         [Parameter]
         public EventCallback<DummyDataModel> DBSourceDataChanged { get; set; }
 
+        /*
         [Parameter]
         public FormSearchDataModel SearchResultData { get; set; }
         [Parameter]
         public EventCallback<FormSearchDataModel> SearchResultDataChanged { get; set; }
-
+        */
 
 
         //その他

@@ -27,38 +27,33 @@
 @*https://chrissainty.com/using-javascript-interop-in-razor-components-and-blazor/*@
 
 
-@if (CurrentPage.State)
-{
-    Rewrite();
-}
-
-@switch (formDataModel.PhaseNo)
+@switch (CurrentPage.PhaseNo)
 {
     case 0:
         goto default;
-
+        
     case 1:
-        <KansaSearchFragment @bind-Phase1Data="formDataModel" @bind-DBSourceData="DBData" @bind-SearchResultData="ResultData" />
+        <KansaSearchFragment @bind-Phase1Data="CurrentPage" @bind-DBSourceData="DBData" />
         goto End;
 
     case 2:
-        <SearchActivity @bind-Phase2Data="formDataModel" @bind-SearchResultData="ResultData" @bind-DBSourceData="DBData" />
+        <SearchActivity @bind-Phase2Data="CurrentPage" @bind-DBSourceData="DBData" />
         goto End;
 
-    case 3:
-        <DokusyaActivity @bind-CommonPhase1="ResultData" @bind-DBSourceData="DBData" />
+    case 11:
+        <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" @bind-KoudokuList="KoudokuDBData"/>
         goto End;
 
-
+    case 12:
+        <MeihanActivity @bind-CommonPhase2="CurrentPage" />
 
     End:
-        write();
         break;
 
 
     default:
 
-        <div>ハンドリングエラー:存在しないページ（PhaseNo:@formDataModel.S_PhoneNo )</div>
+        <div>ハンドリングエラー:存在しないページ（PhaseNo:@CurrentPage.S_PhoneNo )</div>
         break;
 
 }
@@ -69,7 +64,7 @@
 
 
 @code {
-    private FormSearchDataModel formDataModel = new FormSearchDataModel();
+
     private DummyDataModel DBData = new DummyDataModel();
     private KoudokuDummyData KoudokuDBData = new KoudokuDummyData();
     private FormSearchDataModel ResultData = new FormSearchDataModel();

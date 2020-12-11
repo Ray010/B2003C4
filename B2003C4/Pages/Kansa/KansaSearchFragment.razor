@@ -4,6 +4,7 @@
 @using Microsoft.AspNetCore.Components;
 @using B2003C4.Pages.Kansa;
 @using Microsoft.JSInterop;
+@using MatBlazor;
 
 
 <!DOCTYPE HTML>
@@ -256,12 +257,23 @@
             </div>
         </div>
 
+
+        <div class="mat-layout-grid " style="padding:0rem;">
+            <div class="mat-layout-grid-inner">
+                <div class="mat-layout-grid-cell">
+                    <MatTextField @bind-Value="Phase1Data.S_DokusyaCode" Label="読者No" style="width:100%;">@Phase1Data.S_DokusyaCode</MatTextField>
+                </div>
+            </div>
+        </div>
+
         <div class="card fontSizeMAX767 Card_Fixed">
             <div class="card-body card_Bottom_Margin">
                 <table class="Card_table_Fixed">
                     <tr>
                         <td colspan="2">読者No</td>
                         <td colspan="10" class="Border_Bottom">
+
+
                             <input @bind="Phase1Data.S_DokusyaCode" @bind:event="oninput" type="tel" class="form-control" maxlength="6">
 
                         </td>
@@ -328,9 +340,9 @@
                     <tr>
                         <td colspan="2">電話</td>
                         @*カッコつきだと使いにくいので保留
-                            <td colspan="1">(</td>
-                            <td colspan="2"><input input @bind="@PhoneNo" @bind:event="oninput" type="tel" class="fontSizeMAX767 form-control" /></td>
-                            <td colspan="1">)</td>*@
+                        <td colspan="1">(</td>
+                        <td colspan="2"><input input @bind="@PhoneNo" @bind:event="oninput" type="tel" class="fontSizeMAX767 form-control" /></td>
+                        <td colspan="1">)</td>*@
                         <td colspan="6" class="Border_Bottom"><input @bind="@Phase1Data.S_PhoneNo_Sub" @bind:event="oninput" maxlength="10" type="tel" class="fontSizeMAX767 form-control"></td>
                         <td colspan="1">&nbsp;</td>
                         <td>@Phase1Data.S_PhoneNo_Sub</td>
@@ -388,20 +400,20 @@
                         </td>
                     </tr>
                     @*
-                        <tr>
-                            <td colspan="2" rowspan="2">住所</td>
-                            <td colspan="2">町名</td>
-                            <td colspan="2"><input @bind="CityAddress" type="text" class="form-control"></td>
-                            <td colspan="4"><button>町名</button></td>
-                            <td colspan="3">&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">番地</td>
-                            <td colspan="2" class="Border_Bottom"><input @bind="CityAddress" type="text" class="form-control"></td>
-                            <td colspan="1">-</td>
-                            <td colspan="2"><input @bind="CityAddress" type="text" class="form-control"></td>
-                            <td colspan="4">&nbsp;</td>
-                        </tr>
+                    <tr>
+                        <td colspan="2" rowspan="2">住所</td>
+                        <td colspan="2">町名</td>
+                        <td colspan="2"><input @bind="CityAddress" type="text" class="form-control"></td>
+                        <td colspan="4"><button>町名</button></td>
+                        <td colspan="3">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">番地</td>
+                        <td colspan="2" class="Border_Bottom"><input @bind="CityAddress" type="text" class="form-control"></td>
+                        <td colspan="1">-</td>
+                        <td colspan="2"><input @bind="CityAddress" type="text" class="form-control"></td>
+                        <td colspan="4">&nbsp;</td>
+                    </tr>
                     *@
 
                 </table>
@@ -502,39 +514,39 @@
 
 
                     @*
-                                        <tr>
-                                            <td rowspan="3" colspan="3">区分</td>
-                                        </tr>
+                                    <tr>
+                                        <td rowspan="3" colspan="3">区分</td>
+                                    </tr>
 
-                                        <tr>
+                                    <tr>
 
-                                            @foreach (var x in KubunList)
-                                            {
+                                        @foreach (var x in KubunList)
+                                        {
 
-                                                <td colspan="10">
-                                                    <input @onchange="@(s => ButtonX(x.KubunCode))" type="checkbox" name="@x.KubunCode" value="@x.KubunCode" />@x.KubunName
-                                                </td>
-                                            }
-                                        </tr>
+                                            <td colspan="10">
+                                                <input @onchange="@(s => ButtonX(x.KubunCode))" type="checkbox" name="@x.KubunCode" value="@x.KubunCode" />@x.KubunName
+                                            </td>
+                                        }
+                                    </tr>
 
+                    <tr>
+
+
+
+                        <td colspan="10">
+                            <input @onchange="@(s => ButtonX("x.KubunName"))" type="checkbox" name="x.KubunCode" value="x.KubunCode" />x.KubunName
+
+                        </td>
+
+                    </tr>
+
+                    @foreach (var x in ListX)
+                    {
                         <tr>
-
-
-
-                            <td colspan="10">
-                                <input @onchange="@(s => ButtonX("x.KubunName"))" type="checkbox" name="x.KubunCode" value="x.KubunCode" />x.KubunName
-
-                            </td>
-
+                            <td> <input @onchange="@(s => ButtonX(x.X))" type="checkbox" name="@x.X" value="@x.X" /></td>
                         </tr>
-
-                        @foreach (var x in ListX)
-                        {
-                            <tr>
-                                <td> <input @onchange="@(s => ButtonX(x.X))" type="checkbox" name="@x.X" value="@x.X" /></td>
-                            </tr>
-                            }
                         }
+                    }
                     *@
                 </table>
 

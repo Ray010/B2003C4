@@ -21,8 +21,11 @@ namespace B2003C4.Pages.Kako
             [Parameter]
             public EventCallback<DummyDataModel> DBSourceDataChanged { get; set; }
 
+
+        /*
             public void Rewrite() //フェーズを戻るとk
             {
+                
                 formDataModel = CurrentPage;
                 ResultData = CurrentPage;
 
@@ -37,7 +40,7 @@ namespace B2003C4.Pages.Kako
                 }
 
             }
-
+        */
         
     }
 }

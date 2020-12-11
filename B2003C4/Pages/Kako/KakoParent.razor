@@ -1,52 +1,39 @@
-﻿<h3>KakoParent</h3>
-
-@inject IJSRuntime jsRuntime
+﻿@inject IJSRuntime jsRuntime
 @using B2003C4.Data;
 @using B2003C4.Pages.Common;
 
 
 @*https://chrissainty.com/using-javascript-interop-in-razor-components-and-blazor/*@
-@if (CurrentPage.State)
-{
-    Rewrite();
-}
-
-
 
 @switch (CurrentPage.PhaseNo)
 {
-
-
     case 0:
         goto default;
 
     case 1:
 
-        <KakoFragment @bind-Phase1Data="CurrentPage" @bind-DBSourceData="DBData" @bind-SearchResultData="ResultData" />
+        <KakoFragment @bind-Phase1Data="CurrentPage" @bind-DBSourceData="DBData" />
         goto End;
 
-    case 2:
+    case 11:
         <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" @bind-KoudokuList="KoudokuDummyData" />
         goto End;
 
+    case 12:
+        <MeihanActivity @bind-CommonPhase2="CurrentPage" />@* @bind-DBSourceData="DBData" @bind-KoudokuList="KoudokuDummyData" />*@
 
-    End:
-        write();
-        break;
+        End:
+            break;
 
-
-    default:
-
-        <div>ハンドリングエラー:存在しないページ（PhaseNo:@formDataModel.S_PhoneNo )</div>
-        break;
-
-}
+        default:
+            <div>ハンドリングエラー:存在しないページ（PhaseNo:@CurrentPage.PhaseNo )</div>
+            break;
+    }
 
 @*public EventCallback<string> PageNameChanged { get; set; }で変えた際はyearも変わる*@
 
 
 @code {
-    private FormSearchDataModel formDataModel = new FormSearchDataModel();
     private DummyDataModel DBData = new DummyDataModel();
     private KoudokuDummyData KoudokuDummyData = new KoudokuDummyData();
     private FormSearchDataModel ResultData = new FormSearchDataModel();

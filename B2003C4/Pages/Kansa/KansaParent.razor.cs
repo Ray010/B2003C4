@@ -46,28 +46,5 @@ namespace B2003C4.Pages.Kansa
             Console.WriteLine("れんだりんぐとぅるー");
             */
         }
-
-        public void Rewrite() //フェーズを戻るとk
-        {
-            formDataModel = CurrentPage;
-            ResultData = CurrentPage;
-
-        }
-        public void write() //次のフェーズに行く
-        {
-            if (formDataModel.PhaseNo != ResultData.PhaseNo)
-            {
-                formDataModel = ResultData;
-                CurrentPage.PhaseNo = ResultData.PhaseNo;
-                CurrentPageChanged.InvokeAsync(CurrentPage);
-            }
-
-        }
-
-
     }
-
-
-
-
 }

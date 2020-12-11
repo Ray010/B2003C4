@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.EntityFrameworkCore.Internal;
 using B2003C4.Data;
+using B2003C4.Class;
 //using Microsoft.EntityFrameworkCore.Internal;
 
 namespace B2003C4.Pages.Kansa
@@ -34,11 +35,13 @@ namespace B2003C4.Pages.Kansa
         //--------------------------------------------------------------------------------------------------
 
         //受け渡し用のリザルトデータ------------------------------------------------------------------------
+        /*
         [Parameter]
         public FormSearchDataModel SearchResultData { get; set; }
 
         [Parameter]
         public EventCallback<FormSearchDataModel> SearchResultDataChanged { get; set; }
+        */
         //--------------------------------------------------------------------------------------------------
 
         List<DummyDataModel.Dokusya> DokusyaSearchEdList = new List<DummyDataModel.Dokusya> { };
@@ -138,18 +141,43 @@ namespace B2003C4.Pages.Kansa
                 }
 
             }
+            //履歴処理
+            /*
+
+            */
+
             Count = DokusyaSearchEdList.Count;
 
+
+            
             if( Count == 0 )
             {
                 //検索結果が０人の時
                 return PhaseShift(1, "検索条件に一致しませんでした。","");
-
             }
             else
             {
-                return PhaseShift(2, "検索条件に一致しませんでした。", "");
+                
+                if (Phase2Data.HistoryBackState == false)
+                {
+                    History.Back_History.Add(Phase2Data.Deep_Copy());   //.Add(CurrentPage);
+                    Phase2DataChanged.InvokeAsync(Phase2Data);
+                }
+                else if (Phase2Data.HistoryBackState == true)
+                {
+                    Phase2Data.HistoryBackState = false;
+                    Phase2DataChanged.InvokeAsync(Phase2Data);
+                }
+                
+                return PhaseShift(2, "。", "");
             }
+            
+
+
+            //履歴の処理
+
+
+
 
         }
 
@@ -208,21 +236,17 @@ namespace B2003C4.Pages.Kansa
 
 
             //---------------------------------------------
-            
+ 
+            Phase2Data.S_DokusyaCode = X.DokusyaCode;
+            Phase2Data.S_DokusyaName = X.DokusyaName;
+            Phase2Data.S_BuildingName = X.BuildingName;
+            Phase2Data.S_CityName = X.CityName;
+            Phase2Data.S_CityAddress = X.CityAddress;
+            Phase2Data.S_PhoneNo_Sub = X.PhoneNo_Sub;
+            Phase2Data.S_KuikiNo = X.Kuiki;
 
-
-
-
-            SearchResultData.S_DokusyaCode = X.DokusyaCode;
-            SearchResultData.S_DokusyaName = X.DokusyaName;
-            SearchResultData.S_BuildingName = X.BuildingName;
-            SearchResultData.S_CityName = X.CityName;
-            SearchResultData.S_CityAddress = X.CityAddress;
-            SearchResultData.S_PhoneNo_Sub = X.PhoneNo_Sub;
-            SearchResultData.S_KuikiNo = X.Kuiki;
-
-            await SearchResultDataChanged.InvokeAsync(SearchResultData);
-            await PhaseShift(3,"","");
+            await Phase2DataChanged.InvokeAsync(Phase2Data);
+            await PhaseShift(11,"","");
 
         }
 

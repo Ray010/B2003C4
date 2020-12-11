@@ -12,8 +12,7 @@ using B2003C4.Class;
 
 
 namespace B2003C4.Pages.Kansa
-{
-
+{ 
     public partial class KansaSearchFragment
     {
 
@@ -30,21 +29,22 @@ namespace B2003C4.Pages.Kansa
         [Parameter]
         public EventCallback<DummyDataModel> DBSourceDataChanged { get; set; }
 
+        /*
         [Parameter]
         public FormSearchDataModel SearchResultData { get; set; }
         [Parameter]
         public EventCallback<FormSearchDataModel> SearchResultDataChanged { get; set; }
+        */
 
-
-
+        
         private async Task UpdateModelDataOrPhaseShift()
         {
-            SearchResultData.PhaseNo = 2;
-            await SearchResultDataChanged.InvokeAsync(SearchResultData);
+            Console.WriteLine("OK");
+            Phase1Data.PhaseNo = 2;
+            await Phase1DataChanged.InvokeAsync(Phase1Data);
             StateHasChanged();
-        
-           
         }
+        
         //-------------------------------------------------------
 
 
@@ -104,8 +104,6 @@ namespace B2003C4.Pages.Kansa
 
         public class Kubun
         {
-            
-
             public string KubunName { get; set; }
             public string KubunCode { get; set; }
 

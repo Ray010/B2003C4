@@ -29,7 +29,6 @@ namespace B2003C4.Pages.Kako
         //その他
         public int Count { get; set; } //検索結果の総数
 
-
         [Parameter]
         public FormSearchDataModel Phase1Data { get; set; }
         [Parameter]
@@ -41,25 +40,18 @@ namespace B2003C4.Pages.Kako
         [Parameter]
         public EventCallback<DummyDataModel> DBSourceDataChanged { get; set; }
 
+        /*
         [Parameter]
         public FormSearchDataModel SearchResultData { get; set; }
         [Parameter]
         public EventCallback<FormSearchDataModel> SearchResultDataChanged { get; set; }
-
-
+        */
         List<DummyDataModel.Dokusya> TomeDokusyaList = new List<DummyDataModel.Dokusya>();
-
-
-
-
-
-
 
         string TenpoNo { get; set; } = "0"; //仮
 
 
         //仮データ
-
         List<Nengetu> NengetuList = new List<Nengetu>() {
                     new Nengetu ("20/10", "2020年10月"),
                     new Nengetu ("20/11", "2020年11月"),
@@ -84,15 +76,7 @@ namespace B2003C4.Pages.Kako
             new Kuiki("2","3","3区"),
             new Kuiki("2","4","4区"),
             new Kuiki("2","5","5区"),
-
         };
-
-
-
-
-
-
-
 
         /*
         List<Dokusya> DokusyaList = new List<Dokusya>()
@@ -118,9 +102,6 @@ namespace B2003C4.Pages.Kako
         };
         */
 
-
-
-
         /* 年月用クラス */
         public class Nengetu
         {
@@ -131,7 +112,6 @@ namespace B2003C4.Pages.Kako
                 nengetu = Nengetu;
                 dispNengetu = DispNengetu;
             }
-
         }
 
         //区域用クラス
@@ -144,15 +124,11 @@ namespace B2003C4.Pages.Kako
 
             public Kuiki(string tenpoNo , string kuikiNo, string kuikiName)
             {
-
                 TenpoNo = tenpoNo;
                 KuikiNo = kuikiNo;
                 KuikiName = kuikiName;
-
             }
-
         }
-
 
         public class Dokusya
         {
@@ -171,9 +147,7 @@ namespace B2003C4.Pages.Kako
                 CityAddress = cityAddress;
                 B = b;
                 Keiyaku = keiyaku;
-
             }
-
         }
 
         //検索総数(ページ開始直後)
@@ -190,9 +164,7 @@ namespace B2003C4.Pages.Kako
                 {
                     continue;
                 }
-
             }
-
 
             //---------------------------------------------------------
             //履歴の処理
@@ -207,10 +179,6 @@ namespace B2003C4.Pages.Kako
                 Phase1Data.HistoryBackState = false;
                 Phase1DataChanged.InvokeAsync(Phase1Data);
             }
-
-
-
-
         }
 
         public void OnChangeEventKuiki(ChangeEventArgs f)
@@ -233,29 +201,24 @@ namespace B2003C4.Pages.Kako
                     continue;
                 }
             }
-
         }
-
 
         [Inject]
         protected NavigationManager Navi { get; set; }
         public async void JumpPage(DummyDataModel.Dokusya OnDokusya)
         {
+            Phase1Data.S_DokusyaCode = OnDokusya.DokusyaCode;
+            Phase1Data.S_DokusyaName = OnDokusya.DokusyaName;
+            Phase1Data.S_BuildingName = OnDokusya.BuildingName;
+            Phase1Data.S_CityName = OnDokusya.CityName;
+            Phase1Data.S_CityAddress = OnDokusya.CityAddress;
+            Phase1Data.S_PhoneNo_Sub = OnDokusya.PhoneNo_Sub;
+            Phase1Data.S_KuikiNo = OnDokusya.Kuiki;
 
-            SearchResultData.S_DokusyaCode = OnDokusya.DokusyaCode;
-            SearchResultData.S_DokusyaName = OnDokusya.DokusyaName;
-            SearchResultData.S_BuildingName = OnDokusya.BuildingName;
-            SearchResultData.S_CityName = OnDokusya.CityName;
-            SearchResultData.S_CityAddress = OnDokusya.CityAddress;
-            SearchResultData.S_PhoneNo_Sub = OnDokusya.PhoneNo_Sub;
-            SearchResultData.S_KuikiNo = OnDokusya.Kuiki;
-
-            SearchResultData.PhaseNo = 2;
-            await SearchResultDataChanged.InvokeAsync(SearchResultData);
+            Phase1Data.PhaseNo = 11;
+            await Phase1DataChanged.InvokeAsync(Phase1Data);
             StateHasChanged();
         }
-
     }
-
 }
 

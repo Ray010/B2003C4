@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using B2003C4.Data;
 using B2003C4.Class;
+using Microsoft.JSInterop;
 
 using System.Text;
 
@@ -203,14 +204,10 @@ namespace B2003C4.Pages.Common
 
         public void JumpPage(string URLx)
         {
-
-
-
             CommonPhase1.PhaseNo = 12;
             CommonPhase1Changed.InvokeAsync(CommonPhase1);
 
             //Navi.NavigateTo(URLx);
-        
         }
 
         public void ButtonChange()
@@ -230,11 +227,27 @@ namespace B2003C4.Pages.Common
 
         }
 
-        public void GoToGoogleMap(string address)
-        {
-            Navi.NavigateTo("https://www.google.com/maps/search/?api=1&query=" + CommonPhase1.S_CityName +
-                "丁目" + CommonPhase1.S_CityAddress);
-        }
 
+
+        [Inject]
+        private IJSRuntime JSRuntime { get; set; }
+
+        public async void GoToGoogleMap(string address)
+        {
+            string returnDevice = await JSRuntime.InvokeAsync<string>("Device");
+            if(returnDevice == "Mobile" )
+            {
+                Navi.NavigateTo("https://www.google.com/maps/search/?api=1&query=" + CommonPhase1.S_CityName + "丁目" + CommonPhase1.S_CityAddress);
+            }
+            else if(returnDevice == "PC")
+            {
+                JSRuntime.InvokeAsync<object>("open", "https://www.google.com/maps/search/?api=1&query=" + CommonPhase1.S_CityName +
+                "丁目" + CommonPhase1.S_CityAddress, "_blank");
+            }
+            else if(returnDevice == "iPhone")
+            {
+                Navi.NavigateTo("comgooglemaps://?q=" + CommonPhase1.S_CityName + "丁目" + CommonPhase1.S_CityAddress);
+            }
+        }
     }
 }

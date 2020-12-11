@@ -279,10 +279,7 @@ app {
     }
 
 
-
-    /*--Card--------------------------------*/
-
-
+/*--Card--------------------------------*/
 .Card_NameButtonMargin {
     padding: 0.2rem 0.2rem 0.2rem 0.2rem;
 }
@@ -297,6 +294,7 @@ app {
 
 .Card_parent {
     position: relative;
+    padding-top: 0.1rem;
 }
 
 .Card_child {
