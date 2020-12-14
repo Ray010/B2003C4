@@ -246,7 +246,9 @@ namespace B2003C4.Pages.Common
             }
             else if(returnDevice == "iPhone")
             {
-                Navi.NavigateTo("comgooglemaps://?q=" + CommonPhase1.S_CityName + "丁目" + CommonPhase1.S_CityAddress);
+
+                Navi.NavigateTo("https://maps.apple.com/?q=" + CommonPhase1.S_CityName + "丁目" + CommonPhase1.S_CityAddress);
+                /*Navi.NavigateTo("comgooglemaps://?q=" + CommonPhase1.S_CityName + "丁目" + CommonPhase1.S_CityAddress);*/
             }
         }
     }

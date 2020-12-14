@@ -39,6 +39,7 @@ namespace B2003C4.Pages.Kansa
         
         private async Task UpdateModelDataOrPhaseShift()
         {
+            
             Console.WriteLine("OK");
             Phase1Data.PhaseNo = 2;
             await Phase1DataChanged.InvokeAsync(Phase1Data);
@@ -56,7 +57,7 @@ namespace B2003C4.Pages.Kansa
         uint? Kuiki_SelectValue
         { get => Kuiki_SelectedValue; set { Kuiki_SelectedValue = value; } }
 
-
+           
 
         public Boolean CityName_SelectFlg { get; set; } = false;
         //string Kuiki_SelectedValue;
