@@ -256,58 +256,89 @@
                 </table>
             </div>
         </div>
-        @*
+        
 
         <div class="Scroll_Control Scroll_Height_40">
             <div class="mat-layout-grid" style="padding:0rem;">
                 <div class="mat-layout-grid-inner">
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
                         <MatTextField @bind-Value="Phase1Data.S_DokusyaCode" Label="読者No" style="width:100%;">@Phase1Data.S_DokusyaCode</MatTextField>
+
                     </div>
 
 
 
                     <!--区域-->
-                    @*<div class="mat-layout-grid-inner">
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6">
-            <div class="mat-layout-grid-inner">
-                <div class="mat-layout-grid-cell mat-layout-grid-cell">
-                    <MatTextField @bind-Value="Phase1Data.S_KuikiNo" Label="区域">Phase1Data.S_KuikiNo</MatTextField>
-                </div>
-                <div class="mat-layout-grid-cell mat-layout-grid-cell">
-                    <MatSelect HelperText="" Label="区域" @bind-Value="Phase1Data.S_KuikiNo">
-                        @foreach (var Kuiki in KuikiList)
-                        {
+
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1">
+                        <MatTextField @bind-Value="Phase1Data.S_KuikiNo" Label="区域">@Phase1Data.S_KuikiNo</MatTextField>
+                    </div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
+                        <MatSelect HelperText="" Label="区域" @bind-Value="Phase1Data.S_KuikiNo">
+                            @foreach (var Kuiki in KuikiList)
+                                    {
                             <MatOption Value="@Kuiki.KuikiCode">@Kuiki.KuikiName</MatOption>
-                        }
-                    </MatSelect>
+                                    }
+                        </MatSelect>
+                    </div>
+
+
+
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                        <MatTextField @bind-Value="Phase1Data.S_Junro" Label="区域">@Phase1Data.S_KuikiNo-</MatTextField>
+                    </div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                        <MatTextField @bind-Value="Phase1Data.S_Junro_Sub" Label="区域">@Phase1Data.S_KuikiNo</MatTextField>
+                    </div>
+
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+                        <MatTextField @bind-Value="Phase1Data.S_DokusyaName" Label="読者名" style="width:100%;">@Phase1Data.S_DokusyaCode</MatTextField>
+                    </div>
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+                        <MatTextField @bind-Value="Phase1Data.S_DokusyaKanaName" Label="読者名(ｶﾅ)" style="width:100%;">@Phase1Data.S_DokusyaCode</MatTextField>
+                    </div>
+
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1">
+                        <MatTextField @bind-Value="Phase1Data.S_Junro" Label="局番">@Phase1Data.S_PhoneNo</MatTextField>
+                    </div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
+                        <MatTextField @bind-Value="Phase1Data.S_Junro_Sub" Label="電話番号">@Phase1Data.S_PhoneNo_Sub</MatTextField>
+                    </div>
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1">
+                        <MatTextField @bind-Value="Phase1Data.S_Junro" Label="町No.">@*@Phase1Data.S_CityNo*@</MatTextField>
+                    </div>
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
+                        <MatSelect HelperText="" Label="町名" @bind-Value="Phase1Data.S_CityName">
+                            @foreach (var City in CityList)
+                            {
+                            @* 町名番号未導入の為
+                            <MatOption Value="@City.CityNo">@City.CityName</MatOption>
+                            *@
+                            <MatOption Value="@City">@City</MatOption>
+                            }
+                        </MatSelect>
+                    </div>
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                        <MatTextField @bind-Value="Phase1Data.S_CityAddress" Label="番">@Phase1Data.S_KuikiNo-</MatTextField>
+                    </div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                        @* 号未対応の為
+                        <MatTextField @bind-Value="Phase1Data.S_Junro_Sub" Label="号">@Phase1Data.S_CityAddress</MatTextField>*@
+                        <MatTextField @bind-Value="Phase1Data.S_CityAddress" Label="号"></MatTextField>
+                    </div>
+
+
                 </div>
             </div>
-        </div>
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1"></div>
-
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
-            <div class="mat-layout-grid-inner">
-                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
-                    <MatTextField @bind-Value="Phase1Data.S_Junro" Label="区域">@Phase1Data.S_KuikiNo-</MatTextField>
-                </div>
-                <div class="mat-layout-grid-cell">
-                    <MatTextField @bind-Value="Phase1Data.S_Junro_Sub" Label="区域">@Phase1Data.S_KuikiNo</MatTextField>
-                </div>
-            </div>
-        </div>
-
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-            <MatTextField @bind-Value="Phase1Data.S_DokusyaName" Label="読者名" style="width:100%;">@Phase1Data.S_DokusyaCode</MatTextField>
-        </div>
-
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-            <MatTextField @bind-Value="Phase1Data.S_DokusyaKanaName" Label="読者名(ｶﾅ)" style="width:100%;">@Phase1Data.S_DokusyaCode</MatTextField>
-        </div>
-        </div>
-        </div>
-        </div>
-        *@
+        </div>  
 
         <div class="card fontSizeMAX767 Card_Fixed">
             <div class="card-body card_Bottom_Margin">
