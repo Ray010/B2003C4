@@ -75,7 +75,7 @@ namespace B2003C4.Data
 
         public string S_BuildingKanaName; //建物名(カナ)
 
-        public uint? ShitsuBan;
+        public uint? S_ShitsuBan;
 
         public string[] CheckResult = new string[0] { };
 

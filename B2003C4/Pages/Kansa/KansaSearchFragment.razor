@@ -40,6 +40,7 @@
             width: 100%;
             overflow-y: scroll;
             overflow-x: hidden;
+
         }
         .Scroll_Control::-webkit-scrollbar {
             width: 0.3vw;
@@ -51,10 +52,13 @@
             border-radius: 3px;
         }
 
+        .Scroll_Height_40 {
+            height: 110vw;
+        }
+
         .Card_child {
             position: absolute;
             bottom: 13rem;
-
         }
         .Button_Child{
             position: absolute;
@@ -210,8 +214,47 @@
             .show > .btn-menu.dropdown-toggle {
             }
 
+        .Padding_Mini {
+            padding: 1%;
+        }
+
+        label {
+            margin-bottom: 0;
+        }
+        p{
+            height:0;
+        }
+
+        @*TextInput*@
+        .mdc-text-field {
+            border-top-left-radius: 0;
+            border-top-right-radius:0;
+        }
+
+        .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+            background-color:#FFFFFF;
+        }
 
 
+        @*Select*@
+        .mdc-select .mdc-select__anchor {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .mdc-select:not(.mdc-select--disabled) .mdc-select__anchor {
+            background-color: #FFFFFF;
+        }
+
+        @*ChkBox*@
+        .BackColor {
+            background-color: #FFFFFF;
+            padding-right: 5%;
+        }
+
+        .mdc-checkbox{
+            @*padding:5px;*@
+        }
 
     </style>
 
@@ -242,7 +285,7 @@
         // @bind-Value:event="oninput"
     }
 
-    <form>
+
         <div class="card">
             <div class="card-body card_Bottom_Margin Card_Fixed">
                 <table class="Card_table_Fixed " style="width:50%;">
@@ -251,18 +294,19 @@
 
                         @*<td><button @onclick="@(s => JumpResultPage("./Kansa/SearchActivity"))" type="button" class="fontSizeMAX767 btn btn-primary btn-block">検索</button></td>*@
                         <td><button @onclick="UpdateModelDataOrPhaseShift" type="button" class="fontSizeMAX767 btn btn-primary btn-block">検索</button></td>
-                        <td><button @onclick="@Clear" class="fontSizeMAX767 btn btn-primary btn-block" type="reset">クリア</button></td>
+                        <td><button @onclick="@Clear" class="fontSizeMAX767 btn btn-primary btn-block">クリア</button></td>
                     </tr><!--Clear-->
                 </table>
             </div>
         </div>
-        
 
-        <div class="Scroll_Control Scroll_Height_40">
+
+        <div class="Scroll_Control Scroll_Height_40 Padding_Mini">
+
             <div class="mat-layout-grid" style="padding:0rem;">
                 <div class="mat-layout-grid-inner">
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-                        <MatTextField @bind-Value="Phase1Data.S_DokusyaCode" Label="読者No" style="width:100%;">@Phase1Data.S_DokusyaCode</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_DokusyaCode" Label="読者No" style="width:100%;" class="mat-elevation-z3">@Phase1Data.S_DokusyaCode</MatTextField>
 
                     </div>
 
@@ -272,74 +316,118 @@
 
 
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1">
-                        <MatTextField @bind-Value="Phase1Data.S_KuikiNo" Label="区域">@Phase1Data.S_KuikiNo</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_KuikiNo" Label="区域" class="mat-elevation-z3">@Phase1Data.S_KuikiNo</MatTextField>
                     </div>
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatSelect HelperText="" Label="区域" @bind-Value="Phase1Data.S_KuikiNo">
+                        <MatSelect HelperText="" Label="区域" @bind-Value="Phase1Data.S_KuikiNo" class="mat-elevation-z3">
                             @foreach (var Kuiki in KuikiList)
-                                    {
-                            <MatOption Value="@Kuiki.KuikiCode">@Kuiki.KuikiName</MatOption>
-                                    }
+                            {
+                                <MatOption Value="@Kuiki.KuikiCode">@Kuiki.KuikiName</MatOption>
+                            }
                         </MatSelect>
                     </div>
 
 
 
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                        <MatTextField @bind-Value="Phase1Data.S_Junro" Label="区域" class="mat-elevation-z3">@Phase1Data.S_KuikiNo-</MatTextField>
+                    </div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
 
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                        <MatTextField @bind-Value="Phase1Data.S_Junro" Label="区域">@Phase1Data.S_KuikiNo-</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_Junro_Sub" Label="区域" class="mat-elevation-z3">@Phase1Data.S_KuikiNo</MatTextField>
                     </div>
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                        <MatTextField @bind-Value="Phase1Data.S_Junro_Sub" Label="区域">@Phase1Data.S_KuikiNo</MatTextField>
-                    </div>
+
 
 
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-                        <MatTextField @bind-Value="Phase1Data.S_DokusyaName" Label="読者名" style="width:100%;">@Phase1Data.S_DokusyaCode</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_DokusyaName" Label="読者名" style="width:100%;" class="mat-elevation-z3"></MatTextField>
                     </div>
 
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-                        <MatTextField @bind-Value="Phase1Data.S_DokusyaKanaName" Label="読者名(ｶﾅ)" style="width:100%;">@Phase1Data.S_DokusyaCode</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_DokusyaKanaName" Label="読者名(ｶﾅ)" style="width:100%;" class="mat-elevation-z3">@Phase1Data.S_DokusyaCode</MatTextField>
                     </div>
 
 
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1">
-                        <MatTextField @bind-Value="Phase1Data.S_Junro" Label="局番">@Phase1Data.S_PhoneNo</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_Junro" Label="局番" class="mat-elevation-z3">@Phase1Data.S_PhoneNo</MatTextField>
                     </div>
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatTextField @bind-Value="Phase1Data.S_Junro_Sub" Label="電話番号">@Phase1Data.S_PhoneNo_Sub</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_Junro_Sub" Label="電話番号" 　style="width:100%;" class="mat-elevation-z3">@Phase1Data.S_PhoneNo_Sub</MatTextField>
                     </div>
 
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1">
-                        <MatTextField @bind-Value="Phase1Data.S_Junro" Label="町No.">@*@Phase1Data.S_CityNo*@</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_Junro" Label="町No." class="mat-elevation-z3">@*@Phase1Data.S_CityNo*@</MatTextField>
                     </div>
 
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatSelect HelperText="" Label="町名" @bind-Value="Phase1Data.S_CityName">
+                        <MatSelect HelperText="" Label="町名" @bind-Value="Phase1Data.S_CityName" class="mat-elevation-z3">
                             @foreach (var City in CityList)
                             {
-                            @* 町名番号未導入の為
-                            <MatOption Value="@City.CityNo">@City.CityName</MatOption>
-                            *@
-                            <MatOption Value="@City">@City</MatOption>
+                                @* 町名番号未導入の為
+                                <MatOption Value="@City.CityNo">@City.CityName</MatOption>
+                                *@
+                                <MatOption Value="@City">@City</MatOption>
                             }
                         </MatSelect>
                     </div>
 
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                        <MatTextField @bind-Value="Phase1Data.S_CityAddress" Label="番">@Phase1Data.S_KuikiNo-</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_CityAddress" Label="番" class="mat-elevation-z3">@Phase1Data.S_KuikiNo</MatTextField>
                     </div>
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
                         @* 号未対応の為
                         <MatTextField @bind-Value="Phase1Data.S_Junro_Sub" Label="号">@Phase1Data.S_CityAddress</MatTextField>*@
-                        <MatTextField @bind-Value="Phase1Data.S_CityAddress" Label="号"></MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_CityAddress" Label="号" class="mat-elevation-z3">@Phase1Data.S_CityAddress</MatTextField>
                     </div>
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                        <MatTextField @bind-Value="Phase1Data.S_BuildingKanaName" Label="建物名(ｶﾅ)" class="mat-elevation-z3">@Phase1Data.S_BuildingKanaName</MatTextField>
+                    </div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                        <MatTextField @bind-Value="Phase1Data.S_BuildingName" Label="建物名" class="mat-elevation-z3">@Phase1Data.S_BuildingName</MatTextField>
+                    </div>
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                        <MatTextField @bind-Value="Phase1Data.S_BuildingKanaName" Label="室番" class="mat-elevation-z3">@Phase1Data.S_ShitsuBan</MatTextField>
+                    </div>
+
+
+
+
+
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12 BackColor mat-elevation-z3">
+                        <div class="mat-layout-grid-inner">
+                            @foreach (var ChkBox in KubunList)
+                            {
+                                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1">
+                                    <MatCheckbox @bind-Value="@ChkBox.Active" Label="@ChkBox.KubunName"></MatCheckbox>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    @*
+                    @for (int Chk = 0; Chk <= ChkBox_Count; Chk++)
+                    {
+                        @foreach (var ChkBox in ChkBoxList[Chk])
+                        {
+                            <div>
+                                <MatCheckbox @bind-Value="@ChkBox.KubunCode" Label="@ChkBox.KubunName"></MatCheckbox>
+                            </div>
+                        }
+                    }
+                    *@
+
 
 
                 </div>
             </div>
-        </div>  
+        </div>
 
+
+
+        @* 旧レイアウト
         <div class="card fontSizeMAX767 Card_Fixed">
             <div class="card-body card_Bottom_Margin">
                 <table class="Card_table_Fixed">
@@ -416,7 +504,7 @@
                         @*カッコつきだと使いにくいので保留
                         <td colspan="1">(</td>
                         <td colspan="2"><input input @bind="@PhoneNo" @bind:event="oninput" type="tel" class="fontSizeMAX767 form-control" /></td>
-                        <td colspan="1">)</td>*@
+                        <td colspan="1">)</td>*
                         <td colspan="6" class="Border_Bottom"><input @bind="@Phase1Data.S_PhoneNo_Sub" @bind:event="oninput" maxlength="10" type="tel" class="fontSizeMAX767 form-control"></td>
                         <td colspan="1">&nbsp;</td>
                         <td>@Phase1Data.S_PhoneNo_Sub</td>
@@ -488,7 +576,7 @@
                         <td colspan="2"><input @bind="CityAddress" type="text" class="form-control"></td>
                         <td colspan="4">&nbsp;</td>
                     </tr>
-                    *@
+                    *
 
                 </table>
             </div>
@@ -503,7 +591,7 @@
                             <table>
                                 <tr>
 
-                                    @*現在カナ入力で漢字が入力できるため保留*@
+                                    @*現在カナ入力で漢字が入力できるため保留*
                                     <td class="Margin_R">ｶﾅ</td>
                                     <td class="Border_Bottom">
                                         <input @bind="@Phase1Data.S_BuildingKanaName" @bind:event="oninput" @onchange="(s => ConvertString(Phase1Data.S_BuildingKanaName))" maxlength="10" type="text" class="form-control">
@@ -524,16 +612,26 @@
                 <table class="Card_table_Fixed">
                     <tr>
                         <td colspan="2">室番</td>
-                        <td colspan="10" class="Border_Bottom"><input @bind="Phase1Data.ShitsuBan" @bind:event="oninput" maxlength="5" type="tel" class=" form-control"></td>
+                        <td colspan="10" class="Border_Bottom"><input @bind="Phase1Data.S_ShitsuBan" @bind:event="oninput" maxlength="5" type="tel" class=" form-control"></td>
                         <td colspan="1">&nbsp;</td>
                     </tr>
                 </table>
             </div>
         </div>
 
+
         <div class="card fontSizeMAX767 Card_Fixed">
             <div class="card-bod card_Bottom_Margin">
                 <table class="Card_table_Fixed">
+
+
+
+
+
+
+
+
+
 
                     @while (true) //KubunList内に存在するボタンを描く
                     {
@@ -588,44 +686,45 @@
 
 
                     @*
-                                    <tr>
-                                        <td rowspan="3" colspan="3">区分</td>
-                                    </tr>
-
-                                    <tr>
-
-                                        @foreach (var x in KubunList)
-                                        {
-
-                                            <td colspan="10">
-                                                <input @onchange="@(s => ButtonX(x.KubunCode))" type="checkbox" name="@x.KubunCode" value="@x.KubunCode" />@x.KubunName
-                                            </td>
-                                        }
-                                    </tr>
-
-                    <tr>
-
-
-
-                        <td colspan="10">
-                            <input @onchange="@(s => ButtonX("x.KubunName"))" type="checkbox" name="x.KubunCode" value="x.KubunCode" />x.KubunName
-
-                        </td>
-
-                    </tr>
-
-                    @foreach (var x in ListX)
-                    {
                         <tr>
-                            <td> <input @onchange="@(s => ButtonX(x.X))" type="checkbox" name="@x.X" value="@x.X" /></td>
+                            <td rowspan="3" colspan="3">区分</td>
                         </tr>
-                        }
-                    }
-                    *@
-                </table>
 
-            </div>
+                        <tr>
+
+                            @foreach (var x in KubunList)
+                            {
+
+                                <td colspan="10">
+                                    <input @onchange="@(s => ButtonX(x.KubunCode))" type="checkbox" name="@x.KubunCode" value="@x.KubunCode" />@x.KubunName
+                                </td>
+                            }
+                        </tr>
+
+        <tr>
+
+
+
+            <td colspan="10">
+                <input @onchange="@(s => ButtonX("x.KubunName"))" type="checkbox" name="x.KubunCode" value="x.KubunCode" />x.KubunName
+
+            </td>
+
+        </tr>
+
+        @foreach (var x in ListX)
+        {
+            <tr>
+                <td> <input @onchange="@(s => ButtonX(x.X))" type="checkbox" name="@x.X" value="@x.X" /></td>
+            </tr>
+            }
+        }
+        *
+        </table>
+
         </div>
+        </div>
+        *@
         @CheckResult
 
         <div class="card">
@@ -642,9 +741,9 @@
         </div>
 
         <div class="fontSizeMAX767 alert alert-warning" role="alert">
-            
+
         </div>
-    </form>
+
 
 </body>
 </html>

@@ -133,7 +133,7 @@ namespace B2003C4.Pages.Kansa
                 (x.CityAddress == Phase2Data.S_CityAddress || null == Phase2Data.S_CityAddress) &&
                 BuildingNameNull &&
                 BuildingKanaNameNull &&
-                (x.ShitsuBan == Phase2Data.ShitsuBan || null == Phase2Data.ShitsuBan) &&
+                (x.ShitsuBan == Phase2Data.S_ShitsuBan || null == Phase2Data.S_ShitsuBan) &&
                 CheckResultNull
                 )
                 {

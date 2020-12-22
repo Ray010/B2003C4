@@ -89,17 +89,17 @@ namespace B2003C4.Pages.Kansa
 
         List<Kubun> KubunList = new List<Kubun>()
         {
-            new Kubun("未読","Midoku",""),
-            new Kubun("現読","Gendoku",""),
-            new Kubun("予約","Yoyaku",""),
-            new Kubun("止め","Tome",""),
-            new Kubun("休読","Kyudoku",""),
-            new Kubun("保留","Horyu",""),
-            new Kubun("発証","Hassyo",""),
-            new Kubun("順路","Junro",""),
-            new Kubun("不良","Huryo",""),
-            new Kubun("空家","Akiya",""),
-            new Kubun("他現","Tagen",""),
+            new Kubun("未読","Midoku",true),
+            new Kubun("現読","Gendoku",true),
+            new Kubun("予約","Yoyaku",true),
+            new Kubun("止め","Tome",true),
+            new Kubun("休読","Kyudoku",true),
+            new Kubun("保留","Horyu",true),
+            new Kubun("発証","Hassyo",true),
+            new Kubun("順路","Junro",true),
+            new Kubun("不良","Huryo",true),
+            new Kubun("空家","Akiya",true),
+            new Kubun("他現","Tagen",true),
         };
 
 
@@ -108,9 +108,9 @@ namespace B2003C4.Pages.Kansa
             public string KubunName { get; set; }
             public string KubunCode { get; set; }
 
-            public string Active;
+            public Boolean Active;
 
-            public Kubun(string kubunName , string kubunCode , string active)
+            public Kubun(string kubunName , string kubunCode , Boolean active)
             {
                 KubunName = kubunName;
                 KubunCode = kubunCode;
@@ -133,8 +133,31 @@ namespace B2003C4.Pages.Kansa
         public string[] CityList = new string[0] { };
         public int CityCount;
 
+
+
+        //チェックボックス生成用
+        public List<List<Kubun>> ChkBoxList = new List<List<Kubun>>();
+        public int ChkBox_Count = 0;
         protected override void OnInitialized()
         {
+            /*
+            ChkBoxList[ChkBox_Count].Add(new List<Kubun>());
+
+            //区分チェックボックス生成
+            foreach(var kubun in KubunList)
+            {
+                
+                
+                if(ChkBoxList[ChkBox_Count].Count == 4)
+                {
+                    ChkBox_Count++;
+                }
+                ChkBoxList[ChkBox_Count].Add(kubun);
+            }
+
+            */
+
+            /* ????
             for(int x = 0; x <= Phase1Data.CheckResult.Length ; x++)
             {
                 foreach(var y in KubunList)
@@ -150,7 +173,7 @@ namespace B2003C4.Pages.Kansa
                     { }
                 }
             }
-
+            */
             foreach(var CityName in DBSourceData.DokusyaList)
             {
                 if(Array.IndexOf(CityList , CityName.CityName) == -1)
@@ -180,6 +203,11 @@ namespace B2003C4.Pages.Kansa
         {
             Kuiki_SelectValue = null;
             CheckResult = null;
+            foreach(var Kubun in KubunList)
+            {
+                Kubun.Active = true;
+            }
+
             Phase1Data = new FormSearchDataModel();
             Phase1DataChanged.InvokeAsync(Phase1Data);
         }
