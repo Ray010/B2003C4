@@ -1,0 +1,4 @@
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="_content/MatBlazor" Path="C:\Users\albir\.nuget\packages\matblazor\2.8.0\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Radzen.Blazor" Path="C:\Users\albir\.nuget\packages\radzen.blazor\2.18.4\build\..\staticwebassets\" />
+</StaticWebAssets>
