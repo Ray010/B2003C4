@@ -4,13 +4,31 @@
 
 @*https://chrissainty.com/using-javascript-interop-in-razor-components-and-blazor/*@
 
-@switch (CurrentPage.PhaseNo)
+
+
+
+
+
+
+
+@if (P_IriList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+
+switch (CurrentPage.PhaseNo)
 {
     case 0:
         goto default;
 
     case 1:
-        <MainFragment @bind-Phase1Data="CurrentPage" @bind-DBSourceData="DBData" />
+        <MainFragment @bind-Phase1Data="CurrentPage" @bind-C_IriList="P_IriList" @bind-C_TomeList="P_TomeList" />
+        //bind-DBSourceData="TomeList"
+
+
+
         goto End;
 
     case 11:
@@ -25,10 +43,10 @@
         break;
 
 
-    default:
+        default:
         <div>ハンドリングエラー:存在しないページ（PhaseNo:@CurrentPage.S_PhoneNo )</div>
         break;
-
+    }
 }
 
 
@@ -54,6 +72,9 @@
 
 @code {
     //private FormSearchDataModel formDataModel = new FormSearchDataModel();
+
+    private List<Iri> P_IriList = new List<Iri>();
+    private List<Tome> P_TomeList = new List<Tome>();
     private DummyDataModel DBData = new DummyDataModel(); //読者リストのDummyデータ
     private KoudokuDummyData KoudokuList = new KoudokuDummyData(); //購読リストのDummyデータ
     private FormSearchDataModel ResultData = new FormSearchDataModel();

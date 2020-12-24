@@ -9,23 +9,24 @@ using System.Diagnostics.CodeAnalysis;
 using B2003C4.Class;
 using B2003C4.Data;
 
+
 namespace B2003C4.Pages.IriTome
 {
     public partial class MainFragment
     {
         //年月関連
         public Boolean SelectedFlg { get; set; } = false;
-        int? SelectedValue;
-        int? SelectValue
+        string SelectedValue;
+        string SelectValue
         { get => SelectedValue; set { SelectedValue = value; } }
 
         //区域関連
         public Boolean Kuiki_SelectedFlg { get; set; } = false;
-        int? Kuiki_SelectedValue = 1;
-        int? Kuiki_SelectValue
+        double? Kuiki_SelectedValue = 1;
+        double? Kuiki_SelectValue
         { get => Kuiki_SelectedValue; set { Kuiki_SelectedValue = value; } }
 
-        public uint[] Kuiki; //区域の数
+        public double[] Kuiki; //区域の数
 
 
         [Parameter]
@@ -38,6 +39,24 @@ namespace B2003C4.Pages.IriTome
 
         [Parameter]
         public EventCallback<DummyDataModel> DBSourceDataChanged { get; set; }
+
+        //DB-----------------------------------------------------------------------------------
+
+        [Parameter]
+        public List<Iri> C_IriList { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Iri>> C_IriListChanged { get; set; }
+
+        [Parameter]
+        public List<Tome> C_TomeList { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Tome>> C_TomeListChanged { get; set; }
+
+        //DB-----------------------------------------------------------------------------------
+
+
 
         /*
         [Parameter]
@@ -184,12 +203,13 @@ namespace B2003C4.Pages.IriTome
         protected override void OnInitialized()
         {
             //区域総数
-            uint IriTemp = 0;
-            uint[] IriKuiki = new uint[0];
+            double IriTemp = 0;
+            double[] IriKuiki = new double[0];
 
-            uint TomeTemp = 0;
-            uint[] TomeKuiki = new uint[0];
+            double TomeTemp = 0;
+            double[] TomeKuiki = new double[0];
 
+            /*
             foreach(var IriTome in DBSourceData.DokusyaList)
             {
                 if(IriTome.DokusyaStatus == "Gendoku")
@@ -205,8 +225,9 @@ namespace B2003C4.Pages.IriTome
                     continue;
                 }
             }
+            */
 
-            foreach (var x in IriDokusyaList)
+            foreach (var x in C_IriList)
             {
                 if(IriTemp != x.Kuiki )
                 {
@@ -219,7 +240,7 @@ namespace B2003C4.Pages.IriTome
                     continue;
                 }
             }
-            foreach (var x in TomeDokusyaList)
+            foreach (var x in C_TomeList)
             {
                 if(TomeTemp != x.Kuiki)
                 {
@@ -232,6 +253,7 @@ namespace B2003C4.Pages.IriTome
                     continue;
                 }
             }
+            
 
             if(IriKuiki.Length >= TomeKuiki.Length)
             {
@@ -267,7 +289,7 @@ namespace B2003C4.Pages.IriTome
                     continue;
                 }
             }
-
+            
             //---------------------------------------------------------
             //履歴の処理
 
@@ -275,7 +297,7 @@ namespace B2003C4.Pages.IriTome
             Phase1Data.Back_History.Add(Phase1Data);
             Phase1DataChanged.InvokeAsync(Phase1Data);
             */
-            if(Phase1Data.HistoryBackState == false)
+            if (Phase1Data.HistoryBackState == false)
             {
                 History.Back_History.Add(Phase1Data.Deep_Copy());   //.Add(CurrentPage);
                 Phase1DataChanged.InvokeAsync(Phase1Data);
@@ -297,10 +319,10 @@ namespace B2003C4.Pages.IriTome
             IriCount = 0;
             TomeCount = 0;
 
-            foreach (var x in IriDokusyaList)
+            foreach (var x in C_IriList)
             {
                 if(Kuiki_SelectedValue == x.Kuiki &&
-                  (SelectValue == x.KeiyakuSt || SelectValue == null))
+                  (SelectValue == x.iri || SelectValue == null))
 
                 //if (Kuiki_SelectedValue == x.Kuiki)
                 {
@@ -311,10 +333,10 @@ namespace B2003C4.Pages.IriTome
                     continue;
                 }
             }
-            foreach (var x in TomeDokusyaList)
+            foreach (var x in C_TomeList)
             {
                 if (Kuiki_SelectedValue == x.Kuiki &&
-                    (SelectValue -1 == x.KeiyakuEd || SelectValue == null))
+                    (SelectValue  == x.tome || SelectValue == null))
 
                     //if (Kuiki_SelectedValue == x.Kuiki)
                 {
@@ -340,14 +362,14 @@ namespace B2003C4.Pages.IriTome
             }
             else
             {
-                SelectedValue = int.Parse(e.Value.ToString());
+                SelectedValue = e.Value.ToString();
                 SelectedFlg = true;
             }
 
-            foreach (var x in IriDokusyaList)
+            foreach (var x in C_IriList)
             {
                 if (Kuiki_SelectedValue == x.Kuiki &&
-                  (SelectValue == x.KeiyakuSt || SelectValue == null))
+                  (SelectValue == x.iri || SelectValue == null))
 
                 //if (Kuiki_SelectedValue == x.Kuiki)
                 {
@@ -358,10 +380,10 @@ namespace B2003C4.Pages.IriTome
                     continue;
                 }
             }
-            foreach (var x in TomeDokusyaList)
+            foreach (var x in C_TomeList)
             {
                 if (Kuiki_SelectedValue == x.Kuiki &&
-                    (SelectValue - 1 == x.KeiyakuEd || SelectValue == null))
+                    (SelectValue  == x.tome || SelectValue == null))
 
                 //if (Kuiki_SelectedValue == x.Kuiki)
                 {
@@ -447,21 +469,35 @@ namespace B2003C4.Pages.IriTome
         protected NavigationManager Navi { get; set; }
 
 
-        public async void JumpPage(DummyDataModel.Dokusya OnDokusya)
+        public async void JumpPageIri(Iri OnDokusya)
         {
-            Phase1Data.S_DokusyaCode = OnDokusya.DokusyaCode;
-            Phase1Data.S_DokusyaName = OnDokusya.DokusyaName;
-            Phase1Data.S_BuildingName = OnDokusya.BuildingName;
-            Phase1Data.S_CityName = OnDokusya.CityName;
-            Phase1Data.S_CityAddress = OnDokusya.CityAddress;
-            Phase1Data.S_PhoneNo_Sub = OnDokusya.PhoneNo_Sub;
-            Phase1Data.S_KuikiNo = OnDokusya.Kuiki;
+            //Phase1Data.S_DokusyaCode = OnDokusya.DokuCode;
+            Phase1Data.S_DokusyaName = OnDokusya.Name;
+            Phase1Data.S_BuildingName = OnDokusya.Build;
+            Phase1Data.S_CityName = OnDokusya.Address;
+            //Phase1Data.S_CityAddress = OnDokusya.CityAddress;
+            //Phase1Data.S_PhoneNo_Sub = OnDokusya.PhoneNo_Sub;
+            //Phase1Data.S_KuikiNo = OnDokusya.Kuiki;
 
             Phase1Data.PhaseNo = 11;
             await Phase1DataChanged.InvokeAsync(Phase1Data);
             StateHasChanged();
         }
 
+        public async void JumpPageTome(Tome OnDokusya)
+        {
+            //Phase1Data.S_DokusyaCode = OnDokusya.DokuCode;
+            Phase1Data.S_DokusyaName = OnDokusya.Name;
+            Phase1Data.S_BuildingName = OnDokusya.Build;
+            Phase1Data.S_CityName = OnDokusya.Address;
+            //Phase1Data.S_CityAddress = OnDokusya.CityAddress;
+            //Phase1Data.S_PhoneNo_Sub = OnDokusya.PhoneNo_Sub;
+            //Phase1Data.S_KuikiNo = OnDokusya.Kuiki;
+
+            Phase1Data.PhaseNo = 11;
+            await Phase1DataChanged.InvokeAsync(Phase1Data);
+            StateHasChanged();
+        }
 
 
     }

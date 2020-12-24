@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using B2003C4.Data;
+using B2003C4.Service;
+using Microsoft.EntityFrameworkCore;
 
 namespace B2003C4
 {
@@ -26,9 +28,21 @@ namespace B2003C4
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<NewsPaperDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("NewsPaperConnection"),
+                    providerOptions => providerOptions.CommandTimeout(120)));
+
+
+
+
             services.AddRazorPages();
             services.AddServerSideBlazor();
             //services.AddSingleton<WeatherForecastService>();
+            services.AddScoped<NewsPaperDataService>();
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -71,44 +71,49 @@
 
                 <!--未定-->
                 @*
-            <div class="dropdown">
-                <button type="button" id="Kuiki"
-                        class="btn btn-secondary btn-block dropdown-toggle"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false">
-                    @Kuiki_SelectValue 区
-                </button>
-                <div class="dropdown-menu" aria-labelledby="Kuiki">
+        <div class="dropdown">
+            <button type="button" id="Kuiki"
+                    class="btn btn-secondary btn-block dropdown-toggle"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+                @Kuiki_SelectValue 区
+            </button>
+            <div class="dropdown-menu" aria-labelledby="Kuiki">
 
-                    @foreach (var Kuiki in IriKuiki)
+                @foreach (var Kuiki in IriKuiki)
+                {
+
+                    if (Y == Kuiki.KuikiNo)
                     {
 
-                        if (Y == Kuiki.KuikiNo)
-                        {
+                    }
+                    else
+                    {
 
-                        }
-                        else
-                        {
-
-                            <a @onclick="@(s => OnChangeEventKuiki(Kuiki.KuikiNo))" class="dropdown-item form-control" value="@Kuiki.KuikiNo"> @Kuiki.KuikiNo 区 </a>
-                            //Y = Kuiki.KuikiNo;
-
-                        }
+                        <a @onclick="@(s => OnChangeEventKuiki(Kuiki.KuikiNo))" class="dropdown-item form-control" value="@Kuiki.KuikiNo"> @Kuiki.KuikiNo 区 </a>
+                        //Y = Kuiki.KuikiNo;
 
                     }
-                </div>
-            </div>
-                *@
-                <form>
-                    <select name="Kuiki" class="form-control" @onchange="@OnChangeEventKuikiX">
 
-                        @foreach (var x in Kuiki)
-                        {
-                                <option value="@int.Parse(x.ToString())"> @x 区 </option>
-                        }
-                    </select>
-                </form>
+                }
+            </div>
+        </div>
+                *@
+
+
+
+                
+        <form>
+            <select name="Kuiki" class="form-control" @onchange="@OnChangeEventKuikiX">
+
+                @foreach (var x in Kuiki)
+                {
+                        <option value="@int.Parse(x.ToString())"> @x 区 </option>
+                }
+            </select>
+        </form>
+                
             </td>
 
             <td>&nbsp;</td>
@@ -281,29 +286,30 @@
                                 <th class="Card_VerticalFix Card_parent" colspan="10">
                                     <table class="Card_table_Fixed">
                                         <!--foreath-->
-                                        @foreach (var x in IriDokusyaList)
+                                        @foreach (var x in C_IriList)
                                         {
 
+                                            
                                             @if( Kuiki_SelectValue == x.Kuiki && 
-                                                ( SelectValue == x.KeiyakuSt || SelectValue == null ) )
+                                                ( SelectValue == x.iri || SelectValue == null ) )
                                             { 
                                             <tr>
                                                 <td>
                                                     <div class="Card_parent">
-                                                        <button @onclick="@(s => JumpPage(x))" type="button" class="btn btn-IriButton btn-block Card_NameButtonMargin">
+                                                        <button @onclick="@(s => JumpPageIri(x))" type="button" class="btn btn-IriButton btn-block Card_NameButtonMargin">
                                                             @*JumpPage("./Common/DokusyaActivity")*@
                                                             <table class="Card_table_Fixed">
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td align="left" class="fontSizeMAX767" colspan="5">@x.DokusyaName &nbsp;</td>
+                                                                        <td align="left" class="fontSizeMAX767" colspan="5">@x.Name &nbsp;</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td align="left" class="fontSizeMAX767" colspan="5">x.B &nbsp;</td>
+                                                                        <td align="left" class="fontSizeMAX767" colspan="5">@x.Meig &nbsp;</td>
 
                                                                     </tr>
                                                                     <tr>
-                                                                        <td align="left" class="fontSizeMAX767" colspan="4">@x.KeiyakuSt - @x.KeiyakuEd  &nbsp;</td>
-
+                                                                        <td align="left" class="fontSizeMAX767" colspan="4">@x.iri - @x.Tome  &nbsp;</td>
+                                                                            
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
@@ -331,30 +337,33 @@
                                 <th class="Card_VerticalFix Card_parent" colspan="10">
                                     <table class="Card_table_Fixed">
                                         <!--foreath-->
-                                        @foreach (var x in TomeDokusyaList)
+                                        @foreach (var x in C_TomeList)
                                         {
-                                            @if ( Kuiki_SelectValue == x.Kuiki && 
+                                            @if ( Kuiki_SelectValue == x.Kuiki )
+                                                /*&& 
                                                 (SelectValue -1 == x.KeiyakuEd  || SelectValue == null))
+                                             */
                                              {
 
                                                 <tr>
                                                     <td>
                                                         <div class="Card_parent">
-                                                            <button @onclick="@(s => JumpPage(x))" type="button" class="btn btn-TomeButton btn-block Card_NameButtonMargin">
-                                                                @*JumpPage("./Common/DokusyaActivity")*@
-                                                                <table>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td align="left" class="fontSizeMAX767" colspan="5">@x.DokusyaName &nbsp;</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td align="left" class="fontSizeMAX767" colspan="5">x.B &nbsp;</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td align="left" class="fontSizeMAX767" colspan="4">@x.KeiyakuSt - @x.KeiyakuEd &nbsp;</td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
+                                                            <button @onclick="@(s => JumpPageTome(x))" type="button" class="btn btn-TomeButton btn-block Card_NameButtonMargin">
+                                                            
+                                                            @*JumpPage("./Common/DokusyaActivity")*@
+                                                            <table>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td align="left" class="fontSizeMAX767" colspan="5">@x.Name &nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="left" class="fontSizeMAX767" colspan="5">@x.Meig &nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="left" class="fontSizeMAX767" colspan="4">@x.iri - @x.tome &nbsp;</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
                                                             </button>
                                                             @*<button  type="button" class="btn btnW bg-success Card_NameButtonMarginChild Card_fontSizeMAX767 Card_child">訪</button> 訪問ボタン *@
                                                             @*@onclick="@(s => JumpPage("./Common/Meet"))"*@

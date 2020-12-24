@@ -5,12 +5,27 @@ using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Components;
 using B2003C4.Data;
-
+using B2003C4.Service;
 
 namespace B2003C4.Pages.IriTome
 {
     public partial class IriTomeParent
     {
+
+        [Inject]
+        private NewsPaperDataService NewsPaperData { get; set; }
+
+
+        //public static List<Iri> P_IriList;
+
+        protected override async Task OnInitializedAsync()
+        {
+            P_IriList = await NewsPaperData.GetIriListAsync();
+            P_TomeList = await NewsPaperData.GetTomeListAsync();
+        }
+
+
+
 
         //---------------------------------------------------------------------------------
         //MainLayout
@@ -43,6 +58,10 @@ namespace B2003C4.Pages.IriTome
         private FormSearchDataModel _currentPage;
 
         //---------------------------------------------------------------------------------
+
+
+
+
 
         [Parameter]
         public DummyDataModel DBSourceData { get; set; }
@@ -125,11 +144,6 @@ namespace B2003C4.Pages.IriTome
             }
             Console.WriteLine("IriTomeParent OK");
             Console.WriteLine("IriTome---------------------------");
-        }
-
-        protected override void OnInitialized()
-        {
-
         }
     }
 }

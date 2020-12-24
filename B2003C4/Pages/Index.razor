@@ -1,5 +1,17 @@
 ﻿@page "/"
 
+
+@using B2003C4.Data
+@using B2003C4.Service
+@inject NewsPaperDataService NewsPaperData
+
+
+
+
+
+
+
+
 @using MatBlazor
 <html>
 
@@ -219,3 +231,34 @@
     </div>
 </body>
 </html>
+
+
+
+
+@*
+    @if (DokusyaList == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        @foreach (var x in DokusyaList)
+        {
+            <div>@x.DokuCode</div>
+        }
+    }
+*@
+
+@code{
+
+    List<Dokusya> DokusyaList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var DokusyaLista = await NewsPaperData.GetdokusyaAsync();
+
+        DokusyaList = await NewsPaperData.GetdokusyaAsync();
+    }
+
+
+}
