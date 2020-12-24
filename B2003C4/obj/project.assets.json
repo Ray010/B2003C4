@@ -6157,11 +6157,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Work\\B2003C42\\B2003C4\\B2003C4.csproj",
+      "projectUniqueName": "C:\\Work\\B2003C4\\B2003C4\\B2003C4.csproj",
       "projectName": "B2003C4",
-      "projectPath": "C:\\Work\\B2003C42\\B2003C4\\B2003C4.csproj",
+      "projectPath": "C:\\Work\\B2003C4\\B2003C4\\B2003C4.csproj",
       "packagesPath": "C:\\Users\\albir\\.nuget\\packages\\",
-      "outputPath": "C:\\Work\\B2003C42\\B2003C4\\obj\\",
+      "outputPath": "C:\\Work\\B2003C4\\B2003C4\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\albir\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,5 +1,0 @@
-#ユーザー固有のフォルダを除外#
-bin/
-obj/
-.vs/
-Properties/

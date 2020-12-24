@@ -12,112 +12,112 @@ namespace B2003C4.Pages.Common
     using System.Linq;
     using System.Threading.Tasks;
 #nullable restore
-#line 1 "C:\Work\B2003C42\B2003C4\_Imports.razor"
+#line 1 "C:\Work\B2003C4_Blazor\B2003C4\_Imports.razor"
 using System.ComponentModel.DataAnnotations;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Work\B2003C42\B2003C4\_Imports.razor"
+#line 2 "C:\Work\B2003C4_Blazor\B2003C4\_Imports.razor"
 using System.Net;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Work\B2003C42\B2003C4\_Imports.razor"
+#line 3 "C:\Work\B2003C4_Blazor\B2003C4\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Work\B2003C42\B2003C4\_Imports.razor"
+#line 7 "C:\Work\B2003C4_Blazor\B2003C4\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Work\B2003C42\B2003C4\_Imports.razor"
+#line 8 "C:\Work\B2003C4_Blazor\B2003C4\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Work\B2003C42\B2003C4\_Imports.razor"
+#line 9 "C:\Work\B2003C4_Blazor\B2003C4\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Work\B2003C42\B2003C4\_Imports.razor"
+#line 10 "C:\Work\B2003C4_Blazor\B2003C4\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Work\B2003C42\B2003C4\_Imports.razor"
+#line 11 "C:\Work\B2003C4_Blazor\B2003C4\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Work\B2003C42\B2003C4\_Imports.razor"
+#line 13 "C:\Work\B2003C4_Blazor\B2003C4\_Imports.razor"
 using Microsoft.Extensions.Localization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "C:\Work\B2003C42\B2003C4\_Imports.razor"
+#line 14 "C:\Work\B2003C4_Blazor\B2003C4\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 16 "C:\Work\B2003C42\B2003C4\_Imports.razor"
+#line 16 "C:\Work\B2003C4_Blazor\B2003C4\_Imports.razor"
 using B2003C4;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 18 "C:\Work\B2003C42\B2003C4\_Imports.razor"
+#line 18 "C:\Work\B2003C4_Blazor\B2003C4\_Imports.razor"
 using B2003C4.Pages;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 19 "C:\Work\B2003C42\B2003C4\_Imports.razor"
+#line 19 "C:\Work\B2003C4_Blazor\B2003C4\_Imports.razor"
 using B2003C4.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 21 "C:\Work\B2003C42\B2003C4\_Imports.razor"
+#line 21 "C:\Work\B2003C4_Blazor\B2003C4\_Imports.razor"
 using MatBlazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Work\B2003C42\B2003C4\Pages\Common\DokusyaActivity.razor"
+#line 4 "C:\Work\B2003C4_Blazor\B2003C4\Pages\Common\DokusyaActivity.razor"
 using Microsoft.AspNetCore.Components;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Work\B2003C42\B2003C4\Pages\Common\DokusyaActivity.razor"
+#line 5 "C:\Work\B2003C4_Blazor\B2003C4\Pages\Common\DokusyaActivity.razor"
 using B2003C4.Data;
 
 #line default
@@ -132,7 +132,7 @@ using B2003C4.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 336 "C:\Work\B2003C42\B2003C4\Pages\Common\DokusyaActivity.razor"
+#line 336 "C:\Work\B2003C4_Blazor\B2003C4\Pages\Common\DokusyaActivity.razor"
        
     private DummyDataModel DBData = new DummyDataModel();
 
