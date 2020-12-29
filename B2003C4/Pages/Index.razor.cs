@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Components.Web;
 using System.Web;
 using B2003C4.Data;
 using B2003C4.Class;
+using B2003C4.Service;
 using System.Runtime.Serialization.Formatters.Binary;
 
 
@@ -35,8 +36,8 @@ namespace B2003C4.Pages
         private FormSearchDataModel _currentPage;
 
         public Boolean Tenpo_SelectFlg { get; set; } = false;
-        string Tenpo_SelectedValue;
-        string Tenpo_SelectValue
+        int? Tenpo_SelectedValue;
+        int? Tenpo_SelectValue
         { get => Tenpo_SelectedValue; set { Tenpo_SelectedValue = value; } } 
 
 
@@ -71,6 +72,18 @@ namespace B2003C4.Pages
 
 
 
+        [Inject]
+        private NewsPaperDataService NewsPaperData { get; set; }
+        
+        public List<TenpoInfo> P_TenpoList;
+
+        //public static List<Iri> P_IriList;
+
+        protected override async Task OnInitializedAsync()
+        {
+            
+            P_TenpoList = await NewsPaperData.GetTenpoListAsync();
+        }
 
 
         //処理---------------------------------------------------------------------------------------------
@@ -80,7 +93,7 @@ namespace B2003C4.Pages
             //表示
             if(Tenpo_SelectedValue == null)
             {
-                Tenpo_SelectedValue = TenpoList[0].TenpoName;
+                Tenpo_SelectedValue = 1;
             }
 
 
@@ -136,7 +149,7 @@ namespace B2003C4.Pages
             Console.WriteLine(msg + "UP" + _currentPage.IndexURL);
         }
 
-        public void OnChangeEventTenpo(string Tenpo)
+        public void OnChangeEventTenpo(int Tenpo)
         {
             Tenpo_SelectedValue = Tenpo;
             Tenpo_SelectFlg = true;

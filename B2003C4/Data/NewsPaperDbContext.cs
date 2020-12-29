@@ -21,5 +21,9 @@ namespace B2003C4.Data
         public virtual DbSet<Tome> TomeList { get; set; }
 
 
+        //Etc
+        public virtual DbSet<TenpoInfo> TenpoList { get; set; }
+
+
     }
 }

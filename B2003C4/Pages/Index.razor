@@ -3,7 +3,7 @@
 
 @using B2003C4.Data
 @using B2003C4.Service
-@inject NewsPaperDataService NewsPaperData
+
 
 
 
@@ -87,6 +87,15 @@
     </style>
 
 </head>
+@if (P_TenpoList == null)
+{
+
+}
+else
+{
+
+
+
 
 <body>
     <div class=" text-left Bg_Color">
@@ -118,9 +127,9 @@
         *@
         <div>
             <MatSelect HelperText="" Label="" @bind-Value="@Tenpo_SelectedValue">
-                @foreach (var Temp_Tenpo in TenpoList)
+                @foreach (var Temp_Tenpo in P_TenpoList)
                 {
-                    <MatOptionString Value="@Temp_Tenpo.TenpoName">@Temp_Tenpo.TenpoName</MatOptionString>
+                    <MatOption Value="@Temp_Tenpo.Tenpo">@Temp_Tenpo.TenpoName</MatOption>
                 }
             </MatSelect>
         </div>
@@ -230,6 +239,7 @@
         *@
     </div>
 </body>
+}
 </html>
 
 
@@ -251,6 +261,7 @@
 
 @code{
 
+    /*
     List<Dokusya> DokusyaList;
 
     protected override async Task OnInitializedAsync()
@@ -259,6 +270,5 @@
 
         DokusyaList = await NewsPaperData.GetdokusyaAsync();
     }
-
-
+    */
 }

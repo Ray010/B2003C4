@@ -28,5 +28,12 @@ namespace B2003C4.Service
     _Context.TomeList
     .OrderBy(x => x.DokuCode)
     .ToListAsync();
+
+
+
+        public Task<List<TenpoInfo>> GetTenpoListAsync() =>
+        _Context.TenpoList
+        .OrderBy(x => x.Tenpo)
+        .ToListAsync();
     }
 }
