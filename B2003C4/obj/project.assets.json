@@ -6152,8 +6152,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ebinu\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\albir\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -6161,16 +6160,12 @@
       "projectUniqueName": "C:\\Work\\B2003C4\\B2003C4\\B2003C4.csproj",
       "projectName": "B2003C4",
       "projectPath": "C:\\Work\\B2003C4\\B2003C4\\B2003C4.csproj",
-      "packagesPath": "C:\\Users\\ebinu\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\albir\\.nuget\\packages\\",
       "outputPath": "C:\\Work\\B2003C4\\B2003C4\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ebinu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\albir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -6181,6 +6176,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -6192,6 +6188,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "MatBlazor": {
             "target": "Package",
@@ -6230,7 +6227,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

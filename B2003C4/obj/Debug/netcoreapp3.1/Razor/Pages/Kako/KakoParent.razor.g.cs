@@ -139,9 +139,8 @@ using B2003C4.Pages.Common;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(0, "        ");
-            __builder.OpenComponent<B2003C4.Pages.Kako.KakoFragment>(1);
-            __builder.AddAttribute(2, "Phase1Data", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
+            __builder.OpenComponent<B2003C4.Pages.Kako.KakoFragment>(0);
+            __builder.AddAttribute(1, "Phase1Data", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
 #nullable restore
 #line 15 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoParent.razor"
                                         CurrentPage
@@ -150,8 +149,8 @@ using B2003C4.Pages.Common;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(3, "Phase1DataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
-            __builder.AddAttribute(4, "DBSourceData", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.DummyDataModel>(
+            __builder.AddAttribute(2, "Phase1DataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
+            __builder.AddAttribute(3, "DBSourceData", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.DummyDataModel>(
 #nullable restore
 #line 15 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoParent.razor"
                                                                          DBData
@@ -160,9 +159,8 @@ using B2003C4.Pages.Common;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(5, "DBSourceDataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.DummyDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.DummyDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => DBData = __value, DBData))));
+            __builder.AddAttribute(4, "DBSourceDataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.DummyDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.DummyDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => DBData = __value, DBData))));
             __builder.CloseComponent();
-            __builder.AddMarkupContent(6, "\r\n");
 #nullable restore
 #line 16 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoParent.razor"
         goto End;
@@ -172,9 +170,8 @@ using B2003C4.Pages.Common;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(7, "        ");
-            __builder.OpenComponent<B2003C4.Pages.Common.DokusyaActivity>(8);
-            __builder.AddAttribute(9, "CommonPhase1", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
+            __builder.OpenComponent<B2003C4.Pages.Common.DokusyaActivity>(5);
+            __builder.AddAttribute(6, "CommonPhase1", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
 #nullable restore
 #line 19 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoParent.razor"
                                              CurrentPage
@@ -183,8 +180,8 @@ using B2003C4.Pages.Common;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(10, "CommonPhase1Changed", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
-            __builder.AddAttribute(11, "DBSourceData", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.DummyDataModel>(
+            __builder.AddAttribute(7, "CommonPhase1Changed", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
+            __builder.AddAttribute(8, "DBSourceData", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.DummyDataModel>(
 #nullable restore
 #line 19 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoParent.razor"
                                                                               DBData
@@ -193,8 +190,8 @@ using B2003C4.Pages.Common;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(12, "DBSourceDataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.DummyDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.DummyDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => DBData = __value, DBData))));
-            __builder.AddAttribute(13, "KoudokuList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.KoudokuDummyData>(
+            __builder.AddAttribute(9, "DBSourceDataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.DummyDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.DummyDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => DBData = __value, DBData))));
+            __builder.AddAttribute(10, "KoudokuList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.KoudokuDummyData>(
 #nullable restore
 #line 19 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoParent.razor"
                                                                                                          KoudokuDummyData
@@ -203,9 +200,8 @@ using B2003C4.Pages.Common;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(14, "KoudokuListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.KoudokuDummyData>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.KoudokuDummyData>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => KoudokuDummyData = __value, KoudokuDummyData))));
+            __builder.AddAttribute(11, "KoudokuListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.KoudokuDummyData>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.KoudokuDummyData>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => KoudokuDummyData = __value, KoudokuDummyData))));
             __builder.CloseComponent();
-            __builder.AddMarkupContent(15, "\r\n");
 #nullable restore
 #line 20 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoParent.razor"
         goto End;
@@ -215,9 +211,8 @@ using B2003C4.Pages.Common;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(16, "        ");
-            __builder.OpenComponent<B2003C4.Pages.Common.MeihanActivity>(17);
-            __builder.AddAttribute(18, "CommonPhase2", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
+            __builder.OpenComponent<B2003C4.Pages.Common.MeihanActivity>(12);
+            __builder.AddAttribute(13, "CommonPhase2", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
 #nullable restore
 #line 23 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoParent.razor"
                                             CurrentPage
@@ -226,7 +221,7 @@ using B2003C4.Pages.Common;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(19, "CommonPhase2Changed", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
+            __builder.AddAttribute(14, "CommonPhase2Changed", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
             __builder.CloseComponent();
 #nullable restore
 #line 23 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoParent.razor"
@@ -240,10 +235,9 @@ using B2003C4.Pages.Common;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(20, "            ");
-            __builder.OpenElement(21, "div");
-            __builder.AddMarkupContent(22, "ハンドリングエラー:存在しないページ（PhaseNo:");
-            __builder.AddContent(23, 
+            __builder.OpenElement(15, "div");
+            __builder.AddMarkupContent(16, "ハンドリングエラー:存在しないページ（PhaseNo:");
+            __builder.AddContent(17, 
 #nullable restore
 #line 29 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoParent.razor"
                                              CurrentPage.PhaseNo
@@ -252,9 +246,8 @@ using B2003C4.Pages.Common;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(24, " )");
+            __builder.AddContent(18, " )");
             __builder.CloseElement();
-            __builder.AddMarkupContent(25, "\r\n");
 #nullable restore
 #line 30 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoParent.razor"
             break;

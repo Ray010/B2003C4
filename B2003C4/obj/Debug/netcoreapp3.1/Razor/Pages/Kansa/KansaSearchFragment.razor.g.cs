@@ -136,27 +136,21 @@ using MatBlazor;
             __builder.AddMarkupContent(0, "<!DOCTYPE HTML>\r\n");
             __builder.OpenElement(1, "html");
             __builder.AddAttribute(2, "lang", "ja");
-            __builder.AddMarkupContent(3, "\r\n\r\n");
-            __builder.AddMarkupContent(4, "<head>\r\n    <meta charset=\"Shift-JIS\">\r\n    <meta http-equiv=\"content-language\" content=\"ja\">\r\n    <meta name=\"google\" content=\"notranslate\">\r\n\r\n    <link rel=\"stylesheet\" href=\"./css/bootstrap/bootstrap.min.css\">\r\n    <link rel=\"stylesheet\" href=\"./css/app.css\">\r\n\r\n    <style>\r\n        .mb-3 { margin-bottom: 0.5rem; }\r\n\r\n        .BackGr {\r\n            background: #80989b;\r\n            width: 100%;\r\n            height: 100%;\r\n            margin: 0px;\r\n            padding: 0px;\r\n            overflow: hidden;\r\n        }\r\n\r\n        .td_padding_Fixed{\r\n            padding: 0%;\r\n        }\r\n\r\n        .Scroll_Control {\r\n            width: 100%;\r\n            overflow-y: scroll;\r\n            overflow-x: hidden;\r\n\r\n        }\r\n        .Scroll_Control::-webkit-scrollbar {\r\n            width: 0.3vw;\r\n            height: 5px;\r\n\r\n        }\r\n            .Scroll_Control::-webkit-scrollbar-thumb {\r\n            background: linear-gradient(0deg,#43e2c6,#3183d0);\r\n            border-radius: 3px;\r\n        }\r\n\r\n        .Scroll_Height_40 {\r\n            height: 110vw;\r\n        }\r\n\r\n        .Card_child {\r\n            position: absolute;\r\n            bottom: 13rem;\r\n        }\r\n        .Button_Child{\r\n            position: absolute;\r\n            top: 0%;\r\n            right: 0%;\r\n\r\n        }\r\n\r\n        .px-4{\r\n            padding-top: 0em 0em 0em 0em;\r\n        }\r\n\r\n        .section {\r\n            margin-right: calc(50% - 50vw);\r\n            margin-left: calc(50% - 50vw);\r\n        }\r\n        .Border_Bottom {\r\n            border-bottom: outset;\r\n\r\n        }\r\n        .Border {\r\n            border: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n        }\r\n        .R-Border {\r\n            border-right: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n        }\r\n        .B-Border {\r\n            border-bottom: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n\r\n        }\r\n        .T-Border {\r\n            border-top: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n\r\n        }\r\n        .ColorB {\r\n            border-bottom-color: #000000;\r\n        }\r\n\r\n        .Bg_Sub_Color {\r\n            background-color: #039BE5;\r\n        }\r\n\r\n        .Button_Color {\r\n            background-color: #FFFFFF;\r\n\r\n        }\r\n        .button_Fixed{\r\n            border-radius: 0;\r\n        }\r\n        .button_Cube {\r\n            border-radius: 100%;\r\n        }\r\n        .Text_Color{\r\n            color: #FFFFFF;\r\n        }\r\n        .btn:hover{\r\n            color: #FFFFFF;\r\n\r\n        }\r\n        footer {\r\n            position: fixed;\r\n            bottom: 0;\r\n            width: 85%\r\n        }\r\n        .Button_Padding_Fixed {\r\n            padding: 1rem;\r\n            bottom:2%;\r\n            right:2%;\r\n            position:fixed;\r\n        }\r\n\r\n        .Button_Border_Fixed{\r\n            border-bottom-width: 0px;\r\n        }\r\n        .Button_Block_Fixed{\r\n            width: calc(100% + 0.3vw);\r\n        }\r\n\r\n        .Position_Fixed{\r\n            position : fixed;\r\n        }\r\n\r\n\r\n\r\n        .btn-info{\r\n            color: #000000;\r\n            background-color: #FFFFFF;\r\n            border-color: #FFFFFF;\r\n        }\r\n        .btn-info:hover {\r\n            color: #000000;\r\n            background-color: #CFD8DC;\r\n            border-color: #CFD8DC;\r\n        }\r\n\r\n        .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active,\r\n        .show > .btn-info.dropdown-toggle {\r\n            color: #FFFFFF;\r\n            background-color: #90A4AE;\r\n            border-color: #90A4AE;\r\n        }\r\n\r\n\r\n        card-body {\r\n            padding: 0.5rem;\r\n            margin-bottom: 0.25rem;\r\n        }\r\n\r\n        .card {\r\n            display: block;\r\n            border-radius: 0;\r\n            box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.3);\r\n        }\r\n\r\n        .card_Bottom_Margin{\r\n            margin-bottom: 0.25rem;\r\n            padding: 0rem;\r\n        }\r\n        .card_Shadow {\r\n            filter: drop-shadow(4px 4px 6px rgba(0,0,0,.5));\r\n        }\r\n\r\n        .form-control{\r\n            border: hidden;\r\n            padding: 0rem;\r\n            height:auto;\r\n        }\r\n        .btn-block{\r\n            width: 100%;\r\n        }\r\n        .Card_Fixed {\r\n            margin: 0.5rem 0rem 0.5rem 0rem;\r\n            padding: 0.5rem 0rem 0.5rem 0rem\r\n        }\r\n\r\n        .Margin_R{\r\n            padding-right:1rem;\r\n            padding-left:0.2rem;\r\n        }\r\n\r\n        .btn-KansaButton {\r\n            border-radius: 0;\r\n            background-color: #ffffff;\r\n        }\r\n\r\n            .btn-KansaButton:not(:disabled):not(.disabled):active,\r\n            .btn-KansaButton:not(:disabled):not(.disabled).active,\r\n            .show > .btn-menu.dropdown-toggle {\r\n            }\r\n\r\n        .Padding_Mini {\r\n            padding: 1%;\r\n        }\r\n\r\n        label {\r\n            margin-bottom: 0;\r\n        }\r\n        p{\r\n            height:0;\r\n        }\r\n\r\n        .mdc-text-field {\r\n            border-top-left-radius: 0;\r\n            border-top-right-radius:0;\r\n        }\r\n\r\n        .mdc-text-field--filled:not(.mdc-text-field--disabled) {\r\n            background-color:#FFFFFF;\r\n        }\r\n\r\n\r\n        .mdc-select .mdc-select__anchor {\r\n            border-top-left-radius: 0;\r\n            border-top-right-radius: 0;\r\n        }\r\n\r\n        .mdc-select:not(.mdc-select--disabled) .mdc-select__anchor {\r\n            background-color: #FFFFFF;\r\n        }\r\n\r\n        .BackColor {\r\n            background-color: #FFFFFF;\r\n            padding-right: 5%;\r\n        }\r\n\r\n        .mdc-checkbox{\r\n        }\r\n\r\n    </style>\r\n\r\n</head>\r\n\r\n\r\n");
-            __builder.OpenElement(5, "body");
-            __builder.AddAttribute(6, "style", "overflow:hidden");
-            __builder.AddAttribute(7, "class", "Bg_Color");
-            __builder.AddMarkupContent(8, "\r\n    \r\n    \r\n\r\n\r\n        ");
+            __builder.AddMarkupContent(3, "<head><meta charset=\"Shift-JIS\">\r\n    <meta http-equiv=\"content-language\" content=\"ja\">\r\n    <meta name=\"google\" content=\"notranslate\">\r\n\r\n    <link rel=\"stylesheet\" href=\"./css/bootstrap/bootstrap.min.css\">\r\n    <link rel=\"stylesheet\" href=\"./css/app.css\">\r\n\r\n    <style>        .mb-3 { margin-bottom: 0.5rem; }\r\n\r\n        .BackGr {\r\n            background: #80989b;\r\n            width: 100%;\r\n            height: 100%;\r\n            margin: 0px;\r\n            padding: 0px;\r\n            overflow: hidden;\r\n        }\r\n\r\n        .td_padding_Fixed{\r\n            padding: 0%;\r\n        }\r\n\r\n        .Scroll_Control {\r\n            width: 100%;\r\n            overflow-y: scroll;\r\n            overflow-x: hidden;\r\n\r\n        }\r\n        .Scroll_Control::-webkit-scrollbar {\r\n            width: 0.3vw;\r\n            height: 5px;\r\n\r\n        }\r\n            .Scroll_Control::-webkit-scrollbar-thumb {\r\n            background: linear-gradient(0deg,#43e2c6,#3183d0);\r\n            border-radius: 3px;\r\n        }\r\n\r\n        .Scroll_Height_40 {\r\n            height: 110vw;\r\n        }\r\n\r\n        .Card_child {\r\n            position: absolute;\r\n            bottom: 13rem;\r\n        }\r\n        .Button_Child{\r\n            position: absolute;\r\n            top: 0%;\r\n            right: 0%;\r\n\r\n        }\r\n\r\n        .px-4{\r\n            padding-top: 0em 0em 0em 0em;\r\n        }\r\n\r\n        .section {\r\n            margin-right: calc(50% - 50vw);\r\n            margin-left: calc(50% - 50vw);\r\n        }\r\n        .Border_Bottom {\r\n            border-bottom: outset;\r\n\r\n        }\r\n        .Border {\r\n            border: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n        }\r\n        .R-Border {\r\n            border-right: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n        }\r\n        .B-Border {\r\n            border-bottom: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n\r\n        }\r\n        .T-Border {\r\n            border-top: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n\r\n        }\r\n        .ColorB {\r\n            border-bottom-color: #000000;\r\n        }\r\n\r\n        .Bg_Sub_Color {\r\n            background-color: #039BE5;\r\n        }\r\n\r\n        .Button_Color {\r\n            background-color: #FFFFFF;\r\n\r\n        }\r\n        .button_Fixed{\r\n            border-radius: 0;\r\n        }\r\n        .button_Cube {\r\n            border-radius: 100%;\r\n        }\r\n        .Text_Color{\r\n            color: #FFFFFF;\r\n        }\r\n        .btn:hover{\r\n            color: #FFFFFF;\r\n\r\n        }\r\n        footer {\r\n            position: fixed;\r\n            bottom: 0;\r\n            width: 85%\r\n        }\r\n        .Button_Padding_Fixed {\r\n            padding: 1rem;\r\n            bottom:2%;\r\n            right:2%;\r\n            position:fixed;\r\n        }\r\n\r\n        .Button_Border_Fixed{\r\n            border-bottom-width: 0px;\r\n        }\r\n        .Button_Block_Fixed{\r\n            width: calc(100% + 0.3vw);\r\n        }\r\n\r\n        .Position_Fixed{\r\n            position : fixed;\r\n        }\r\n\r\n\r\n\r\n        .btn-info{\r\n            color: #000000;\r\n            background-color: #FFFFFF;\r\n            border-color: #FFFFFF;\r\n        }\r\n        .btn-info:hover {\r\n            color: #000000;\r\n            background-color: #CFD8DC;\r\n            border-color: #CFD8DC;\r\n        }\r\n\r\n        .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active,\r\n        .show > .btn-info.dropdown-toggle {\r\n            color: #FFFFFF;\r\n            background-color: #90A4AE;\r\n            border-color: #90A4AE;\r\n        }\r\n\r\n\r\n        card-body {\r\n            padding: 0.5rem;\r\n            margin-bottom: 0.25rem;\r\n        }\r\n\r\n        .card {\r\n            display: block;\r\n            border-radius: 0;\r\n            box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.3);\r\n        }\r\n\r\n        .card_Bottom_Margin{\r\n            margin-bottom: 0.25rem;\r\n            padding: 0rem;\r\n        }\r\n        .card_Shadow {\r\n            filter: drop-shadow(4px 4px 6px rgba(0,0,0,.5));\r\n        }\r\n\r\n        .form-control{\r\n            border: hidden;\r\n            padding: 0rem;\r\n            height:auto;\r\n        }\r\n        .btn-block{\r\n            width: 100%;\r\n        }\r\n        .Card_Fixed {\r\n            margin: 0.5rem 0rem 0.5rem 0rem;\r\n            padding: 0.5rem 0rem 0.5rem 0rem\r\n        }\r\n\r\n        .Margin_R{\r\n            padding-right:1rem;\r\n            padding-left:0.2rem;\r\n        }\r\n\r\n        .btn-KansaButton {\r\n            border-radius: 0;\r\n            background-color: #ffffff;\r\n        }\r\n\r\n            .btn-KansaButton:not(:disabled):not(.disabled):active,\r\n            .btn-KansaButton:not(:disabled):not(.disabled).active,\r\n            .show > .btn-menu.dropdown-toggle {\r\n            }\r\n\r\n        .Padding_Mini {\r\n            padding: 1%;\r\n        }\r\n\r\n        label {\r\n            margin-bottom: 0;\r\n        }\r\n        p{\r\n            height:0;\r\n        }\r\n\r\n        .mdc-text-field {\r\n            border-top-left-radius: 0;\r\n            border-top-right-radius:0;\r\n        }\r\n\r\n        .mdc-text-field--filled:not(.mdc-text-field--disabled) {\r\n            background-color:#FFFFFF;\r\n        }\r\n\r\n\r\n        .mdc-select .mdc-select__anchor {\r\n            border-top-left-radius: 0;\r\n            border-top-right-radius: 0;\r\n        }\r\n\r\n        .mdc-select:not(.mdc-select--disabled) .mdc-select__anchor {\r\n            background-color: #FFFFFF;\r\n        }\r\n\r\n        .BackColor {\r\n            background-color: #FFFFFF;\r\n            padding-right: 5%;\r\n        }\r\n\r\n        .mdc-checkbox{\r\n        }\r\n\r\n    </style></head>\r\n\r\n\r\n");
+            __builder.OpenElement(4, "body");
+            __builder.AddAttribute(5, "style", "overflow:hidden");
+            __builder.AddAttribute(6, "class", "Bg_Color");
+            __builder.OpenElement(7, "div");
+            __builder.AddAttribute(8, "class", "card");
             __builder.OpenElement(9, "div");
-            __builder.AddAttribute(10, "class", "card");
-            __builder.AddMarkupContent(11, "\r\n            ");
-            __builder.OpenElement(12, "div");
-            __builder.AddAttribute(13, "class", "card-body card_Bottom_Margin Card_Fixed");
-            __builder.AddMarkupContent(14, "\r\n                ");
-            __builder.OpenElement(15, "table");
-            __builder.AddAttribute(16, "class", "Card_table_Fixed ");
-            __builder.AddAttribute(17, "style", "width:50%;");
-            __builder.AddMarkupContent(18, "\r\n                    ");
-            __builder.OpenElement(19, "tr");
-            __builder.AddMarkupContent(20, "\r\n\r\n                        ");
-            __builder.OpenElement(21, "td");
-            __builder.OpenElement(22, "button");
-            __builder.AddAttribute(23, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(10, "class", "card-body card_Bottom_Margin Card_Fixed");
+            __builder.OpenElement(11, "table");
+            __builder.AddAttribute(12, "class", "Card_table_Fixed ");
+            __builder.AddAttribute(13, "style", "width:50%;");
+            __builder.OpenElement(14, "tr");
+            __builder.OpenElement(15, "td");
+            __builder.OpenElement(16, "button");
+            __builder.AddAttribute(17, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 296 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                               UpdateModelDataOrPhaseShift
@@ -165,15 +159,15 @@ using MatBlazor;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(24, "type", "button");
-            __builder.AddAttribute(25, "class", "fontSizeMAX767 btn btn-primary btn-block");
-            __builder.AddMarkupContent(26, "検索");
+            __builder.AddAttribute(18, "type", "button");
+            __builder.AddAttribute(19, "class", "fontSizeMAX767 btn btn-primary btn-block");
+            __builder.AddMarkupContent(20, "検索");
             __builder.CloseElement();
             __builder.CloseElement();
-            __builder.AddMarkupContent(27, "\r\n                        ");
-            __builder.OpenElement(28, "td");
-            __builder.OpenElement(29, "button");
-            __builder.AddAttribute(30, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(21, "\r\n                        ");
+            __builder.OpenElement(22, "td");
+            __builder.OpenElement(23, "button");
+            __builder.AddAttribute(24, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 297 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                Clear
@@ -182,33 +176,25 @@ using MatBlazor;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(31, "class", "fontSizeMAX767 btn btn-primary btn-block");
-            __builder.AddMarkupContent(32, "クリア");
+            __builder.AddAttribute(25, "class", "fontSizeMAX767 btn btn-primary btn-block");
+            __builder.AddMarkupContent(26, "クリア");
             __builder.CloseElement();
             __builder.CloseElement();
-            __builder.AddMarkupContent(33, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(34, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(35, "\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(36, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(37, "\r\n\r\n\r\n        ");
-            __builder.OpenElement(38, "div");
-            __builder.AddAttribute(39, "class", "Scroll_Control Scroll_Height_40 Padding_Mini");
-            __builder.AddMarkupContent(40, "\r\n\r\n            ");
-            __builder.OpenElement(41, "div");
-            __builder.AddAttribute(42, "class", "mat-layout-grid");
-            __builder.AddAttribute(43, "style", "padding:0rem;");
-            __builder.AddMarkupContent(44, "\r\n                ");
-            __builder.OpenElement(45, "div");
-            __builder.AddAttribute(46, "class", "mat-layout-grid-inner");
-            __builder.AddMarkupContent(47, "\r\n                    ");
-            __builder.OpenElement(48, "div");
-            __builder.AddAttribute(49, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-12");
-            __builder.AddMarkupContent(50, "\r\n                        ");
-            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_0(__builder, 51, 52, "読者No", 53, "width:100%;", 54, "mat-elevation-z3", 55, 
+            __builder.AddMarkupContent(27, "\r\n\r\n\r\n        ");
+            __builder.OpenElement(28, "div");
+            __builder.AddAttribute(29, "class", "Scroll_Control Scroll_Height_40 Padding_Mini");
+            __builder.OpenElement(30, "div");
+            __builder.AddAttribute(31, "class", "mat-layout-grid");
+            __builder.AddAttribute(32, "style", "padding:0rem;");
+            __builder.OpenElement(33, "div");
+            __builder.AddAttribute(34, "class", "mat-layout-grid-inner");
+            __builder.OpenElement(35, "div");
+            __builder.AddAttribute(36, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-12");
+            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_0(__builder, 37, 38, "読者No", 39, "width:100%;", 40, "mat-elevation-z3", 41, 
 #nullable restore
 #line 309 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                    Phase1Data.S_DokusyaCode
@@ -216,8 +202,8 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            , 56, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_DokusyaCode = __value, Phase1Data.S_DokusyaCode)), 57, () => Phase1Data.S_DokusyaCode, 58, (__builder2) => {
-                __builder2.AddContent(59, 
+            , 42, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_DokusyaCode = __value, Phase1Data.S_DokusyaCode)), 43, () => Phase1Data.S_DokusyaCode, 44, (__builder2) => {
+                __builder2.AddContent(45, 
 #nullable restore
 #line 309 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                                                                                                         Phase1Data.S_DokusyaCode
@@ -228,13 +214,11 @@ using MatBlazor;
                 );
             }
             );
-            __builder.AddMarkupContent(60, "\r\n\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(61, "\r\n\r\n\r\n\r\n                    \r\n\r\n\r\n                    ");
-            __builder.OpenElement(62, "div");
-            __builder.AddAttribute(63, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-1");
-            __builder.AddMarkupContent(64, "\r\n                        ");
-            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_1(__builder, 65, 66, "区域", 67, "mat-elevation-z3", 68, 
+            __builder.AddMarkupContent(46, "\r\n\r\n\r\n\r\n                    \r\n\r\n\r\n                    ");
+            __builder.OpenElement(47, "div");
+            __builder.AddAttribute(48, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-1");
+            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_1(__builder, 49, 50, "区域", 51, "mat-elevation-z3", 52, 
 #nullable restore
 #line 319 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                    Phase1Data.S_KuikiNo
@@ -242,8 +226,8 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            , 69, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_KuikiNo = __value, Phase1Data.S_KuikiNo)), 70, () => Phase1Data.S_KuikiNo, 71, (__builder2) => {
-                __builder2.AddContent(72, 
+            , 53, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_KuikiNo = __value, Phase1Data.S_KuikiNo)), 54, () => Phase1Data.S_KuikiNo, 55, (__builder2) => {
+                __builder2.AddContent(56, 
 #nullable restore
 #line 319 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                                                                               Phase1Data.S_KuikiNo
@@ -254,13 +238,11 @@ using MatBlazor;
                 );
             }
             );
-            __builder.AddMarkupContent(73, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(74, "\r\n                    ");
-            __builder.OpenElement(75, "div");
-            __builder.AddAttribute(76, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-3");
-            __builder.AddMarkupContent(77, "\r\n                        ");
-            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatSelect_2(__builder, 78, 79, "", 80, "区域", 81, "mat-elevation-z3", 82, 
+            __builder.AddMarkupContent(57, "\r\n                    ");
+            __builder.OpenElement(58, "div");
+            __builder.AddAttribute(59, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-3");
+            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatSelect_2(__builder, 60, 61, "", 62, "区域", 63, "mat-elevation-z3", 64, 
 #nullable restore
 #line 322 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                                          Phase1Data.S_KuikiNo
@@ -268,8 +250,7 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            , 83, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_KuikiNo = __value, Phase1Data.S_KuikiNo)), 84, () => Phase1Data.S_KuikiNo, 85, (__builder2) => {
-                __builder2.AddMarkupContent(86, "\r\n");
+            , 65, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_KuikiNo = __value, Phase1Data.S_KuikiNo)), 66, () => Phase1Data.S_KuikiNo, 67, (__builder2) => {
 #nullable restore
 #line 323 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                              foreach (var Kuiki in KuikiList)
@@ -278,8 +259,7 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-                __builder2.AddContent(87, "                                ");
-                __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatOption_3(__builder2, 88, 89, 
+                __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatOption_3(__builder2, 68, 69, 
 #nullable restore
 #line 325 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                    Kuiki.KuikiCode
@@ -287,8 +267,8 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-                , 90, (__builder3) => {
-                    __builder3.AddContent(91, 
+                , 70, (__builder3) => {
+                    __builder3.AddContent(71, 
 #nullable restore
 #line 325 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                                      Kuiki.KuikiName
@@ -299,7 +279,6 @@ using MatBlazor;
                     );
                 }
                 );
-                __builder2.AddMarkupContent(92, "\r\n");
 #nullable restore
 #line 326 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                             }
@@ -307,16 +286,13 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-                __builder2.AddContent(93, "                        ");
             }
             );
-            __builder.AddMarkupContent(94, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(95, "\r\n\r\n\r\n\r\n                    ");
-            __builder.OpenElement(96, "div");
-            __builder.AddAttribute(97, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-2");
-            __builder.AddMarkupContent(98, "\r\n                        ");
-            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_4(__builder, 99, 100, "区域", 101, "mat-elevation-z3", 102, 
+            __builder.AddMarkupContent(72, "\r\n\r\n\r\n\r\n                    ");
+            __builder.OpenElement(73, "div");
+            __builder.AddAttribute(74, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-2");
+            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_4(__builder, 75, 76, "区域", 77, "mat-elevation-z3", 78, 
 #nullable restore
 #line 333 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                    Phase1Data.S_Junro
@@ -324,8 +300,8 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            , 103, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_Junro = __value, Phase1Data.S_Junro)), 104, () => Phase1Data.S_Junro, 105, (__builder2) => {
-                __builder2.AddContent(106, 
+            , 79, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_Junro = __value, Phase1Data.S_Junro)), 80, () => Phase1Data.S_Junro, 81, (__builder2) => {
+                __builder2.AddContent(82, 
 #nullable restore
 #line 333 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                                                                             Phase1Data.S_KuikiNo
@@ -334,16 +310,14 @@ using MatBlazor;
 #line hidden
 #nullable disable
                 );
-                __builder2.AddContent(107, "-");
+                __builder2.AddContent(83, "-");
             }
             );
-            __builder.AddMarkupContent(108, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(109, "\r\n                    ");
-            __builder.OpenElement(110, "div");
-            __builder.AddAttribute(111, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-2");
-            __builder.AddMarkupContent(112, "\r\n\r\n                        ");
-            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_5(__builder, 113, 114, "区域", 115, "mat-elevation-z3", 116, 
+            __builder.AddMarkupContent(84, "\r\n                    ");
+            __builder.OpenElement(85, "div");
+            __builder.AddAttribute(86, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-2");
+            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_5(__builder, 87, 88, "区域", 89, "mat-elevation-z3", 90, 
 #nullable restore
 #line 337 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                    Phase1Data.S_Junro_Sub
@@ -351,8 +325,8 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            , 117, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_Junro_Sub = __value, Phase1Data.S_Junro_Sub)), 118, () => Phase1Data.S_Junro_Sub, 119, (__builder2) => {
-                __builder2.AddContent(120, 
+            , 91, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_Junro_Sub = __value, Phase1Data.S_Junro_Sub)), 92, () => Phase1Data.S_Junro_Sub, 93, (__builder2) => {
+                __builder2.AddContent(94, 
 #nullable restore
 #line 337 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                                                                                 Phase1Data.S_KuikiNo
@@ -363,13 +337,11 @@ using MatBlazor;
                 );
             }
             );
-            __builder.AddMarkupContent(121, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(122, "\r\n\r\n\r\n\r\n                    ");
-            __builder.OpenElement(123, "div");
-            __builder.AddAttribute(124, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-12");
-            __builder.AddMarkupContent(125, "\r\n                        ");
-            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_6(__builder, 126, 127, "読者名", 128, "width:100%;", 129, "mat-elevation-z3", 130, 
+            __builder.AddMarkupContent(95, "\r\n\r\n\r\n\r\n                    ");
+            __builder.OpenElement(96, "div");
+            __builder.AddAttribute(97, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-12");
+            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_6(__builder, 98, 99, "読者名", 100, "width:100%;", 101, "mat-elevation-z3", 102, 
 #nullable restore
 #line 343 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                    Phase1Data.S_DokusyaName
@@ -377,14 +349,12 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            , 131, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_DokusyaName = __value, Phase1Data.S_DokusyaName)), 132, () => Phase1Data.S_DokusyaName);
-            __builder.AddMarkupContent(133, "\r\n                    ");
+            , 103, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_DokusyaName = __value, Phase1Data.S_DokusyaName)), 104, () => Phase1Data.S_DokusyaName);
             __builder.CloseElement();
-            __builder.AddMarkupContent(134, "\r\n\r\n                    ");
-            __builder.OpenElement(135, "div");
-            __builder.AddAttribute(136, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-12");
-            __builder.AddMarkupContent(137, "\r\n                        ");
-            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_7(__builder, 138, 139, "読者名(ｶﾅ)", 140, "width:100%;", 141, "mat-elevation-z3", 142, 
+            __builder.AddMarkupContent(105, "\r\n\r\n                    ");
+            __builder.OpenElement(106, "div");
+            __builder.AddAttribute(107, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-12");
+            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_7(__builder, 108, 109, "読者名(ｶﾅ)", 110, "width:100%;", 111, "mat-elevation-z3", 112, 
 #nullable restore
 #line 347 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                    Phase1Data.S_DokusyaKanaName
@@ -392,8 +362,8 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            , 143, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_DokusyaKanaName = __value, Phase1Data.S_DokusyaKanaName)), 144, () => Phase1Data.S_DokusyaKanaName, 145, (__builder2) => {
-                __builder2.AddContent(146, 
+            , 113, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_DokusyaKanaName = __value, Phase1Data.S_DokusyaKanaName)), 114, () => Phase1Data.S_DokusyaKanaName, 115, (__builder2) => {
+                __builder2.AddContent(116, 
 #nullable restore
 #line 347 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                                                                                                                Phase1Data.S_DokusyaCode
@@ -404,13 +374,11 @@ using MatBlazor;
                 );
             }
             );
-            __builder.AddMarkupContent(147, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(148, "\r\n\r\n\r\n                    ");
-            __builder.OpenElement(149, "div");
-            __builder.AddAttribute(150, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-1");
-            __builder.AddMarkupContent(151, "\r\n                        ");
-            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_8(__builder, 152, 153, "局番", 154, "mat-elevation-z3", 155, 
+            __builder.AddMarkupContent(117, "\r\n\r\n\r\n                    ");
+            __builder.OpenElement(118, "div");
+            __builder.AddAttribute(119, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-1");
+            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_8(__builder, 120, 121, "局番", 122, "mat-elevation-z3", 123, 
 #nullable restore
 #line 352 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                    Phase1Data.S_Junro
@@ -418,8 +386,8 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            , 156, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_Junro = __value, Phase1Data.S_Junro)), 157, () => Phase1Data.S_Junro, 158, (__builder2) => {
-                __builder2.AddContent(159, 
+            , 124, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_Junro = __value, Phase1Data.S_Junro)), 125, () => Phase1Data.S_Junro, 126, (__builder2) => {
+                __builder2.AddContent(127, 
 #nullable restore
 #line 352 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                                                                             Phase1Data.S_PhoneNo
@@ -430,13 +398,11 @@ using MatBlazor;
                 );
             }
             );
-            __builder.AddMarkupContent(160, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(161, "\r\n                    ");
-            __builder.OpenElement(162, "div");
-            __builder.AddAttribute(163, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-3");
-            __builder.AddMarkupContent(164, "\r\n                        ");
-            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_9(__builder, 165, 166, "電話番号", 167, "width:100%;", 168, "mat-elevation-z3", 169, 
+            __builder.AddMarkupContent(128, "\r\n                    ");
+            __builder.OpenElement(129, "div");
+            __builder.AddAttribute(130, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-3");
+            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_9(__builder, 131, 132, "電話番号", 133, "width:100%;", 134, "mat-elevation-z3", 135, 
 #nullable restore
 #line 355 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                    Phase1Data.S_Junro_Sub
@@ -444,8 +410,8 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            , 170, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_Junro_Sub = __value, Phase1Data.S_Junro_Sub)), 171, () => Phase1Data.S_Junro_Sub, 172, (__builder2) => {
-                __builder2.AddContent(173, 
+            , 136, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_Junro_Sub = __value, Phase1Data.S_Junro_Sub)), 137, () => Phase1Data.S_Junro_Sub, 138, (__builder2) => {
+                __builder2.AddContent(139, 
 #nullable restore
 #line 355 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                                                                                                        Phase1Data.S_PhoneNo_Sub
@@ -456,13 +422,11 @@ using MatBlazor;
                 );
             }
             );
-            __builder.AddMarkupContent(174, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(175, "\r\n\r\n                    ");
-            __builder.OpenElement(176, "div");
-            __builder.AddAttribute(177, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-1");
-            __builder.AddMarkupContent(178, "\r\n                        ");
-            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_10(__builder, 179, 180, "町No.", 181, "mat-elevation-z3", 182, 
+            __builder.AddMarkupContent(140, "\r\n\r\n                    ");
+            __builder.OpenElement(141, "div");
+            __builder.AddAttribute(142, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-1");
+            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_10(__builder, 143, 144, "町No.", 145, "mat-elevation-z3", 146, 
 #nullable restore
 #line 359 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                    Phase1Data.S_Junro
@@ -470,14 +434,12 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            , 183, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_Junro = __value, Phase1Data.S_Junro)), 184, () => Phase1Data.S_Junro);
-            __builder.AddMarkupContent(185, "\r\n                    ");
+            , 147, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_Junro = __value, Phase1Data.S_Junro)), 148, () => Phase1Data.S_Junro);
             __builder.CloseElement();
-            __builder.AddMarkupContent(186, "\r\n\r\n                    ");
-            __builder.OpenElement(187, "div");
-            __builder.AddAttribute(188, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-3");
-            __builder.AddMarkupContent(189, "\r\n                        ");
-            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatSelect_11(__builder, 190, 191, "", 192, "町名", 193, "mat-elevation-z3", 194, 
+            __builder.AddMarkupContent(149, "\r\n\r\n                    ");
+            __builder.OpenElement(150, "div");
+            __builder.AddAttribute(151, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-3");
+            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatSelect_11(__builder, 152, 153, "", 154, "町名", 155, "mat-elevation-z3", 156, 
 #nullable restore
 #line 363 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                                          Phase1Data.S_CityName
@@ -485,8 +447,7 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            , 195, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_CityName = __value, Phase1Data.S_CityName)), 196, () => Phase1Data.S_CityName, 197, (__builder2) => {
-                __builder2.AddMarkupContent(198, "\r\n");
+            , 157, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_CityName = __value, Phase1Data.S_CityName)), 158, () => Phase1Data.S_CityName, 159, (__builder2) => {
 #nullable restore
 #line 364 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                              foreach (var City in CityList)
@@ -496,8 +457,7 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-                __builder2.AddContent(199, "                                ");
-                __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatOption_12(__builder2, 200, 201, 
+                __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatOption_12(__builder2, 160, 161, 
 #nullable restore
 #line 369 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                    City
@@ -505,8 +465,8 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-                , 202, (__builder3) => {
-                    __builder3.AddContent(203, 
+                , 162, (__builder3) => {
+                    __builder3.AddContent(163, 
 #nullable restore
 #line 369 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                           City
@@ -517,7 +477,6 @@ using MatBlazor;
                     );
                 }
                 );
-                __builder2.AddMarkupContent(204, "\r\n");
 #nullable restore
 #line 370 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                             }
@@ -525,16 +484,13 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-                __builder2.AddContent(205, "                        ");
             }
             );
-            __builder.AddMarkupContent(206, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(207, "\r\n\r\n                    ");
-            __builder.OpenElement(208, "div");
-            __builder.AddAttribute(209, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-2");
-            __builder.AddMarkupContent(210, "\r\n                        ");
-            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_13(__builder, 211, 212, "番", 213, "mat-elevation-z3", 214, 
+            __builder.AddMarkupContent(164, "\r\n\r\n                    ");
+            __builder.OpenElement(165, "div");
+            __builder.AddAttribute(166, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-2");
+            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_13(__builder, 167, 168, "番", 169, "mat-elevation-z3", 170, 
 #nullable restore
 #line 375 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                    Phase1Data.S_CityAddress
@@ -542,8 +498,8 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            , 215, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_CityAddress = __value, Phase1Data.S_CityAddress)), 216, () => Phase1Data.S_CityAddress, 217, (__builder2) => {
-                __builder2.AddContent(218, 
+            , 171, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_CityAddress = __value, Phase1Data.S_CityAddress)), 172, () => Phase1Data.S_CityAddress, 173, (__builder2) => {
+                __builder2.AddContent(174, 
 #nullable restore
 #line 375 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                                                                                  Phase1Data.S_KuikiNo
@@ -554,13 +510,11 @@ using MatBlazor;
                 );
             }
             );
-            __builder.AddMarkupContent(219, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(220, "\r\n                    ");
-            __builder.OpenElement(221, "div");
-            __builder.AddAttribute(222, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-2");
-            __builder.AddMarkupContent(223, "\r\n                        ");
-            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_14(__builder, 224, 225, "号", 226, "mat-elevation-z3", 227, 
+            __builder.AddMarkupContent(175, "\r\n                    ");
+            __builder.OpenElement(176, "div");
+            __builder.AddAttribute(177, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-2");
+            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_14(__builder, 178, 179, "号", 180, "mat-elevation-z3", 181, 
 #nullable restore
 #line 380 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                    Phase1Data.S_CityAddress
@@ -568,8 +522,8 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            , 228, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_CityAddress = __value, Phase1Data.S_CityAddress)), 229, () => Phase1Data.S_CityAddress, 230, (__builder2) => {
-                __builder2.AddContent(231, 
+            , 182, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_CityAddress = __value, Phase1Data.S_CityAddress)), 183, () => Phase1Data.S_CityAddress, 184, (__builder2) => {
+                __builder2.AddContent(185, 
 #nullable restore
 #line 380 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                                                                                  Phase1Data.S_CityAddress
@@ -580,13 +534,11 @@ using MatBlazor;
                 );
             }
             );
-            __builder.AddMarkupContent(232, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(233, "\r\n\r\n                    ");
-            __builder.OpenElement(234, "div");
-            __builder.AddAttribute(235, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-2");
-            __builder.AddMarkupContent(236, "\r\n                        ");
-            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_15(__builder, 237, 238, "建物名(ｶﾅ)", 239, "mat-elevation-z3", 240, 
+            __builder.AddMarkupContent(186, "\r\n\r\n                    ");
+            __builder.OpenElement(187, "div");
+            __builder.AddAttribute(188, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-2");
+            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_15(__builder, 189, 190, "建物名(ｶﾅ)", 191, "mat-elevation-z3", 192, 
 #nullable restore
 #line 384 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                    Phase1Data.S_BuildingKanaName
@@ -594,8 +546,8 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            , 241, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_BuildingKanaName = __value, Phase1Data.S_BuildingKanaName)), 242, () => Phase1Data.S_BuildingKanaName, 243, (__builder2) => {
-                __builder2.AddContent(244, 
+            , 193, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_BuildingKanaName = __value, Phase1Data.S_BuildingKanaName)), 194, () => Phase1Data.S_BuildingKanaName, 195, (__builder2) => {
+                __builder2.AddContent(196, 
 #nullable restore
 #line 384 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                                                                                             Phase1Data.S_BuildingKanaName
@@ -606,13 +558,11 @@ using MatBlazor;
                 );
             }
             );
-            __builder.AddMarkupContent(245, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(246, "\r\n                    ");
-            __builder.OpenElement(247, "div");
-            __builder.AddAttribute(248, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-2");
-            __builder.AddMarkupContent(249, "\r\n                        ");
-            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_16(__builder, 250, 251, "建物名", 252, "mat-elevation-z3", 253, 
+            __builder.AddMarkupContent(197, "\r\n                    ");
+            __builder.OpenElement(198, "div");
+            __builder.AddAttribute(199, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-2");
+            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_16(__builder, 200, 201, "建物名", 202, "mat-elevation-z3", 203, 
 #nullable restore
 #line 387 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                    Phase1Data.S_BuildingName
@@ -620,8 +570,8 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            , 254, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_BuildingName = __value, Phase1Data.S_BuildingName)), 255, () => Phase1Data.S_BuildingName, 256, (__builder2) => {
-                __builder2.AddContent(257, 
+            , 204, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_BuildingName = __value, Phase1Data.S_BuildingName)), 205, () => Phase1Data.S_BuildingName, 206, (__builder2) => {
+                __builder2.AddContent(207, 
 #nullable restore
 #line 387 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                                                                                     Phase1Data.S_BuildingName
@@ -632,13 +582,11 @@ using MatBlazor;
                 );
             }
             );
-            __builder.AddMarkupContent(258, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(259, "\r\n\r\n                    ");
-            __builder.OpenElement(260, "div");
-            __builder.AddAttribute(261, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-2");
-            __builder.AddMarkupContent(262, "\r\n                        ");
-            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_17(__builder, 263, 264, "室番", 265, "mat-elevation-z3", 266, 
+            __builder.AddMarkupContent(208, "\r\n\r\n                    ");
+            __builder.OpenElement(209, "div");
+            __builder.AddAttribute(210, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-2");
+            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatTextField_17(__builder, 211, 212, "室番", 213, "mat-elevation-z3", 214, 
 #nullable restore
 #line 391 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                    Phase1Data.S_BuildingKanaName
@@ -646,8 +594,8 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            , 267, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_BuildingKanaName = __value, Phase1Data.S_BuildingKanaName)), 268, () => Phase1Data.S_BuildingKanaName, 269, (__builder2) => {
-                __builder2.AddContent(270, 
+            , 215, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Phase1Data.S_BuildingKanaName = __value, Phase1Data.S_BuildingKanaName)), 216, () => Phase1Data.S_BuildingKanaName, 217, (__builder2) => {
+                __builder2.AddContent(218, 
 #nullable restore
 #line 391 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                                                                                        Phase1Data.S_ShitsuBan
@@ -658,15 +606,12 @@ using MatBlazor;
                 );
             }
             );
-            __builder.AddMarkupContent(271, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(272, "\r\n\r\n\r\n\r\n\r\n\r\n\r\n                    ");
-            __builder.OpenElement(273, "div");
-            __builder.AddAttribute(274, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-12 BackColor mat-elevation-z3");
-            __builder.AddMarkupContent(275, "\r\n                        ");
-            __builder.OpenElement(276, "div");
-            __builder.AddAttribute(277, "class", "mat-layout-grid-inner");
-            __builder.AddMarkupContent(278, "\r\n");
+            __builder.AddMarkupContent(219, "\r\n\r\n\r\n\r\n\r\n\r\n\r\n                    ");
+            __builder.OpenElement(220, "div");
+            __builder.AddAttribute(221, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-12 BackColor mat-elevation-z3");
+            __builder.OpenElement(222, "div");
+            __builder.AddAttribute(223, "class", "mat-layout-grid-inner");
 #nullable restore
 #line 401 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                              foreach (var ChkBox in KubunList)
@@ -675,11 +620,9 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(279, "                                ");
-            __builder.OpenElement(280, "div");
-            __builder.AddAttribute(281, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-1");
-            __builder.AddMarkupContent(282, "\r\n                                    ");
-            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatCheckbox_18(__builder, 283, 284, 
+            __builder.OpenElement(224, "div");
+            __builder.AddAttribute(225, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-1");
+            __Blazor.B2003C4.Pages.Kansa.KansaSearchFragment.TypeInference.CreateMatCheckbox_18(__builder, 226, 227, 
 #nullable restore
 #line 404 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                                                       ChkBox.KubunName
@@ -687,7 +630,7 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            , 285, 
+            , 228, 
 #nullable restore
 #line 404 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                                ChkBox.Active
@@ -695,10 +638,8 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            , 286, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => ChkBox.Active = __value, ChkBox.Active)), 287, () => ChkBox.Active);
-            __builder.AddMarkupContent(288, "\r\n                                ");
+            , 229, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => ChkBox.Active = __value, ChkBox.Active)), 230, () => ChkBox.Active);
             __builder.CloseElement();
-            __builder.AddMarkupContent(289, "\r\n");
 #nullable restore
 #line 406 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                             }
@@ -706,18 +647,13 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(290, "                        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(291, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(292, "\r\n\r\n\r\n\r\n\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(293, "\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(294, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(295, "\r\n\r\n\r\n\r\n        ");
-            __builder.AddContent(296, 
+            __builder.AddMarkupContent(231, "\r\n\r\n\r\n\r\n        ");
+            __builder.AddContent(232, 
 #nullable restore
 #line 728 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
          CheckResult
@@ -726,22 +662,18 @@ using MatBlazor;
 #line hidden
 #nullable disable
             );
-            __builder.AddMarkupContent(297, "\r\n\r\n        ");
-            __builder.OpenElement(298, "div");
-            __builder.AddAttribute(299, "class", "card");
-            __builder.AddMarkupContent(300, "\r\n            ");
-            __builder.OpenElement(301, "div");
-            __builder.AddAttribute(302, "class", "card-body card_Bottom_Margin Card_Fixed");
-            __builder.AddMarkupContent(303, "\r\n                ");
-            __builder.OpenElement(304, "table");
-            __builder.AddAttribute(305, "class", "Card_table_Fixed ");
-            __builder.AddAttribute(306, "style", "width:50%;");
-            __builder.AddMarkupContent(307, "\r\n                    ");
-            __builder.OpenElement(308, "tr");
-            __builder.AddMarkupContent(309, "\r\n\r\n                        ");
-            __builder.OpenElement(310, "td");
-            __builder.OpenElement(311, "button");
-            __builder.AddAttribute(312, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(233, "\r\n\r\n        ");
+            __builder.OpenElement(234, "div");
+            __builder.AddAttribute(235, "class", "card");
+            __builder.OpenElement(236, "div");
+            __builder.AddAttribute(237, "class", "card-body card_Bottom_Margin Card_Fixed");
+            __builder.OpenElement(238, "table");
+            __builder.AddAttribute(239, "class", "Card_table_Fixed ");
+            __builder.AddAttribute(240, "style", "width:50%;");
+            __builder.OpenElement(241, "tr");
+            __builder.OpenElement(242, "td");
+            __builder.OpenElement(243, "button");
+            __builder.AddAttribute(244, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 736 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                UpdateModelDataOrPhaseShift
@@ -750,15 +682,15 @@ using MatBlazor;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(313, "type", "button");
-            __builder.AddAttribute(314, "class", "fontSizeMAX767 btn btn-primary btn-block");
-            __builder.AddMarkupContent(315, "検索");
+            __builder.AddAttribute(245, "type", "button");
+            __builder.AddAttribute(246, "class", "fontSizeMAX767 btn btn-primary btn-block");
+            __builder.AddMarkupContent(247, "検索");
             __builder.CloseElement();
             __builder.CloseElement();
-            __builder.AddMarkupContent(316, "\r\n                        ");
-            __builder.OpenElement(317, "td");
-            __builder.OpenElement(318, "button");
-            __builder.AddAttribute(319, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(248, "\r\n                        ");
+            __builder.OpenElement(249, "td");
+            __builder.OpenElement(250, "button");
+            __builder.AddAttribute(251, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 737 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
                                                Clear
@@ -767,23 +699,17 @@ using MatBlazor;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(320, "class", "fontSizeMAX767 btn btn-primary btn-block");
-            __builder.AddAttribute(321, "type", "reset");
-            __builder.AddMarkupContent(322, "クリア");
+            __builder.AddAttribute(252, "class", "fontSizeMAX767 btn btn-primary btn-block");
+            __builder.AddAttribute(253, "type", "reset");
+            __builder.AddMarkupContent(254, "クリア");
             __builder.CloseElement();
             __builder.CloseElement();
-            __builder.AddMarkupContent(323, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(324, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(325, "\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(326, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(327, "\r\n\r\n        ");
-            __builder.AddMarkupContent(328, "<div class=\"fontSizeMAX767 alert alert-warning\" role=\"alert\">\r\n\r\n        </div>\r\n\r\n\r\n");
+            __builder.AddMarkupContent(255, "\r\n\r\n        <div class=\"fontSizeMAX767 alert alert-warning\" role=\"alert\"></div>");
             __builder.CloseElement();
-            __builder.AddMarkupContent(329, "\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

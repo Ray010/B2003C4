@@ -11,41 +11,41 @@
 
 
 
-@if (P_IriList == null)
+@if (P_IriList.Count == 0 || P_TomeList.Count == 0 || P_KuikiList.Count == 0 || P_NengetuList.Count == 0)
 {
-    <p><em>Loading...</em></p>
+
+    <MatProgressCircle Indeterminate="true" FourColored="true" />
+    
 }
 else
 {
 
-switch (CurrentPage.PhaseNo)
-{
-    case 0:
-        goto default;
+    switch (CurrentPage.PhaseNo)
+    {
+        case 0:
+            goto default;
 
-    case 1:
-        <MainFragment @bind-Phase1Data="CurrentPage" @bind-C_IriList="P_IriList" @bind-C_TomeList="P_TomeList" />
-        //bind-DBSourceData="TomeList"
+        case 1:
+            <MainFragment @bind-Phase1Data="CurrentPage" @bind-C_IriList="P_IriList" @bind-C_TomeList="P_TomeList" @bind-C_KuikiList="P_KuikiList" @bind-C_NengetuList="P_NengetuList" />
+            //bind-DBSourceData="TomeList"
 
+            goto End;
 
+        case 11:
+            <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" @bind-KoudokuList="KoudokuList" />
+            goto End;
 
-        goto End;
+        case 12:
+            <MeihanActivity @bind-CommonPhase2="CurrentPage" />
+            goto End;
 
-    case 11:
-        <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" @bind-KoudokuList="KoudokuList" />
-        goto End;
-
-    case 12:
-        <MeihanActivity @bind-CommonPhase2="CurrentPage" />
-        goto End;
-
-    End:
-        break;
+        End:
+            break;
 
 
         default:
-        <div>ハンドリングエラー:存在しないページ（PhaseNo:@CurrentPage.S_PhoneNo )</div>
-        break;
+            <div>ハンドリングエラー:存在しないページ（PhaseNo:@CurrentPage.S_PhoneNo )</div>
+            break;
     }
 }
 
@@ -73,11 +73,17 @@ switch (CurrentPage.PhaseNo)
 @code {
     //private FormSearchDataModel formDataModel = new FormSearchDataModel();
 
+    private FormSearchDataModel ResultData = new FormSearchDataModel();
+
     private List<Iri> P_IriList = new List<Iri>();
     private List<Tome> P_TomeList = new List<Tome>();
+    private List<Kuiki_K95010> P_KuikiList = new List<Kuiki_K95010>();
+    private List<Nengetu_K95010> P_NengetuList = new List<Nengetu_K95010>();
+
+
     private DummyDataModel DBData = new DummyDataModel(); //読者リストのDummyデータ
     private KoudokuDummyData KoudokuList = new KoudokuDummyData(); //購読リストのDummyデータ
-    private FormSearchDataModel ResultData = new FormSearchDataModel();
+
 
 }
 

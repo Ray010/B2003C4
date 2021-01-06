@@ -36,8 +36,8 @@ namespace B2003C4.Pages
         private FormSearchDataModel _currentPage;
 
         public Boolean Tenpo_SelectFlg { get; set; } = false;
-        int? Tenpo_SelectedValue;
-        int? Tenpo_SelectValue
+        int Tenpo_SelectedValue;
+        int Tenpo_SelectValue
         { get => Tenpo_SelectedValue; set { Tenpo_SelectedValue = value; } } 
 
 
@@ -81,7 +81,6 @@ namespace B2003C4.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            
             P_TenpoList = await NewsPaperData.GetTenpoListAsync();
         }
 
@@ -91,11 +90,12 @@ namespace B2003C4.Pages
         protected override void OnInitialized()
         {
             //表示
+            
             if(Tenpo_SelectedValue == null)
             {
                 Tenpo_SelectedValue = 1;
             }
-
+            
 
             int Count = 0;
             //履歴
@@ -160,6 +160,7 @@ namespace B2003C4.Pages
 
         public async void JumpPage(string URLx)
         {
+            CurrentPage.Select_TenpoNo = Tenpo_SelectedValue;
             CurrentPage.CurrentURL = CurrentPage.IndexURL;
             CurrentPage.IndexURL = URLx;
             CurrentPage.PhaseNo = 1;

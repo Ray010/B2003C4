@@ -137,14 +137,11 @@ using System.Web;
             __builder.AddMarkupContent(0, "<!DOCTYPE HTML>\r\n");
             __builder.OpenElement(1, "html");
             __builder.AddAttribute(2, "lang", "ja");
-            __builder.AddMarkupContent(3, "\r\n\r\n");
-            __builder.AddMarkupContent(4, "<head>\r\n    <meta charset=\"Shift-JIS\">\r\n    <meta http-equiv=\"content-language\" content=\"ja\">\r\n    <meta name=\"google\" content=\"notranslate\">\r\n\r\n    <style>\r\n        .mb-3 { margin-bottom: 0.5rem; }\r\n\r\n        .BackGr {\r\n            background: #80989b;\r\n            width: 100%;\r\n            height: 100%;\r\n            margin: 0px;\r\n            padding: 0px;\r\n            overflow: hidden;\r\n\r\n        }\r\n\r\n        .Btn-Color{\r\n            background-color: #ffffff;\r\n        }\r\n\r\n        .Margin_Bottom{\r\n            margin-bottom: 2rem;\r\n        }\r\n\r\n\r\n                .mb-3 { margin-bottom: 0.5rem; }\r\n\r\n        .BackGr {\r\n            background: #80989b;\r\n            width: 100%;\r\n            height: 100%;\r\n            margin: 0px;\r\n            padding: 0px;\r\n            overflow: hidden;\r\n        }\r\n\r\n        .td_padding_Fixed{\r\n            padding: 0%;\r\n        }\r\n\r\n\r\n\r\n        .Scroll_Control {\r\n            width: 100%;\r\n            overflow-y: scroll;\r\n            overflow-x: hidden;\r\n        }\r\n        .Scroll_Control::-webkit-scrollbar {\r\n            width: 0.3vw;\r\n            height: 5px;\r\n\r\n        }\r\n            .Scroll_Control::-webkit-scrollbar-thumb {\r\n            background: linear-gradient(0deg,#43e2c6,#3183d0);\r\n            border-radius: 3px;\r\n        }\r\n\r\n        .Card_child {\r\n            position: absolute;\r\n            bottom: 13rem;\r\n\r\n        }\r\n        .Button_Child{\r\n            position: absolute;\r\n            top: 0%;\r\n            right: 0%;\r\n\r\n        }\r\n\r\n        .px-4{\r\n            padding-top: 0em 0em 0em 0em;\r\n        }\r\n\r\n        .section {\r\n            margin-right: calc(50% - 50vw);\r\n            margin-left: calc(50% - 50vw);\r\n        }\r\n        .Border_Bottom {\r\n            border-bottom: outset;\r\n            width: 100%\r\n        }\r\n        .Border {\r\n            border: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n        }\r\n        .R-Border {\r\n            border-right: 0.1rem solid;\r\n\r\n        }\r\n        .B-Border {\r\n            border-bottom: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n\r\n        }\r\n        .T-Border {\r\n            border-top: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n\r\n        }\r\n        .ColorB {\r\n            border-bottom-color: #000000;\r\n        }\r\n        .R-ColorW {\r\n            border-right-color: #E0E0E0;\r\n        }\r\n\r\n        .Bg_Sub_Color {\r\n            background-color: #039BE5;\r\n        }\r\n\r\n        .Button_Color {\r\n            background-color: #FFFFFF;\r\n\r\n        }\r\n        .button_Fixed{\r\n            border-radius: 0;\r\n        }\r\n        .button_Cube {\r\n            border-radius: 100%;\r\n        }\r\n        .Text_Color{\r\n            color: #FFFFFF;\r\n        }\r\n        .btn:hover{\r\n            color: #FFFFFF;\r\n\r\n        }\r\n        footer {\r\n            position: fixed;\r\n            bottom: 0;\r\n            width: 85%\r\n        }\r\n        .Button_Padding_Fixed {\r\n            padding: 1rem;\r\n            bottom:2%;\r\n            right:2%;\r\n            position:fixed;\r\n        }\r\n\r\n        .Button_Border_Fixed{\r\n            border-bottom-width: 0px;\r\n        }\r\n        .Button_Block_Fixed{\r\n            width: calc(100% + 0.3vw);\r\n        }\r\n\r\n        .Position_Fixed{\r\n            position : fixed;\r\n        }\r\n\r\n\r\n\r\n        .btn-info{\r\n            color: #000000;\r\n            background-color: #FFFFFF;\r\n            border-color: #FFFFFF;\r\n        }\r\n        .btn-info:hover {\r\n            color: #000000;\r\n            background-color: #CFD8DC;\r\n            border-color: #CFD8DC;\r\n        }\r\n\r\n        .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active,\r\n        .show > .btn-info.dropdown-toggle {\r\n            color: #FFFFFF;\r\n            background-color: #90A4AE;\r\n            border-color: #90A4AE;\r\n        }\r\n\r\n        .btnW{\r\n            color:#FFFFFF;\r\n        }\r\n\r\n\r\n        .Meihan_Color {\r\n            background-color: #00C853;\r\n        }\r\n        .R-Padding{\r\n            padding-left: 1rem;\r\n        }\r\n\r\n        .fontSizeMAX767_Fixed{\r\n            font-size: 1rem;\r\n        }\r\n        .fontSizeMAX767_Fixed05 {\r\n            font-size: 0.5rem;\r\n        }\r\n        .Card_table_Fixed\r\n        {\r\n            text-align:left;\r\n        }\r\n\r\n        .Scroll_Height_40 {\r\n            height: 100vw;\r\n        }\r\n        .card-body{\r\n            padding:0.25rem;\r\n        }\r\n\r\n        .btn:hover {\r\n            color: #808080;\r\n        }\r\n\r\n    </style>\r\n</head>\r\n\r\n");
-            __builder.OpenElement(5, "body");
-            __builder.AddAttribute(6, "class", "Bg_Color");
-            __builder.AddMarkupContent(7, "\r\n\r\n    ");
-            __builder.OpenElement(8, "div");
-            __builder.AddAttribute(9, "class", "Scroll_Control Scroll_Height_40 fontSizeMAX767 ");
-            __builder.AddMarkupContent(10, "\r\n\r\n        \r\n");
+            __builder.AddMarkupContent(3, "<head><meta charset=\"Shift-JIS\">\r\n    <meta http-equiv=\"content-language\" content=\"ja\">\r\n    <meta name=\"google\" content=\"notranslate\">\r\n\r\n    <style>        .mb-3 { margin-bottom: 0.5rem; }\r\n\r\n        .BackGr {\r\n            background: #80989b;\r\n            width: 100%;\r\n            height: 100%;\r\n            margin: 0px;\r\n            padding: 0px;\r\n            overflow: hidden;\r\n\r\n        }\r\n\r\n        .Btn-Color{\r\n            background-color: #ffffff;\r\n        }\r\n\r\n        .Margin_Bottom{\r\n            margin-bottom: 2rem;\r\n        }\r\n\r\n\r\n                .mb-3 { margin-bottom: 0.5rem; }\r\n\r\n        .BackGr {\r\n            background: #80989b;\r\n            width: 100%;\r\n            height: 100%;\r\n            margin: 0px;\r\n            padding: 0px;\r\n            overflow: hidden;\r\n        }\r\n\r\n        .td_padding_Fixed{\r\n            padding: 0%;\r\n        }\r\n\r\n\r\n\r\n        .Scroll_Control {\r\n            width: 100%;\r\n            overflow-y: scroll;\r\n            overflow-x: hidden;\r\n        }\r\n        .Scroll_Control::-webkit-scrollbar {\r\n            width: 0.3vw;\r\n            height: 5px;\r\n\r\n        }\r\n            .Scroll_Control::-webkit-scrollbar-thumb {\r\n            background: linear-gradient(0deg,#43e2c6,#3183d0);\r\n            border-radius: 3px;\r\n        }\r\n\r\n        .Card_child {\r\n            position: absolute;\r\n            bottom: 13rem;\r\n\r\n        }\r\n        .Button_Child{\r\n            position: absolute;\r\n            top: 0%;\r\n            right: 0%;\r\n\r\n        }\r\n\r\n        .px-4{\r\n            padding-top: 0em 0em 0em 0em;\r\n        }\r\n\r\n        .section {\r\n            margin-right: calc(50% - 50vw);\r\n            margin-left: calc(50% - 50vw);\r\n        }\r\n        .Border_Bottom {\r\n            border-bottom: outset;\r\n            width: 100%\r\n        }\r\n        .Border {\r\n            border: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n        }\r\n        .R-Border {\r\n            border-right: 0.1rem solid;\r\n\r\n        }\r\n        .B-Border {\r\n            border-bottom: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n\r\n        }\r\n        .T-Border {\r\n            border-top: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n\r\n        }\r\n        .ColorB {\r\n            border-bottom-color: #000000;\r\n        }\r\n        .R-ColorW {\r\n            border-right-color: #E0E0E0;\r\n        }\r\n\r\n        .Bg_Sub_Color {\r\n            background-color: #039BE5;\r\n        }\r\n\r\n        .Button_Color {\r\n            background-color: #FFFFFF;\r\n\r\n        }\r\n        .button_Fixed{\r\n            border-radius: 0;\r\n        }\r\n        .button_Cube {\r\n            border-radius: 100%;\r\n        }\r\n        .Text_Color{\r\n            color: #FFFFFF;\r\n        }\r\n        .btn:hover{\r\n            color: #FFFFFF;\r\n\r\n        }\r\n        footer {\r\n            position: fixed;\r\n            bottom: 0;\r\n            width: 85%\r\n        }\r\n        .Button_Padding_Fixed {\r\n            padding: 1rem;\r\n            bottom:2%;\r\n            right:2%;\r\n            position:fixed;\r\n        }\r\n\r\n        .Button_Border_Fixed{\r\n            border-bottom-width: 0px;\r\n        }\r\n        .Button_Block_Fixed{\r\n            width: calc(100% + 0.3vw);\r\n        }\r\n\r\n        .Position_Fixed{\r\n            position : fixed;\r\n        }\r\n\r\n\r\n\r\n        .btn-info{\r\n            color: #000000;\r\n            background-color: #FFFFFF;\r\n            border-color: #FFFFFF;\r\n        }\r\n        .btn-info:hover {\r\n            color: #000000;\r\n            background-color: #CFD8DC;\r\n            border-color: #CFD8DC;\r\n        }\r\n\r\n        .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active,\r\n        .show > .btn-info.dropdown-toggle {\r\n            color: #FFFFFF;\r\n            background-color: #90A4AE;\r\n            border-color: #90A4AE;\r\n        }\r\n\r\n        .btnW{\r\n            color:#FFFFFF;\r\n        }\r\n\r\n\r\n        .Meihan_Color {\r\n            background-color: #00C853;\r\n        }\r\n        .R-Padding{\r\n            padding-left: 1rem;\r\n        }\r\n\r\n        .fontSizeMAX767_Fixed{\r\n            font-size: 1rem;\r\n        }\r\n        .fontSizeMAX767_Fixed05 {\r\n            font-size: 0.5rem;\r\n        }\r\n        .Card_table_Fixed\r\n        {\r\n            text-align:left;\r\n        }\r\n\r\n        .Scroll_Height_40 {\r\n            height: 100vw;\r\n        }\r\n        .card-body{\r\n            padding:0.25rem;\r\n        }\r\n\r\n        .btn:hover {\r\n            color: #808080;\r\n        }\r\n\r\n    </style></head>\r\n\r\n");
+            __builder.OpenElement(4, "body");
+            __builder.AddAttribute(5, "class", "Bg_Color");
+            __builder.OpenElement(6, "div");
+            __builder.AddAttribute(7, "class", "Scroll_Control Scroll_Height_40 fontSizeMAX767 ");
 #nullable restore
 #line 255 "C:\Work\B2003C4\B2003C4\Pages\Kansa\SearchActivity.razor"
          foreach (var x in DokusyaSearchEdList)
@@ -154,9 +151,8 @@ using System.Web;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(11, "            ");
-            __builder.OpenElement(12, "button");
-            __builder.AddAttribute(13, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.OpenElement(8, "button");
+            __builder.AddAttribute(9, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 275 "C:\Work\B2003C4\B2003C4\Pages\Kansa\SearchActivity.razor"
                                 s => ValueForModel(x)
@@ -165,23 +161,18 @@ using System.Web;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(14, "class", "Button_Block_Fixed btn td_padding_Fixed");
-            __builder.AddMarkupContent(15, "\r\n                ");
-            __builder.OpenElement(16, "div");
-            __builder.AddAttribute(17, "class", "card ");
-            __builder.AddMarkupContent(18, "\r\n                    ");
-            __builder.OpenElement(19, "div");
-            __builder.AddAttribute(20, "class", "card-body");
-            __builder.AddMarkupContent(21, "\r\n                        ");
-            __builder.OpenElement(22, "table");
-            __builder.AddAttribute(23, "class", "Card_table_Fixed");
-            __builder.AddMarkupContent(24, "\r\n                            ");
-            __builder.OpenElement(25, "tr");
-            __builder.AddAttribute(26, "class", "fontSizeMAX767");
-            __builder.AddMarkupContent(27, "\r\n                                ");
-            __builder.OpenElement(28, "td");
-            __builder.AddAttribute(29, "colspan", "1");
-            __builder.AddContent(30, 
+            __builder.AddAttribute(10, "class", "Button_Block_Fixed btn td_padding_Fixed");
+            __builder.OpenElement(11, "div");
+            __builder.AddAttribute(12, "class", "card ");
+            __builder.OpenElement(13, "div");
+            __builder.AddAttribute(14, "class", "card-body");
+            __builder.OpenElement(15, "table");
+            __builder.AddAttribute(16, "class", "Card_table_Fixed");
+            __builder.OpenElement(17, "tr");
+            __builder.AddAttribute(18, "class", "fontSizeMAX767");
+            __builder.OpenElement(19, "td");
+            __builder.AddAttribute(20, "colspan", "1");
+            __builder.AddContent(21, 
 #nullable restore
 #line 280 "C:\Work\B2003C4\B2003C4\Pages\Kansa\SearchActivity.razor"
                                                  x.DokusyaStatus
@@ -191,10 +182,10 @@ using System.Web;
 #nullable disable
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(31, "\r\n                                ");
-            __builder.OpenElement(32, "td");
-            __builder.AddAttribute(33, "colspan", "11");
-            __builder.AddContent(34, 
+            __builder.AddMarkupContent(22, "\r\n                                ");
+            __builder.OpenElement(23, "td");
+            __builder.AddAttribute(24, "colspan", "11");
+            __builder.AddContent(25, 
 #nullable restore
 #line 281 "C:\Work\B2003C4\B2003C4\Pages\Kansa\SearchActivity.razor"
                                                   x.DokusyaName
@@ -204,16 +195,14 @@ using System.Web;
 #nullable disable
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(35, "\r\n                            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(36, "\r\n                            ");
-            __builder.OpenElement(37, "tr");
-            __builder.AddAttribute(38, "class", "fontSizeMAX767_Fixed05");
-            __builder.AddMarkupContent(39, "\r\n                                ");
-            __builder.AddMarkupContent(40, "<td colspan=\"3\">x.Junro</td>\r\n                                ");
-            __builder.OpenElement(41, "td");
-            __builder.AddAttribute(42, "colspan", "9");
-            __builder.AddContent(43, 
+            __builder.AddMarkupContent(26, "\r\n                            ");
+            __builder.OpenElement(27, "tr");
+            __builder.AddAttribute(28, "class", "fontSizeMAX767_Fixed05");
+            __builder.AddMarkupContent(29, "<td colspan=\"3\">x.Junro</td>\r\n                                ");
+            __builder.OpenElement(30, "td");
+            __builder.AddAttribute(31, "colspan", "9");
+            __builder.AddContent(32, 
 #nullable restore
 #line 285 "C:\Work\B2003C4\B2003C4\Pages\Kansa\SearchActivity.razor"
                                                  x.CityFullName
@@ -223,17 +212,11 @@ using System.Web;
 #nullable disable
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(44, "\r\n                            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(45, "\r\n                        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(46, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(47, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(48, "\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(49, "\r\n");
 #nullable restore
 #line 291 "C:\Work\B2003C4\B2003C4\Pages\Kansa\SearchActivity.razor"
         }
@@ -241,18 +224,14 @@ using System.Web;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(50, "    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(51, "\r\n\r\n    ");
-            __builder.OpenElement(52, "table");
-            __builder.AddAttribute(53, "class", "Card_table_Fixed");
-            __builder.AddMarkupContent(54, "\r\n        ");
-            __builder.OpenElement(55, "tr");
-            __builder.AddMarkupContent(56, "\r\n            ");
-            __builder.OpenElement(57, "td");
-            __builder.AddAttribute(58, "align", "right");
-            __builder.AddMarkupContent(59, "\r\n                ");
-            __builder.AddContent(60, 
+            __builder.AddMarkupContent(33, "\r\n\r\n    ");
+            __builder.OpenElement(34, "table");
+            __builder.AddAttribute(35, "class", "Card_table_Fixed");
+            __builder.OpenElement(36, "tr");
+            __builder.OpenElement(37, "td");
+            __builder.AddAttribute(38, "align", "right");
+            __builder.AddContent(39, 
 #nullable restore
 #line 302 "C:\Work\B2003C4\B2003C4\Pages\Kansa\SearchActivity.razor"
                  Count
@@ -261,15 +240,11 @@ using System.Web;
 #line hidden
 #nullable disable
             );
-            __builder.AddMarkupContent(61, " 件\r\n            ");
+            __builder.AddMarkupContent(40, " 件\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(62, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(63, "\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(64, "\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(65, "\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

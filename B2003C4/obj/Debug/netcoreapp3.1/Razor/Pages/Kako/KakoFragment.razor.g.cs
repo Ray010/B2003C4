@@ -129,14 +129,11 @@ using Microsoft.AspNetCore.Components;
             __builder.AddMarkupContent(0, "<!DOCTYPE HTML>\r\n");
             __builder.OpenElement(1, "html");
             __builder.AddAttribute(2, "lang", "ja");
-            __builder.AddMarkupContent(3, "\r\n\r\n");
-            __builder.AddMarkupContent(4, @"<head>
-    <meta charset=""Shift-JIS"">
+            __builder.AddMarkupContent(3, @"<head><meta charset=""Shift-JIS"">
     <meta http-equiv=""content-language"" content=""ja"">
     <meta name=""google"" content=""notranslate"">
 
-    <style>
-        .mb-3 { margin-bottom: 0.5rem; }
+    <style>        .mb-3 { margin-bottom: 0.5rem; }
 
         .BackGr {
             background: #80989b;
@@ -182,26 +179,18 @@ using Microsoft.AspNetCore.Components;
             .show > .btn-menu.dropdown-toggle {
             }
 
-    </style>
-
-
-</head>
+    </style></head>
 
 ");
-            __builder.OpenElement(5, "body");
-            __builder.AddMarkupContent(6, "\r\n    ");
-            __builder.OpenElement(7, "div");
-            __builder.AddMarkupContent(8, "\r\n\r\n        ");
-            __builder.OpenElement(9, "table");
-            __builder.AddMarkupContent(10, "\r\n            ");
-            __builder.OpenElement(11, "tr");
-            __builder.AddMarkupContent(12, "\r\n                ");
-            __builder.OpenElement(13, "td");
-            __builder.AddAttribute(14, "colspan", "5");
-            __builder.AddMarkupContent(15, "\r\n                    ");
-            __builder.OpenElement(16, "select");
-            __builder.AddAttribute(17, "class", "form-control");
-            __builder.AddAttribute(18, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.ChangeEventArgs>(this, 
+            __builder.OpenElement(4, "body");
+            __builder.OpenElement(5, "div");
+            __builder.OpenElement(6, "table");
+            __builder.OpenElement(7, "tr");
+            __builder.OpenElement(8, "td");
+            __builder.AddAttribute(9, "colspan", "5");
+            __builder.OpenElement(10, "select");
+            __builder.AddAttribute(11, "class", "form-control");
+            __builder.AddAttribute(12, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.ChangeEventArgs>(this, 
 #nullable restore
 #line 80 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoFragment.razor"
                                                              OnChangeEventKuiki
@@ -210,7 +199,6 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             ));
-            __builder.AddMarkupContent(19, "\r\n\r\n");
 #nullable restore
 #line 82 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoFragment.razor"
                          foreach (var x in TenpoKuiki)
@@ -222,9 +210,8 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(20, "                                ");
-            __builder.OpenElement(21, "option");
-            __builder.AddAttribute(22, "value", 
+            __builder.OpenElement(13, "option");
+            __builder.AddAttribute(14, "value", 
 #nullable restore
 #line 87 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoFragment.razor"
                                                 x.KuikiNo
@@ -233,8 +220,7 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(23, " ");
-            __builder.AddContent(24, 
+            __builder.AddContent(15, 
 #nullable restore
 #line 87 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoFragment.razor"
                                                              x.KuikiName
@@ -243,9 +229,7 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(25, " ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(26, "\r\n");
 #nullable restore
 #line 88 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoFragment.razor"
 
@@ -255,16 +239,13 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(27, "                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(28, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(29, "\r\n                ");
-            __builder.OpenElement(30, "td");
-            __builder.AddAttribute(31, "align", "right");
-            __builder.AddAttribute(32, "colspan", "5");
-            __builder.AddMarkupContent(33, "\r\n\r\n                    ");
-            __builder.AddContent(34, 
+            __builder.AddMarkupContent(16, "\r\n                ");
+            __builder.OpenElement(17, "td");
+            __builder.AddAttribute(18, "align", "right");
+            __builder.AddAttribute(19, "colspan", "5");
+            __builder.AddContent(20, 
 #nullable restore
 #line 95 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoFragment.razor"
                      Count
@@ -273,16 +254,13 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             );
-            __builder.AddMarkupContent(35, " 件\r\n                ");
+            __builder.AddMarkupContent(21, " 件\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(36, "\r\n\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(37, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(38, "\r\n\r\n        ");
-            __builder.OpenElement(39, "table");
-            __builder.AddAttribute(40, "class", "Card_parent Bg_Color");
-            __builder.AddMarkupContent(41, "\r\n");
+            __builder.AddMarkupContent(22, "\r\n\r\n        ");
+            __builder.OpenElement(23, "table");
+            __builder.AddAttribute(24, "class", "Card_parent Bg_Color");
 #nullable restore
 #line 132 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoFragment.razor"
              foreach (var x in TomeDokusyaList)
@@ -291,16 +269,12 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(42, "                    ");
-            __builder.OpenElement(43, "tr");
-            __builder.AddMarkupContent(44, "\r\n                        ");
-            __builder.OpenElement(45, "td");
-            __builder.AddMarkupContent(46, "\r\n                            ");
-            __builder.OpenElement(47, "div");
-            __builder.AddAttribute(48, "class", "Card_parent");
-            __builder.AddMarkupContent(49, "\r\n                                ");
-            __builder.OpenElement(50, "button");
-            __builder.AddAttribute(51, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.OpenElement(25, "tr");
+            __builder.OpenElement(26, "td");
+            __builder.OpenElement(27, "div");
+            __builder.AddAttribute(28, "class", "Card_parent");
+            __builder.OpenElement(29, "button");
+            __builder.AddAttribute(30, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 137 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoFragment.razor"
                                                     s => JumpPage(x)
@@ -309,17 +283,14 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(52, "type", "button");
-            __builder.AddAttribute(53, "class", "btn btn-KakoButton btn-block");
-            __builder.AddMarkupContent(54, "\r\n                                    ");
-            __builder.OpenElement(55, "table");
-            __builder.AddMarkupContent(56, "\r\n                                        ");
-            __builder.OpenElement(57, "tr");
-            __builder.AddMarkupContent(58, "\r\n                                            ");
-            __builder.OpenElement(59, "td");
-            __builder.AddAttribute(60, "colspan", "9");
-            __builder.AddAttribute(61, "align", "left");
-            __builder.AddContent(62, 
+            __builder.AddAttribute(31, "type", "button");
+            __builder.AddAttribute(32, "class", "btn btn-KakoButton btn-block");
+            __builder.OpenElement(33, "table");
+            __builder.OpenElement(34, "tr");
+            __builder.OpenElement(35, "td");
+            __builder.AddAttribute(36, "colspan", "9");
+            __builder.AddAttribute(37, "align", "left");
+            __builder.AddContent(38, 
 #nullable restore
 #line 140 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoFragment.razor"
                                                                           x.DokusyaName
@@ -329,16 +300,15 @@ using Microsoft.AspNetCore.Components;
 #nullable disable
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(63, "\r\n                                            ");
-            __builder.AddMarkupContent(64, "<td colspan=\"1\">M</td>\r\n                                        ");
+            __builder.AddMarkupContent(39, "\r\n                                            ");
+            __builder.AddMarkupContent(40, "<td colspan=\"1\">M</td>");
             __builder.CloseElement();
-            __builder.AddMarkupContent(65, "\r\n                                        ");
-            __builder.OpenElement(66, "tr");
-            __builder.AddAttribute(67, "align", "left");
-            __builder.AddMarkupContent(68, "\r\n                                            ");
-            __builder.OpenElement(69, "td");
-            __builder.AddAttribute(70, "colspan", "4");
-            __builder.AddContent(71, 
+            __builder.AddMarkupContent(41, "\r\n                                        ");
+            __builder.OpenElement(42, "tr");
+            __builder.AddAttribute(43, "align", "left");
+            __builder.OpenElement(44, "td");
+            __builder.AddAttribute(45, "colspan", "4");
+            __builder.AddContent(46, 
 #nullable restore
 #line 144 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoFragment.razor"
                                                              x.CityName
@@ -348,10 +318,10 @@ using Microsoft.AspNetCore.Components;
 #nullable disable
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(72, "\r\n                                            ");
-            __builder.OpenElement(73, "td");
-            __builder.AddAttribute(74, "colspan", "4");
-            __builder.AddContent(75, 
+            __builder.AddMarkupContent(47, "\r\n                                            ");
+            __builder.OpenElement(48, "td");
+            __builder.AddAttribute(49, "colspan", "4");
+            __builder.AddContent(50, 
 #nullable restore
 #line 145 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoFragment.razor"
                                                              x.CityAddress
@@ -361,17 +331,16 @@ using Microsoft.AspNetCore.Components;
 #nullable disable
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(76, "\r\n                                            ");
-            __builder.AddMarkupContent(77, "<td colspan=\"2\">&nbsp;</td>\r\n                                        ");
+            __builder.AddMarkupContent(51, "\r\n                                            ");
+            __builder.AddMarkupContent(52, "<td colspan=\"2\">&nbsp;</td>");
             __builder.CloseElement();
-            __builder.AddMarkupContent(78, "\r\n                                        ");
-            __builder.OpenElement(79, "tr");
-            __builder.AddMarkupContent(80, "\r\n                                            ");
-            __builder.AddMarkupContent(81, "<td colspan=\"2\" align=\"left\">x.B</td>\r\n                                            ");
-            __builder.OpenElement(82, "td");
-            __builder.AddAttribute(83, "colspan", "6");
-            __builder.AddAttribute(84, "align", "left");
-            __builder.AddContent(85, 
+            __builder.AddMarkupContent(53, "\r\n                                        ");
+            __builder.OpenElement(54, "tr");
+            __builder.AddMarkupContent(55, "<td colspan=\"2\" align=\"left\">x.B</td>\r\n                                            ");
+            __builder.OpenElement(56, "td");
+            __builder.AddAttribute(57, "colspan", "6");
+            __builder.AddAttribute(58, "align", "left");
+            __builder.AddContent(59, 
 #nullable restore
 #line 150 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoFragment.razor"
                                                                           x.KeiyakuSt
@@ -380,8 +349,8 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(86, " - ");
-            __builder.AddContent(87, 
+            __builder.AddContent(60, " - ");
+            __builder.AddContent(61, 
 #nullable restore
 #line 150 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoFragment.razor"
                                                                                          x.KeiyakuEd
@@ -391,19 +360,12 @@ using Microsoft.AspNetCore.Components;
 #nullable disable
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(88, "\r\n\r\n                                        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(89, "\r\n                                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(90, "\r\n                                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(91, "\r\n\r\n                            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(92, "\r\n                        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(93, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(94, "\r\n");
 #nullable restore
 #line 161 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoFragment.razor"
              
@@ -412,13 +374,9 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(95, "        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(96, "\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(97, "\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(98, "\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

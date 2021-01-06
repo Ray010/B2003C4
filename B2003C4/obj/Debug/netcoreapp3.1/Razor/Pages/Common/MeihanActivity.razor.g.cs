@@ -123,31 +123,23 @@ using MatBlazor;
             __builder.AddMarkupContent(0, "<!DOCTYPE HTML>\r\n");
             __builder.OpenElement(1, "html");
             __builder.AddAttribute(2, "lang", "ja");
-            __builder.AddMarkupContent(3, "\r\n\r\n");
-            __builder.AddMarkupContent(4, "<head>\r\n    <meta charset=\"Shift-JIS\">\r\n    <meta http-equiv=\"content-language\" content=\"ja\">\r\n    <meta name=\"google\" content=\"notranslate\">\r\n\r\n    <style>\r\n        .mb-3 { margin-bottom: 0.5rem; }\r\n\r\n        .BackGr {\r\n            background: #80989b;\r\n            width: 100%;\r\n            height: 100%;\r\n            margin: 0px;\r\n            padding: 0px;\r\n            overflow: hidden;\r\n        }\r\n\r\n        .td_padding_Fixed{\r\n            padding: 0%;\r\n        }\r\n\r\n\r\n\r\n        .Scroll_Control {\r\n            width: 100%;\r\n            overflow-y: scroll;\r\n            overflow-x: hidden;\r\n        }\r\n        .Scroll_Control::-webkit-scrollbar {\r\n            width: 0.3vw;\r\n            height: 5px;\r\n\r\n        }\r\n            .Scroll_Control::-webkit-scrollbar-thumb {\r\n            background: linear-gradient(0deg,#43e2c6,#3183d0);\r\n            border-radius: 3px;\r\n        }\r\n\r\n        .Card_child {\r\n            position: absolute;\r\n            bottom: 13rem;\r\n\r\n        }\r\n        .Button_Child{\r\n            position: absolute;\r\n            top: 0%;\r\n            right: 0%;\r\n\r\n        }\r\n\r\n        .px-4{\r\n            padding-top: 0em 0em 0em 0em;\r\n        }\r\n\r\n        .section {\r\n            margin-right: calc(50% - 50vw);\r\n            margin-left: calc(50% - 50vw);\r\n        }\r\n        .Border_Bottom {\r\n            border-bottom: outset;\r\n            width: 100%\r\n        }\r\n        .Border {\r\n            border: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n        }\r\n        .R-Border-ColorW {\r\n            border-right: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n        }\r\n        .R-Border-ColorB {\r\n            border-right: 0.1rem solid;\r\n            border-color: #dee2e6;\r\n        }\r\n        .B-Border {\r\n            border-bottom: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n\r\n        }\r\n        .T-Border {\r\n            border-top: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n\r\n        }\r\n        .ColorB {\r\n            border-bottom-color: #000000;\r\n        }\r\n\r\n        .Bg_Sub_Color {\r\n            background-color: #039BE5;\r\n        }\r\n\r\n        .button_Fixed{\r\n            border-radius: 0;\r\n        }\r\n        .button_Cube {\r\n            border-radius: 100%;\r\n        }\r\n        .Text_Color{\r\n            color: #FFFFFF;\r\n        }\r\n        .btn:hover{\r\n            color: #FFFFFF;\r\n\r\n        }\r\n        footer {\r\n            position: fixed;\r\n            bottom: 0;\r\n            width: 85%\r\n        }\r\n        .Button_Padding_Fixed {\r\n            padding: 1rem;\r\n            bottom:2%;\r\n            right:2%;\r\n            position:fixed;\r\n        }\r\n\r\n        .Button_Border_Fixed{\r\n            border-bottom-width: 0px;\r\n        }\r\n        .Button_Block_Fixed{\r\n            width: calc(100% + 0.3vw);\r\n        }\r\n\r\n        .Position_Fixed{\r\n            position : fixed;\r\n        }\r\n\r\n\r\n\r\n        .btn-info{\r\n            color: #000000;\r\n            background-color: #FFFFFF;\r\n            border-color: #FFFFFF;\r\n        }\r\n        .btn-info:hover {\r\n            color: #000000;\r\n            background-color: #CFD8DC;\r\n            border-color: #CFD8DC;\r\n        }\r\n\r\n        .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active,\r\n        .show > .btn-info.dropdown-toggle {\r\n            color: #FFFFFF;\r\n            background-color: #90A4AE;\r\n            border-color: #90A4AE;\r\n        }\r\n\r\n\r\n    </style>\r\n\r\n\r\n</head>\r\n\r\n");
-            __builder.OpenElement(5, "body");
-            __builder.AddAttribute(6, "style", "overflow:hidden");
-            __builder.AddMarkupContent(7, "\r\n    ");
+            __builder.AddMarkupContent(3, "<head><meta charset=\"Shift-JIS\">\r\n    <meta http-equiv=\"content-language\" content=\"ja\">\r\n    <meta name=\"google\" content=\"notranslate\">\r\n\r\n    <style>        .mb-3 { margin-bottom: 0.5rem; }\r\n\r\n        .BackGr {\r\n            background: #80989b;\r\n            width: 100%;\r\n            height: 100%;\r\n            margin: 0px;\r\n            padding: 0px;\r\n            overflow: hidden;\r\n        }\r\n\r\n        .td_padding_Fixed{\r\n            padding: 0%;\r\n        }\r\n\r\n\r\n\r\n        .Scroll_Control {\r\n            width: 100%;\r\n            overflow-y: scroll;\r\n            overflow-x: hidden;\r\n        }\r\n        .Scroll_Control::-webkit-scrollbar {\r\n            width: 0.3vw;\r\n            height: 5px;\r\n\r\n        }\r\n            .Scroll_Control::-webkit-scrollbar-thumb {\r\n            background: linear-gradient(0deg,#43e2c6,#3183d0);\r\n            border-radius: 3px;\r\n        }\r\n\r\n        .Card_child {\r\n            position: absolute;\r\n            bottom: 13rem;\r\n\r\n        }\r\n        .Button_Child{\r\n            position: absolute;\r\n            top: 0%;\r\n            right: 0%;\r\n\r\n        }\r\n\r\n        .px-4{\r\n            padding-top: 0em 0em 0em 0em;\r\n        }\r\n\r\n        .section {\r\n            margin-right: calc(50% - 50vw);\r\n            margin-left: calc(50% - 50vw);\r\n        }\r\n        .Border_Bottom {\r\n            border-bottom: outset;\r\n            width: 100%\r\n        }\r\n        .Border {\r\n            border: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n        }\r\n        .R-Border-ColorW {\r\n            border-right: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n        }\r\n        .R-Border-ColorB {\r\n            border-right: 0.1rem solid;\r\n            border-color: #dee2e6;\r\n        }\r\n        .B-Border {\r\n            border-bottom: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n\r\n        }\r\n        .T-Border {\r\n            border-top: 0.1rem solid;\r\n            border-color: #FFFFFF;\r\n\r\n        }\r\n        .ColorB {\r\n            border-bottom-color: #000000;\r\n        }\r\n\r\n        .Bg_Sub_Color {\r\n            background-color: #039BE5;\r\n        }\r\n\r\n        .button_Fixed{\r\n            border-radius: 0;\r\n        }\r\n        .button_Cube {\r\n            border-radius: 100%;\r\n        }\r\n        .Text_Color{\r\n            color: #FFFFFF;\r\n        }\r\n        .btn:hover{\r\n            color: #FFFFFF;\r\n\r\n        }\r\n        footer {\r\n            position: fixed;\r\n            bottom: 0;\r\n            width: 85%\r\n        }\r\n        .Button_Padding_Fixed {\r\n            padding: 1rem;\r\n            bottom:2%;\r\n            right:2%;\r\n            position:fixed;\r\n        }\r\n\r\n        .Button_Border_Fixed{\r\n            border-bottom-width: 0px;\r\n        }\r\n        .Button_Block_Fixed{\r\n            width: calc(100% + 0.3vw);\r\n        }\r\n\r\n        .Position_Fixed{\r\n            position : fixed;\r\n        }\r\n\r\n\r\n\r\n        .btn-info{\r\n            color: #000000;\r\n            background-color: #FFFFFF;\r\n            border-color: #FFFFFF;\r\n        }\r\n        .btn-info:hover {\r\n            color: #000000;\r\n            background-color: #CFD8DC;\r\n            border-color: #CFD8DC;\r\n        }\r\n\r\n        .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active,\r\n        .show > .btn-info.dropdown-toggle {\r\n            color: #FFFFFF;\r\n            background-color: #90A4AE;\r\n            border-color: #90A4AE;\r\n        }\r\n\r\n\r\n    </style></head>\r\n\r\n");
+            __builder.OpenElement(4, "body");
+            __builder.AddAttribute(5, "style", "overflow:hidden");
+            __builder.OpenElement(6, "div");
+            __builder.AddAttribute(7, "class", "Card_parent");
             __builder.OpenElement(8, "div");
-            __builder.AddAttribute(9, "class", "Card_parent");
-            __builder.AddMarkupContent(10, "\r\n        ");
-            __builder.OpenElement(11, "div");
-            __builder.AddAttribute(12, "class", "Scroll_Control Scroll_Height_20 fontSizeMAX767 ");
-            __builder.AddMarkupContent(13, "\r\n            ");
-            __builder.OpenElement(14, "table");
-            __builder.AddAttribute(15, "class", "Card_table_Fixed");
-            __builder.AddMarkupContent(16, "\r\n                ");
-            __builder.OpenElement(17, "tr");
+            __builder.AddAttribute(9, "class", "Scroll_Control Scroll_Height_20 fontSizeMAX767 ");
+            __builder.OpenElement(10, "table");
+            __builder.AddAttribute(11, "class", "Card_table_Fixed");
+            __builder.OpenElement(12, "tr");
+            __builder.AddAttribute(13, "class", "Card_VerticalFix");
+            __builder.OpenElement(14, "td");
+            __builder.AddAttribute(15, "class", "td_padding_Fixed");
+            __builder.AddAttribute(16, "colspan", "4");
+            __builder.OpenElement(17, "table");
             __builder.AddAttribute(18, "class", "Card_VerticalFix");
-            __builder.AddMarkupContent(19, "\r\n\r\n                    ");
-            __builder.OpenElement(20, "td");
-            __builder.AddAttribute(21, "class", "td_padding_Fixed");
-            __builder.AddAttribute(22, "colspan", "4");
-            __builder.AddMarkupContent(23, "\r\n                        ");
-            __builder.OpenElement(24, "table");
-            __builder.AddAttribute(25, "class", "Card_VerticalFix");
-            __builder.AddAttribute(26, "style", "width:100%");
-            __builder.AddMarkupContent(27, "\r\n");
+            __builder.AddAttribute(19, "style", "width:100%");
 #nullable restore
 #line 200 "C:\Work\B2003C4\B2003C4\Pages\Common\MeihanActivity.razor"
                              foreach (var x in KoumokuList)
@@ -156,11 +148,10 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(28, "                                ");
-            __builder.OpenElement(29, "tr");
-            __builder.OpenElement(30, "td");
-            __builder.AddAttribute(31, "class", "Border_Bottom border-right");
-            __builder.AddContent(32, 
+            __builder.OpenElement(20, "tr");
+            __builder.OpenElement(21, "td");
+            __builder.AddAttribute(22, "class", "Border_Bottom border-right");
+            __builder.AddContent(23, 
 #nullable restore
 #line 202 "C:\Work\B2003C4\B2003C4\Pages\Common\MeihanActivity.razor"
                                                                             x.Heading
@@ -171,7 +162,6 @@ using MatBlazor;
             );
             __builder.CloseElement();
             __builder.CloseElement();
-            __builder.AddMarkupContent(33, "\r\n");
 #nullable restore
 #line 203 "C:\Work\B2003C4\B2003C4\Pages\Common\MeihanActivity.razor"
                             }
@@ -179,19 +169,15 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(34, "                        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(35, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(36, "\r\n\r\n                    ");
-            __builder.OpenElement(37, "td");
-            __builder.AddAttribute(38, "class", "td_padding_Fixed");
-            __builder.AddAttribute(39, "colspan", "9");
-            __builder.AddMarkupContent(40, "\r\n                        ");
-            __builder.OpenElement(41, "table");
-            __builder.AddAttribute(42, "class", "Card_VerticalFix");
-            __builder.AddAttribute(43, "style", "width:100%");
-            __builder.AddMarkupContent(44, "\r\n");
+            __builder.AddMarkupContent(24, "\r\n\r\n                    ");
+            __builder.OpenElement(25, "td");
+            __builder.AddAttribute(26, "class", "td_padding_Fixed");
+            __builder.AddAttribute(27, "colspan", "9");
+            __builder.OpenElement(28, "table");
+            __builder.AddAttribute(29, "class", "Card_VerticalFix");
+            __builder.AddAttribute(30, "style", "width:100%");
 #nullable restore
 #line 209 "C:\Work\B2003C4\B2003C4\Pages\Common\MeihanActivity.razor"
                              foreach (var x in MeihanList)
@@ -200,10 +186,8 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(45, "                                ");
-            __builder.OpenElement(46, "tr");
-            __builder.AddAttribute(47, "class", "Border_Bottom");
-            __builder.AddMarkupContent(48, "\r\n");
+            __builder.OpenElement(31, "tr");
+            __builder.AddAttribute(32, "class", "Border_Bottom");
 #nullable restore
 #line 212 "C:\Work\B2003C4\B2003C4\Pages\Common\MeihanActivity.razor"
                                      if (x.Heading == "")
@@ -212,8 +196,7 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(49, "                                        ");
-            __builder.AddMarkupContent(50, "<td>&nbsp;</td>\r\n");
+            __builder.AddMarkupContent(33, "<td>&nbsp;</td>");
 #nullable restore
 #line 215 "C:\Work\B2003C4\B2003C4\Pages\Common\MeihanActivity.razor"
                                     }
@@ -223,9 +206,8 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(51, "                                        ");
-            __builder.OpenElement(52, "td");
-            __builder.AddContent(53, 
+            __builder.OpenElement(34, "td");
+            __builder.AddContent(35, 
 #nullable restore
 #line 218 "C:\Work\B2003C4\B2003C4\Pages\Common\MeihanActivity.razor"
                                              x.Heading
@@ -235,7 +217,6 @@ using MatBlazor;
 #nullable disable
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(54, "\r\n");
 #nullable restore
 #line 219 "C:\Work\B2003C4\B2003C4\Pages\Common\MeihanActivity.razor"
                                     }
@@ -243,9 +224,7 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(55, "                                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(56, "\r\n");
 #nullable restore
 #line 221 "C:\Work\B2003C4\B2003C4\Pages\Common\MeihanActivity.razor"
                             }
@@ -253,34 +232,18 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(57, "                        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(58, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(59, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(60, "\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(61, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(62, "\r\n\r\n        ");
-            __builder.OpenElement(63, "div");
-            __builder.AddAttribute(64, "class", "fontSizeMAX767 Text_Color");
-            __builder.AddMarkupContent(65, "\r\n            ");
-            __builder.AddMarkupContent(66, @"<table class=""Card_table_Fixed Border Bg_Sub_Color"">
-
-                <tr>
-                    <td colspan=""6"" class=""R-Border-ColorB"">品名</td>
-                    <td colspan=""5"" class=""R-Border-ColorB"">日付</td>
-                    <td colspan=""3"">数量</td>
-                </tr>
-            </table>
-
-        ");
-            __builder.OpenElement(67, "div");
-            __builder.AddAttribute(68, "class", "Scroll_Control Scroll_Height_40");
-            __builder.AddAttribute(69, "style", "color:#000000;");
-            __builder.AddMarkupContent(70, "\r\n\r\n            \r\n");
+            __builder.AddMarkupContent(36, "\r\n\r\n        ");
+            __builder.OpenElement(37, "div");
+            __builder.AddAttribute(38, "class", "fontSizeMAX767 Text_Color");
+            __builder.AddMarkupContent(39, "<table class=\"Card_table_Fixed Border Bg_Sub_Color\"><tr><td colspan=\"6\" class=\"R-Border-ColorB\">品名</td>\r\n                    <td colspan=\"5\" class=\"R-Border-ColorB\">日付</td>\r\n                    <td colspan=\"3\">数量</td></tr></table>\r\n\r\n        ");
+            __builder.OpenElement(40, "div");
+            __builder.AddAttribute(41, "class", "Scroll_Control Scroll_Height_40");
+            __builder.AddAttribute(42, "style", "color:#000000;");
 #nullable restore
 #line 242 "C:\Work\B2003C4\B2003C4\Pages\Common\MeihanActivity.razor"
          foreach (var x in HinMeiList)
@@ -290,12 +253,9 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(71, "                ");
-            __builder.OpenElement(72, "table");
-            __builder.AddAttribute(73, "class", "border Button_Block_Fixed fontSizeMAX767 Card_table_Fixed Border_Bottom");
-            __builder.AddMarkupContent(74, "\r\n\r\n                    ");
-            __builder.OpenElement(75, "tr");
-            __builder.AddMarkupContent(76, "\r\n\r\n");
+            __builder.OpenElement(43, "table");
+            __builder.AddAttribute(44, "class", "border Button_Block_Fixed fontSizeMAX767 Card_table_Fixed Border_Bottom");
+            __builder.OpenElement(45, "tr");
 #nullable restore
 #line 249 "C:\Work\B2003C4\B2003C4\Pages\Common\MeihanActivity.razor"
                          if (x.HinName == "")
@@ -304,10 +264,9 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(77, "                            ");
-            __builder.AddMarkupContent(78, "<td colspan=\"6\" class=\"R-Border-ColorB\">&nbsp;</td>\r\n                            ");
-            __builder.AddMarkupContent(79, "<td colspan=\"5\" class=\"R-Border-ColorB\">&nbsp;</td>\r\n                            ");
-            __builder.AddMarkupContent(80, "<td colspan=\"3\">&nbsp;</td>\r\n");
+            __builder.AddMarkupContent(46, "<td colspan=\"6\" class=\"R-Border-ColorB\">&nbsp;</td>\r\n                            ");
+            __builder.AddMarkupContent(47, "<td colspan=\"5\" class=\"R-Border-ColorB\">&nbsp;</td>\r\n                            ");
+            __builder.AddMarkupContent(48, "<td colspan=\"3\">&nbsp;</td>");
 #nullable restore
 #line 254 "C:\Work\B2003C4\B2003C4\Pages\Common\MeihanActivity.razor"
                         }
@@ -317,11 +276,10 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(81, "                            ");
-            __builder.OpenElement(82, "td");
-            __builder.AddAttribute(83, "colspan", "6");
-            __builder.AddAttribute(84, "class", "R-Border-ColorB");
-            __builder.AddContent(85, 
+            __builder.OpenElement(49, "td");
+            __builder.AddAttribute(50, "colspan", "6");
+            __builder.AddAttribute(51, "class", "R-Border-ColorB");
+            __builder.AddContent(52, 
 #nullable restore
 #line 257 "C:\Work\B2003C4\B2003C4\Pages\Common\MeihanActivity.razor"
                                                                      x.HinName
@@ -331,11 +289,11 @@ using MatBlazor;
 #nullable disable
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(86, "\r\n                            ");
-            __builder.OpenElement(87, "td");
-            __builder.AddAttribute(88, "colspan", "5");
-            __builder.AddAttribute(89, "class", "R-Border-ColorB");
-            __builder.AddContent(90, 
+            __builder.AddMarkupContent(53, "\r\n                            ");
+            __builder.OpenElement(54, "td");
+            __builder.AddAttribute(55, "colspan", "5");
+            __builder.AddAttribute(56, "class", "R-Border-ColorB");
+            __builder.AddContent(57, 
 #nullable restore
 #line 258 "C:\Work\B2003C4\B2003C4\Pages\Common\MeihanActivity.razor"
                                                                      x.Hiduke
@@ -345,10 +303,10 @@ using MatBlazor;
 #nullable disable
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(91, "\r\n                            ");
-            __builder.OpenElement(92, "td");
-            __builder.AddAttribute(93, "colspan", "3");
-            __builder.AddContent(94, 
+            __builder.AddMarkupContent(58, "\r\n                            ");
+            __builder.OpenElement(59, "td");
+            __builder.AddAttribute(60, "colspan", "3");
+            __builder.AddContent(61, 
 #nullable restore
 #line 259 "C:\Work\B2003C4\B2003C4\Pages\Common\MeihanActivity.razor"
                                              x.Suryou
@@ -358,7 +316,6 @@ using MatBlazor;
 #nullable disable
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(95, "\r\n");
 #nullable restore
 #line 260 "C:\Work\B2003C4\B2003C4\Pages\Common\MeihanActivity.razor"
                         }
@@ -366,11 +323,8 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddMarkupContent(96, "\r\n                    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(97, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(98, "\r\n");
 #nullable restore
 #line 264 "C:\Work\B2003C4\B2003C4\Pages\Common\MeihanActivity.razor"
             
@@ -379,16 +333,11 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddMarkupContent(99, "            \r\n\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(100, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(101, "\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(102, "\r\n    ");
-            __builder.AddMarkupContent(103, "<footer>\r\n    </footer>\r\n");
+            __builder.AddMarkupContent(62, "\r\n    <footer></footer>");
             __builder.CloseElement();
-            __builder.AddMarkupContent(104, "\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

@@ -10,15 +10,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace B2003C4.Data
 {
-    [Table("Iri", Schema = "dbo")]
+    [Table("Iri_K95010", Schema = "dbo")]
     public class Iri
     {
+        [Column("Tenpo")]
+        public int Tenpo { get; set; }
+
         [Column("kuiki")]
-        public double Kuiki { get; set; }
+        public int Kuiki { get; set; }
 
         //[Column("Nengetu")]
         [Column("nengetu")]
-        public double Nengetu { get; set; }
+        public int Nengetu { get; set; }
 
         //Junro
         [Column("junro")]
@@ -27,7 +30,7 @@ namespace B2003C4.Data
         //DokuCode
         [Key]
         [Column("dokuCode")]
-        public double DokuCode { get; set; }
+        public int DokuCode { get; set; }
 
         [Column("name")]
         public string Name { get; set; }
@@ -45,7 +48,7 @@ namespace B2003C4.Data
         public string Tome { get; set; }
 
         [Column("tantokbn")]
-        public double Tantokbn { get; set; }
+        public int Tantokbn { get; set; }
 
         [Column("address")]
         public string Address { get; set; }
@@ -54,7 +57,7 @@ namespace B2003C4.Data
         public string Build { get; set; }
 
         [Column("MgCode")]
-        public double MgCode { get; set; }
+        public int MgCode { get; set; }
 
         [Column("MgNo")]
         public string MgNo { get; set; }
@@ -63,28 +66,31 @@ namespace B2003C4.Data
         public string IriRiyuu { get; set; }
 
         [Column("KeizokuTuki")]
-        public double KeizokuTsuki { get; set; }
+        public int KeizokuTsuki { get; set; }
 
         [Column("DispNengetu")]
         public string DispNengetu { get; set; }
 
         [Column("NextKeiyaku")]
-        public double NextKeiyaku { get; set; }
+        public int NextKeiyaku { get; set; }
 
         [Column("GaitoNo")]
-        public double GaitoNo { get; set; }
+        public int GaitoNo { get; set; }
 
     }
 
-    [Table("Tome", Schema = "dbo")]
+    [Table("Tome_K95010", Schema = "dbo")]
     public class Tome
     {
+        [Column("Tenpo")]
+        public int Tenpo { get; set; }
+
         [Column("kuiki")]
-        public double Kuiki { get; set; }
+        public int Kuiki { get; set; }
 
         //[Column("Nengetu")]
         [Column("nengetu")]
-        public double Nengetu { get; set; }
+        public int Nengetu { get; set; }
 
         //Junro
         [Column("junro")]
@@ -93,7 +99,7 @@ namespace B2003C4.Data
         //DokuCode
         [Key]
         [Column("dokuCode")]
-        public double DokuCode { get; set; }
+        public int DokuCode { get; set; }
 
         [Column("name")]
         public string Name { get; set; }
@@ -111,7 +117,7 @@ namespace B2003C4.Data
         public string tome { get; set; }
 
         [Column("tantokbn")]
-        public double Tantokbn { get; set; }
+        public int Tantokbn { get; set; }
 
         [Column("address")]
         public string Address { get; set; }
@@ -120,7 +126,7 @@ namespace B2003C4.Data
         public string Build { get; set; }
 
         [Column("MgCode")]
-        public double MgCode { get; set; }
+        public int MgCode { get; set; }
 
         [Column("MgNo")]
         public string MgNo { get; set; }
@@ -129,33 +135,64 @@ namespace B2003C4.Data
         public string IriRiyuu { get; set; }
 
         [Column("KeizokuTuki")]
-        public double KeizokuTsuki { get; set; }
+        public int KeizokuTsuki { get; set; }
 
         [Column("DispNengetu")]
         public string DispNengetu { get; set; }
 
         [Column("NextKeiyaku")]
-        public double NextKeiyaku { get; set; }
+        public int NextKeiyaku { get; set; }
 
         [Column("GaitoNo")]
-        public double GaitoNo { get; set; }
+        public int GaitoNo { get; set; }
 
     }
 
-    [Table("Dokusya", Schema = "dbo")]
+    [Table("Dokusya_K95010", Schema = "dbo")]
     public class Dokusya
     {
         [Column("kuiki")]
-        public double Kuiki { get; set; }
+        public int Kuiki { get; set; }
 
         [Column("junro")]
         public string Junro { get; set; }
 
         [Key]
         [Column("dokuCode")]
-        public double DokuCode { get; set; }
+        public int DokuCode { get; set; }
 
 
 
+    }
+
+    [Table("Kuiki_K95010", Schema = "dbo")]
+    public class Kuiki_K95010
+    {
+        [Column("Tenpo")]
+        public int Tenpo { get; set; }
+
+        [Key]
+        [Column("kuiki")]
+        public int Kuiki { get; set; }
+
+        [Column("Name")]
+        public string Name { get; set; }
+    }
+
+    [Table("Nengetu_K95010", Schema = "dbo")]
+    public class Nengetu_K95010
+    {
+        [Column("Tenpo")]
+        public int Tenpo { get; set; }
+
+        [Key]
+        [Column("No")]
+        public int No { get; set; }
+
+        [Column("Nengetu")]
+        public int Nengetu { get; set; }
+
+        [Column("Name")]
+        public string Name { get; set; }
     }
 }

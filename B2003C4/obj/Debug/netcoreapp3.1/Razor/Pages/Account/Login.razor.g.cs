@@ -121,10 +121,7 @@ using MatBlazor;
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
             __builder.AddMarkupContent(0, "<!DOCTYPE HTML>\r\n");
-            __builder.AddMarkupContent(1, @"<html lang=""ja"">
-
-<head>
-    <meta charset=""Shift-JIS"">
+            __builder.AddMarkupContent(1, @"<html lang=""ja""><head><meta charset=""Shift-JIS"">
     <meta http-equiv=""content-language"" content=""ja"">
     <meta name=""google"" content=""notranslate"">
 
@@ -135,14 +132,9 @@ using MatBlazor;
         .width {
             width: 95%;
         }
-    </style>
-</head>
+    </style></head>
 
-<body>
-    <div align=""center"">
-
-            
-            <label asp-for=""Input.Password"">パスワードを入力してください。</label>
+<body><div align=""center""><label asp-for=""Input.Password"">パスワードを入力してください。</label>
             <input asp-for=""Input.Password"" class=""width form-control"" placeholder=""パスワード"">
 
             <p></p>
@@ -162,10 +154,7 @@ using MatBlazor;
       
         <p></p>  
         
-        <button onclick=""location.href='/Login'"" type=""button"" class=""width btn btn-danger"">データ削除</button>        
-    </div>
-</body>
-</html>");
+        <button onclick=""location.href='/Login'"" type=""button"" class=""width btn btn-danger"">データ削除</button></div></body></html>");
         }
         #pragma warning restore 1998
     }

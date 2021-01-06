@@ -20,14 +20,12 @@ namespace B2003C4.Pages.IriTome
         string SelectValue
         { get => SelectedValue; set { SelectedValue = value; } }
 
+        public int? Nengetu_SelectedValue = 0;
+
         //区域関連
         public Boolean Kuiki_SelectedFlg { get; set; } = false;
-        double? Kuiki_SelectedValue = 1;
-        double? Kuiki_SelectValue
-        { get => Kuiki_SelectedValue; set { Kuiki_SelectedValue = value; } }
-
-        public double[] Kuiki; //区域の数
-
+        int? Kuiki_SelectedValue = 1;
+        
 
         [Parameter]
         public FormSearchDataModel Phase1Data { get; set; }
@@ -54,16 +52,20 @@ namespace B2003C4.Pages.IriTome
         [Parameter]
         public EventCallback<List<Tome>> C_TomeListChanged { get; set; }
 
+        [Parameter]
+        public List<Kuiki_K95010> C_KuikiList { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Kuiki_K95010>> C_KuikiListChanged { get; set; }
+
+        [Parameter]
+        public List<Nengetu_K95010> C_NengetuList { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Nengetu_K95010>> C_NengetuListChanged { get; set; }
+
+
         //DB-----------------------------------------------------------------------------------
-
-
-
-        /*
-        [Parameter]
-        public FormSearchDataModel SearchResultData { get; set; }
-        [Parameter]
-        public EventCallback<FormSearchDataModel> SearchResultDataChanged { get; set; }
-        */
 
 
         //その他
@@ -120,176 +122,14 @@ namespace B2003C4.Pages.IriTome
 
         //海老沼書き足しｽﾞｲ₍₍(ง˘ω˘)ว⁾⁾ｽﾞｲ（仮）
 
-
-        /*
-        List<Dokusya> IriDokusyaList = new List<Dokusya>()
-        {
-            new Dokusya(1,"工藤　栄吉", "", 2010,2102),
-            new Dokusya(1,"工藤　栄", "", 1902,2102),
-            new Dokusya(1,"海老沼　綱木", "死後", 1902,2010),
-            new Dokusya(1,"エビヌマ　ツナキ", "死後", 1902,2010),
-
-
-
-            new Dokusya(2,"田中　栄吉", "", 1912,2002),
-            new Dokusya(2,"藤井　徹", "", 2002,2010),
-            new Dokusya(2,"海老沼　剛木", "死後", 2002,2020),
-            new Dokusya(2,"エビヌマ　ツナキ", "死後", 2002,2010),
-
-            new Dokusya(3,"山田　栄吉", "", 2002,2011),
-            new Dokusya(3,"工藤　栄", "", 2002,2012),
-            new Dokusya(3,"海老沼　綱木", "死後", 2002,2510),
-            new Dokusya(3,"エビスマ　ツナキ", "死後", 1902,2811),
-            
-        };
-        List<Dokusya> TomeDokusyaList = new List<Dokusya>()
-        {
-            new Dokusya(1,"工藤　栄吉", "", 2002,2010),
-            new Dokusya(1,"工藤　栄吉", "", 2002,2010),
-            new Dokusya(1,"海老沼　綱木", "死後", 2002,2011),
-            new Dokusya(1,"エビヌマ　ツナキ", "カレ", 1902,2011),
-            new Dokusya(1,"エビヌマ　ツナキ", "カレ", 1902,2012),
-
-            new Dokusya(2,"田中　栄吉", "", 2022,2012),
-            new Dokusya(2,"藤井　徹", "", 2002,2011),
-            new Dokusya(2,"海老沼　剛木", "死後", 2002,2010),
-            new Dokusya(2,"エビヌマ　ツナキ", "死後", 1902,2010),
-
-            new Dokusya(3,"山田　栄吉", "", 2002,2012),
-            new Dokusya(3,"海老沼　綱木", "死後", 2010,2009),
-            new Dokusya(3,"エビスマ　ツナキ", "死後", 1902,2010),
-
-            new Dokusya(4,"エビスマ　ツナキ", "死後", 1902,2010),
-
-
-        };
-
-
-        public class Dokusya
-        {
-
-            public int KuikiNo;
-            public string DokusyaName; //読者名
-            public string B; //？（死後とか書いてあるやつ)
-            public string Keiyaku;
-            public int KeiyakuSt;
-            public int KeiyakuEd;
-
-            
-
-            public Dokusya(int kuikiNo , string dokusyaName, string b, int keiyakuSt , int keiyakuEd)
-            {
-                KuikiNo = kuikiNo;
-
-                DokusyaName = dokusyaName;
-
-                B = b;
-
-                Keiyaku = keiyakuSt + "-" + keiyakuEd;
-
-                KeiyakuSt = keiyakuSt;
-
-                KeiyakuEd = keiyakuEd;
-
-
-            }
-        }
-        */
         //-------------------------------------------------------------
 
         List<DummyDataModel.Dokusya> IriDokusyaList = new List<DummyDataModel.Dokusya>();
         List<DummyDataModel.Dokusya> TomeDokusyaList = new List<DummyDataModel.Dokusya>();
 
+        public int Count = 0;
         protected override void OnInitialized()
         {
-            //区域総数
-            double IriTemp = 0;
-            double[] IriKuiki = new double[0];
-
-            double TomeTemp = 0;
-            double[] TomeKuiki = new double[0];
-
-            /*
-            foreach(var IriTome in DBSourceData.DokusyaList)
-            {
-                if(IriTome.DokusyaStatus == "Gendoku")
-                {
-                    IriDokusyaList.Add(IriTome);
-                } 
-                else if(IriTome.DokusyaStatus == "Tome")
-                {
-                    TomeDokusyaList.Add(IriTome);
-                }
-                else
-                {
-                    continue;
-                }
-            }
-            */
-
-            foreach (var x in C_IriList)
-            {
-                if(IriTemp != x.Kuiki )
-                {
-                    Array.Resize(ref IriKuiki, IriKuiki.Length + 1);
-                    IriKuiki[IriKuiki.Length -1] = x.Kuiki;
-                    IriTemp = x.Kuiki;
-                }
-                else
-                {
-                    continue;
-                }
-            }
-            foreach (var x in C_TomeList)
-            {
-                if(TomeTemp != x.Kuiki)
-                {
-                    Array.Resize(ref TomeKuiki, TomeKuiki.Length + 1);
-                    TomeKuiki[TomeKuiki.Length -1] = x.Kuiki;
-                    TomeTemp = x.Kuiki;
-                }
-                else
-                {
-                    continue;
-                }
-            }
-            
-
-            if(IriKuiki.Length >= TomeKuiki.Length)
-            {
-                //Array.Copy(IriKuiki, Kuiki, IriKuiki.Length); //保留
-                Kuiki = IriKuiki;
-            }
-            else
-            {
-                //Array.Copy(TomeKuiki, Kuiki, TomeKuiki.Length); //保留
-                Kuiki = TomeKuiki;
-            }
-            //区域総数終わり
-
-            foreach(var x in IriDokusyaList)
-            {
-                if( Kuiki_SelectedValue == x.Kuiki)
-                {
-                    IriCount++;
-                }
-                else
-                {
-                    continue;
-                }
-            }
-            foreach(var x in TomeDokusyaList)
-            {
-                if( Kuiki_SelectedValue == x.Kuiki)
-                {
-                    TomeCount++;
-                }
-                else
-                {
-                    continue;
-                }
-            }
-            
             //---------------------------------------------------------
             //履歴の処理
 
@@ -314,39 +154,7 @@ namespace B2003C4.Pages.IriTome
         //区域
         public void OnChangeEventKuikiX(ChangeEventArgs e)
         {
-            Kuiki_SelectedValue = int.Parse(e.Value.ToString());
-            Kuiki_SelectedFlg = true;
-            IriCount = 0;
-            TomeCount = 0;
 
-            foreach (var x in C_IriList)
-            {
-                if(Kuiki_SelectedValue == x.Kuiki &&
-                  (SelectValue == x.iri || SelectValue == null))
-
-                //if (Kuiki_SelectedValue == x.Kuiki)
-                {
-                    IriCount++;
-                }
-                else
-                {
-                    continue;
-                }
-            }
-            foreach (var x in C_TomeList)
-            {
-                if (Kuiki_SelectedValue == x.Kuiki &&
-                    (SelectValue  == x.tome || SelectValue == null))
-
-                    //if (Kuiki_SelectedValue == x.Kuiki)
-                {
-                    TomeCount++;
-                }
-                else
-                {
-                    continue;
-                }
-            }
         }
         //区域終わり
 

@@ -15,13 +15,13 @@ namespace B2003C4.Pages.IriTome
         [Inject]
         private NewsPaperDataService NewsPaperData { get; set; }
 
-
-        //public static List<Iri> P_IriList;
-
         protected override async Task OnInitializedAsync()
         {
+
             P_IriList = await NewsPaperData.GetIriListAsync();
             P_TomeList = await NewsPaperData.GetTomeListAsync();
+            P_KuikiList = await NewsPaperData.GetKuikiListAsync();
+            P_NengetuList = await NewsPaperData.GetNengetuListAsync();
         }
 
 
@@ -30,28 +30,7 @@ namespace B2003C4.Pages.IriTome
         //---------------------------------------------------------------------------------
         //MainLayout
         [Parameter]
-        public FormSearchDataModel CurrentPage
-        {
-            get;
-            set;
-            /*
-            get { return _currentPage; }
-            set
-            {
-                _currentPage = value;
-                Console.WriteLine("02" + _currentPage.S_DokusyaCode);
-                if ( 
-                    _currentPage.Back_History.Count != CurrentPage.Back_History.Count || 
-                    _currentPage.PhaseNo != CurrentPage.PhaseNo 
-                    )
-                {
-                    CurrentPageChanged.InvokeAsync(CurrentPage);
-                    _currentPage = CurrentPage;
-                    Console.WriteLine("IriTome ->" + "ValueReplace");
-                }
-            }
-            */
-        }
+        public FormSearchDataModel CurrentPage {get; set;}
         [Parameter]
         public EventCallback<FormSearchDataModel> CurrentPageChanged { get; set; }
 

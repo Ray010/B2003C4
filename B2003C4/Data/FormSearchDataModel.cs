@@ -25,6 +25,8 @@ namespace B2003C4.Data
         public Boolean ButtonState = false;
         //---------------------------------------------------
 
+        //端末情報用
+        public int? Select_TenpoNo;
 
 
 

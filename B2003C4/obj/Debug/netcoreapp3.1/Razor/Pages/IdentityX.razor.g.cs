@@ -152,7 +152,6 @@ using Microsoft.AspNetCore.Components.Authorization;
 #nullable disable
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(7, "\r\n\r\n\r\n");
 #nullable restore
 #line 15 "C:\Work\B2003C4\B2003C4\Pages\IdentityX.razor"
  if (_claims.Count() > 0)
@@ -161,9 +160,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(8, "    ");
-            __builder.OpenElement(9, "ul");
-            __builder.AddMarkupContent(10, "\r\n");
+            __builder.OpenElement(7, "ul");
 #nullable restore
 #line 18 "C:\Work\B2003C4\B2003C4\Pages\IdentityX.razor"
          foreach (var claim in _claims)
@@ -172,9 +169,8 @@ using Microsoft.AspNetCore.Components.Authorization;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(11, "            ");
-            __builder.OpenElement(12, "li");
-            __builder.AddContent(13, 
+            __builder.OpenElement(8, "li");
+            __builder.AddContent(9, 
 #nullable restore
 #line 20 "C:\Work\B2003C4\B2003C4\Pages\IdentityX.razor"
                  claim.Type
@@ -183,8 +179,8 @@ using Microsoft.AspNetCore.Components.Authorization;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(14, ": ");
-            __builder.AddContent(15, 
+            __builder.AddContent(10, ": ");
+            __builder.AddContent(11, 
 #nullable restore
 #line 20 "C:\Work\B2003C4\B2003C4\Pages\IdentityX.razor"
                               claim.Value
@@ -194,7 +190,6 @@ using Microsoft.AspNetCore.Components.Authorization;
 #nullable disable
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(16, "\r\n");
 #nullable restore
 #line 21 "C:\Work\B2003C4\B2003C4\Pages\IdentityX.razor"
         }
@@ -202,9 +197,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(17, "    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(18, "\r\n");
 #nullable restore
 #line 23 "C:\Work\B2003C4\B2003C4\Pages\IdentityX.razor"
 }
@@ -212,9 +205,8 @@ using Microsoft.AspNetCore.Components.Authorization;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddMarkupContent(19, "\r\n");
-            __builder.OpenElement(20, "p");
-            __builder.AddContent(21, 
+            __builder.OpenElement(12, "p");
+            __builder.AddContent(13, 
 #nullable restore
 #line 25 "C:\Work\B2003C4\B2003C4\Pages\IdentityX.razor"
     _surnameMessage

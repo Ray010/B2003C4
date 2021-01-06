@@ -14,6 +14,9 @@ namespace B2003C4.Data
         {
 
         }
+
+        //K95010
+
         public virtual DbSet<Dokusya> dokusya { get; set; }
 
         public virtual DbSet<Iri> IriList { get; set; }
@@ -24,6 +27,9 @@ namespace B2003C4.Data
         //Etc
         public virtual DbSet<TenpoInfo> TenpoList { get; set; }
 
+        public virtual DbSet<Kuiki_K95010> KuikiList { get; set; }
+
+        public virtual DbSet<Nengetu_K95010> NengetuList { get; set; }
 
     }
 }
