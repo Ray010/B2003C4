@@ -20,6 +20,27 @@ namespace B2003C4.Pages.Common
         [Parameter]
         public EventCallback<FormSearchDataModel> CommonPhase2Changed { get; set; }
 
+
+        //DB--------------------------------------------------------------------------------------
+        [Parameter]
+        public List<Dokusya> C_DokusyaList { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Dokusya>> C_DokusyaListChanged { get; set; }
+
+        [Parameter]
+        public List<Koudoku> C_KoudokuList { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Koudoku>> C_KoudokuListChanged { get; set; }
+
+        [Parameter]
+        public List<Kakuzai_K95010> C_KakuzaiList { get; set; }
+        [Parameter]
+        public EventCallback<List<Kakuzai_K95010>> C_KakuzaiListChanged { get; set; }
+
+        //DB--------------------------------------------------------------------------------------
+
         public int Count { get; set; }
 
         public string temp;
@@ -57,14 +78,14 @@ namespace B2003C4.Pages.Common
 
         };
 
-        List<Dokusya> DokusyaList = new List<Dokusya>()
-        {
-            new Dokusya("114514","えびぬま　つなき","えびぬますかいたわーX 114514","海老沼北１","１１４－５１４","11-4514-1919")
+        List<Koumoku> S_Koudoku = new List<Koumoku>();
 
-        };
+
+
 
         List<HinMei> HinMeiList = new List<HinMei>()
         {
+            /*
             new HinMei("1","2","3"),
             new HinMei("3","4","5"),
             new HinMei("5","6","7"),
@@ -73,69 +94,30 @@ namespace B2003C4.Pages.Common
             new HinMei("","",""),
             new HinMei("","",""),
             new HinMei("","",""),
+            */
         };
 
-        /*保留
-        List<Meihan> MeihanListX = new List<Meihan>()
-        {
-
-            new Meihan("朝日新聞　朝刊","","先起し","","","先起","","契約",""),
-
-        };
-        */
-
-
-        public class Dokusya //読者情報格納用（仮）
-        {
-            public string DokusyaNo; //読者番号
-            public string DokusyaName; //読者名
-            public string BuildingName; //建物名
-            public string CityName; //町名（必要？）
-            public string CityAddress; //町名以降
-            public string CityFullName; //二人は住所
-            public string PhoneNo; //電話番号
-
-
-            public Dokusya(string dokusyaNo, string dokusyaName, string buildingName, string cityName, string cityAddress, string phoneNo)
-            {
-                DokusyaNo = dokusyaNo;
-                DokusyaName = dokusyaName;
-                BuildingName = buildingName;
-                CityFullName = cityName + cityAddress;
-                PhoneNo = phoneNo;
-
-            }
-
-        }
 
         public class Koumoku //表示情報格納用（仮）
         {
             public string Heading; //読者番号
-
             public string HeadingCode;
-
 
             public Koumoku(string heading, string headingCode)
             {
                 Heading = heading;
-
                 HeadingCode = headingCode;
-
             }
-
         }
-
-
-
 
 
         public class HinMei
         {
             public string HinName;
             public string Hiduke;
-            public string Suryou;
+            public int? Suryou;
 
-            public HinMei(string hinName, string hiduke, string suryou)
+            public HinMei(string hinName, string hiduke, int? suryou)
             {
 
                 HinName = hinName;
@@ -143,37 +125,6 @@ namespace B2003C4.Pages.Common
                 Suryou = suryou;
             }
         }
-
-        /*銘版
-        public class Meihan
-        {
-
-            public string MeihanName; //銘版
-            public string KeiyakuKikan; //契約期間
-            public string KeiyakuKubun; //契約区分
-            public string KeiyakuSya; //契約者
-            public string KeiyakuSt; //契約開始
-            public string IriRiyu; //入理由
-            public string HaitatsuBi; //配達日
-            public string TomeRiyu; //止理由
-            public string TomeBi; //止日
-
-            public Meihan(string meihanName, string keiyakuKikan, string keiyakuKubun, string keiyakuSya, string keiyakuSt , string iriRiyu, string haitatsuBi ,string tomeRiyu, string tomeBi)
-            {
-                MeihanName = meihanName;
-                KeiyakuKikan = keiyakuKikan;
-                KeiyakuKubun = keiyakuKubun;
-                KeiyakuSya=keiyakuSya;
-                KeiyakuSt = keiyakuSt;
-                IriRiyu = iriRiyu;
-                HaitatsuBi = haitatsuBi;
-                TomeRiyu = tomeRiyu;
-                TomeBi = tomeBi;
-          
-            }
-        }
-        */
-
 
         [Inject]
         protected NavigationManager Navi { get; set; }
@@ -187,6 +138,36 @@ namespace B2003C4.Pages.Common
 
         protected override void OnInitialized()
         {
+            var DokusyaList = C_KakuzaiList.Where(n => n.DokuCode == CommonPhase2.S_DokusyaCode);
+
+            var Temp_S_Koudoku = C_KoudokuList.FirstOrDefault(n => n.DokuCode == CommonPhase2.S_DokusyaCode);
+
+            S_Koudoku.Add(new Koumoku(Temp_S_Koudoku.MgFullName,""));
+            S_Koudoku.Add(new Koumoku(Temp_S_Koudoku.KeiyakuDay + Temp_S_Koudoku.TomeDay, ""));
+            S_Koudoku.Add(new Koumoku(Temp_S_Koudoku.KeiyakuKbn, ""));
+            S_Koudoku.Add(new Koumoku(Temp_S_Koudoku.Keiyakusya, ""));
+            S_Koudoku.Add(new Koumoku(Temp_S_Koudoku.KeiyakuDay, ""));
+            S_Koudoku.Add(new Koumoku(Temp_S_Koudoku.IriRiyuu, ""));
+            S_Koudoku.Add(new Koumoku(Temp_S_Koudoku.DispHaitatubi, ""));
+            S_Koudoku.Add(new Koumoku(Temp_S_Koudoku.TomeRiyuu, ""));
+            S_Koudoku.Add(new Koumoku(Temp_S_Koudoku.TomeDay, ""));
+
+
+
+            foreach (var x in DokusyaList)
+            {
+                HinMeiList.Add(new HinMei(x.HinmeiName1, x.HinmeiDate1, x.HinmeiCnt1));
+                HinMeiList.Add(new HinMei(x.HinmeiName2, x.HinmeiDate2, x.HinmeiCnt2));
+                HinMeiList.Add(new HinMei(x.HinmeiName3, x.HinmeiDate3, x.HinmeiCnt3));
+                HinMeiList.Add(new HinMei(x.HinmeiName4, x.HinmeiDate4, x.HinmeiCnt4));
+                HinMeiList.Add(new HinMei(x.HinmeiName5, x.HinmeiDate5, x.HinmeiCnt5));
+                HinMeiList.Add(new HinMei(x.HinmeiName6, x.HinmeiDate6, x.HinmeiCnt6));
+                HinMeiList.Add(new HinMei(x.HinmeiName7, x.HinmeiDate7, x.HinmeiCnt7));
+                HinMeiList.Add(new HinMei(x.HinmeiName8, x.HinmeiDate8, x.HinmeiCnt8));
+                HinMeiList.Add(new HinMei(x.HinmeiName9, x.HinmeiDate9, x.HinmeiCnt9));
+
+            }
+
 
 
 

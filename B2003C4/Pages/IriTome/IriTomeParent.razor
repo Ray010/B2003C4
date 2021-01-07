@@ -45,7 +45,7 @@ else
             goto End;
 
         case 12:
-            <MeihanActivity @bind-CommonPhase2="CurrentPage" />
+            <MeihanActivity @bind-CommonPhase2="CurrentPage" @bind-C_DokusyaList="P_DokusyaList" @bind-C_KakuzaiList="P_KakuzaiList" @bind-C_KoudokuList="P_KoudokuList"/>
             goto End;
 
         End:
@@ -91,10 +91,11 @@ else
     private List<Tome> P_TomeList = new List<Tome>();
     private List<Kuiki_K95010> P_KuikiList = new List<Kuiki_K95010>();
     private List<Nengetu_K95010> P_NengetuList = new List<Nengetu_K95010>();
+    private List<Kakuzai_K95010> P_KakuzaiList = new List<Kakuzai_K95010>();
 
 
     private DummyDataModel DBData = new DummyDataModel(); //読者リストのDummyデータ
-    //private KoudokuDummyData KoudokuList = new KoudokuDummyData(); //購読リストのDummyデータ
+                                                          //private KoudokuDummyData KoudokuList = new KoudokuDummyData(); //購読リストのDummyデータ
 
 
 }

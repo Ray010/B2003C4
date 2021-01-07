@@ -28,6 +28,6 @@ namespace B2003C4.Service
 
         public Task<List<Nengetu_K95010>> GetNengetuListAsync() => _Context.NengetuList.OrderBy(x => x.No).ToListAsync();
 
-
+        public Task<List<Kakuzai_K95010>> GetKakuzaiListAsync() => _Context.KakuzaiList.OrderBy(x => x.DokuCode).ToListAsync();
     }
 }

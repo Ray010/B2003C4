@@ -33,5 +33,7 @@ namespace B2003C4.Data
 
         public virtual DbSet<Nengetu_K95010> NengetuList { get; set; }
 
+        public virtual DbSet<Kakuzai_K95010> KakuzaiList { get; set; }
+
     }
 }

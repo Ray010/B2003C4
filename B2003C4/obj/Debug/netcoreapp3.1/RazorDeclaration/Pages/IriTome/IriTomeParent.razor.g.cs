@@ -145,10 +145,11 @@ using B2003C4.Pages.Common;
     private List<Tome> P_TomeList = new List<Tome>();
     private List<Kuiki_K95010> P_KuikiList = new List<Kuiki_K95010>();
     private List<Nengetu_K95010> P_NengetuList = new List<Nengetu_K95010>();
+    private List<Kakuzai_K95010> P_KakuzaiList = new List<Kakuzai_K95010>();
 
 
     private DummyDataModel DBData = new DummyDataModel(); //読者リストのDummyデータ
-    //private KoudokuDummyData KoudokuList = new KoudokuDummyData(); //購読リストのDummyデータ
+                                                          //private KoudokuDummyData KoudokuList = new KoudokuDummyData(); //購読リストのDummyデータ
 
 
 

@@ -24,6 +24,7 @@ namespace B2003C4.Pages.IriTome
             P_TomeList = await NewsPaperData.GetTomeListAsync();
             P_KuikiList = await NewsPaperData.GetKuikiListAsync();
             P_NengetuList = await NewsPaperData.GetNengetuListAsync();
+            P_KakuzaiList = await NewsPaperData.GetKakuzaiListAsync();
         }
 
 
