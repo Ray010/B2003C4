@@ -137,7 +137,7 @@ using B2003C4.Pages.Common;
        
 
     private DummyDataModel DBData = new DummyDataModel();
-    private KoudokuDummyData KoudokuDBData = new KoudokuDummyData();
+    //private KoudokuDummyData KoudokuDBData = new KoudokuDummyData();
     private FormSearchDataModel ResultData = new FormSearchDataModel();
 
 #line default

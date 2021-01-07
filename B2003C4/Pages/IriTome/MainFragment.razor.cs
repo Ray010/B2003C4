@@ -279,7 +279,7 @@ namespace B2003C4.Pages.IriTome
 
         public async void JumpPageIri(Iri OnDokusya)
         {
-            //Phase1Data.S_DokusyaCode = OnDokusya.DokuCode;
+            Phase1Data.S_DokusyaCode = OnDokusya.DokuCode;
             Phase1Data.S_DokusyaName = OnDokusya.Name;
             Phase1Data.S_BuildingName = OnDokusya.Build;
             Phase1Data.S_CityName = OnDokusya.Address;
@@ -294,7 +294,7 @@ namespace B2003C4.Pages.IriTome
 
         public async void JumpPageTome(Tome OnDokusya)
         {
-            //Phase1Data.S_DokusyaCode = OnDokusya.DokuCode;
+            Phase1Data.S_DokusyaCode = OnDokusya.DokuCode;
             Phase1Data.S_DokusyaName = OnDokusya.Name;
             Phase1Data.S_BuildingName = OnDokusya.Build;
             Phase1Data.S_CityName = OnDokusya.Address;

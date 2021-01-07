@@ -15,7 +15,7 @@
 {
 
     <MatProgressCircle Indeterminate="true" FourColored="true" />
-    
+
 }
 else
 {
@@ -32,7 +32,16 @@ else
             goto End;
 
         case 11:
-            <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" @bind-KoudokuList="KoudokuList" />
+
+            @if ( P_DokusyaList.Count == 0 || P_KoudokuList.Count == 0)
+            {
+                <MatProgressCircle Indeterminate="true" FourColored="true" />
+            }
+            else
+            {
+                <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" @bind-C_DokusyaList="P_DokusyaList" @bind-C_KoudokuList="P_KoudokuList"/>
+            }
+            
             goto End;
 
         case 12:
@@ -75,6 +84,9 @@ else
 
     private FormSearchDataModel ResultData = new FormSearchDataModel();
 
+
+    private List<Dokusya> P_DokusyaList = new List<Dokusya>();
+    private List<Koudoku> P_KoudokuList = new List<Koudoku>();
     private List<Iri> P_IriList = new List<Iri>();
     private List<Tome> P_TomeList = new List<Tome>();
     private List<Kuiki_K95010> P_KuikiList = new List<Kuiki_K95010>();
@@ -82,7 +94,7 @@ else
 
 
     private DummyDataModel DBData = new DummyDataModel(); //読者リストのDummyデータ
-    private KoudokuDummyData KoudokuList = new KoudokuDummyData(); //購読リストのDummyデータ
+    //private KoudokuDummyData KoudokuList = new KoudokuDummyData(); //購読リストのDummyデータ
 
 
 }

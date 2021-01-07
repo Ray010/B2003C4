@@ -16,7 +16,7 @@
         goto End;
 
     case 11:
-        <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" @bind-KoudokuList="KoudokuDummyData" />
+        <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData"  />
         goto End;
 
     case 12:
@@ -35,7 +35,7 @@
 
 @code {
     private DummyDataModel DBData = new DummyDataModel();
-    private KoudokuDummyData KoudokuDummyData = new KoudokuDummyData();
+    //private KoudokuDummyData KoudokuDummyData = new KoudokuDummyData();
     private FormSearchDataModel ResultData = new FormSearchDataModel();
 }
 

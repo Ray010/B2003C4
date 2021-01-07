@@ -135,7 +135,7 @@ using B2003C4.Pages.Common;
 #line 36 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoParent.razor"
        
     private DummyDataModel DBData = new DummyDataModel();
-    private KoudokuDummyData KoudokuDummyData = new KoudokuDummyData();
+    //private KoudokuDummyData KoudokuDummyData = new KoudokuDummyData();
     private FormSearchDataModel ResultData = new FormSearchDataModel();
 
 #line default

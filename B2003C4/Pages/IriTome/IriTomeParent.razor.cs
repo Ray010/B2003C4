@@ -17,6 +17,8 @@ namespace B2003C4.Pages.IriTome
 
         protected override async Task OnInitializedAsync()
         {
+            P_DokusyaList = await NewsPaperData.GetDokusyaListAsync();
+            P_KoudokuList = await NewsPaperData.GetKoudokuListAsync();
 
             P_IriList = await NewsPaperData.GetIriListAsync();
             P_TomeList = await NewsPaperData.GetTomeListAsync();

@@ -53,7 +53,7 @@ namespace B2003C4.Data
 
 
         //検索条件格納用
-        public uint? S_DokusyaCode = null; //読者コード
+        public int? S_DokusyaCode = null; //読者コード
 
         public uint? S_KuikiNo = null; //区域番号
 

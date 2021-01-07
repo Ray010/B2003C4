@@ -27,14 +27,35 @@ namespace B2003C4.Pages.Common
         [Parameter]
         public EventCallback<DummyDataModel> DBSourceDataChanged { get; set; }
 
+        /*
         [Parameter]
         public KoudokuDummyData KoudokuList { get; set; }
 
         [Parameter]
         public EventCallback<KoudokuDummyData> KoudokuListChanged { get; set; }
 
-        List<Koudoku> S_KoudokuList { get; set; } = new List<Koudoku>(); //検索済み購読リスト
         
+        */
+
+        //DB------------------------------------------------------------------------------------------
+        [Parameter]
+        public List<Dokusya> C_DokusyaList { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Dokusya>> C_DokusyaListChanged { get; set; }
+
+        [Parameter]
+        public List<Koudoku> C_KoudokuList { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Koudoku>> C_KoudokuListChanged { get; set; }
+
+        //DB------------------------------------------------------------------------------------------
+
+        public List<Dokusya> S_DokusyaList { get; set; } = new List<Dokusya>(); //検索済み購読リスト
+        
+        public List<Koudoku> S_KoudokuList { get; set; } = new List<Koudoku>(); //検索済み購読リスト
+
         /*
         private async Task UpdateModelDataOrPhaseShift()
         {
@@ -48,18 +69,22 @@ namespace B2003C4.Pages.Common
 
         protected override void OnInitialized()
         {
-            KoumokuList[0].Value = CommonPhase1.S_DokusyaCode.ToString();
-            KoumokuList[1].Value = CommonPhase1.S_DokusyaName;
-            KoumokuList[2].Value = CommonPhase1.S_BuildingName;
-            KoumokuList[3].Value = CommonPhase1.S_CityName+ " " + CommonPhase1.S_CityAddress;
-            KoumokuList[4].Value = CommonPhase1.S_PhoneNo_Sub;
-            KoumokuList[5].Value = " " ; //CommonPhase1.S_MiseBikou;
-            KoumokuList[6].Value = " "; // CommonPhase1.S_Junro_Bikou;
-            KoumokuList[7].Value = " "; //CommonPhase1.S_MoneyRemarks;
-            KoumokuList[8].Value = " "; //CommonPhase1.S_Class;
-            KoumokuList[9].Value = " "; //CommonPhase1.S_Lank;
+            var DokusyaList = C_DokusyaList.FirstOrDefault(n => n.DokuCode == CommonPhase1.S_DokusyaCode);
 
-            foreach(var Temp_KoudokuList in KoudokuList.KoudokuList)
+            KoumokuList[0].Value = DokusyaList.DokuCode.ToString();
+            KoumokuList[1].Value = DokusyaList.Name;
+            KoumokuList[2].Value = DokusyaList.Build;
+            KoumokuList[3].Value = DokusyaList.AddressRyaku + " " + DokusyaList.Banti;
+            KoumokuList[4].Value = DokusyaList.Tel;
+            KoumokuList[5].Value = DokusyaList.Misebi1; //DokusyaList.S_MiseBikou;
+            KoumokuList[6].Value = DokusyaList.Syumemo1; // DokusyaList.S_Junro_Bikou;
+            KoumokuList[7].Value = DokusyaList.Bunrui; //DokusyaList.S_MoneyRemarks;
+            KoumokuList[8].Value = DokusyaList.Rank; //DokusyaList.S_Class;
+            //KoumokuList[9].Value = " "; //DokusyaList.S_Lank;
+            
+            
+            
+            foreach (var Temp_KoudokuList in C_KoudokuList)
             {
                 if(CommonPhase1.S_DokusyaCode == Temp_KoudokuList.DokuCode)
                 {
@@ -70,7 +95,7 @@ namespace B2003C4.Pages.Common
                     continue;
                 }
             }
-
+            
             if(CommonPhase1.HistoryBackState == false)
             {
                 History.Back_History.Add(CommonPhase1.Deep_Copy());   //.Add(CurrentPage);
@@ -100,16 +125,12 @@ namespace B2003C4.Pages.Common
             new Koumoku ("町名","CityFullName",""),
             new Koumoku ("電話番号","PhoneNo",""),
             new Koumoku ("店備考","TenpoRemarks",""),
-            new Koumoku ("順路備考","JunroRemarks",""),
             new Koumoku ("集金メモ","MoneyRemarks",""),
             new Koumoku ("分類","Class",""),
             new Koumoku ("ランク","Lank",""),
         };
 
-        List<Dokusya> DokusyaList = new List<Dokusya>()
-        {
-            new Dokusya("114514","えびぬま　つなき","えびぬますかいたわーX 114514","海老沼北１","１１４－５１４","11-4514-1919")
-        };
+        
 
         List<Meihan> MeihanList = new List<Meihan>()
         {
@@ -126,26 +147,6 @@ namespace B2003C4.Pages.Common
             new Meihan("114514","朝","19/19","20/11","海老沼団","11","","先起こし","19/11/19","契約","25/12"),
         };
         
-        public class Dokusya //読者情報格納用（仮）
-        {
-            public string DokusyaNo; //読者番号
-            public string DokusyaName; //読者名
-            public string BuildingName; //建物名
-            public string CityName; //町名（必要？）
-            public string CityAddress; //町名以降
-            public string CityFullName; //二人は住所
-            public string PhoneNo; //電話番号
-
-            public Dokusya(string dokusyaNo , string dokusyaName , string buildingName , string cityName ,string cityAddress , string phoneNo )
-            {
-                DokusyaNo = dokusyaNo;
-                DokusyaName = dokusyaName;
-                BuildingName = buildingName;
-                CityFullName = cityName + cityAddress;
-                PhoneNo = phoneNo;
-            }
-
-        }
 
         public class Koumoku //表示情報格納用（仮）
         {

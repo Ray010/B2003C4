@@ -132,12 +132,15 @@ using B2003C4.Pages.Common;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 73 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
+#line 82 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
        
     //private FormSearchDataModel formDataModel = new FormSearchDataModel();
 
     private FormSearchDataModel ResultData = new FormSearchDataModel();
 
+
+    private List<Dokusya> P_DokusyaList = new List<Dokusya>();
+    private List<Koudoku> P_KoudokuList = new List<Koudoku>();
     private List<Iri> P_IriList = new List<Iri>();
     private List<Tome> P_TomeList = new List<Tome>();
     private List<Kuiki_K95010> P_KuikiList = new List<Kuiki_K95010>();
@@ -145,7 +148,7 @@ using B2003C4.Pages.Common;
 
 
     private DummyDataModel DBData = new DummyDataModel(); //読者リストのDummyデータ
-    private KoudokuDummyData KoudokuList = new KoudokuDummyData(); //購読リストのDummyデータ
+    //private KoudokuDummyData KoudokuList = new KoudokuDummyData(); //購読リストのDummyデータ
 
 
 

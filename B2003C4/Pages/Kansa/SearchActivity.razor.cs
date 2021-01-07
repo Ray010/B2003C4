@@ -237,7 +237,7 @@ namespace B2003C4.Pages.Kansa
 
             //---------------------------------------------
  
-            Phase2Data.S_DokusyaCode = X.DokusyaCode;
+            //Phase2Data.S_DokusyaCode = X.DokusyaCode;
             Phase2Data.S_DokusyaName = X.DokusyaName;
             Phase2Data.S_BuildingName = X.BuildingName;
             Phase2Data.S_CityName = X.CityName;

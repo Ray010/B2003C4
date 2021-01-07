@@ -17,7 +17,9 @@ namespace B2003C4.Data
 
         //K95010
 
-        public virtual DbSet<Dokusya> dokusya { get; set; }
+        public virtual DbSet<Dokusya> DokusyaList { get; set; }
+
+        public virtual DbSet<Koudoku> KoudokuList { get; set; }
 
         public virtual DbSet<Iri> IriList { get; set; }
 

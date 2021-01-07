@@ -151,18 +151,150 @@ namespace B2003C4.Data
     [Table("Dokusya_K95010", Schema = "dbo")]
     public class Dokusya
     {
-        [Column("kuiki")]
+        [Column("Tenpo")]
+        public int Tenpo { get; set; }
+
+        [Column("Kuiki")]
         public int Kuiki { get; set; }
 
-        [Column("junro")]
+        [Column("Junro")]
         public string Junro { get; set; }
 
         [Key]
-        [Column("dokuCode")]
+        [Column("DokuCode")]
+        public int DokuCode { get; set; }
+        
+        [Column("Name")]
+        public string Name { get; set; }
+
+        [Column("Tel")]
+        public string Tel { get; set; }
+
+        [Column("Address")]
+        public string Address { get; set; }
+
+        [Column("AddressRyaku")]
+        public string AddressRyaku { get; set; }
+
+        [Column("Banti")]
+        public string Banti { get; set; }
+
+        [Column("Build")]
+        public string Build { get; set; }
+
+        [Column("Misebi1")]
+        public string Misebi1 { get; set; }
+
+        [Column("Misebi2")]
+        public string Misebi2 { get; set; }
+
+        [Column("Misebi3")]
+        public string Misebi3 { get; set; }
+
+        [Column("Syumemo1")]
+        public string Syumemo1 { get; set; }
+
+        [Column("Syumemo2")]
+        public string Syumemo2 { get; set; }
+
+        [Column("Syumemo3")]
+        public string Syumemo3 { get; set; }
+
+        [Column("Bunrui")]
+        public string Bunrui { get; set; }
+
+        [Column("Rank")]
+        public string Rank { get; set; }
+
+        [Column("Kaiin")]
+        public string Kaiin { get; set; }
+
+        [Column("Syoken")]
+        public string Syoken { get; set; }
+
+        [Column("Siharai")]
+        public string Iri { get; set; }
+
+        [Column("DokuMemo")]
+        public string DokuMemo { get; set; }
+
+        [Column("Zu_Bekki")]
+        public int? Zu_Bekki { get; set; }
+
+    }
+
+    [Table("Koudoku_K95010", Schema = "dbo")]
+    public class Koudoku
+    {
+        [Column("Tenpo")]
+        public int Tenpo { get; set; }
+
+        [Key]
+        [Column("DokuCode")]
         public int DokuCode { get; set; }
 
+        [Column("OyaMgCode")]
+        public int OyaMgCode { get; set; }
 
+        [Column("MgNo")]
+        public string MgNo { get; set; }
 
+        [Column("No")]
+        public int No { get; set; }
+
+        [Column("MgCode")]
+        public int MgCode { get; set; }
+
+        [Column("Busuu")]
+        public int Busuu { get; set; }
+
+        [Column("KeiyakuSt")]
+        public string KeiyakuSt { get; set; }
+
+        [Column("KeiyakuEd")]
+        public string KeiyakuEd { get; set; }
+
+        [Column("Keiyakusya")]
+        public string Keiyakusya { get; set; }
+
+        [Column("KeiyakuDay")]
+        public string KeiyakuDay { get; set; }
+
+        [Column("IriRiyuu")]
+        public string IriRiyuu { get; set; }
+
+        [Column("TomeRiyuu")]
+        public string TomeRiyuu { get; set; }
+
+        [Column("TomeDay")]
+        public string TomeDay { get; set; }
+
+        [Column("MgName")]
+        public string MgName { get; set; }
+
+        [Column("GaitoFlg")]
+        public int GaitoFlg { get; set; }
+
+        [Column("KakuzaiNo")]
+        public int KakuzaiNo { get; set; }
+
+        [Column("Kubun")]
+        public string Kubun { get; set; }
+
+        [Column("Tukisu")]
+        public int Tukisu { get; set; }
+
+        [Column("Haitatubi")]
+        public int Haitatubi { get; set; }
+
+        [Column("DispHaitatubi")]
+        public string DispHaitatubi { get; set; }
+
+        [Column("KeiyakuKbn")]
+        public string KeiyakuKbn { get; set; }
+
+        [Column("MgFullName")]
+        public string MgFullName { get; set; }
     }
 
     [Table("Kuiki_K95010", Schema = "dbo")]
@@ -194,5 +326,7 @@ namespace B2003C4.Data
 
         [Column("Name")]
         public string Name { get; set; }
+
     }
+
 }

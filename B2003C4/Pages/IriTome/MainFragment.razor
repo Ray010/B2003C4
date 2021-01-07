@@ -57,7 +57,30 @@
             }
 
 
+        @*Select*@ 
+        .mdc-select .mdc-select__anchor {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
 
+        .mdc-select:not(.mdc-select--disabled) .mdc-select__anchor {
+            background-color: #FFFFFF;
+        }
+
+        .mdc-select {
+            min-width: 50px;
+            display: inline-flex;
+            position: relative;
+        }
+
+
+        label {
+            margin-bottom: 0;
+        }
+
+        p {
+            height: 0;
+        }
     </style>
 
 
@@ -65,69 +88,108 @@
 
 <body class="Bg_Color">
 
-    <table class="Card_table_Fixed Margin_Bottom Bg_Color">
-        <tr>
-            <td colspan="10">
-                <div>
+    <div class="mat-layout-grid" style="padding:0.5rem;">
+        <div class="mat-layout-grid-inner">
+            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                <MatSelect HelperText="" Label="" @bind-Value="@Kuiki_SelectedValue" style="width:100%;" >
+
+                    @foreach (var Temp_Kuiki in C_KuikiList)
+                    {
+                        if (Phase1Data.Select_TenpoNo == Temp_Kuiki.Tenpo)
+                        {
+                            <MatOption TValue="int?" Value="@Temp_Kuiki.Kuiki">@Temp_Kuiki.Name</MatOption>
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                </MatSelect>
+            </div>
+            <div  class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                <MatSelect HelperText="" Label="" @bind-Value="@Nengetu_SelectedValue" style="width:100%;" >
+
+                    <MatOption TValue="int?" Value="0">全期間</MatOption>
+                    @foreach (var Temp_Nengetu in C_NengetuList)
+                    {
+                        if (Phase1Data.Select_TenpoNo == Temp_Nengetu.Tenpo)
+                        {
+                            <MatOption TValue="int?" Value="@Temp_Nengetu.Nengetu">@Temp_Nengetu.Name</MatOption>
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                </MatSelect>
+            </div>
+        </div>
+    </div>
+
+    @*
+        <table class="Card_table_Fixed Margin_Bottom Bg_Color">
+            <tr>
+                <td colspan="10">
+                    <div>
 
                         <MatSelect HelperText="" Label="" @bind-Value="@Kuiki_SelectedValue">
 
                             @foreach (var Temp_Kuiki in C_KuikiList)
+                            {
+                                if (Phase1Data.Select_TenpoNo == Temp_Kuiki.Tenpo)
                                 {
-                                    if (Phase1Data.Select_TenpoNo == Temp_Kuiki.Tenpo)
-                                    {
                                     <MatOption TValue="int?" Value="@Temp_Kuiki.Kuiki">@Temp_Kuiki.Name</MatOption>
-                                    }
-                                    else
-                                    {
-                                        continue;
-                                    }
                                 }
+                                else
+                                {
+                                    continue;
+                                }
+                            }
                         </MatSelect>
 
-                </div>
-            </td>
+                    </div>
+                </td>
 
-            <td>&nbsp;</td>
+                <td>&nbsp;</td>
 
-            <td colspan="10">
-                <div>
+                <td colspan="10">
+                    <div>
 
-                    <MatSelect HelperText="" Label="" @bind-Value="@Nengetu_SelectedValue">
+                        <MatSelect HelperText="" Label="" @bind-Value="@Nengetu_SelectedValue">
 
-                        <MatOption TValue="int?" Value="0">全期間</MatOption>
-                        @foreach (var Temp_Nengetu in C_NengetuList)
-                        {
-                            if (Phase1Data.Select_TenpoNo == Temp_Nengetu.Tenpo)
+                            <MatOption TValue="int?" Value="0">全期間</MatOption>
+                            @foreach (var Temp_Nengetu in C_NengetuList)
                             {
-                                <MatOption TValue="int?" Value="@Temp_Nengetu.Nengetu">@Temp_Nengetu.Name</MatOption>
+                                if (Phase1Data.Select_TenpoNo == Temp_Nengetu.Tenpo)
+                                {
+                                    <MatOption TValue="int?" Value="@Temp_Nengetu.Nengetu">@Temp_Nengetu.Name</MatOption>
+                                }
+                                else
+                                {
+                                    continue;
+                                }
                             }
-                            else
-                            {
-                                continue;
-                            }
-                        }
-                    </MatSelect>
+                        </MatSelect>
 
-                </div>
-                
-                
-                
-                @*
-                <form>
-                    <select name="Nengetsu" class="form-control" @onchange="@OnChangeEventNengetuX">
-                        <option value=null>全期間</option>
-                        @foreach (var Nengetu in NengetuList)
-                        {
-                            <option value="@Nengetu.nengetu"> @Nengetu.dispNengetu </option>
-                        }
-                    </select>
-                </form>
-                    *@
-            </td>
-        </tr>
+                    </div>
+
+
+
+                    @*
+                        <form>
+                            <select name="Nengetsu" class="form-control" @onchange="@OnChangeEventNengetuX">
+                                <option value=null>全期間</option>
+                                @foreach (var Nengetu in NengetuList)
+                                {
+                                    <option value="@Nengetu.nengetu"> @Nengetu.dispNengetu </option>
+                                }
+                            </select>
+                        </form>
+    *
+    </td>
+    </tr>
     </table>
-
+    *@
 
 
 
@@ -266,7 +328,7 @@
 
 
                                 @if (Kuiki_SelectedValue == x.Kuiki &&
-                                   (SelectValue == x.iri || SelectValue == null))
+                                (SelectValue == x.iri || SelectValue == null))
                                 {
                                     <tr>
                                         <td>

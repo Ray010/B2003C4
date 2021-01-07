@@ -38,7 +38,7 @@
         goto End;
 
     case 11:
-        <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" @bind-KoudokuList="KoudokuDBData"/>
+        <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" /> //@bind-KoudokuList="KoudokuDBData"/>
         goto End;
 
     case 12:
@@ -63,7 +63,7 @@
 @code {
 
     private DummyDataModel DBData = new DummyDataModel();
-    private KoudokuDummyData KoudokuDBData = new KoudokuDummyData();
+    //private KoudokuDummyData KoudokuDBData = new KoudokuDummyData();
     private FormSearchDataModel ResultData = new FormSearchDataModel();
 }
 

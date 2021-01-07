@@ -207,7 +207,7 @@ namespace B2003C4.Pages.Kako
         protected NavigationManager Navi { get; set; }
         public async void JumpPage(DummyDataModel.Dokusya OnDokusya)
         {
-            Phase1Data.S_DokusyaCode = OnDokusya.DokusyaCode;
+            //Phase1Data.S_DokusyaCode = OnDokusya.DokusyaCode;
             Phase1Data.S_DokusyaName = OnDokusya.DokusyaName;
             Phase1Data.S_BuildingName = OnDokusya.BuildingName;
             Phase1Data.S_CityName = OnDokusya.CityName;
