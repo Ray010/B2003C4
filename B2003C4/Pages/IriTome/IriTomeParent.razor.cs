@@ -17,14 +17,14 @@ namespace B2003C4.Pages.IriTome
 
         protected override async Task OnInitializedAsync()
         {
-            P_DokusyaList = await NewsPaperData.GetDokusyaListAsync();
-            P_KoudokuList = await NewsPaperData.GetKoudokuListAsync();
+            P_DokusyaList = await NewsPaperData.GetDokusya_K95010_ListAsync();
+            P_KoudokuList = await NewsPaperData.GetKoudoku_K95010_ListAsync();
 
-            P_IriList = await NewsPaperData.GetIriListAsync();
-            P_TomeList = await NewsPaperData.GetTomeListAsync();
-            P_KuikiList = await NewsPaperData.GetKuikiListAsync();
-            P_NengetuList = await NewsPaperData.GetNengetuListAsync();
-            P_KakuzaiList = await NewsPaperData.GetKakuzaiListAsync();
+            P_IriList = await NewsPaperData.GetIri_K95010_ListAsync();
+            P_TomeList = await NewsPaperData.GetTome_K95010_ListAsync();
+            P_KuikiList = await NewsPaperData.GetKuiki_K95010_ListAsync();
+            P_NengetuList = await NewsPaperData.GetNengetu_K95010_ListAsync();
+            P_KakuzaiList = await NewsPaperData.GetKakuzai_K95010_ListAsync();
         }
 
 

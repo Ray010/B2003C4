@@ -23,16 +23,16 @@ namespace B2003C4.Pages.Common
 
         //DB--------------------------------------------------------------------------------------
         [Parameter]
-        public List<Dokusya> C_DokusyaList { get; set; }
+        public List<Dokusya_K95010> C_DokusyaList { get; set; }
 
         [Parameter]
-        public EventCallback<List<Dokusya>> C_DokusyaListChanged { get; set; }
+        public EventCallback<List<Dokusya_K95010>> C_DokusyaListChanged { get; set; }
 
         [Parameter]
-        public List<Koudoku> C_KoudokuList { get; set; }
+        public List<Koudoku_K95010> C_KoudokuList { get; set; }
 
         [Parameter]
-        public EventCallback<List<Koudoku>> C_KoudokuListChanged { get; set; }
+        public EventCallback<List<Koudoku_K95010>> C_KoudokuListChanged { get; set; }
 
         [Parameter]
         public List<Kakuzai_K95010> C_KakuzaiList { get; set; }

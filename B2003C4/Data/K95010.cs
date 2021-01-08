@@ -5,13 +5,16 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+using B2003C4.Data;
+using B2003C4.Shared;
+
 //本番環境ではcolumn項のイニシャルが大文字
 
 
 namespace B2003C4.Data
 {
     [Table("Iri_K95010", Schema = "dbo")]
-    public class Iri
+    public class Iri_K95010
     {
         [Column("Tenpo")]
         public int? Tenpo { get; set; }
@@ -80,7 +83,7 @@ namespace B2003C4.Data
     }
 
     [Table("Tome_K95010", Schema = "dbo")]
-    public class Tome
+    public class Tome_K95010
     {
         [Column("Tenpo")]
         public int? Tenpo { get; set; }
@@ -149,7 +152,7 @@ namespace B2003C4.Data
     }
 
     [Table("Dokusya_K95010", Schema = "dbo")]
-    public class Dokusya
+    public class Dokusya_K95010
     {
         [Column("Tenpo")]
         public int? Tenpo { get; set; }
@@ -224,7 +227,7 @@ namespace B2003C4.Data
     }
 
     [Table("Koudoku_K95010", Schema = "dbo")]
-    public class Koudoku
+    public class Koudoku_K95010
     {
         [Column("Tenpo")]
         public int? Tenpo { get; set; }

@@ -81,12 +81,7 @@
 
                         @foreach (var x in TenpoKuiki)
                         {
-                            if (TenpoNo == x.TenpoNo)
-                            {
-
-                                <option value="@x.KuikiNo"> @x.KuikiName </option>
-
-                            }
+                            <option value="@x.KuikiNo"> @x.KuikiName </option>
                         }
                     </select>
                 </td>
@@ -129,25 +124,27 @@
         </table>
 
         <table class="Card_parent Bg_Color">
-            @foreach (var x in TomeDokusyaList)
+            @foreach (var x in C_TomeList)
             {
+                if(x.Tenpo == Phase1Data.Select_TenpoNo && x.Kuiki == Kuiki_SelectedValue)
+                { 
                     <tr>
                         <td>
                             <div class="Card_parent">
                                 <button @onclick="@(s => JumpPage(x))" type="button" class="btn btn-KakoButton btn-block">
                                     <table>
                                         <tr>
-                                            <td colspan="9" align="left">@x.DokusyaName</td>
-                                            <td colspan="1">M</td>
+                                            <td colspan="9" align="left">@x.Name</td>
+                                            <td colspan="1">@x.MgNo</td>
                                         </tr>
                                         <tr align="left">
-                                            <td colspan="4">@x.CityName</td>
-                                            <td colspan="4">@x.CityAddress</td>
+                                            <td colspan="4">@x.Address</td>
+                                            <td colspan="4">x.CityAddress</td>
                                             <td colspan="2">&nbsp;</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2" align="left">x.B</td>
-                                            <td colspan="6" align="left">@x.KeiyakuSt - @x.KeiyakuEd</td>
+                                            <td colspan="6" align="left">@x.iri - @x.tome</td>
 
                                         </tr>
                                     </table>
@@ -158,7 +155,7 @@
                             </div>
                         </td>
                     </tr>
-             
+                }
             }
         </table>
     </div>

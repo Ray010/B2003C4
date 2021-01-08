@@ -41,16 +41,16 @@ namespace B2003C4.Pages.IriTome
         //DB-----------------------------------------------------------------------------------
 
         [Parameter]
-        public List<Iri> C_IriList { get; set; }
+        public List<Iri_K95010> C_IriList { get; set; }
 
         [Parameter]
-        public EventCallback<List<Iri>> C_IriListChanged { get; set; }
+        public EventCallback<List<Iri_K95010>> C_IriListChanged { get; set; }
 
         [Parameter]
-        public List<Tome> C_TomeList { get; set; }
+        public List<Tome_K95010> C_TomeList { get; set; }
 
         [Parameter]
-        public EventCallback<List<Tome>> C_TomeListChanged { get; set; }
+        public EventCallback<List<Tome_K95010>> C_TomeListChanged { get; set; }
 
         [Parameter]
         public List<Kuiki_K95010> C_KuikiList { get; set; }
@@ -277,7 +277,7 @@ namespace B2003C4.Pages.IriTome
         protected NavigationManager Navi { get; set; }
 
 
-        public async void JumpPageIri(Iri OnDokusya)
+        public async void JumpPageIri(Iri_K95010 OnDokusya)
         {
             Phase1Data.S_DokusyaCode = OnDokusya.DokuCode;
             Phase1Data.S_DokusyaName = OnDokusya.Name;
@@ -292,7 +292,7 @@ namespace B2003C4.Pages.IriTome
             StateHasChanged();
         }
 
-        public async void JumpPageTome(Tome OnDokusya)
+        public async void JumpPageTome(Tome_K95010 OnDokusya)
         {
             Phase1Data.S_DokusyaCode = OnDokusya.DokuCode;
             Phase1Data.S_DokusyaName = OnDokusya.Name;

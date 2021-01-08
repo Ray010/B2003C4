@@ -33,23 +33,27 @@ else
 
         case 11:
 
-            @if ( P_DokusyaList.Count == 0 || P_KoudokuList.Count == 0)
+            @if (P_DokusyaList.Count == 0 || P_KoudokuList.Count == 0)
             {
-                <MatProgressCircle Indeterminate="true" FourColored="true" />
+                <MatProgressCircle Indeterminate = "true" FourColored = "true" />
+
             }
             else
             {
-                <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" @bind-C_DokusyaList="P_DokusyaList" @bind-C_KoudokuList="P_KoudokuList"/>
+                <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" @bind-C_DokusyaList="P_DokusyaList" @bind-C_KoudokuList="P_KoudokuList" />
             }
-            
+
             goto End;
 
         case 12:
-            <MeihanActivity @bind-CommonPhase2="CurrentPage" @bind-C_DokusyaList="P_DokusyaList" @bind-C_KakuzaiList="P_KakuzaiList" @bind-C_KoudokuList="P_KoudokuList"/>
+            <MeihanActivity @bind-CommonPhase2="CurrentPage" @bind-C_DokusyaList="P_DokusyaList" @bind-C_KakuzaiList="P_KakuzaiList" @bind-C_KoudokuList="P_KoudokuList" />
             goto End;
 
         End:
             break;
+
+
+
 
 
         default:
@@ -85,10 +89,10 @@ else
     private FormSearchDataModel ResultData = new FormSearchDataModel();
 
 
-    private List<Dokusya> P_DokusyaList = new List<Dokusya>();
-    private List<Koudoku> P_KoudokuList = new List<Koudoku>();
-    private List<Iri> P_IriList = new List<Iri>();
-    private List<Tome> P_TomeList = new List<Tome>();
+    private List<Dokusya_K95010> P_DokusyaList = new List<Dokusya_K95010>();
+    private List<Koudoku_K95010> P_KoudokuList = new List<Koudoku_K95010>();
+    private List<Iri_K95010> P_IriList = new List<Iri_K95010>();
+    private List<Tome_K95010> P_TomeList = new List<Tome_K95010>();
     private List<Kuiki_K95010> P_KuikiList = new List<Kuiki_K95010>();
     private List<Nengetu_K95010> P_NengetuList = new List<Nengetu_K95010>();
     private List<Kakuzai_K95010> P_KakuzaiList = new List<Kakuzai_K95010>();

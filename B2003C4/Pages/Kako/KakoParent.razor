@@ -8,19 +8,28 @@
 @switch (CurrentPage.PhaseNo)
 {
     case 0:
-        goto default;
+
+        <MatProgressCircle Indeterminate="true" FourColored="true" />
+        goto End;
 
     case 1:
 
-        <KakoFragment @bind-Phase1Data="CurrentPage" @bind-DBSourceData="DBData" />
+        if (P_TomeList.Count == 0 || P_KuikiList.Count == 0)
+        {
+            goto case 0;
+        }
+
+
+        <KakoFragment @bind-Phase1Data="CurrentPage" @bind-DBSourceData="DBData" @bind-C_TomeList="P_TomeList" @bind-C_KuikiList="P_KuikiList" />
         goto End;
 
     case 11:
-        <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData"  />
+        <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" />
         goto End;
 
     case 12:
-        <MeihanActivity @bind-CommonPhase2="CurrentPage" />@* @bind-DBSourceData="DBData" @bind-KoudokuList="KoudokuDummyData" />*@
+        <MeihanActivity @bind-CommonPhase2="CurrentPage" />
+        @* @bind-DBSourceData="DBData" @bind-KoudokuList="KoudokuDummyData" />*@
 
         End:
             break;
@@ -37,5 +46,16 @@
     private DummyDataModel DBData = new DummyDataModel();
     //private KoudokuDummyData KoudokuDummyData = new KoudokuDummyData();
     private FormSearchDataModel ResultData = new FormSearchDataModel();
+
+    private List<Dokusya_K95020> P_DokusyaList = new List<Dokusya_K95020>();
+    private List<Koudoku_K95020> P_KoudokuList = new List<Koudoku_K95020>();
+    private List<Tome_K95020> P_TomeList = new List<Tome_K95020>();
+    private List<Kuiki_K95020> P_KuikiList = new List<Kuiki_K95020>();
+    private List<Nengetu_K95020> P_NengetuList = new List<Nengetu_K95020>();
+    private List<Kakuzai_K95020> P_KakuzaiList = new List<Kakuzai_K95020>();
+
+
+
+
 }
 

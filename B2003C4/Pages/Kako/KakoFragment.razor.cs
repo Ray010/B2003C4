@@ -40,6 +40,23 @@ namespace B2003C4.Pages.Kako
         [Parameter]
         public EventCallback<DummyDataModel> DBSourceDataChanged { get; set; }
 
+
+        //DB-------------------------------------------------------------------------
+        
+        [Parameter]
+        public List<Tome_K95020> C_TomeList { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Tome_K95020>> C_TomeListChanged { get; set; }
+
+        [Parameter]
+        public List<Kuiki_K95020> C_KuikiList { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Kuiki_K95020>> C_KuikiListChanged { get; set; }
+
+        //DB-------------------------------------------------------------------------
+
         /*
         [Parameter]
         public FormSearchDataModel SearchResultData { get; set; }
@@ -58,49 +75,7 @@ namespace B2003C4.Pages.Kako
                     new Nengetu ("20/12", "2020年12月")
         };
 
-        List<Kuiki> TenpoKuiki = new List<Kuiki>()
-        {
-            new Kuiki("0","1","1区"),
-            new Kuiki("0","2","2区"),
-            new Kuiki("0","3","3区"),
-            new Kuiki("0","4","4区"),
-            new Kuiki("0","5","5区"),
-
-            new Kuiki("1","1","1区"),
-            new Kuiki("1","2","2区"),
-            new Kuiki("1","3","3区"),
-            new Kuiki("1","4","4区"),
-
-            new Kuiki("2","1","1区"),
-            new Kuiki("2","2","2区"),
-            new Kuiki("2","3","3区"),
-            new Kuiki("2","4","4区"),
-            new Kuiki("2","5","5区"),
-        };
-
-        /*
-        List<Dokusya> DokusyaList = new List<Dokusya>()
-        {
-            new Dokusya("1" , "桜井　清" , "妻田北１" , "12-41" , "あ朝" , "1911-2004"),
-            new Dokusya("1" , "桜井　新" , "妻田北１" , "12-41" , "い朝" , "1911-2004"),
-            new Dokusya("1" , "桜井　深" , "妻田北１" , "12-41" , "う朝" , "1911-2004"),
-            new Dokusya("1" , "桜井　槙" , "妻田北１" , "12-41" , "え朝" , "1911-2004"),
-            new Dokusya("1" , "桜井　信" , "妻田北１" , "12-41" , "お朝" , "1911-2004"),
-
-            new Dokusya("2" , "桜井　シン" , "妻田北１" , "12-41" , "か朝" , "1911-2004"),
-            new Dokusya("2" , "桜井　晋" , "妻田北１" , "12-41" , "き朝" , "1911-2004"),
-            new Dokusya("2" , "桜井　侵" , "妻田北１" , "12-41" , "く朝" , "1911-2004"),
-            new Dokusya("2" , "桜井　臣" , "妻田北１" , "12-41" , "け朝" , "1911-2004"),
-
-            new Dokusya("3" , "桜井　審" , "妻田北１" , "12-41" , "さ朝" , "1911-2004"),
-            new Dokusya("3" , "桜井　蓁" , "妻田北１" , "12-41" , "し朝" , "1911-2004"),
-
-            new Dokusya("4" , "桜井　薪" , "妻田北１" , "12-41" , "た朝" , "1911-2004"),
-            new Dokusya("4" , "桜井　寝" , "妻田北１" , "12-41" , "ち朝" , "1911-2004"),
-            new Dokusya("4" , "エビヌマ　ツナキ" , "平松本町２" , "1103-3256" , "つ朝" , "1911-2004"),
-            new Dokusya("4" , "エビヌマ　ツナキⅤ" , "平松本町４" , "1103-56" , "" , ""),
-        };
-        */
+        List<Kuiki> TenpoKuiki = new List<Kuiki>();
 
         /* 年月用クラス */
         public class Nengetu
@@ -117,12 +92,11 @@ namespace B2003C4.Pages.Kako
         //区域用クラス
         public class Kuiki
         {
-            public string TenpoNo { get; set; } //店舗ナンバー
-            public string KuikiNo { get; set; } //区域ナンバー
-
+            public int? TenpoNo { get; set; } //店舗ナンバー
+            public int? KuikiNo { get; set; } //区域ナンバー
             public string KuikiName { get; set; } //区域名
 
-            public Kuiki(string tenpoNo , string kuikiNo, string kuikiName)
+            public Kuiki(int? tenpoNo , int? kuikiNo, string kuikiName)
             {
                 TenpoNo = tenpoNo;
                 KuikiNo = kuikiNo;
@@ -153,6 +127,22 @@ namespace B2003C4.Pages.Kako
         //検索総数(ページ開始直後)
         protected override void OnInitialized()
         {
+            foreach(var Kuiki in C_KuikiList)
+            {
+                if(Kuiki.Tenpo == Phase1Data.Select_TenpoNo)
+                {
+                    TenpoKuiki.Add(new Kuiki(Kuiki.Tenpo, Kuiki.Kuiki, Kuiki.Name));
+                }
+                else
+                {
+                    continue;
+                }
+                    
+            }
+
+
+
+
             foreach (var x in DBSourceData.DokusyaList)
             {
                 if (Kuiki_SelectedValue == x.Kuiki)
@@ -205,15 +195,10 @@ namespace B2003C4.Pages.Kako
 
         [Inject]
         protected NavigationManager Navi { get; set; }
-        public async void JumpPage(DummyDataModel.Dokusya OnDokusya)
+        public async void JumpPage(Tome_K95020 OnDokusya)
         {
-            //Phase1Data.S_DokusyaCode = OnDokusya.DokusyaCode;
-            Phase1Data.S_DokusyaName = OnDokusya.DokusyaName;
-            Phase1Data.S_BuildingName = OnDokusya.BuildingName;
-            Phase1Data.S_CityName = OnDokusya.CityName;
-            Phase1Data.S_CityAddress = OnDokusya.CityAddress;
-            Phase1Data.S_PhoneNo_Sub = OnDokusya.PhoneNo_Sub;
-            Phase1Data.S_KuikiNo = OnDokusya.Kuiki;
+            Phase1Data.S_DokusyaCode = OnDokusya.DokuCode;
+
 
             Phase1Data.PhaseNo = 11;
             await Phase1DataChanged.InvokeAsync(Phase1Data);

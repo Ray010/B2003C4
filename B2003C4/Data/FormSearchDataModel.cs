@@ -33,7 +33,7 @@ namespace B2003C4.Data
         //画面制御用
         public Boolean State { get; set; } = false;
 
-        public uint? PhaseNo { get; set; } = 1;
+        public int? PhaseNo { get; set; } = 1;
 
         public string IndexURL { get; set; } ="Index"; //とび先のURL
 

@@ -218,7 +218,7 @@ namespace B2003C4.Pages.Kansa
             Navi.NavigateTo(URLx);
         }
 
-        public async Task PhaseShift(uint ShiftNo , string ShiftReason ,string etc)
+        public async Task PhaseShift(int ShiftNo , string ShiftReason ,string etc)
         {
             Phase2Data.PhaseNo = ShiftNo;
             Phase2Data.ShiftReason = ShiftReason;
