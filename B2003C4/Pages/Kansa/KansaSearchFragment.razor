@@ -306,7 +306,7 @@
             <div class="mat-layout-grid" style="padding:0rem;">
                 <div class="mat-layout-grid-inner">
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-                        <MatTextField @bind-Value="Phase1Data.S_DokusyaCode" Label="読者No" style="width:100%;" class="mat-elevation-z3">@Phase1Data.S_DokusyaCode</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_DokuCode" Label="読者No" style="width:100%;" class="mat-elevation-z3">@Phase1Data.S_DokuCode</MatTextField>
 
                     </div>
 
@@ -340,27 +340,27 @@
 
 
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-                        <MatTextField @bind-Value="Phase1Data.S_DokusyaName" Label="読者名" style="width:100%;" class="mat-elevation-z3"></MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_DokuName" Label="読者名" style="width:100%;" class="mat-elevation-z3"></MatTextField>
                     </div>
 
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-                        <MatTextField @bind-Value="Phase1Data.S_DokusyaKanaName" Label="読者名(ｶﾅ)" style="width:100%;" class="mat-elevation-z3">@Phase1Data.S_DokusyaCode</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_DokuKana" Label="読者名(ｶﾅ)" style="width:100%;" class="mat-elevation-z3">@Phase1Data.S_DokuCode</MatTextField>
                     </div>
 
 
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1">
-                        <MatTextField @bind-Value="Phase1Data.S_Junro" Label="局番" class="mat-elevation-z3">@Phase1Data.S_PhoneNo</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_Sigai" Label="局番" class="mat-elevation-z3">@Phase1Data.S_Sigai</MatTextField>
                     </div>
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatTextField @bind-Value="Phase1Data.S_Junro_Sub" Label="電話番号" 　style="width:100%;" class="mat-elevation-z3">@Phase1Data.S_PhoneNo_Sub</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_Tel" Label="電話番号" 　style="width:100%;" class="mat-elevation-z3">@Phase1Data.S_Tel</MatTextField>
                     </div>
 
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1">
-                        <MatTextField @bind-Value="Phase1Data.S_Junro" Label="町No." class="mat-elevation-z3">@*@Phase1Data.S_CityNo*@</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_ChomeiCode" Label="町No." class="mat-elevation-z3">@Phase1Data.S_ChomeiCode</MatTextField>
                     </div>
 
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatSelect HelperText="" Label="町名" @bind-Value="Phase1Data.S_CityName" class="mat-elevation-z3">
+                        <MatSelect HelperText="" Label="町名" @bind-Value="Phase1Data.S_ChomeiName" class="mat-elevation-z3">
                             @foreach (var City in CityList)
                             {
                                 @* 町名番号未導入の為
@@ -372,23 +372,23 @@
                     </div>
 
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                        <MatTextField @bind-Value="Phase1Data.S_CityAddress" Label="番" class="mat-elevation-z3">@Phase1Data.S_KuikiNo</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_Banti" Label="番" class="mat-elevation-z3">@Phase1Data.S_Banti</MatTextField>
                     </div>
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
                         @* 号未対応の為
                         <MatTextField @bind-Value="Phase1Data.S_Junro_Sub" Label="号">@Phase1Data.S_CityAddress</MatTextField>*@
-                        <MatTextField @bind-Value="Phase1Data.S_CityAddress" Label="号" class="mat-elevation-z3">@Phase1Data.S_CityAddress</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_Gou" Label="号" class="mat-elevation-z3">@Phase1Data.S_Gou</MatTextField>
                     </div>
 
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                        <MatTextField @bind-Value="Phase1Data.S_BuildingKanaName" Label="建物名(ｶﾅ)" class="mat-elevation-z3">@Phase1Data.S_BuildingKanaName</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_BuildKana" Label="建物名(ｶﾅ)" class="mat-elevation-z3">@Phase1Data.S_BuildKana</MatTextField>
                     </div>
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                        <MatTextField @bind-Value="Phase1Data.S_BuildingName" Label="建物名" class="mat-elevation-z3">@Phase1Data.S_BuildingName</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_BuildName" Label="建物名" class="mat-elevation-z3">@Phase1Data.S_BuildName</MatTextField>
                     </div>
 
                     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                        <MatTextField @bind-Value="Phase1Data.S_BuildingKanaName" Label="室番" class="mat-elevation-z3">@Phase1Data.S_ShitsuBan</MatTextField>
+                        <MatTextField @bind-Value="Phase1Data.S_RoomNo" Label="室番" class="mat-elevation-z3">@Phase1Data.S_RoomNo</MatTextField>
                     </div>
 
 

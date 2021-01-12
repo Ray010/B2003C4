@@ -10,77 +10,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace B2003C4.Data
 {
-    [Table("Tome_K95020", Schema = "dbo")]
-    public class Tome_K95020 
-    {
-        [Column("Tenpo")]
-        public int? Tenpo { get; set; }
-
-        [Column("kuiki")]
-        public int? Kuiki { get; set; }
-
-        //[Column("Nengetu")]
-        [Column("nengetu")]
-        public int? Nengetu { get; set; }
-
-        //Junro
-        [Column("junro")]
-        public string Junro { get; set; }
-
-        //DokuCode
-        [Key]
-        [Column("dokuCode")]
-        public int? DokuCode { get; set; }
-
-        [Column("name")]
-        public string Name { get; set; }
-
-        [Column("tel")]
-        public string Tel { get; set; }
-
-        [Column("meig")]
-        public string Meig { get; set; }
-
-        [Column("iri")]
-        public string iri { get; set; }
-
-        [Column("tome")]
-        public string tome { get; set; }
-
-        [Column("tantokbn")]
-        public int? Tantokbn { get; set; }
-
-        [Column("address")]
-        public string Address { get; set; }
-
-        [Column("build")]
-        public string Build { get; set; }
-
-        [Column("MgCode")]
-        public int? MgCode { get; set; }
-
-        [Column("MgNo")]
-        public string MgNo { get; set; }
-
-        [Column("IriRiyuu")]
-        public string IriRiyuu { get; set; }
-
-        [Column("KeizokuTuki")]
-        public int? KeizokuTsuki { get; set; }
-
-        [Column("DispNengetu")]
-        public string DispNengetu { get; set; }
-
-        [Column("NextKeiyaku")]
-        public int? NextKeiyaku { get; set; }
-
-        [Column("GaitoNo")]
-        public int? GaitoNo { get; set; }
-
-    }
-
-    [Table("Dokusya_K95020", Schema = "dbo")]
-    public class Dokusya_K95020 : Dokusya_K95010
+    [Table("Dokusya_K95080", Schema = "dbo")]
+    public class Dokusya_K95080 : Dokusya_K95010
     {
         /*
         [Column("Tenpo")]
@@ -153,11 +84,116 @@ namespace B2003C4.Data
         [Column("Zu_Bekki")]
         public int? Zu_Bekki { get; set; }
         */
+        [Column("KuikiJunro")]
+        public int KuikiJunro { get; set; }
 
+        [Column("KuikiJunroView")]
+        public string KuikiJunroView { get; set; }
+
+        [Column("SyukinKuView")]
+        public string SyukinKuView { get; set; }
+
+        [Column("Kuiki2View")]
+        public string Kuiki2View { get; set; }
+
+        [Column("DokuName")]
+        public string DokuName { get; set; }
+        [Column("DokuKana")]
+        public string DokuKana { get; set; }
+
+        [Column("DokuKbn")]
+        public string DokuKbn { get; set; }
+
+        [Column("Sigai1")]
+        public string Sigai1 { get; set; }
+        
+        [Column("Tel1")]
+        public string Tel1 { get; set; }
+
+        [Column("SigaiTelView1")]
+        public string SigaiTelView1 { get; set; }
+
+        [Column("Sigai2")]
+        public string Sigai2 { get; set; }
+
+        [Column("Tel2")]
+        public string Tel2 { get; set; }
+
+        [Column("SigaiTelView2")]
+        public string SigaiTelView2 { get; set; }
+
+        [Column("Sigai3")]
+        public string Sigai3 { get; set; }
+
+        [Column("Tel3")]
+        public string Tel3 { get; set; }
+
+        [Column("SigaiTelView3")]
+        public string SigaiTelView3 { get; set; }
+
+        [Column("Sigai4")]
+        public string Sigai4 { get; set; }
+
+        [Column("Tel4")]
+        public string Tel4 { get; set; }
+
+        [Column("SigaiTelView4")]
+        public string SigaiTelView4 { get; set; }
+
+        [Column("Sigai5")]
+        public string Sigai5 { get; set; }
+
+        [Column("Tel5")]
+        public string Tel5 { get; set; }
+
+        [Column("SigaiTelView5")]
+        public string SigaiTelView5 { get; set; }
+
+        [Column("Sigai6")]
+        public string Sigai6 { get; set; }
+
+        [Column("Tel6")]
+        public string Tel6 { get; set; }
+
+        [Column("SigaiTelView6")]
+        public string SigaiTelView6 { get; set; }
+
+        [Column("ChomeiCode")]
+        public int ChomeiCode { get; set; }
+
+        [Column("ChomeiName")]
+        public string ChomeiName { get; set; }
+
+        [Column("Banti")]
+        public int Banti_Kansa { get; set; }
+
+        [Column("Gou")]
+        public int Gou { get; set; }
+
+        [Column("AddressView")]
+        public string AddressView { get; set; }
+
+        [Column("BuildName")]
+        public string BuildName { get; set; }
+
+        [Column("BuildKana")]
+        public string BuildKana { get; set; }
+
+        [Column("RoomNo")]
+        public string RoomNo { get; set; }
+
+        [Column("Siharai")]
+        public string Siharai { get; set; }
+
+        [Column("SiharaiKbn")]
+        public int SiharaiKbn { get; set; }
+
+        [Column("SiharaiColor")]
+        public string SiharaiColor { get; set; }
     }
 
-    [Table("Koudoku_K95020", Schema = "dbo")]
-    public class Koudoku_K95020 : Koudoku_K95010
+    [Table("Koudoku_K95080", Schema = "dbo")]
+    public class Koudoku_K95080 : Koudoku_K95010
     {
         [Column("Tenpo")]
         public int? Tenpo { get; set; }
@@ -230,8 +266,8 @@ namespace B2003C4.Data
         public string MgFullName { get; set; }
     }
 
-    [Table("Kuiki_K95020", Schema = "dbo")]
-    public class Kuiki_K95020
+    [Table("Kuiki_K95080", Schema = "dbo")]
+    public class Kuiki_K95080
     {
         [Column("Tenpo")]
         public int? Tenpo { get; set; }
@@ -244,8 +280,8 @@ namespace B2003C4.Data
         public string Name { get; set; }
     }
 
-    [Table("Nengetu_K95020", Schema = "dbo")]
-    public class Nengetu_K95020
+    [Table("Nengetu_K95080", Schema = "dbo")]
+    public class Nengetu_K95080
     {
         [Column("Tenpo")]
         public int? Tenpo { get; set; }
@@ -262,8 +298,8 @@ namespace B2003C4.Data
 
     }
 
-    [Table("Kakuzai_K95020", Schema = "dbo")]
-    public class Kakuzai_K95020 : Kakuzai_K95010
+    [Table("Kakuzai_K95080", Schema = "dbo")]
+    public class Kakuzai_K95080 : Kakuzai_K95010
     {
         [Column("Tenpo")]
         public int? Tenpo { get; set; }

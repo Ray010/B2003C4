@@ -38,6 +38,7 @@ namespace B2003C4.Pages.Common
         */
 
         //DB------------------------------------------------------------------------------------------
+
         [Parameter]
         public List<Dokusya_K95010> C_DokusyaList { get; set; }
 
@@ -50,11 +51,60 @@ namespace B2003C4.Pages.Common
         [Parameter]
         public EventCallback<List<Koudoku_K95010>> C_KoudokuListChanged { get; set; }
 
+
+        //K95010
+        [Parameter]
+        public List<Dokusya_K95010> C_Dokusya_K95010_List { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Dokusya_K95010>> C_Dokusya_K95010_ListChanged { get; set; }
+
+        [Parameter]
+        public List<Koudoku_K95010> C_Koudoku_K95010_List { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Koudoku_K95010>> C_Koudoku_K95010_ListChanged { get; set; }
+
+        //K95020
+        [Parameter]
+        public List<Dokusya_K95020> C_Dokusya_K95020_List { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Dokusya_K95020>> C_Dokusya_K95020_ListChanged { get; set; }
+
+        [Parameter]
+        public List<Koudoku_K95020> C_Koudoku_K95020_List { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Koudoku_K95020>> C_Koudoku_K95020_ListChanged { get; set; }
+
+
+
+        /*
+        //K95080
+        [Parameter]
+        public List<Dokusya_K95080> C_Dokusya_K95080_List { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Dokusya_K95080>> C_Dokusya_K95080_ListChanged { get; set; }
+
+        [Parameter]
+        public List<Koudoku_K95080> C_Koudoku_K95080_List { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Koudoku_K95080>> C_Koudoku_K95080_ListChanged { get; set; }
+
+
+        */
         //DB------------------------------------------------------------------------------------------
 
-        public List<Dokusya_K95010> S_DokusyaList { get; set; } = new List<Dokusya_K95010>(); //検索済み購読リスト
-        
+        public List<Dokusya_K95010> Temp_DokusyaList { get; set; } = new List<Dokusya_K95010>(); //検索済み購読リスト
+
+        public List<Koudoku_K95010> Temp_KoudokuList { get; set; } = new List<Koudoku_K95010>(); //購読リスト(Temp)
         public List<Koudoku_K95010> S_KoudokuList { get; set; } = new List<Koudoku_K95010>(); //検索済み購読リスト
+
+
+        
 
         /*
         private async Task UpdateModelDataOrPhaseShift()
@@ -69,7 +119,7 @@ namespace B2003C4.Pages.Common
 
         protected override void OnInitialized()
         {
-            var DokusyaList = C_DokusyaList.FirstOrDefault(n => n.DokuCode == CommonPhase1.S_DokusyaCode);
+            var DokusyaList = C_DokusyaList.FirstOrDefault(n => n.DokuCode == CommonPhase1.S_DokuCode);
 
             KoumokuList[0].Value = DokusyaList.DokuCode.ToString();
             KoumokuList[1].Value = DokusyaList.Name;
@@ -80,13 +130,19 @@ namespace B2003C4.Pages.Common
             KoumokuList[6].Value = DokusyaList.Syumemo1; // DokusyaList.S_Junro_Bikou;
             KoumokuList[7].Value = DokusyaList.Bunrui; //DokusyaList.S_MoneyRemarks;
             KoumokuList[8].Value = DokusyaList.Rank; //DokusyaList.S_Class;
-            //KoumokuList[9].Value = " "; //DokusyaList.S_Lank;
-            
-            
-            
+                                                     //KoumokuList[9].Value = " "; //DokusyaList.S_Lank;
+
+
+
+            /*
+            var x = C_Dokusya_K95020_List.Cast<Dokusya_K95010>();
+
+            List<Dokusya_K95010> y = x.ToList();
+        */
+
             foreach (var Temp_KoudokuList in C_KoudokuList)
             {
-                if(CommonPhase1.S_DokusyaCode == Temp_KoudokuList.DokuCode)
+                if(CommonPhase1.S_DokuCode == Temp_KoudokuList.DokuCode)
                 {
                     S_KoudokuList.Add(Temp_KoudokuList);
                 }
@@ -129,24 +185,6 @@ namespace B2003C4.Pages.Common
             new Koumoku ("分類","Class",""),
             new Koumoku ("ランク","Lank",""),
         };
-
-        
-
-        List<Meihan> MeihanList = new List<Meihan>()
-        {
-            new Meihan("114514","朝","19/19","20/11","海老沼団","1","","先起こし","19/11/19","契約","25/12"),
-            new Meihan("114514","朝","19/19","20/11","海老沼団","2","","先起こし","19/11/19","契約","25/12"),
-            new Meihan("114514","朝","19/19","20/11","海老沼団","3","","先起こし","19/11/19","契約","25/12"),
-            new Meihan("114514","朝","19/19","20/11","海老沼団","4","","先起こし","19/11/19","契約","25/12"),
-            new Meihan("114514","朝","19/19","20/11","海老沼団","5","","先起こし","19/11/19","契約","25/12"),
-            new Meihan("114514","朝","19/19","20/11","海老沼団","6","","先起こし","19/11/19","契約","25/12"),
-            new Meihan("114514","朝","19/19","20/11","海老沼団","7","","先起こし","19/11/19","契約","25/12"),
-            new Meihan("114514","朝","19/19","20/11","海老沼団","8","","先起こし","19/11/19","契約","25/12"),
-            new Meihan("114514","朝","19/19","20/11","海老沼団","9","","先起こし","19/11/19","契約","25/12"),
-            new Meihan("114514","朝","19/19","20/11","海老沼団","10","","先起こし","19/11/19","契約","25/12"),
-            new Meihan("114514","朝","19/19","20/11","海老沼団","11","","先起こし","19/11/19","契約","25/12"),
-        };
-        
 
         public class Koumoku //表示情報格納用（仮）
         {
@@ -238,17 +276,17 @@ namespace B2003C4.Pages.Common
             string returnDevice = await JSRuntime.InvokeAsync<string>("Device");
             if(returnDevice == "Mobile" )
             {
-                Navi.NavigateTo("https://www.google.com/maps/search/?api=1&query=" + CommonPhase1.S_CityName + "丁目" + CommonPhase1.S_CityAddress);
+                Navi.NavigateTo("https://www.google.com/maps/search/?api=1&query=" + CommonPhase1.S_ChomeiName + "丁目" + CommonPhase1.S_CityAddress);
             }
             else if(returnDevice == "PC")
             {
-                JSRuntime.InvokeAsync<object>("open", "https://www.google.com/maps/search/?api=1&query=" + CommonPhase1.S_CityName +
+                await JSRuntime.InvokeAsync<object>("open", "https://www.google.com/maps/search/?api=1&query=" + CommonPhase1.S_ChomeiName +
                 "丁目" + CommonPhase1.S_CityAddress, "_blank");
             }
             else if(returnDevice == "iPhone")
             {
 
-                Navi.NavigateTo("https://maps.apple.com/?q=" + CommonPhase1.S_CityName + "丁目" + CommonPhase1.S_CityAddress);
+                Navi.NavigateTo("https://maps.apple.com/?q=" + CommonPhase1.S_ChomeiName + "丁目" + CommonPhase1.S_CityAddress);
                 /*Navi.NavigateTo("comgooglemaps://?q=" + CommonPhase1.S_CityName + "丁目" + CommonPhase1.S_CityAddress);*/
             }
         }

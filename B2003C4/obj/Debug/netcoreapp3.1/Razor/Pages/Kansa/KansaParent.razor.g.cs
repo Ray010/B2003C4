@@ -139,8 +139,9 @@ using B2003C4.Pages.Common;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenComponent<B2003C4.Pages.Kansa.KansaSearchFragment>(0);
-            __builder.AddAttribute(1, "Phase1Data", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
+            __builder.AddContent(0, "        ");
+            __builder.OpenComponent<B2003C4.Pages.Kansa.KansaSearchFragment>(1);
+            __builder.AddAttribute(2, "Phase1Data", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
 #nullable restore
 #line 33 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaParent.razor"
                                                CurrentPage
@@ -149,8 +150,8 @@ using B2003C4.Pages.Common;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(2, "Phase1DataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
-            __builder.AddAttribute(3, "DBSourceData", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.DummyDataModel>(
+            __builder.AddAttribute(3, "Phase1DataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
+            __builder.AddAttribute(4, "DBSourceData", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.DummyDataModel>(
 #nullable restore
 #line 33 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaParent.razor"
                                                                                 DBData
@@ -159,8 +160,9 @@ using B2003C4.Pages.Common;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(4, "DBSourceDataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.DummyDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.DummyDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => DBData = __value, DBData))));
+            __builder.AddAttribute(5, "DBSourceDataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.DummyDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.DummyDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => DBData = __value, DBData))));
             __builder.CloseComponent();
+            __builder.AddMarkupContent(6, "\r\n");
 #nullable restore
 #line 34 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaParent.razor"
         goto End;
@@ -170,8 +172,9 @@ using B2003C4.Pages.Common;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenComponent<B2003C4.Pages.Kansa.SearchActivity>(5);
-            __builder.AddAttribute(6, "Phase2Data", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
+            __builder.AddContent(7, "        ");
+            __builder.OpenComponent<B2003C4.Pages.Kansa.SearchActivity>(8);
+            __builder.AddAttribute(9, "Phase2Data", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
 #nullable restore
 #line 37 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaParent.razor"
                                           CurrentPage
@@ -180,8 +183,8 @@ using B2003C4.Pages.Common;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(7, "Phase2DataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
-            __builder.AddAttribute(8, "DBSourceData", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.DummyDataModel>(
+            __builder.AddAttribute(10, "Phase2DataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
+            __builder.AddAttribute(11, "DBSourceData", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.DummyDataModel>(
 #nullable restore
 #line 37 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaParent.razor"
                                                                            DBData
@@ -190,8 +193,9 @@ using B2003C4.Pages.Common;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(9, "DBSourceDataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.DummyDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.DummyDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => DBData = __value, DBData))));
+            __builder.AddAttribute(12, "DBSourceDataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.DummyDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.DummyDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => DBData = __value, DBData))));
             __builder.CloseComponent();
+            __builder.AddMarkupContent(13, "\r\n");
 #nullable restore
 #line 38 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaParent.razor"
         goto End;
@@ -201,8 +205,9 @@ using B2003C4.Pages.Common;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenComponent<B2003C4.Pages.Common.DokusyaActivity>(10);
-            __builder.AddAttribute(11, "CommonPhase1", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
+            __builder.AddContent(14, "        ");
+            __builder.OpenComponent<B2003C4.Pages.Common.DokusyaActivity>(15);
+            __builder.AddAttribute(16, "CommonPhase1", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
 #nullable restore
 #line 41 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaParent.razor"
                                              CurrentPage
@@ -211,8 +216,8 @@ using B2003C4.Pages.Common;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(12, "CommonPhase1Changed", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
-            __builder.AddAttribute(13, "DBSourceData", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.DummyDataModel>(
+            __builder.AddAttribute(17, "CommonPhase1Changed", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
+            __builder.AddAttribute(18, "DBSourceData", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.DummyDataModel>(
 #nullable restore
 #line 41 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaParent.razor"
                                                                               DBData
@@ -221,8 +226,9 @@ using B2003C4.Pages.Common;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(14, "DBSourceDataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.DummyDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.DummyDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => DBData = __value, DBData))));
+            __builder.AddAttribute(19, "DBSourceDataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.DummyDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.DummyDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => DBData = __value, DBData))));
             __builder.CloseComponent();
+            __builder.AddContent(20, " ");
 #nullable restore
 #line 41 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaParent.razor"
                                                                                          //@bind-KoudokuList="KoudokuDBData"/>
@@ -233,8 +239,9 @@ using B2003C4.Pages.Common;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenComponent<B2003C4.Pages.Common.MeihanActivity>(15);
-            __builder.AddAttribute(16, "CommonPhase2", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
+            __builder.AddContent(21, "        ");
+            __builder.OpenComponent<B2003C4.Pages.Common.MeihanActivity>(22);
+            __builder.AddAttribute(23, "CommonPhase2", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
 #nullable restore
 #line 45 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaParent.razor"
                                             CurrentPage
@@ -243,8 +250,9 @@ using B2003C4.Pages.Common;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(17, "CommonPhase2Changed", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
+            __builder.AddAttribute(24, "CommonPhase2Changed", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
             __builder.CloseComponent();
+            __builder.AddMarkupContent(25, "\r\n");
 #nullable restore
 #line 46 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaParent.razor"
 
@@ -258,9 +266,10 @@ using B2003C4.Pages.Common;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(18, "div");
-            __builder.AddMarkupContent(19, "ハンドリングエラー:存在しないページ（PhaseNo:");
-            __builder.AddContent(20, 
+            __builder.AddContent(26, "        ");
+            __builder.OpenElement(27, "div");
+            __builder.AddMarkupContent(28, "ハンドリングエラー:存在しないページ（PhaseNo:");
+            __builder.AddContent(29, 
 #nullable restore
 #line 53 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaParent.razor"
                                          CurrentPage.S_PhoneNo
@@ -269,8 +278,9 @@ using B2003C4.Pages.Common;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(21, " )");
+            __builder.AddContent(30, " )");
             __builder.CloseElement();
+            __builder.AddMarkupContent(31, "\r\n");
 #nullable restore
 #line 54 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaParent.razor"
         break;

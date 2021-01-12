@@ -7,6 +7,7 @@ using B2003C4.Pages.Common;
 using Microsoft.JSInterop;
 using Microsoft.AspNetCore.Components;
 using B2003C4.Data;
+using B2003C4.Service;
 
 
 
@@ -45,6 +46,17 @@ namespace B2003C4.Pages.Kansa
             //formDataModel.PhaseNo = uint.Parse(PNo);
             Console.WriteLine("れんだりんぐとぅるー");
             */
+
+        }
+
+        [Inject]
+        private NewsPaperDataService NewsPaperData { get; set; }
+        protected override async Task OnInitializedAsync()
+        {
+            P_DokusyaList = await NewsPaperData.GetDokusya_K95080_ListAsync();
+            P_KoudokuList = await NewsPaperData.GetKoudoku_K95080_ListAsync();
+            P_KuikiList = await NewsPaperData.GetKuiki_K95080_ListAsync();
+            P_KakuzaiList = await NewsPaperData.GetKakuzai_K95080_ListAsync();
         }
     }
 }

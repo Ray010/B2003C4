@@ -122,7 +122,7 @@ using MatBlazor;
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "alert alert-secondary mt-4");
             __builder.AddAttribute(2, "role", "alert");
-            __builder.AddMarkupContent(3, "<span class=\"oi oi-pencil mr-2\" aria-hidden=\"true\"></span>\r\n    ");
+            __builder.AddMarkupContent(3, "\r\n    <span class=\"oi oi-pencil mr-2\" aria-hidden=\"true\"></span>\r\n    ");
             __builder.OpenElement(4, "strong");
             __builder.AddContent(5, 
 #nullable restore
@@ -135,7 +135,7 @@ using MatBlazor;
             );
             __builder.CloseElement();
             __builder.AddMarkupContent(6, "\r\n\r\n    ");
-            __builder.AddMarkupContent(7, "<span class=\"text-nowrap\">\r\n        Please take our\r\n        <a target=\"_blank\" class=\"font-weight-bold\" href=\"https://go.microsoft.com/fwlink/?linkid=2127996\">brief survey</a></span>\r\n    and tell us what you think.\r\n");
+            __builder.AddMarkupContent(7, "<span class=\"text-nowrap\">\r\n        Please take our\r\n        <a target=\"_blank\" class=\"font-weight-bold\" href=\"https://go.microsoft.com/fwlink/?linkid=2127996\">brief survey</a>\r\n    </span>\r\n    and tell us what you think.\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

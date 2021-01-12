@@ -180,8 +180,9 @@ using B2003C4.Pages.Kansa;
 ");
             __builder.OpenElement(1, "div");
             __builder.AddAttribute(2, "class", "sidebar fixed-top");
-            __builder.OpenComponent<B2003C4.Shared.NavMenu>(3);
-            __builder.AddAttribute(4, "CurrentPage", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
+            __builder.AddMarkupContent(3, "\r\n    ");
+            __builder.OpenComponent<B2003C4.Shared.NavMenu>(4);
+            __builder.AddAttribute(5, "CurrentPage", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
 #nullable restore
 #line 42 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
                                 formSearchModel
@@ -190,14 +191,17 @@ using B2003C4.Pages.Kansa;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(5, "CurrentPageChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => formSearchModel = __value, formSearchModel))));
+            __builder.AddAttribute(6, "CurrentPageChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => formSearchModel = __value, formSearchModel))));
             __builder.CloseComponent();
+            __builder.AddMarkupContent(7, "\r\n\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(6, "\r\n\r\n");
-            __builder.OpenElement(7, "div");
-            __builder.AddAttribute(8, "class", "wrapper main Page-Margin bg");
+            __builder.AddMarkupContent(8, "\r\n\r\n");
             __builder.OpenElement(9, "div");
-            __builder.AddAttribute(10, "class", "top-row px-4 fixed-top");
+            __builder.AddAttribute(10, "class", "wrapper main Page-Margin bg");
+            __builder.AddMarkupContent(11, "\r\n\r\n\r\n    ");
+            __builder.OpenElement(12, "div");
+            __builder.AddAttribute(13, "class", "top-row px-4 fixed-top");
+            __builder.AddMarkupContent(14, "\r\n\r\n\r\n");
 #nullable restore
 #line 52 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
          if (true == true)
@@ -206,7 +210,8 @@ using B2003C4.Pages.Kansa;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddMarkupContent(11, "<div>サーバーステータス：接続</div>");
+            __builder.AddContent(15, "            ");
+            __builder.AddMarkupContent(16, "<div>サーバーステータス：接続</div>\r\n");
 #nullable restore
 #line 55 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
         }
@@ -216,7 +221,8 @@ using B2003C4.Pages.Kansa;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddMarkupContent(12, "<div>サーバーステータス：未接続</div>");
+            __builder.AddContent(17, "            ");
+            __builder.AddMarkupContent(18, "<div>サーバーステータス：未接続</div>\r\n");
 #nullable restore
 #line 59 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
         }
@@ -224,10 +230,12 @@ using B2003C4.Pages.Kansa;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddContent(19, "    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(13, "\r\n\r\n    ");
-            __builder.OpenElement(14, "div");
-            __builder.AddAttribute(15, "class", "content px-4 Bg_Color");
+            __builder.AddMarkupContent(20, "\r\n\r\n    ");
+            __builder.OpenElement(21, "div");
+            __builder.AddAttribute(22, "class", "content px-4 Bg_Color");
+            __builder.AddMarkupContent(23, "\r\n\r\n");
 #nullable restore
 #line 65 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
          switch (formSearchModel.IndexURL)
@@ -241,8 +249,9 @@ using B2003C4.Pages.Kansa;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenComponent<B2003C4.Pages.Index>(16);
-            __builder.AddAttribute(17, "CurrentPage", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
+            __builder.AddContent(24, "                ");
+            __builder.OpenComponent<B2003C4.Pages.Index>(25);
+            __builder.AddAttribute(26, "CurrentPage", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
 #nullable restore
 #line 72 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
                                           formSearchModel
@@ -251,8 +260,9 @@ using B2003C4.Pages.Kansa;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(18, "CurrentPageChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => formSearchModel = __value, formSearchModel))));
+            __builder.AddAttribute(27, "CurrentPageChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => formSearchModel = __value, formSearchModel))));
             __builder.CloseComponent();
+            __builder.AddMarkupContent(28, "\r\n");
 #nullable restore
 #line 73 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
                 break;
@@ -262,8 +272,9 @@ using B2003C4.Pages.Kansa;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenComponent<B2003C4.Pages.IriTome.IriTomeParent>(19);
-            __builder.AddAttribute(20, "CurrentPage", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
+            __builder.AddContent(29, "                ");
+            __builder.OpenComponent<B2003C4.Pages.IriTome.IriTomeParent>(30);
+            __builder.AddAttribute(31, "CurrentPage", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
 #nullable restore
 #line 76 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
                                                   formSearchModel
@@ -272,8 +283,9 @@ using B2003C4.Pages.Kansa;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(21, "CurrentPageChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => formSearchModel = __value, formSearchModel))));
+            __builder.AddAttribute(32, "CurrentPageChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => formSearchModel = __value, formSearchModel))));
             __builder.CloseComponent();
+            __builder.AddMarkupContent(33, "\r\n");
 #nullable restore
 #line 77 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
                 break;
@@ -283,8 +295,9 @@ using B2003C4.Pages.Kansa;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenComponent<B2003C4.Pages.Kako.KakoParent>(22);
-            __builder.AddAttribute(23, "CurrentPage", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
+            __builder.AddContent(34, "                ");
+            __builder.OpenComponent<B2003C4.Pages.Kako.KakoParent>(35);
+            __builder.AddAttribute(36, "CurrentPage", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
 #nullable restore
 #line 80 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
                                                formSearchModel
@@ -293,8 +306,9 @@ using B2003C4.Pages.Kansa;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(24, "CurrentPageChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => formSearchModel = __value, formSearchModel))));
+            __builder.AddAttribute(37, "CurrentPageChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => formSearchModel = __value, formSearchModel))));
             __builder.CloseComponent();
+            __builder.AddMarkupContent(38, "\r\n");
 #nullable restore
 #line 81 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
                 break;
@@ -304,8 +318,9 @@ using B2003C4.Pages.Kansa;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenComponent<B2003C4.Pages.Kansa.KansaParent>(25);
-            __builder.AddAttribute(26, "CurrentPage", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
+            __builder.AddContent(39, "                ");
+            __builder.OpenComponent<B2003C4.Pages.Kansa.KansaParent>(40);
+            __builder.AddAttribute(41, "CurrentPage", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
 #nullable restore
 #line 84 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
                                                 formSearchModel
@@ -314,8 +329,9 @@ using B2003C4.Pages.Kansa;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(27, "CurrentPageChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => formSearchModel = __value, formSearchModel))));
+            __builder.AddAttribute(42, "CurrentPageChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => formSearchModel = __value, formSearchModel))));
             __builder.CloseComponent();
+            __builder.AddMarkupContent(43, "\r\n");
 #nullable restore
 #line 85 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
                 break;
@@ -324,7 +340,8 @@ using B2003C4.Pages.Kansa;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(28, 
+            __builder.AddMarkupContent(44, "\r\n        ");
+            __builder.AddContent(45, 
 #nullable restore
 #line 97 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
          formSearchModel.Select_TenpoNo
@@ -333,16 +350,18 @@ using B2003C4.Pages.Kansa;
 #line hidden
 #nullable disable
             );
-            __builder.AddMarkupContent(29, "\r\n        ");
-            __builder.AddMarkupContent(30, "<div>No</div>");
+            __builder.AddMarkupContent(46, "\r\n        ");
+            __builder.AddMarkupContent(47, "<div>No</div>\r\n    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(48, "\r\n\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(31, "\r\n\r\n");
-            __builder.OpenElement(32, "div");
-            __builder.OpenElement(33, "button");
-            __builder.AddAttribute(34, "id", "Back_button_Fixed");
-            __builder.AddAttribute(35, "class", "btn btn-warning Text_Color");
-            __builder.AddAttribute(36, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(49, "\r\n\r\n");
+            __builder.OpenElement(50, "div");
+            __builder.AddMarkupContent(51, "\r\n    ");
+            __builder.OpenElement(52, "button");
+            __builder.AddAttribute(53, "id", "Back_button_Fixed");
+            __builder.AddAttribute(54, "class", "btn btn-warning Text_Color");
+            __builder.AddAttribute(55, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 113 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
                                                                                 BackPage
@@ -351,8 +370,13 @@ using B2003C4.Pages.Kansa;
 #line hidden
 #nullable disable
             ));
-            __builder.AddMarkupContent(37, @"<svg width=""2em"" height=""2em"" viewBox=""0 0 16 16"" class=""bi bi-arrow-bar-left"" fill=""currentColor"" xmlns=""http://www.w3.org/2000/svg""><path fill-rule=""evenodd"" d=""M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z""></path></svg>");
+            __builder.AddMarkupContent(56, "\r\n        ");
+            __builder.AddMarkupContent(57, @"<svg width=""2em"" height=""2em"" viewBox=""0 0 16 16"" class=""bi bi-arrow-bar-left"" fill=""currentColor"" xmlns=""http://www.w3.org/2000/svg"">
+            <path fill-rule=""evenodd"" d=""M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z""></path>
+        </svg>
+    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(58, "\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

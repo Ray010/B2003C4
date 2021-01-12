@@ -22,9 +22,11 @@ namespace B2003C4.Data
             modelBuilder.Entity<Kakuzai_K95010>()
               .HasKey(kakuzai => new { kakuzai.DokuCode, kakuzai.SeqNo }); //複合PrimaryKeyの設定
 
+            /*
             modelBuilder.Entity<Kakuzai_K95020>()
                 .HasKey(kakuzai => new { kakuzai.DokuCode, kakuzai.SeqNo }); //複合PrimaryKeyの設定
-        }
+        */
+            }
 
 
 
@@ -44,7 +46,7 @@ namespace B2003C4.Data
 
         public virtual DbSet<Kakuzai_K95010> Kakuzai_K95010_List { get; set; }
 
-        //K95010
+        //K95020
 
         public virtual DbSet<Dokusya_K95020> Dokusya_K95020_List { get; set; }
 
@@ -57,6 +59,17 @@ namespace B2003C4.Data
         public virtual DbSet<Nengetu_K95020> Nengetu_K95020_List { get; set; }
 
         public virtual DbSet<Kakuzai_K95020> Kakuzai_K95020_List { get; set; }
+
+        //K95080
+
+        public virtual DbSet<Dokusya_K95080> Dokusya_K95080_List { get; set; }
+
+        public virtual DbSet<Koudoku_K95080> Koudoku_K95080_List { get; set; }
+
+        public virtual DbSet<Kuiki_K95080> Kuiki_K95080_List { get; set; }
+
+        public virtual DbSet<Kakuzai_K95080> Kakuzai_K95080_List { get; set; }
+
         //Etc
         public virtual DbSet<TenpoInfo> TenpoList { get; set; }
 

@@ -279,10 +279,10 @@ namespace B2003C4.Pages.IriTome
 
         public async void JumpPageIri(Iri_K95010 OnDokusya)
         {
-            Phase1Data.S_DokusyaCode = OnDokusya.DokuCode;
-            Phase1Data.S_DokusyaName = OnDokusya.Name;
-            Phase1Data.S_BuildingName = OnDokusya.Build;
-            Phase1Data.S_CityName = OnDokusya.Address;
+            Phase1Data.S_DokuCode = OnDokusya.DokuCode;
+            Phase1Data.S_DokuName = OnDokusya.Name;
+            Phase1Data.S_BuildName = OnDokusya.Build;
+            Phase1Data.S_ChomeiName = OnDokusya.Address;
             //Phase1Data.S_CityAddress = OnDokusya.CityAddress;
             //Phase1Data.S_PhoneNo_Sub = OnDokusya.PhoneNo_Sub;
             //Phase1Data.S_KuikiNo = OnDokusya.Kuiki;
@@ -294,10 +294,10 @@ namespace B2003C4.Pages.IriTome
 
         public async void JumpPageTome(Tome_K95010 OnDokusya)
         {
-            Phase1Data.S_DokusyaCode = OnDokusya.DokuCode;
-            Phase1Data.S_DokusyaName = OnDokusya.Name;
-            Phase1Data.S_BuildingName = OnDokusya.Build;
-            Phase1Data.S_CityName = OnDokusya.Address;
+            Phase1Data.S_DokuCode = OnDokusya.DokuCode;
+            Phase1Data.S_DokuName = OnDokusya.Name;
+            Phase1Data.S_BuildName = OnDokusya.Build;
+            Phase1Data.S_ChomeiName = OnDokusya.Address;
             //Phase1Data.S_CityAddress = OnDokusya.CityAddress;
             //Phase1Data.S_PhoneNo_Sub = OnDokusya.PhoneNo_Sub;
             //Phase1Data.S_KuikiNo = OnDokusya.Kuiki;

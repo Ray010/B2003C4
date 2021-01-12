@@ -29,6 +29,18 @@ namespace B2003C4.Pages.Kansa
         [Parameter]
         public EventCallback<DummyDataModel> DBSourceDataChanged { get; set; }
 
+
+        //DB-------------------------------------------------------------------------------
+
+        [Parameter]
+        public List<Kuiki_K95080> KuikiList { get; set; }
+        [Parameter]
+        public EventCallback<List<Kuiki_K95080>> KuikiListChanged { get; set; }
+
+
+
+
+
         /*
         [Parameter]
         public FormSearchDataModel SearchResultData { get; set; }
@@ -36,7 +48,7 @@ namespace B2003C4.Pages.Kansa
         public EventCallback<FormSearchDataModel> SearchResultDataChanged { get; set; }
         */
 
-        
+
         private async Task UpdateModelDataOrPhaseShift()
         {
             
@@ -223,7 +235,7 @@ namespace B2003C4.Pages.Kansa
         {
             CityName_SelectedValue = X;
             CityName_SelectFlg = true;
-            Phase1Data.S_CityName = CityName_SelectedValue;
+            Phase1Data.S_ChomeiName = CityName_SelectedValue;
         }
 
         /*
@@ -352,7 +364,7 @@ namespace B2003C4.Pages.Kansa
             //ConvertText 
             ConvertText = await JSRuntime.InvokeAsync<string> ("Convert", X);
             Console.WriteLine("Return is : " + ConvertText);
-            Phase1Data.S_BuildingKanaName = ConvertText;
+            Phase1Data.S_BuildKana = ConvertText;
 
             StateHasChanged();
         }

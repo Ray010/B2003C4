@@ -123,14 +123,16 @@ using MatBlazor;
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "card bg-light mt-3");
             __builder.AddAttribute(2, "style", "width:18rem ");
-            __builder.OpenElement(3, "div");
-            __builder.AddAttribute(4, "class", "card-body");
-            __builder.AddMarkupContent(5, "<h3 class=\"card-title\">Child Component</h3>\r\n        ");
-            __builder.OpenElement(6, "p");
-            __builder.AddAttribute(7, "class", "card-text");
-            __builder.AddContent(8, "Child ");
-            __builder.AddMarkupContent(9, "<code>Year</code>: ");
-            __builder.AddContent(10, 
+            __builder.AddMarkupContent(3, "\r\n    ");
+            __builder.OpenElement(4, "div");
+            __builder.AddAttribute(5, "class", "card-body");
+            __builder.AddMarkupContent(6, "\r\n        ");
+            __builder.AddMarkupContent(7, "<h3 class=\"card-title\">Child Component</h3>\r\n        ");
+            __builder.OpenElement(8, "p");
+            __builder.AddAttribute(9, "class", "card-text");
+            __builder.AddContent(10, "Child ");
+            __builder.AddMarkupContent(11, "<code>Year</code>: ");
+            __builder.AddContent(12, 
 #nullable restore
 #line 7 "C:\Work\B2003C4\B2003C4\Pages\TimeRoom\Child.razor"
                                                        Year
@@ -140,8 +142,8 @@ using MatBlazor;
 #nullable disable
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(11, " \r\n        ");
-            __builder.AddContent(12, 
+            __builder.AddMarkupContent(13, " \r\n        ");
+            __builder.AddContent(14, 
 #nullable restore
 #line 8 "C:\Work\B2003C4\B2003C4\Pages\TimeRoom\Child.razor"
          Year1
@@ -150,11 +152,13 @@ using MatBlazor;
 #line hidden
 #nullable disable
             );
+            __builder.AddMarkupContent(15, "\r\n    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(16, "\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(13, "\r\n\r\n");
-            __builder.OpenElement(14, "button");
-            __builder.AddAttribute(15, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(17, "\r\n\r\n");
+            __builder.OpenElement(18, "button");
+            __builder.AddAttribute(19, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 12 "C:\Work\B2003C4\B2003C4\Pages\TimeRoom\Child.razor"
                   UpdateYearFromChild
@@ -163,7 +167,7 @@ using MatBlazor;
 #line hidden
 #nullable disable
             ));
-            __builder.AddContent(16, "Update Year from Child");
+            __builder.AddContent(20, "Update Year from Child");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

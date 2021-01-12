@@ -34,6 +34,28 @@ namespace B2003C4.Pages.Kansa
         public EventCallback<DummyDataModel> DBSourceDataChanged { get; set; }
         //--------------------------------------------------------------------------------------------------
 
+        //DB------------------------------------------------------------------------------------------------
+
+
+        [Parameter]
+        public List<Kuiki_K95010> C_KuikiList { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Kuiki_K95010>> C_KuikiListChanged { get; set; }
+
+        [Parameter]
+        public List<Kuiki_K95010> C_DokusyaList { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Kuiki_K95010>> C_DokusyaListChanged { get; set; }
+
+
+
+
+
+
+        //DB------------------------------------------------------------------------------------------------
+
         //受け渡し用のリザルトデータ------------------------------------------------------------------------
         /*
         [Parameter]
@@ -65,7 +87,7 @@ namespace B2003C4.Pages.Kansa
                 //StartWithのnullチェック
                 try
                 {
-                    DokusyaNameNull = x.DokusyaName.StartsWith(Phase2Data.S_DokusyaName);
+                    DokusyaNameNull = x.DokusyaName.StartsWith(Phase2Data.S_DokuName);
                 }
                 catch(ArgumentNullException)
                 {
@@ -73,7 +95,7 @@ namespace B2003C4.Pages.Kansa
                 }
                 try
                 {
-                    DokusyaKanaNameNull = x.DokusyaKanaName.StartsWith(Phase2Data.S_DokusyaKanaName);
+                    DokusyaKanaNameNull = x.DokusyaKanaName.StartsWith(Phase2Data.S_DokuKana);
                 }
                 catch (ArgumentNullException)
                 {
@@ -89,7 +111,7 @@ namespace B2003C4.Pages.Kansa
                 }
                 try
                 {
-                    BuildingNameNull = x.BuildingName.StartsWith(Phase2Data.S_BuildingName);
+                    BuildingNameNull = x.BuildingName.StartsWith(Phase2Data.S_BuildName);
                 }
                 catch (ArgumentNullException)
                 {
@@ -97,7 +119,7 @@ namespace B2003C4.Pages.Kansa
                 }
                 try
                 {
-                    BuildingKanaNameNull = x.BuildingKanaName.StartsWith(Phase2Data.S_BuildingKanaName);
+                    BuildingKanaNameNull = x.BuildingKanaName.StartsWith(Phase2Data.S_BuildKana);
                 }
                 catch (ArgumentNullException)
                 {
@@ -122,18 +144,18 @@ namespace B2003C4.Pages.Kansa
                 //StartWithのnull例外チェック終わり
 
                 if (
-                (x.DokusyaCode == Phase2Data.S_DokusyaCode || null == Phase2Data.S_DokusyaCode) &&
+                (x.DokusyaCode == Phase2Data.S_DokuCode || null == Phase2Data.S_DokuCode) &&
                 (x.Kuiki == Phase2Data.S_KuikiNo || null == Phase2Data.S_KuikiNo) &&
                 (x.Junro == Phase2Data.S_Junro || null == Phase2Data.S_Junro) &&
                 (x.Junro_Sub == Phase2Data.S_Junro_Sub || null == Phase2Data.S_Junro_Sub) &&
                 DokusyaNameNull &&
                 DokusyaKanaNameNull &&
                 PhoneNo_SubNull &&
-                (x.CityName == Phase2Data.S_CityName || null == Phase2Data.S_CityName) &&
+                (x.CityName == Phase2Data.S_ChomeiName || null == Phase2Data.S_ChomeiName) &&
                 (x.CityAddress == Phase2Data.S_CityAddress || null == Phase2Data.S_CityAddress) &&
                 BuildingNameNull &&
                 BuildingKanaNameNull &&
-                (x.ShitsuBan == Phase2Data.S_ShitsuBan || null == Phase2Data.S_ShitsuBan) &&
+                (x.ShitsuBan == Phase2Data.S_RoomNo || null == Phase2Data.S_RoomNo) &&
                 CheckResultNull
                 )
                 {
@@ -238,9 +260,9 @@ namespace B2003C4.Pages.Kansa
             //---------------------------------------------
  
             //Phase2Data.S_DokusyaCode = X.DokusyaCode;
-            Phase2Data.S_DokusyaName = X.DokusyaName;
-            Phase2Data.S_BuildingName = X.BuildingName;
-            Phase2Data.S_CityName = X.CityName;
+            Phase2Data.S_DokuName = X.DokusyaName;
+            Phase2Data.S_BuildName = X.BuildingName;
+            Phase2Data.S_ChomeiName = X.CityName;
             Phase2Data.S_CityAddress = X.CityAddress;
             Phase2Data.S_PhoneNo_Sub = X.PhoneNo_Sub;
             Phase2Data.S_KuikiNo = X.Kuiki;

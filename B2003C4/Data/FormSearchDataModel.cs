@@ -47,39 +47,63 @@ namespace B2003C4.Data
         [DataType(DataType.PhoneNumber)]
         public string Name { get; set; }
 
+        /*
         [DataType(DataType.PhoneNumber)]
         [StringLength(4, ErrorMessage = "Name is too long.")]
         public string DokuCode { get; set; } = null;
-
+        */
 
         //検索条件格納用
-        public int? S_DokusyaCode = null; //読者コード
+        public uint? S_KuikiNo { get; set; } = null; //区域番号
 
-        public uint? S_KuikiNo = null; //区域番号
+        public uint? S_Junro { get; set; } //順路（最初の４桁)
 
-        public uint? S_Junro; //順路（最初の４桁)
+        public int S_KuikiJunro { get; set; }
 
-        public uint? S_Junro_Sub; //順路（最後の２桁）
+        public string S_KuikiJunroView { get; set; }
 
-        public string S_DokusyaName; //読者名
+        public int? S_DokuCode { get; set; } = null; //読者コード
 
-        public string S_DokusyaKanaName; //読者名
+        public string S_DokuName { get; set; } //読者名
 
-        public uint? S_PhoneNo; //未使用
+        public string S_DokuKana { get; set; } //読者名
 
-        public string S_PhoneNo_Sub; //電話番号4
+        public string S_DokuKbn { get; set; }
 
-        public string S_CityName; //町名
+        public string S_Sigai { get; set; }
 
-        public string S_CityAddress;
+        public string S_Tel { get; set; }
 
-        public string S_BuildingName; //建物名
+        public int S_ChomeiCode { get; set; }
 
-        public string S_BuildingKanaName; //建物名(カナ)
+        public string S_ChomeiName { get; set; } //町名
 
-        public uint? S_ShitsuBan;
+        public int S_Banti { get; set; }
+
+        public int S_Gou { get; set; }
+
+        public string S_BuildName { get; set; } //建物名
+
+        public string S_BuildKana { get; set; } //建物名(カナ)
+
+        public uint? S_RoomNo { get; set; } //室番号
 
         public string[] CheckResult = new string[0] { };
+
+
+
+
+
+        //保留-------------------------------------------------------------------------
+        public uint? S_Junro_Sub; //順路（最後の２桁）
+
+        public uint? S_PhoneNo { get; set; } //未使用
+
+        public string S_PhoneNo_Sub { get; set; } //電話番号4
+
+        public string S_CityAddress { get; set; }
+
+       
 
         //public List<string> CheckResult = new List<string>();
 

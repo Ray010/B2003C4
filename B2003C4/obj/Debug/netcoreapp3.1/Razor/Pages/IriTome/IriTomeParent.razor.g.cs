@@ -135,8 +135,9 @@ using B2003C4.Pages.Common;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenComponent<MatBlazor.MatProgressCircle>(0);
-            __builder.AddAttribute(1, "Indeterminate", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Boolean>(
+            __builder.AddContent(0, "    ");
+            __builder.OpenComponent<MatBlazor.MatProgressCircle>(1);
+            __builder.AddAttribute(2, "Indeterminate", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Boolean>(
 #nullable restore
 #line 17 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
                                       true
@@ -145,7 +146,7 @@ using B2003C4.Pages.Common;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(2, "FourColored", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Boolean>(
+            __builder.AddAttribute(3, "FourColored", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Boolean>(
 #nullable restore
 #line 17 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
                                                          true
@@ -155,6 +156,7 @@ using B2003C4.Pages.Common;
 #nullable disable
             ));
             __builder.CloseComponent();
+            __builder.AddMarkupContent(4, "\r\n");
 #nullable restore
 #line 18 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
 
@@ -172,8 +174,9 @@ else
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenComponent<B2003C4.Pages.IriTome.MainFragment>(3);
-            __builder.AddAttribute(4, "Phase1Data", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
+            __builder.AddContent(5, "            ");
+            __builder.OpenComponent<B2003C4.Pages.IriTome.MainFragment>(6);
+            __builder.AddAttribute(7, "Phase1Data", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
 #nullable restore
 #line 29 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
                                             CurrentPage
@@ -182,8 +185,8 @@ else
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(5, "Phase1DataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
-            __builder.AddAttribute(6, "C_IriList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<B2003C4.Data.Iri_K95010>>(
+            __builder.AddAttribute(8, "Phase1DataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
+            __builder.AddAttribute(9, "C_IriList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<B2003C4.Data.Iri_K95010>>(
 #nullable restore
 #line 29 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
                                                                           P_IriList
@@ -192,8 +195,8 @@ else
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(7, "C_IriListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Collections.Generic.List<B2003C4.Data.Iri_K95010>>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Collections.Generic.List<B2003C4.Data.Iri_K95010>>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => P_IriList = __value, P_IriList))));
-            __builder.AddAttribute(8, "C_TomeList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<B2003C4.Data.Tome_K95010>>(
+            __builder.AddAttribute(10, "C_IriListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Collections.Generic.List<B2003C4.Data.Iri_K95010>>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Collections.Generic.List<B2003C4.Data.Iri_K95010>>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => P_IriList = __value, P_IriList))));
+            __builder.AddAttribute(11, "C_TomeList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<B2003C4.Data.Tome_K95010>>(
 #nullable restore
 #line 29 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
                                                                                                        P_TomeList
@@ -202,8 +205,8 @@ else
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(9, "C_TomeListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Collections.Generic.List<B2003C4.Data.Tome_K95010>>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Collections.Generic.List<B2003C4.Data.Tome_K95010>>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => P_TomeList = __value, P_TomeList))));
-            __builder.AddAttribute(10, "C_KuikiList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<B2003C4.Data.Kuiki_K95010>>(
+            __builder.AddAttribute(12, "C_TomeListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Collections.Generic.List<B2003C4.Data.Tome_K95010>>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Collections.Generic.List<B2003C4.Data.Tome_K95010>>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => P_TomeList = __value, P_TomeList))));
+            __builder.AddAttribute(13, "C_KuikiList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<B2003C4.Data.Kuiki_K95010>>(
 #nullable restore
 #line 29 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
                                                                                                                                       P_KuikiList
@@ -212,8 +215,8 @@ else
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(11, "C_KuikiListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Collections.Generic.List<B2003C4.Data.Kuiki_K95010>>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Collections.Generic.List<B2003C4.Data.Kuiki_K95010>>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => P_KuikiList = __value, P_KuikiList))));
-            __builder.AddAttribute(12, "C_NengetuList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<B2003C4.Data.Nengetu_K95010>>(
+            __builder.AddAttribute(14, "C_KuikiListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Collections.Generic.List<B2003C4.Data.Kuiki_K95010>>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Collections.Generic.List<B2003C4.Data.Kuiki_K95010>>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => P_KuikiList = __value, P_KuikiList))));
+            __builder.AddAttribute(15, "C_NengetuList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<B2003C4.Data.Nengetu_K95010>>(
 #nullable restore
 #line 29 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
                                                                                                                                                                         P_NengetuList
@@ -222,8 +225,9 @@ else
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(13, "C_NengetuListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Collections.Generic.List<B2003C4.Data.Nengetu_K95010>>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Collections.Generic.List<B2003C4.Data.Nengetu_K95010>>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => P_NengetuList = __value, P_NengetuList))));
+            __builder.AddAttribute(16, "C_NengetuListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Collections.Generic.List<B2003C4.Data.Nengetu_K95010>>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Collections.Generic.List<B2003C4.Data.Nengetu_K95010>>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => P_NengetuList = __value, P_NengetuList))));
             __builder.CloseComponent();
+            __builder.AddMarkupContent(17, "\r\n");
 #nullable restore
 #line 30 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
             //bind-DBSourceData="TomeList"
@@ -245,8 +249,9 @@ else
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenComponent<MatBlazor.MatProgressCircle>(14);
-            __builder.AddAttribute(15, "Indeterminate", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Boolean>(
+            __builder.AddContent(18, "                ");
+            __builder.OpenComponent<MatBlazor.MatProgressCircle>(19);
+            __builder.AddAttribute(20, "Indeterminate", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Boolean>(
 #nullable restore
 #line 38 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
                                                     true
@@ -255,7 +260,7 @@ else
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(16, "FourColored", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Boolean>(
+            __builder.AddAttribute(21, "FourColored", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Boolean>(
 #nullable restore
 #line 38 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
                                                                          true
@@ -265,6 +270,7 @@ else
 #nullable disable
             ));
             __builder.CloseComponent();
+            __builder.AddMarkupContent(22, "\r\n");
 #nullable restore
 #line 39 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
 
@@ -275,8 +281,9 @@ else
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenComponent<B2003C4.Pages.Common.DokusyaActivity>(17);
-            __builder.AddAttribute(18, "CommonPhase1", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
+            __builder.AddContent(23, "                ");
+            __builder.OpenComponent<B2003C4.Pages.Common.DokusyaActivity>(24);
+            __builder.AddAttribute(25, "CommonPhase1", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
 #nullable restore
 #line 43 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
                                                      CurrentPage
@@ -285,8 +292,8 @@ else
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(19, "CommonPhase1Changed", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
-            __builder.AddAttribute(20, "DBSourceData", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.DummyDataModel>(
+            __builder.AddAttribute(26, "CommonPhase1Changed", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
+            __builder.AddAttribute(27, "DBSourceData", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.DummyDataModel>(
 #nullable restore
 #line 43 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
                                                                                       DBData
@@ -295,8 +302,8 @@ else
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(21, "DBSourceDataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.DummyDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.DummyDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => DBData = __value, DBData))));
-            __builder.AddAttribute(22, "C_DokusyaList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<B2003C4.Data.Dokusya_K95010>>(
+            __builder.AddAttribute(28, "DBSourceDataChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.DummyDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.DummyDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => DBData = __value, DBData))));
+            __builder.AddAttribute(29, "C_DokusyaList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<B2003C4.Data.Dokusya_K95010>>(
 #nullable restore
 #line 43 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
                                                                                                                    P_DokusyaList
@@ -305,8 +312,8 @@ else
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(23, "C_DokusyaListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Collections.Generic.List<B2003C4.Data.Dokusya_K95010>>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Collections.Generic.List<B2003C4.Data.Dokusya_K95010>>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => P_DokusyaList = __value, P_DokusyaList))));
-            __builder.AddAttribute(24, "C_KoudokuList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<B2003C4.Data.Koudoku_K95010>>(
+            __builder.AddAttribute(30, "C_DokusyaListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Collections.Generic.List<B2003C4.Data.Dokusya_K95010>>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Collections.Generic.List<B2003C4.Data.Dokusya_K95010>>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => P_DokusyaList = __value, P_DokusyaList))));
+            __builder.AddAttribute(31, "C_KoudokuList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<B2003C4.Data.Koudoku_K95010>>(
 #nullable restore
 #line 43 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
                                                                                                                                                        P_KoudokuList
@@ -315,8 +322,9 @@ else
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(25, "C_KoudokuListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Collections.Generic.List<B2003C4.Data.Koudoku_K95010>>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Collections.Generic.List<B2003C4.Data.Koudoku_K95010>>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => P_KoudokuList = __value, P_KoudokuList))));
+            __builder.AddAttribute(32, "C_KoudokuListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Collections.Generic.List<B2003C4.Data.Koudoku_K95010>>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Collections.Generic.List<B2003C4.Data.Koudoku_K95010>>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => P_KoudokuList = __value, P_KoudokuList))));
             __builder.CloseComponent();
+            __builder.AddMarkupContent(33, "\r\n");
 #nullable restore
 #line 44 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
             }
@@ -335,8 +343,9 @@ else
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenComponent<B2003C4.Pages.Common.MeihanActivity>(26);
-            __builder.AddAttribute(27, "CommonPhase2", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
+            __builder.AddContent(34, "            ");
+            __builder.OpenComponent<B2003C4.Pages.Common.MeihanActivity>(35);
+            __builder.AddAttribute(36, "CommonPhase2", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<B2003C4.Data.FormSearchDataModel>(
 #nullable restore
 #line 49 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
                                                 CurrentPage
@@ -345,8 +354,8 @@ else
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(28, "CommonPhase2Changed", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
-            __builder.AddAttribute(29, "C_DokusyaList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<B2003C4.Data.Dokusya_K95010>>(
+            __builder.AddAttribute(37, "CommonPhase2Changed", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<B2003C4.Data.FormSearchDataModel>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<B2003C4.Data.FormSearchDataModel>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => CurrentPage = __value, CurrentPage))));
+            __builder.AddAttribute(38, "C_DokusyaList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<B2003C4.Data.Dokusya_K95010>>(
 #nullable restore
 #line 49 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
                                                                                   P_DokusyaList
@@ -355,8 +364,8 @@ else
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(30, "C_DokusyaListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Collections.Generic.List<B2003C4.Data.Dokusya_K95010>>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Collections.Generic.List<B2003C4.Data.Dokusya_K95010>>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => P_DokusyaList = __value, P_DokusyaList))));
-            __builder.AddAttribute(31, "C_KakuzaiList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<B2003C4.Data.Kakuzai_K95010>>(
+            __builder.AddAttribute(39, "C_DokusyaListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Collections.Generic.List<B2003C4.Data.Dokusya_K95010>>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Collections.Generic.List<B2003C4.Data.Dokusya_K95010>>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => P_DokusyaList = __value, P_DokusyaList))));
+            __builder.AddAttribute(40, "C_KakuzaiList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<B2003C4.Data.Kakuzai_K95010>>(
 #nullable restore
 #line 49 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
                                                                                                                       P_KakuzaiList
@@ -365,8 +374,8 @@ else
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(32, "C_KakuzaiListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Collections.Generic.List<B2003C4.Data.Kakuzai_K95010>>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Collections.Generic.List<B2003C4.Data.Kakuzai_K95010>>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => P_KakuzaiList = __value, P_KakuzaiList))));
-            __builder.AddAttribute(33, "C_KoudokuList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<B2003C4.Data.Koudoku_K95010>>(
+            __builder.AddAttribute(41, "C_KakuzaiListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Collections.Generic.List<B2003C4.Data.Kakuzai_K95010>>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Collections.Generic.List<B2003C4.Data.Kakuzai_K95010>>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => P_KakuzaiList = __value, P_KakuzaiList))));
+            __builder.AddAttribute(42, "C_KoudokuList", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<B2003C4.Data.Koudoku_K95010>>(
 #nullable restore
 #line 49 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
                                                                                                                                                           P_KoudokuList
@@ -375,8 +384,9 @@ else
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(34, "C_KoudokuListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Collections.Generic.List<B2003C4.Data.Koudoku_K95010>>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Collections.Generic.List<B2003C4.Data.Koudoku_K95010>>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => P_KoudokuList = __value, P_KoudokuList))));
+            __builder.AddAttribute(43, "C_KoudokuListChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.Collections.Generic.List<B2003C4.Data.Koudoku_K95010>>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.Collections.Generic.List<B2003C4.Data.Koudoku_K95010>>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => P_KoudokuList = __value, P_KoudokuList))));
             __builder.CloseComponent();
+            __builder.AddMarkupContent(44, "\r\n");
 #nullable restore
 #line 50 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
             goto End;
@@ -393,9 +403,10 @@ else
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(35, "div");
-            __builder.AddMarkupContent(36, "ハンドリングエラー:存在しないページ（PhaseNo:");
-            __builder.AddContent(37, 
+            __builder.AddContent(45, "            ");
+            __builder.OpenElement(46, "div");
+            __builder.AddMarkupContent(47, "ハンドリングエラー:存在しないページ（PhaseNo:");
+            __builder.AddContent(48, 
 #nullable restore
 #line 60 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
                                              CurrentPage.S_PhoneNo
@@ -404,8 +415,9 @@ else
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(38, " )");
+            __builder.AddContent(49, " )");
             __builder.CloseElement();
+            __builder.AddMarkupContent(50, "\r\n");
 #nullable restore
 #line 61 "C:\Work\B2003C4\B2003C4\Pages\IriTome\IriTomeParent.razor"
             break;

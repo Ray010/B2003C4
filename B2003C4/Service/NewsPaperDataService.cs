@@ -14,7 +14,6 @@ namespace B2003C4.Service
         public NewsPaperDataService(NewsPaperDbContext context) =>
             _Context = context;
 
-
         public Task<List<TenpoInfo>> GetTenpoListAsync() => _Context.TenpoList.OrderBy(x => x.Tenpo).ToListAsync();
 
         //K95010
@@ -49,6 +48,13 @@ namespace B2003C4.Service
         public Task<List<Kakuzai_K95020>> GetKakuzai_K95020_ListAsync() => _Context.Kakuzai_K95020_List.OrderBy(x => x.DokuCode).ToListAsync();
 
         //K95080
+        public Task<List<Dokusya_K95080>> GetDokusya_K95080_ListAsync() => _Context.Dokusya_K95080_List.OrderBy(x => x.DokuCode).ToListAsync();
+
+        public Task<List<Koudoku_K95080>> GetKoudoku_K95080_ListAsync() => _Context.Koudoku_K95080_List.OrderBy(x => x.DokuCode).ToListAsync();
+
+        public Task<List<Kuiki_K95080>> GetKuiki_K95080_ListAsync() => _Context.Kuiki_K95080_List.OrderBy(x => x.Kuiki).ToListAsync();
+
+        public Task<List<Kakuzai_K95080>> GetKakuzai_K95080_ListAsync() => _Context.Kakuzai_K95080_List.OrderBy(x => x.DokuCode).ToListAsync();
 
     }
 }

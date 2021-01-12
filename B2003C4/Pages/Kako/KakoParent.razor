@@ -24,11 +24,34 @@
         goto End;
 
     case 11:
-        <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" />
+
+        @if (P_DokusyaList.Count == 0 || P_KoudokuList.Count == 0)
+        {
+            <MatProgressCircle Indeterminate="true" FourColored="true" />
+
+        }
+        else
+        {
+            var x = P_DokusyaList.Cast<Dokusya_K95010>().ToList();
+            var y = P_KoudokuList.Cast<Koudoku_K95010>().ToList();
+            <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" @bind-C_DokusyaList="x" @bind-C_KoudokuList="y" />
+        }
+
         goto End;
 
     case 12:
-        <MeihanActivity @bind-CommonPhase2="CurrentPage" />
+        @if (P_DokusyaList.Count == 0 || P_KoudokuList.Count == 0)
+        {
+            <MatProgressCircle Indeterminate="true" FourColored="true" />
+
+        }
+        else
+        {
+            var x = P_DokusyaList.Cast<Dokusya_K95010>().ToList();
+            var y = P_KoudokuList.Cast<Koudoku_K95010>().ToList();
+            var z = P_KakuzaiList.Cast<Kakuzai_K95010>().ToList();
+            <MeihanActivity @bind-CommonPhase2="CurrentPage" @bind-C_DokusyaList="x" @bind-C_KoudokuList="y" @bind-C_KakuzaiList="z"  />
+        }
         @* @bind-DBSourceData="DBData" @bind-KoudokuList="KoudokuDummyData" />*@
 
         End:

@@ -197,7 +197,7 @@ namespace B2003C4.Pages.Kako
         protected NavigationManager Navi { get; set; }
         public async void JumpPage(Tome_K95020 OnDokusya)
         {
-            Phase1Data.S_DokusyaCode = OnDokusya.DokuCode;
+            Phase1Data.S_DokuCode = OnDokusya.DokuCode;
 
 
             Phase1Data.PhaseNo = 11;

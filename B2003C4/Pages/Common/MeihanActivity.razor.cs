@@ -138,9 +138,9 @@ namespace B2003C4.Pages.Common
 
         protected override void OnInitialized()
         {
-            var DokusyaList = C_KakuzaiList.Where(n => n.DokuCode == CommonPhase2.S_DokusyaCode);
+            var DokusyaList = C_KakuzaiList.Where(n => n.DokuCode == CommonPhase2.S_DokuCode);
 
-            var Temp_S_Koudoku = C_KoudokuList.FirstOrDefault(n => n.DokuCode == CommonPhase2.S_DokusyaCode);
+            var Temp_S_Koudoku = C_KoudokuList.FirstOrDefault(n => n.DokuCode == CommonPhase2.S_DokuCode);
 
             S_Koudoku.Add(new Koumoku(Temp_S_Koudoku.MgFullName,""));
             S_Koudoku.Add(new Koumoku(Temp_S_Koudoku.KeiyakuDay + Temp_S_Koudoku.TomeDay, ""));

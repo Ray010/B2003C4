@@ -144,7 +144,7 @@ namespace B2003C4.Pages
 
         void Up()
         {
-            CurrentPage.S_DokusyaCode = CurrentPage.S_DokusyaCode + 1;
+            CurrentPage.S_DokuCode = CurrentPage.S_DokuCode + 1;
             CurrentPageChanged.InvokeAsync(CurrentPage);
             Console.WriteLine(msg + "UP" + _currentPage.IndexURL);
         }
