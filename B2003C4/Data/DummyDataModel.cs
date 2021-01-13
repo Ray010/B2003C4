@@ -36,7 +36,7 @@ namespace B2003C4.Data
             public uint DokusyaCode; //読者コード
 
 
-            public uint Kuiki; //区域
+            public int? Kuiki; //区域
             public uint Junro;
             public uint Junro_Sub;
             public string DokusyaName; //読者名
@@ -60,7 +60,7 @@ namespace B2003C4.Data
             public Dokusya(
                             string dokusyaStatus, //読者の状態
                             uint dokusyaCode, //読者番号
-                            uint kuiki, //区域番号
+                            int kuiki, //区域番号
 
                             uint junro, //順路（ハイフンより前）
                             uint junro_Sub,

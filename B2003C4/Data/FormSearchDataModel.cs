@@ -54,9 +54,9 @@ namespace B2003C4.Data
         */
 
         //検索条件格納用
-        public uint? S_KuikiNo { get; set; } = null; //区域番号
+        public int? S_KuikiNo { get; set; } = null; //区域番号
 
-        public uint? S_Junro { get; set; } //順路（最初の４桁)
+        public int? S_Junro { get; set; } //順路（最初の４桁)
 
         public int S_KuikiJunro { get; set; }
 
@@ -74,19 +74,19 @@ namespace B2003C4.Data
 
         public string S_Tel { get; set; }
 
-        public int S_ChomeiCode { get; set; }
+        public int? S_ChomeiCode { get; set; }
 
         public string S_ChomeiName { get; set; } //町名
 
-        public int S_Banti { get; set; }
+        public int? S_Banti { get; set; }
 
-        public int S_Gou { get; set; }
+        public int? S_Gou { get; set; }
 
         public string S_BuildName { get; set; } //建物名
 
         public string S_BuildKana { get; set; } //建物名(カナ)
 
-        public uint? S_RoomNo { get; set; } //室番号
+        public int? S_RoomNo { get; set; } //室番号
 
         public string[] CheckResult = new string[0] { };
 
@@ -95,7 +95,7 @@ namespace B2003C4.Data
 
 
         //保留-------------------------------------------------------------------------
-        public uint? S_Junro_Sub; //順路（最後の２桁）
+        public int? S_Junro_Sub; //順路（最後の２桁）
 
         public uint? S_PhoneNo { get; set; } //未使用
 

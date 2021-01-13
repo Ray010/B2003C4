@@ -33,9 +33,9 @@ namespace B2003C4.Pages.Kansa
         //DB-------------------------------------------------------------------------------
 
         [Parameter]
-        public List<Kuiki_K95080> KuikiList { get; set; }
+        public List<Kuiki_K95080> C_KuikiList { get; set; }
         [Parameter]
-        public EventCallback<List<Kuiki_K95080>> KuikiListChanged { get; set; }
+        public EventCallback<List<Kuiki_K95080>> C_KuikiListChanged { get; set; }
 
 
 
@@ -65,8 +65,8 @@ namespace B2003C4.Pages.Kansa
 
         public Boolean Kuiki_SelectFlg { get; set; } = false;
         //string Kuiki_SelectedValue;
-        uint? Kuiki_SelectedValue;
-        uint? Kuiki_SelectValue
+        int? Kuiki_SelectedValue;
+        int? Kuiki_SelectValue
         { get => Kuiki_SelectedValue; set { Kuiki_SelectedValue = value; } }
 
            
@@ -89,15 +89,8 @@ namespace B2003C4.Pages.Kansa
 
  //ユーザーが入力した値
 
-        List<Kuiki> KuikiList = new List<Kuiki>()
-        {
-            new Kuiki("",null),
-            new Kuiki("1区",1),
-            new Kuiki("2区",2),
-            new Kuiki("3区",3),
-            new Kuiki("4区",4),
-            new Kuiki("5区",5),
-        };
+
+
 
         List<Kubun> KubunList = new List<Kubun>()
         {
@@ -133,9 +126,9 @@ namespace B2003C4.Pages.Kansa
         public class Kuiki
         {
             public string KuikiName { get; set; }
-            public uint? KuikiCode { get; set; }
+            public int? KuikiCode { get; set; }
 
-            public Kuiki(string kuikiName, uint? kuikiCode)
+            public Kuiki(string kuikiName, int? kuikiCode)
             {
                 KuikiName = kuikiName;
                 KuikiCode = kuikiCode;
@@ -145,7 +138,7 @@ namespace B2003C4.Pages.Kansa
         public string[] CityList = new string[0] { };
         public int CityCount;
 
-
+        List<Kuiki> KuikiList = new List<Kuiki>();
 
         //チェックボックス生成用
         public List<List<Kubun>> ChkBoxList = new List<List<Kubun>>();
@@ -186,6 +179,23 @@ namespace B2003C4.Pages.Kansa
                 }
             }
             */
+
+
+            //区域
+            foreach(var Kuiki in C_KuikiList)
+            {
+                if (Phase1Data.Select_TenpoNo == Kuiki.Tenpo)
+                {
+                    KuikiList.Add(new Kuiki(Kuiki.Name, Kuiki.Kuiki));
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
+
+
             foreach(var CityName in DBSourceData.DokusyaList)
             {
                 if(Array.IndexOf(CityList , CityName.CityName) == -1)
@@ -224,7 +234,7 @@ namespace B2003C4.Pages.Kansa
             Phase1DataChanged.InvokeAsync(Phase1Data);
         }
 
-        public void OnChangeEventKuiki(uint? X)
+        public void OnChangeEventKuiki(int? X)
         {
             Kuiki_SelectedValue = X;
             Kuiki_SelectFlg = true;

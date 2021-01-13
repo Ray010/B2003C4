@@ -85,7 +85,7 @@ namespace B2003C4.Data
         public int? Zu_Bekki { get; set; }
         */
         [Column("KuikiJunro")]
-        public int KuikiJunro { get; set; }
+        public int? KuikiJunro { get; set; }
 
         [Column("KuikiJunroView")]
         public string KuikiJunroView { get; set; }
@@ -159,16 +159,16 @@ namespace B2003C4.Data
         public string SigaiTelView6 { get; set; }
 
         [Column("ChomeiCode")]
-        public int ChomeiCode { get; set; }
+        public int? ChomeiCode { get; set; }
 
         [Column("ChomeiName")]
         public string ChomeiName { get; set; }
 
         [Column("Banti")]
-        public int Banti_Kansa { get; set; }
+        public int? Banti_Kansa { get; set; }
 
         [Column("Gou")]
-        public int Gou { get; set; }
+        public int? Gou { get; set; }
 
         [Column("AddressView")]
         public string AddressView { get; set; }
@@ -186,7 +186,7 @@ namespace B2003C4.Data
         public string Siharai { get; set; }
 
         [Column("SiharaiKbn")]
-        public int SiharaiKbn { get; set; }
+        public int? SiharaiKbn { get; set; }
 
         [Column("SiharaiColor")]
         public string SiharaiColor { get; set; }

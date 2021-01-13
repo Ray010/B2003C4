@@ -196,7 +196,6 @@ C:\Work\B2003C4\B2003C4\obj\Debug\netcoreapp3.1\B2003C4.RazorAssemblyInfo.cache
 C:\Work\B2003C4\B2003C4\obj\Debug\netcoreapp3.1\B2003C4.RazorAssemblyInfo.cs
 C:\Work\B2003C4\B2003C4\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Work\B2003C4\B2003C4\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Work\B2003C4\B2003C4\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Work\B2003C4\B2003C4\bin\Debug\netcoreapp3.1\B2003C4.StaticWebAssets.xml
 C:\Work\B2003C4\B2003C4\bin\Debug\netcoreapp3.1\B2003C4.exe
 C:\Work\B2003C4\B2003C4\bin\Debug\netcoreapp3.1\B2003C4.deps.json
@@ -268,3 +267,6 @@ C:\Work\B2003C4\B2003C4\obj\Debug\netcoreapp3.1\staticwebassets\B2003C4.StaticWe
 C:\Work\B2003C4\B2003C4\obj\Debug\netcoreapp3.1\B2003C4.dll
 C:\Work\B2003C4\B2003C4\obj\Debug\netcoreapp3.1\B2003C4.pdb
 C:\Work\B2003C4\B2003C4\obj\Debug\netcoreapp3.1\B2003C4.genruntimeconfig.cache
+C:\Work\B2003C4\B2003C4\obj\Debug\netcoreapp3.1\B2003C4.csprojAssemblyReference.cache
+C:\Work\B2003C4\B2003C4\obj\Debug\netcoreapp3.1\B2003C4.RazorComponent.output.cache
+C:\Work\B2003C4\B2003C4\obj\Debug\netcoreapp3.1\scopedcss\bundle\B2003C4.styles.css
