@@ -181,6 +181,28 @@ namespace B2003C4.Pages.Kansa
             */
 
 
+
+
+            
+
+
+
+            switch (Device)
+            {
+                case "iPhone5s":
+                    Layout_Button = "mat-layout-grid-cell-span-2";
+                    Layout_Long = "mat-layout-grid-cell-span-12";
+                    Layout_Middle_M = "mat-layout-grid-cell-span-3";
+                    Layout_Middle_S = "mat-layout-grid-cell-span-2";
+                    Layout_Small = "mat-layout-grid-cell-span-1";
+
+                    break;
+
+                default:
+                    break;
+
+            }
+        
             //区域
             foreach(var Kuiki in C_KuikiList)
             {

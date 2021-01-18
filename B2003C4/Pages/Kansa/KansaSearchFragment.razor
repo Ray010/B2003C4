@@ -7,6 +7,7 @@
 @using MatBlazor;
 
 
+
 <!DOCTYPE HTML>
 <html lang="ja">
 
@@ -53,7 +54,7 @@
         }
 
         .Scroll_Height_40 {
-            height: 110vw;
+            height: @Scroll_Size;
         }
 
         .Card_child {
@@ -261,493 +262,208 @@
 </head>
 
 
-<body style="overflow:hidden" class="Bg_Color">
-    <!--デモ用に海老沼が仮で作りましたｶﾘｶﾘ-->
-    <!--保留-->
+@code{
+
+    public string Device = "iPhone5s";
+
+    public string Layout_Button;
+
+    public string Layout_Long;
+
+    public string Layout_Middle_M;
+
+    public string Layout_Middle_S;
+
+    public string Layout_Small;
+
+    public string Scroll_Size = "120vw";
+
+    public Boolean TextInputActive = true; //順路、枝番号の制御用
+
+
     @*
-        <EditForm Model="@formDataModel" OnValidSubmit="sha">
-
-            <DataAnnotationsValidator />
-            <ValidationSummary />
-
-            <InputData @bind-value="@formDataModel.S_DokusyaCode" @bind-value:event="oninput" />
-            <ValidationMessage For="@(() => formDataModel.S_DokusyaCode)" />
-
-            <ValidationSummary Model="@formDataModel" />
-            <ValidationMessage For="@(() => formDataModel.Name)" />
-        </EditForm>
-    *@
-    @code{
-        public void sha()
+        protected override void OnInitialized()
         {
 
+            switch (Device)
+            {
+                case "iPhone5s":
+                    Layout_Button = "mat-layout-grid-cell-span-2";
+                    Layout_Long = "mat-layout-grid-cell-span-12";
+                    Layout_Middle_M = "mat-layout-grid-cell-span-3";
+                    Layout_Middle_S = "mat-layout-grid-cell-span-2";
+                    Layout_Small = "mat-layout-grid-cell-span-1";
+
+                    break;
+
+                default:
+                    break;
+
+            }
         }
-        // @bind-Value:event="oninput"
+    *@
+}
+
+<body style="overflow:hidden" class="Bg_Color">
+
+    <div class="mat-layout-grid" style="padding:0.1rem;">
+        <div class="mat-layout-grid-inner">
+            <div class="mat-layout-grid-cell @Layout_Button ">
+                <MatButton Raised="true" OnClick="Sample" Disabled="!Phase1Data.LoadingState" style="width:100%;">検索</MatButton>
+                <!--<MatButton Raised="true" OnClick="UpdateModelDataOrPhaseShift" style="width:100%;">検索</MatButton>-->
+            </div>
+            <div class="mat-layout-grid-cell @Layout_Button">
+                <MatButton Raised="true" OnClick="Clear" Disabled="!Phase1Data.LoadingState" style="width:100%;">クリア</MatButton>
+            </div>
+        </div>
+    </div>
+
+    @code{
+
+        @inject IMatToaster Toaster
+
+        public void Sample()
+        {
+            Toaster.Add("Toast body text", MatToastType.Danger, "code");
+        }
     }
 
 
-        <div class="card">
-            <div class="card-body card_Bottom_Margin Card_Fixed">
-                <table class="Card_table_Fixed " style="width:50%;">
-                    <tr>
-                        @*<td><button @onclick="@(s => JumpPage("./Kansa/SearchActivity"))" type="submit" class="btn">検索</button></td>*@
+    <div class="Scroll_Control Scroll_Height_40 Padding_Mini">
 
-                        @*<td><button @onclick="@(s => JumpResultPage("./Kansa/SearchActivity"))" type="button" class="fontSizeMAX767 btn btn-primary btn-block">検索</button></td>*@
-                        <td><button @onclick="UpdateModelDataOrPhaseShift" type="button" class="fontSizeMAX767 btn btn-primary btn-block">検索</button></td>
-                        <td><button @onclick="@Clear" class="fontSizeMAX767 btn btn-primary btn-block">クリア</button></td>
-                    </tr><!--Clear-->
-                </table>
-            </div>
-        </div>
+        <div class="mat-layout-grid" style="padding:0rem;">
+            <div class="mat-layout-grid-inner">
+                <div class="mat-layout-grid-cell @Layout_Long">
+                    <MatTextField @bind-Value="Phase1Data.S_DokuCode" Label="読者No" TValue="int?" Disabled="!Phase1Data.LoadingState" style="width:100%;" class="mat-elevation-z3"></MatTextField>
 
-
-        <div class="Scroll_Control Scroll_Height_40 Padding_Mini">
-
-            <div class="mat-layout-grid" style="padding:0rem;">
-                <div class="mat-layout-grid-inner">
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-                        <MatTextField @bind-Value="Phase1Data.S_DokuCode" Label="読者No" TValue="int?" style="width:100%;" class="mat-elevation-z3">@Phase1Data.S_DokuCode</MatTextField>
-
-                    </div>
+                </div>
 
 
 
-                    <!--区域-->
-
-
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1">
-                        <MatTextField @bind-Value="Phase1Data.S_KuikiNo" Label="区域" class="mat-elevation-z3">@Phase1Data.S_KuikiNo</MatTextField>
-                    </div>
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatSelect HelperText="" Label="区域" @bind-Value="Phase1Data.S_KuikiNo" class="mat-elevation-z3">
-                            @foreach (var Kuiki in C_KuikiList)
-                            {
-                                <MatOption Value="@Kuiki.Kuiki" TValue="int?" >@Kuiki.Name</MatOption>
-                            }
-                        </MatSelect>
-                    </div>
-
-
-
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                        <MatTextField @bind-Value="Phase1Data.S_Junro" Label="区域" TValue="int?" class="mat-elevation-z3">@Phase1Data.S_KuikiNo-</MatTextField>
-                    </div>
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-
-                        <MatTextField @bind-Value="Phase1Data.S_Junro_Sub" Label="区域" TValue="int?" class="mat-elevation-z3">@Phase1Data.S_KuikiNo</MatTextField>
-                    </div>
+                <!--区域-->
+                <div class="mat-layout-grid-cell @Layout_Small">
+                    <MatTextField @bind-Value="Phase1Data.S_KuikiNo" Label="区域" Disabled="!Phase1Data.LoadingState" class="mat-elevation-z3"></MatTextField>
+                </div>
+                <div class="mat-layout-grid-cell @Layout_Middle_M">
+                    <MatSelect HelperText="" Label="区域" @bind-Value="Phase1Data.S_KuikiNo" Disabled="!Phase1Data.LoadingState" class="mat-elevation-z3" style="width:100%;">
+                        @foreach (var Kuiki in C_KuikiList)
+                        {
+                            <MatOption Value="@Kuiki.Kuiki" TValue="int?">@Kuiki.Name</MatOption>
+                        }
+                    </MatSelect>
+                </div>
 
 
 
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-                        <MatTextField @bind-Value="Phase1Data.S_DokuName" Label="読者名" style="width:100%;" class="mat-elevation-z3"></MatTextField>
-                    </div>
-
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-                        <MatTextField @bind-Value="Phase1Data.S_DokuKana" Label="読者名(ｶﾅ)" style="width:100%;" class="mat-elevation-z3">@Phase1Data.S_DokuCode</MatTextField>
-                    </div>
 
 
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1">
-                        <MatTextField @bind-Value="Phase1Data.S_Sigai" Label="局番" class="mat-elevation-z3">@Phase1Data.S_Sigai</MatTextField>
-                    </div>
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatTextField @bind-Value="Phase1Data.S_Tel" Label="電話番号" 　style="width:100%;" class="mat-elevation-z3">@Phase1Data.S_Tel</MatTextField>
-                    </div>
+                <!--順路-->
 
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1">
-                        <MatTextField @bind-Value="Phase1Data.S_ChomeiCode" TValue="int?" Label="町No." class="mat-elevation-z3">@Phase1Data.S_ChomeiCode</MatTextField>
-                    </div>
-                    
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatSelect HelperText="" Label="町名" @bind-Value="Phase1Data.S_ChomeiName" class="mat-elevation-z3">
+                @if (Phase1Data.S_KuikiNo == null)
+                {
+                    TextInputActive = true;
+                }
+                else if(Phase1Data.S_KuikiNo != null && Phase1Data.LoadingState == true)
+                {
+                    TextInputActive = false;
+                }
+
+                <div class="mat-layout-grid-cell @Layout_Middle_S">
+                    <MatTextField @bind-Value="Phase1Data.S_Junro" Label="順路" TValue="int?" Disabled="TextInputActive" class="mat-elevation-z3"></MatTextField>
+                </div>
+
+                <!--枝番号-->
+                <div class="mat-layout-grid-cell @Layout_Middle_S">
+                    <MatTextField @bind-Value="Phase1Data.S_Junro_Sub" Label="枝番号" TValue="int?" Disabled="TextInputActive" class="mat-elevation-z3"></MatTextField>
+                </div>
+
+                <!--読者名-->
+                <div class="mat-layout-grid-cell @Layout_Long">
+                    <MatTextField @bind-Value="Phase1Data.S_DokuName" Label="読者名" Disabled="!Phase1Data.LoadingState" style="width:100%;" class="mat-elevation-z3"></MatTextField>
+                </div>
+
+                <!--読者名（ｶﾅ）-->
+                <div class="mat-layout-grid-cell @Layout_Long">
+                    <MatTextField @bind-Value="Phase1Data.S_DokuKana" Label="読者名(ｶﾅ)" Disabled="!Phase1Data.LoadingState" style="width:100%;" class="mat-elevation-z3"></MatTextField>
+                </div>
+
+                <!--市外局番-->
+                <div class="mat-layout-grid-cell @Layout_Small">
+                    <MatTextField @bind-Value="Phase1Data.S_Sigai" Label="局番" Disabled="!Phase1Data.LoadingState" class="mat-elevation-z3"></MatTextField>
+                </div>
+
+                <!--市外局番以降-->
+                <div class="mat-layout-grid-cell @Layout_Middle_M">
+                    <MatTextField @bind-Value="Phase1Data.S_Tel" Label="電話番号" Disabled="!Phase1Data.LoadingState" style="width:100%;" class="mat-elevation-z3"></MatTextField>
+                </div>
+
+                <!--町名番号-->
+                <div class="mat-layout-grid-cell @Layout_Small">
+                    <MatTextField @bind-Value="Phase1Data.S_ChomeiCode" TValue="int?" Label="町No." Disabled="!Phase1Data.LoadingState" class="mat-elevation-z3"></MatTextField>
+                </div>
+
+                <!--町名-->
+                <div class="mat-layout-grid-cell @Layout_Middle_M">
+                    <MatSelect HelperText="" Label="町名" @bind-Value="Phase1Data.S_ChomeiName" Disabled="!Phase1Data.LoadingState" class="mat-elevation-z3" style="width:100%;">
 
                         @foreach (var City in CityList)
                         {
-                        @* 町名番号未導入の為
-                        <MatOption Value="@City.CityNo">@City.CityName</MatOption>
-                        *@
                             <MatOption Value="@City">@City</MatOption>
                         }
 
-                        </MatSelect>
-                    </div>
-                    
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                        <MatTextField @bind-Value="Phase1Data.S_Banti" Label="番" TValue="int?" class="mat-elevation-z3">@Phase1Data.S_Banti</MatTextField>
-                    </div>
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                        @* 号未対応の為
-                    <MatTextField @bind-Value="Phase1Data.S_Junro_Sub" Label="号">@Phase1Data.S_CityAddress</MatTextField>*@
-                        <MatTextField @bind-Value="Phase1Data.S_Gou" Label="号" TValue="int?" class="mat-elevation-z3">@Phase1Data.S_Gou</MatTextField>
-                    </div>
-
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                        <MatTextField @bind-Value="Phase1Data.S_BuildKana" Label="建物名(ｶﾅ)" class="mat-elevation-z3">@Phase1Data.S_BuildKana</MatTextField>
-                    </div>
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                        <MatTextField @bind-Value="Phase1Data.S_BuildName" Label="建物名" class="mat-elevation-z3">@Phase1Data.S_BuildName</MatTextField>
-                    </div>
-
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                        <MatTextField @bind-Value="Phase1Data.S_RoomNo" Label="室番" TValue="int?" class="mat-elevation-z3">@Phase1Data.S_RoomNo</MatTextField>
-                    </div>
-
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12 BackColor mat-elevation-z3">
-                        <div class="mat-layout-grid-inner">
-                            @foreach (var ChkBox in KubunList)
-                            {
-                                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1">
-                                    <MatCheckbox @bind-Value="@ChkBox.Active" Label="@ChkBox.KubunName"></MatCheckbox>
-                                </div>
-                            }
-                        </div>
-                    </div>
-
-                    @*
-        @for (int Chk = 0; Chk <= ChkBox_Count; Chk++)
-        {
-            @foreach (var ChkBox in ChkBoxList[Chk])
-            {
-                <div>
-                    <MatCheckbox @bind-Value="@ChkBox.KubunCode" Label="@ChkBox.KubunName"></MatCheckbox>
+                    </MatSelect>
                 </div>
-            }
-        }
-                    *@
 
-
-
+                <!--番地-->
+                <div class="mat-layout-grid-cell @Layout_Middle_S">
+                    <MatTextField @bind-Value="Phase1Data.S_Banti" Label="番" TValue="int?" Disabled="!Phase1Data.LoadingState" class="mat-elevation-z3"></MatTextField>
                 </div>
-            </div>
-        </div>
 
+                <!--号-->
+                <div class="mat-layout-grid-cell @Layout_Middle_S">
+                    <MatTextField @bind-Value="Phase1Data.S_Gou" Label="号" TValue="int?" Disabled="!Phase1Data.LoadingState" class="mat-elevation-z3"></MatTextField>
+                </div>
 
+                <!--建物名（ｶﾅ）-->
+                <div class="mat-layout-grid-cell @Layout_Long">
+                    <MatTextField @bind-Value="Phase1Data.S_BuildKana" Label="建物名(ｶﾅ)" Disabled="!Phase1Data.LoadingState" style="width:100%;" class="mat-elevation-z3"></MatTextField>
+                </div>
 
-        @* 旧レイアウト
-        <div class="card fontSizeMAX767 Card_Fixed">
-            <div class="card-body card_Bottom_Margin">
-                <table class="Card_table_Fixed">
-                    <tr>
-                        <td colspan="2">読者No</td>
-                        <td colspan="10" class="Border_Bottom">
+                <!--建物名-->
+                <div class="mat-layout-grid-cell @Layout_Long">
+                    <MatTextField @bind-Value="Phase1Data.S_BuildName" Label="建物名" Disabled="!Phase1Data.LoadingState" style="width:100%;" class="mat-elevation-z3"></MatTextField>
+                </div>
 
+                <!--室番号-->
+                <div class="mat-layout-grid-cell @Layout_Middle_S">
+                    <MatTextField @bind-Value="Phase1Data.S_RoomNo" Label="室番" TValue="int?" Disabled="!Phase1Data.LoadingState" class="mat-elevation-z3"></MatTextField>
+                </div>
 
-                            <input @bind="Phase1Data.S_DokusyaCode" @bind:event="oninput" type="tel" class="form-control" maxlength="6">
-
-                        </td>
-                        <td colspan="1">&nbsp;</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="card fontSizeMAX767 Card_Fixed">
-            <div class="card-body card_Bottom_Margin">
-                <table class="Card_table_Fixed fontSizeMAX767">
-                    <tr>
-                        <td colspan="2">区域</td>
-                        <td colspan="2" class="Border_Bottom"><input @bind="Phase1Data.S_KuikiNo" @bind:event="oninput" type="tel" class="form-control" maxlength="2"></td>
-                        <td colspan="3">
-
-                            <div class="dropdown" align="center">
-                                <button type="button" id="Nengetsu"
-                                        class="btn btn-secondary btn-block dropdown-toggle"
-                                        data-toggle="dropdown"
-                                        aria-haspopup="true"
-                                        aria-expanded="false">
-                                    @if (Phase1Data.S_KuikiNo != null)
-                                    {
-                                        <span>@Phase1Data.S_KuikiNo 区</span>
-                                    }
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="Nengetu">
-                                    @foreach (var x in KuikiList)
-                                    {
-
-                                        <a @onclick="@(s => OnChangeEventKuiki(x.KuikiCode))" class="dropdown-item form-control" value="@x.KuikiName"> @x.KuikiName </a>
-                                    }
-                                </div>
-                            </div>
-
-                        </td>
-                        <td colspan="2" class="Border_Bottom"><input @bind="Phase1Data.S_Junro" @bind:event="oninput" maxlength="4" type="tel" class="form-control"></td>
-                        <td colspan="1" class="Border_Bottom">-</td>
-                        <td colspan="2" class="Border_Bottom"><input @bind="Phase1Data.S_Junro_Sub" @bind:event="oninput" maxlength="2" type="tel" class="form-control"> </td>
-                        <td colspan="1">&nbsp;</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="card fontSizeMAX767 Card_Fixed">
-            <div class="card-bod card_Bottom_Margin">
-                <table class="Card_table_Fixed">
-                    <tr>
-                        <td colspan="2">顧客名</td>
-                        <td colspan="2" class="Border_Bottom"><input @bind="Phase1Data.S_DokusyaKanaName" @bind:event="oninput" @onchange="(s => ConvertString(Phase1Data.S_DokusyaName))" maxlength="137" type="text" class="form-control">kana</td>
-                        <td colspan="8" class="Border_Bottom"><input @bind="Phase1Data.S_DokusyaName" maxlength="137" type="text" class="form-control"></td>
-                        <td colspan="1">&nbsp;</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="card fontSizeMAX767 Card_Fixed">
-            <div class="card-body card_Bottom_Margin">
-                <table class="Card_table_Fixed">
-                    <tr>
-                        <td colspan="2">電話</td>
-                        @*カッコつきだと使いにくいので保留
-                        <td colspan="1">(</td>
-                        <td colspan="2"><input input @bind="@PhoneNo" @bind:event="oninput" type="tel" class="fontSizeMAX767 form-control" /></td>
-                        <td colspan="1">)</td>*
-                        <td colspan="6" class="Border_Bottom"><input @bind="@Phase1Data.S_PhoneNo_Sub" @bind:event="oninput" maxlength="10" type="tel" class="fontSizeMAX767 form-control"></td>
-                        <td colspan="1">&nbsp;</td>
-                        <td>@Phase1Data.S_PhoneNo_Sub</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="card fontSizeMAX767 Card_Fixed">
-            <div class="card-body card_Bottom_Margin">
-                <table class="Card_table_Fixed">
-
-
-                    <tr>
-                        <td colspan="2">住所</td>
-                        <td colspan="11">
-                            <table>
-                                <tr>
-
-                                    <td colspan="2" class="Margin_R ">町名</td>
-                                    <td colspan="2" class="Border_Bottom"><input @bind="Phase1Data.S_CityName" type="text" class="form-control"></td>
-                                    <td colspan="4">
-
-
-                                        <div class="dropdown" align="center">
-                                            <button type="button" id="Nengetsu"
-                                                    class="btn btn-secondary btn-block dropdown-toggle"
-                                                    data-toggle="dropdown"
-                                                    aria-haspopup="true"
-                                                    aria-expanded="false">
-                                                @if (Phase1Data.S_CityName != null)
-                                                {
-                                                    <span>@Phase1Data.S_CityName</span>
-                                                }
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="Nengetu">
-                                                @foreach (var x in CityList)
-                                                {
-
-                                                    <a @onclick="@(s => OnChangeEventCityName(x))" class="dropdown-item form-control" value="@x"> @x </a>
-                                                }
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="Margin_R">番地</td>
-                                    <td colspan="2" class="Border_Bottom"><input @bind="Phase1Data.S_CityAddress" type="text" class="form-control"></td>
-                                    <td colspan="1" style="padding:0rem 1rem 0rem 1rem;">-</td>
-                                    <td colspan="2" class="Border_Bottom"><input @bind="Phase1Data.S_CityAddress" type="text" class="form-control"></td>
-
-                                </tr>
-
-                            </table>
-                        </td>
-                    </tr>
-                    @*
-                    <tr>
-                        <td colspan="2" rowspan="2">住所</td>
-                        <td colspan="2">町名</td>
-                        <td colspan="2"><input @bind="CityAddress" type="text" class="form-control"></td>
-                        <td colspan="4"><button>町名</button></td>
-                        <td colspan="3">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">番地</td>
-                        <td colspan="2" class="Border_Bottom"><input @bind="CityAddress" type="text" class="form-control"></td>
-                        <td colspan="1">-</td>
-                        <td colspan="2"><input @bind="CityAddress" type="text" class="form-control"></td>
-                        <td colspan="4">&nbsp;</td>
-                    </tr>
-                    *
-
-                </table>
-            </div>
-        </div>
-
-        <div class="card fontSizeMAX767 Card_Fixed">
-            <div class="card-body card_Bottom_Margin">
-                <table class="Card_table_Fixed">
-                    <tr>
-                        <td colspan="2">建物名</td>
-                        <td colspan="11">
-                            <table>
-                                <tr>
-
-                                    @*現在カナ入力で漢字が入力できるため保留*
-                                    <td class="Margin_R">ｶﾅ</td>
-                                    <td class="Border_Bottom">
-                                        <input @bind="@Phase1Data.S_BuildingKanaName" @bind:event="oninput" @onchange="(s => ConvertString(Phase1Data.S_BuildingKanaName))" maxlength="10" type="text" class="form-control">
-                                    </td>
-                                    <td class="Margin_R">名称</td>
-                                    <td class="Border_Bottom"><input @bind="Phase1Data.S_BuildingName" type="text" class="form-control"></td>
-
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="card fontSizeMAX767 Card_Fixed">
-            <div class="card-body card_Bottom_Margin">
-                <table class="Card_table_Fixed">
-                    <tr>
-                        <td colspan="2">室番</td>
-                        <td colspan="10" class="Border_Bottom"><input @bind="Phase1Data.S_ShitsuBan" @bind:event="oninput" maxlength="5" type="tel" class=" form-control"></td>
-                        <td colspan="1">&nbsp;</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-
-        <div class="card fontSizeMAX767 Card_Fixed">
-            <div class="card-bod card_Bottom_Margin">
-                <table class="Card_table_Fixed">
-
-
-
-
-
-
-
-
-
-
-                    @while (true) //KubunList内に存在するボタンを描く
-                    {
-
-                        <tr>
-                            @foreach (var x in KubunList)
-                            {
-                                if (KubunCount == 0)
-                                {
-                                    <td rowspan="3" colspan="3">区分</td>
-                                    KubunCount++;
-                                }
-
-                                if (X > 1)
-                                {
-                                    X--;
-                                    continue;
-                                }
-
-                                else if (KubunCount % 5 != 0)
-                                {
-                                    if (x.Active == "checked")
-                                    {
-                                        <td colspan="10">
-                                            <input type="checkbox" @onchange="eventArgs => { CheckBoxResulte(x.KubunCode); }" name="@x.KubunCode" value="@x.KubunCode" checked /> @x.KubunName
-                                        </td>
-                                    }
-                                    else
-                                    {
-                                        <td colspan="10">
-                                            <input type="checkbox" @onchange="eventArgs => { CheckBoxResulte(x.KubunCode); }" name="@x.KubunCode" value="@x.KubunCode" /> @x.KubunName
-                                        </td>
-                                    }
-                                    KubunCount++;
-                                }
-                                else if (KubunCount % 5 == 0)
-                                {
-                                    X = KubunCount;
-                                    KubunCount++;
-                                    break;
-                                }
-                            }
-                        </tr>
-                        if (KubunCount > KubunList.Count)
+                <!--区分-->
+                <div class="mat-layout-grid-cell @Layout_Long BackColor mat-elevation-z3">
+                    <div class="mat-layout-grid-inner">
+                        @foreach (var ChkBox in KubunList)
                         {
-                            KubunCount = 0;
-                            break;
+                            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1">
+                                <MatCheckbox @bind-Value="@ChkBox.Active" Label="@ChkBox.KubunName" Disabled="!Phase1Data.LoadingState"></MatCheckbox>
+                            </div>
                         }
-                    }
-
-
-
-
-                    @*
-                        <tr>
-                            <td rowspan="3" colspan="3">区分</td>
-                        </tr>
-
-                        <tr>
-
-                            @foreach (var x in KubunList)
-                            {
-
-                                <td colspan="10">
-                                    <input @onchange="@(s => ButtonX(x.KubunCode))" type="checkbox" name="@x.KubunCode" value="@x.KubunCode" />@x.KubunName
-                                </td>
-                            }
-                        </tr>
-
-        <tr>
-
-
-
-            <td colspan="10">
-                <input @onchange="@(s => ButtonX("x.KubunName"))" type="checkbox" name="x.KubunCode" value="x.KubunCode" />x.KubunName
-
-            </td>
-
-        </tr>
-
-        @foreach (var x in ListX)
-        {
-            <tr>
-                <td> <input @onchange="@(s => ButtonX(x.X))" type="checkbox" name="@x.X" value="@x.X" /></td>
-            </tr>
-            }
-        }
-        *
-        </table>
-
-        </div>
-        </div>
-        *@
-        @CheckResult
-
-        <div class="card">
-            <div class="card-body card_Bottom_Margin Card_Fixed">
-                <table class="Card_table_Fixed " style="width:50%;">
-                    <tr>
-                        @*<td><button @onclick="@(s => JumpPage("./Kansa/SearchActivity"))" type="submit" class="btn">検索</button></td>*@
-
-                        <td><button @onclick="@UpdateModelDataOrPhaseShift" type="button" class="fontSizeMAX767 btn btn-primary btn-block">検索</button></td>
-                        <td><button @onclick="@Clear" class="fontSizeMAX767 btn btn-primary btn-block" type="reset">クリア</button></td>
-                    </tr>
-                </table>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="fontSizeMAX767 alert alert-warning" role="alert">
 
+    <div class="mat-layout-grid" style="padding:0.1rem;">
+        <div class="mat-layout-grid-inner">
+            <div class="mat-layout-grid-cell @Layout_Button ">
+                <MatButton Raised="true" OnClick="UpdateModelDataOrPhaseShift" Disabled="!Phase1Data.LoadingState" style="width:100%;">検索</MatButton>
+            </div>
+            <div class="mat-layout-grid-cell @Layout_Button">
+                <MatButton Raised="true" OnClick="Clear" Disabled="!Phase1Data.LoadingState" style="width:100%;">クリア</MatButton>
+            </div>
         </div>
-
-
+    </div>
 </body>
 </html>
-
-@code{
-
-
-
-
-}

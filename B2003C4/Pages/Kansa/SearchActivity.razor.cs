@@ -136,7 +136,7 @@ namespace B2003C4.Pages.Kansa
                 }
                 try
                 {
-                    if (Array.IndexOf(Phase2Data.CheckResult,x.DokusyaStatus) != -1)
+                    if (Array.IndexOf(Phase2Data.CheckResult,x.DokuKbn) != -1)
                     {
                         CheckResultNull = true;
                     }
@@ -151,7 +151,7 @@ namespace B2003C4.Pages.Kansa
                     Console.WriteLine("Catch: true");
                 }
                 //StartWithのnull例外チェック終わり
-
+                /*
                 if (
                 (x.DokuCode == Phase2Data.S_DokuCode || null == Phase2Data.S_DokuCode) &&
                 (x.Kuiki == Phase2Data.S_KuikiNo || null == Phase2Data.S_KuikiNo) &&
@@ -171,7 +171,7 @@ namespace B2003C4.Pages.Kansa
                 {
                     DokusyaSearchEdList.Add(x);
                 }
-
+                */
             }
             //履歴処理
             /*
@@ -270,13 +270,14 @@ namespace B2003C4.Pages.Kansa
             //---------------------------------------------
  
             //Phase2Data.S_DokusyaCode = X.DokusyaCode;
+            /*
             Phase2Data.S_DokuName = X.DokusyaName;
             Phase2Data.S_BuildName = X.BuildingName;
             Phase2Data.S_ChomeiName = X.CityName;
             Phase2Data.S_CityAddress = X.CityAddress;
             Phase2Data.S_PhoneNo_Sub = X.PhoneNo_Sub;
             Phase2Data.S_KuikiNo = X.Kuiki;
-
+            */
             await Phase2DataChanged.InvokeAsync(Phase2Data);
             await PhaseShift(11,"","");
 

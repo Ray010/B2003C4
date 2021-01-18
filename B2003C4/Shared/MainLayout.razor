@@ -29,7 +29,15 @@
         position: fixed;
         border-radius: 100%;
     }
-    #Next_button_Fixed {
+
+    #Loading_Fixed {
+        bottom: 2vh;
+        RIGHT: 4vw;
+        position: fixed;
+        border-radius: 100%;
+    }
+
+        #Next_button_Fixed {
         padding: 1rem;
         bottom: 16vh;
         left: 4vw;
@@ -37,6 +45,8 @@
         border-radius: 100%;
     }
 </style>
+
+<MatToastContainer />
 
 <div class="sidebar fixed-top">
     <NavMenu @bind-CurrentPage="formSearchModel" />
@@ -84,7 +94,7 @@
                 <KansaParent @bind-CurrentPage="formSearchModel" />
                 break;
         }
-
+        
         @*
         @foreach(var x in History.Back_History)
         {
@@ -94,8 +104,6 @@
         @*
         <button @onclick="test">test</button>
         *@
-        @formSearchModel.Select_TenpoNo
-        <div>No</div>
     </div>
 
 </div>
@@ -109,6 +117,9 @@
     </button>
 </div>
 *@
+
+<MatProgressCircle id="Loading_Fixed" Indeterminate="true" FourColored="true" Size="MatProgressCircleSize.Small" Closed="formSearchModel.LoadingState" />
+
 <div>
     <button id="Back_button_Fixed" class="btn btn-warning Text_Color" @onclick="BackPage">
         <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-bar-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -128,5 +139,5 @@
     @using B2003C4.Pages.Kako;
     @using B2003C4.Pages.Kansa;
 
-
+    
 }
