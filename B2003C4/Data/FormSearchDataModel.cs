@@ -58,7 +58,7 @@ namespace B2003C4.Data
 
         public int? S_Junro { get; set; } //順路（最初の４桁)
 
-        public int S_KuikiJunro { get; set; }
+        public int? S_KuikiJunro { get; set; }
 
         public string S_KuikiJunroView { get; set; }
 

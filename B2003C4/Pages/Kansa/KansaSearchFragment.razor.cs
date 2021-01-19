@@ -29,8 +29,20 @@ namespace B2003C4.Pages.Kansa
         [Parameter]
         public EventCallback<DummyDataModel> DBSourceDataChanged { get; set; }
 
+        [Parameter]
+        public List<Dokusya_K95080> C_SearchingList { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Dokusya_K95080>> C_SearchingListChanged { get; set; }
+
 
         //DB-------------------------------------------------------------------------------
+
+        [Parameter]
+        public List<Dokusya_K95080> C_DokusyaList { get; set; }
+
+        [Parameter]
+        public EventCallback<List<Dokusya_K95080>> C_DokusyaListChanged { get; set; }
 
         [Parameter]
         public List<Kuiki_K95080> C_KuikiList { get; set; }
@@ -47,15 +59,53 @@ namespace B2003C4.Pages.Kansa
         [Parameter]
         public EventCallback<FormSearchDataModel> SearchResultDataChanged { get; set; }
         */
-
+        //public List<Dokusya_K95080> SearchList = new List<Dokusya_K95080>();
 
         private async Task UpdateModelDataOrPhaseShift()
         {
-            
-            Console.WriteLine("OK");
-            Phase1Data.PhaseNo = 2;
-            await Phase1DataChanged.InvokeAsync(Phase1Data);
-            StateHasChanged();
+
+
+
+
+            C_SearchingList = C_DokusyaList.Where(x => (x.Kuiki == Phase1Data.S_KuikiNo || null == Phase1Data.S_KuikiNo) &&
+                                                            (x.Junro_K95080 >= Phase1Data.S_Junro * 100 || null == Phase1Data.S_Junro) &&
+                                                            (x.KuikiJunro % 100 >= Phase1Data.S_KuikiJunro % 100 || null == Phase1Data.S_KuikiJunro) &&
+                                                            (x.DokuCode == Phase1Data.S_DokuCode || null == Phase1Data.S_DokuCode) &&
+                                                            (null == Phase1Data.S_DokuName || x.DokuName.Contains(Phase1Data.S_DokuName)) &&
+                                                            (null == Phase1Data.S_DokuKana || x.DokuKana.Contains(Phase1Data.S_DokuKana)) &&
+                                                            //区分今のところ未処理
+                                                            (null == Phase1Data.S_Sigai || x.Sigai1.Contains(Phase1Data.S_Sigai)) &&
+                                                            (null == Phase1Data.S_Sigai || x.Sigai2.Contains(Phase1Data.S_Sigai)) &&
+                                                            (null == Phase1Data.S_Sigai || x.Sigai3.Contains(Phase1Data.S_Sigai)) &&
+                                                            (null == Phase1Data.S_Sigai || x.Sigai4.Contains(Phase1Data.S_Sigai)) &&
+                                                            (null == Phase1Data.S_Sigai || x.Sigai5.Contains(Phase1Data.S_Sigai)) &&
+                                                            (null == Phase1Data.S_Sigai || x.Sigai6.Contains(Phase1Data.S_Sigai)) &&
+
+                                                            (null == Phase1Data.S_Tel || x.Tel1.Contains(Phase1Data.S_Tel)) &&
+                                                            (null == Phase1Data.S_Tel || x.Tel2.Contains(Phase1Data.S_Tel)) &&
+                                                            (null == Phase1Data.S_Tel || x.Tel3.Contains(Phase1Data.S_Tel)) &&
+                                                            (null == Phase1Data.S_Tel || x.Tel4.Contains(Phase1Data.S_Tel)) &&
+                                                            (null == Phase1Data.S_Tel || x.Tel5.Contains(Phase1Data.S_Tel)) &&
+                                                            (null == Phase1Data.S_Tel || x.Tel6.Contains(Phase1Data.S_Tel)) &&
+
+                                                            (null == Phase1Data.S_ChomeiCode || x.ChomeiCode == Phase1Data.S_ChomeiCode) &&
+                                                            (null == Phase1Data.S_Banti || x.Banti_Kansa == Phase1Data.S_Banti) &&
+                                                            (null == Phase1Data.S_Gou || x.Gou == Phase1Data.S_Gou) &&
+                                                            (null == Phase1Data.S_BuildName || x.BuildName.Contains(Phase1Data.S_BuildName)) &&
+                                                            (null == Phase1Data.S_BuildKana || x.BuildName.Contains(Phase1Data.S_BuildKana)) &&
+                                                            (null == Phase1Data.S_RoomNo || x.RoomNo.Contains(Phase1Data.S_RoomNo.ToString()))
+                                                            ).ToList();
+            if (C_SearchingList.Count == 0)
+            {
+
+            }
+            else
+            {
+                Console.WriteLine("OK");
+                Phase1Data.PhaseNo = 2;
+                await Phase1DataChanged.InvokeAsync(Phase1Data);
+                StateHasChanged();
+            }
         }
         
         //-------------------------------------------------------
@@ -122,7 +172,20 @@ namespace B2003C4.Pages.Kansa
                 Active = active;
             }
         }
-        
+
+        public class Chomei
+        {
+            public string ChomeiName { get; set; }
+            public int? ChomeiCode { get; set; }
+
+            public Chomei(string chomeiName, int? chomeiCode)
+            {
+                ChomeiName = chomeiName;
+                ChomeiCode = chomeiCode;
+                
+            }
+        }
+
         public class Kuiki
         {
             public string KuikiName { get; set; }
@@ -180,6 +243,13 @@ namespace B2003C4.Pages.Kansa
             }
             */
 
+
+            List<Chomei> ChomeiList = new List<Chomei>();
+
+            foreach(var x in C_DokusyaList)
+            {
+                ChomeiList.Add(new Chomei(x.ChomeiName, x.ChomeiCode));
+            }
 
             //区域
             foreach(var Kuiki in C_KuikiList)

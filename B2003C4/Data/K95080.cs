@@ -84,6 +84,9 @@ namespace B2003C4.Data
         [Column("Zu_Bekki")]
         public int? Zu_Bekki { get; set; }
         */
+        [Column("Junro")]
+        public int? Junro_K95080 { get; set; }
+
         [Column("KuikiJunro")]
         public int? KuikiJunro { get; set; }
 
@@ -103,6 +106,9 @@ namespace B2003C4.Data
 
         [Column("DokuKbn")]
         public string DokuKbn { get; set; }
+
+        [Column("DokuKbnName")]
+        public string DokuKbnName { get; set; }
 
         [Column("Sigai1")]
         public string Sigai1 { get; set; }
