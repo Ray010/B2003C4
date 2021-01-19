@@ -13,6 +13,8 @@ using B2003C4.Data;
 using B2003C4.Service;
 using Microsoft.EntityFrameworkCore;
 
+using MatBlazor;
+
 namespace B2003C4
 {
     public class Startup
@@ -41,6 +43,16 @@ namespace B2003C4
             //services.AddSingleton<WeatherForecastService>();
             services.AddScoped<NewsPaperDataService>();
 
+            //MatBlazor
+            services.AddMatToaster(config =>
+            {
+                config.Position = MatToastPosition.BottomRight;
+                config.PreventDuplicates = true;
+                config.NewestOnTop = true;
+                config.ShowCloseButton = true;
+                config.MaximumOpacity = 95;
+                config.VisibleStateDuration = 3000;
+            });
 
 
         }

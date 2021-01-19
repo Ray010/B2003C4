@@ -10,6 +10,7 @@ using B2003C4.Class;
 using B2003C4.Data;
 
 
+
 namespace B2003C4.Pages.IriTome
 {
     public partial class MainFragment

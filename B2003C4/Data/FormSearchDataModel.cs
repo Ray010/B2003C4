@@ -28,7 +28,8 @@ namespace B2003C4.Data
         //端末情報用
         public int? Select_TenpoNo;
 
-
+        //ローディング完了？
+        public Boolean LoadingState = true; //trueが完了
 
         //画面制御用
         public Boolean State { get; set; } = false;
