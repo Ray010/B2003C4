@@ -259,57 +259,16 @@
 
     </style>
 
+
+
+
 </head>
-
-
-@code{
-
-    public string Device = "iPhone5s";
-
-    public string Layout_Button;
-
-    public string Layout_Long;
-
-    public string Layout_Middle_M;
-
-    public string Layout_Middle_S;
-
-    public string Layout_Small;
-
-    public string Scroll_Size = "120vw";
-
-    public Boolean TextInputActive = true; //順路、枝番号の制御用
-
-
-    @*
-        protected override void OnInitialized()
-        {
-
-            switch (Device)
-            {
-                case "iPhone5s":
-                    Layout_Button = "mat-layout-grid-cell-span-2";
-                    Layout_Long = "mat-layout-grid-cell-span-12";
-                    Layout_Middle_M = "mat-layout-grid-cell-span-3";
-                    Layout_Middle_S = "mat-layout-grid-cell-span-2";
-                    Layout_Small = "mat-layout-grid-cell-span-1";
-
-                    break;
-
-                default:
-                    break;
-
-            }
-        }
-    *@
-}
-
 <body style="overflow:hidden" class="Bg_Color">
 
     <div class="mat-layout-grid" style="padding:0.1rem;">
         <div class="mat-layout-grid-inner">
             <div class="mat-layout-grid-cell @Layout_Button ">
-                <MatButton Raised="true" OnClick="Sample" Disabled="!Phase1Data.LoadingState" style="width:100%;">検索</MatButton>
+                <MatButton Raised="true" OnClick="UpdateModelDataOrPhaseShift" Disabled="!Phase1Data.LoadingState" style="width:100%;">検索</MatButton>
                 <!--<MatButton Raised="true" OnClick="UpdateModelDataOrPhaseShift" style="width:100%;">検索</MatButton>-->
             </div>
             <div class="mat-layout-grid-cell @Layout_Button">
@@ -319,13 +278,6 @@
     </div>
 
     @code{
-
-        @inject IMatToaster Toaster
-
-        public void Sample()
-        {
-            Toaster.Add("Toast body text", MatToastType.Danger, "code");
-        }
     }
 
 
@@ -363,7 +315,7 @@
                 {
                     TextInputActive = true;
                 }
-                else if(Phase1Data.S_KuikiNo != null && Phase1Data.LoadingState == true)
+                else if (Phase1Data.S_KuikiNo != null && Phase1Data.LoadingState == true)
                 {
                     TextInputActive = false;
                 }
@@ -404,11 +356,11 @@
 
                 <!--町名-->
                 <div class="mat-layout-grid-cell @Layout_Middle_M">
-                    <MatSelect HelperText="" Label="町名" @bind-Value="Phase1Data.S_ChomeiName" Disabled="!Phase1Data.LoadingState" class="mat-elevation-z3" style="width:100%;">
+                    <MatSelect HelperText="" Label="町名" @bind-Value="Phase1Data.S_ChomeiCode" TValue="int?" Disabled="!Phase1Data.LoadingState" class="mat-elevation-z3" style="width:100%;">
 
-                        @foreach (var City in CityList)
+                        @foreach (var City in ChomeiList)
                         {
-                            <MatOption Value="@City">@City</MatOption>
+                            <MatOption Value="@City.ChomeiCode" TValue="int?" >@City.ChomeiName</MatOption>
                         }
 
                     </MatSelect>
@@ -454,6 +406,7 @@
         </div>
     </div>
 
+    @Phase1Data.LoadingState
 
     <div class="mat-layout-grid" style="padding:0.1rem;">
         <div class="mat-layout-grid-inner">
@@ -467,3 +420,10 @@
     </div>
 </body>
 </html>
+
+
+
+@code{
+
+
+}

@@ -38,15 +38,10 @@ namespace B2003C4.Pages.Kansa
 
 
         [Parameter]
-        public List<Kuiki_K95080> C_KuikiList { get; set; }
+        public List<Dokusya_K95080> C_SearchingList { get; set; }
 
         [Parameter]
-        public EventCallback<List<Kuiki_K95080>> C_KuikiListChanged { get; set; }
-
-
-
-
-
+        public EventCallback<List<Dokusya_K95080>> C_SearchingListChanged { get; set; }
 
 
 
@@ -66,133 +61,12 @@ namespace B2003C4.Pages.Kansa
 
         
 
-
+        /*
 
         protected override Task OnInitializedAsync()
         {
-            /*
-            foreach (var x in C_DokusyaList)
-            {
-                Boolean DokusyaNameNull = false;
-                Boolean DokusyaKanaNameNull = false;
-                Boolean SigaiNull = false;
-                Boolean TelNull = false;
-                Boolean BuildingNameNull = false;
-                Boolean BuildingKanaNameNull = false;
-                Boolean CheckResultNull = false;
 
-                //StartWithのnullチェック
-                try
-                {
-                    DokusyaNameNull = x.DokuName.StartsWith(Phase2Data.S_DokuName);
-                }
-                catch(ArgumentNullException)
-                {
-                    DokusyaNameNull = true;
-                }
-                try
-                {
-                    if(x.DokuKana == null)
-                    {
-                        DokusyaKanaNameNull = true;
-                    }
-                    else
-                    { 
-                        DokusyaKanaNameNull = x.DokuKana.StartsWith(Phase2Data.S_DokuKana);
-    
-                    }
-                }
-                catch (ArgumentNullException)
-                {
-                    DokusyaKanaNameNull = true;
-                }
-
-                try
-                {
-                    //SigaiNull = x.Sigai1.StartsWith(Phase2Data.S_Sigai);
-                }
-                catch (ArgumentNullException)
-                {
-                    SigaiNull = true;
-                }
-                try
-                {
-                    //TelNull = x.Sigai1.StartsWith(Phase2Data.S_Tel);
-                }
-                catch (ArgumentNullException)
-                {
-                    //TelNull = true;
-                }
-                try
-                {
-                    //BuildingNameNull = x.BuildName.StartsWith(Phase2Data.S_BuildName);
-                }
-                catch (ArgumentNullException)
-                {
-                    BuildingNameNull = true;
-                }
-                try
-                {
-                    //BuildingKanaNameNull = x.BuildKana.StartsWith(Phase2Data.S_BuildKana);
-                }
-                catch (ArgumentNullException)
-                {
-                    BuildingKanaNameNull = true;
-                }
-                try
-                {
-                    /*
-                    if (Array.IndexOf(Phase2Data.CheckResult,x.DokusyaStatus) != -1)
-                    {
-                        CheckResultNull = true;
-                    }
-                    else if (Phase2Data.CheckResult.Length == 0)
-                    {
-                        CheckResultNull = true;
-                    }
-                    *
-                }
-                catch(ArgumentNullException)
-                {
-                    CheckResultNull = true;
-                    Console.WriteLine("Catch: true");
-                }
-                //StartWithのnull例外チェック終わり
-                /*
-                if (
-                (x.DokuCode == Phase2Data.S_DokuCode || null == Phase2Data.S_DokuCode) &&
-                (x.Kuiki == Phase2Data.S_KuikiNo || null == Phase2Data.S_KuikiNo) &&
-                DokusyaNameNull &&
-                DokusyaKanaNameNull &&
-                SigaiNull &&
-                TelNull &&
-                (x.ChomeiName == Phase2Data.S_ChomeiName || null == Phase2Data.S_ChomeiName) &&
-                (x.CityAddress == Phase2Data.S_CityAddress || null == Phase2Data.S_CityAddress) &&
-                BuildingNameNull &&
-                BuildingKanaNameNull &&
-                (x.RoomNo == Phase2Data.S_RoomNo || null == Phase2Data.S_RoomNo) &&
-                CheckResultNull
-                )
-                {
-                    
-                }
-                *
-            }
-
-            DokusyaSearchEdList = C_DokusyaList.Where(x => (x.DokuCode == Phase2Data.S_DokuCode || null == Phase2Data.S_DokuCode) && (x.Kuiki == Phase2Data.S_KuikiNo || x.Kuiki == null) ).ToList();
-
-            */
-            //履歴処理
-            /*
-
-                            (x.Junro_K95080 == Phase2Data.S_Junro || null == Phase2Data.S_Junro) &&
-                (x.Junro_Sub == Phase2Data.S_Junro_Sub || null == Phase2Data.S_Junro_Sub) &&
-
-            */
-
-            Count = DokusyaSearchEdList.Count;
-
-
+            Count = C_SearchingList.Count;
             
             if( Count == 0 )
             {
@@ -215,15 +89,15 @@ namespace B2003C4.Pages.Kansa
                 
                 return PhaseShift(2, "。", "");
             }
-            
+
 
 
             //履歴の処理
 
-
-
-
         }
+        */
+
+
 
         List<Status> DokusyaStatusList = new List<Status>
         {

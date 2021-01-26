@@ -11,22 +11,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace B2003C4.Data
 {
     [Table("Dokusya_K95080", Schema = "dbo")]
-    public class Dokusya_K95080 : Dokusya_K95010
+    public class Dokusya_K95080
     {
-        /*
+        
         [Column("Tenpo")]
         public int? Tenpo { get; set; }
 
         [Column("Kuiki")]
         public int? Kuiki { get; set; }
-
+        /*
         [Column("Junro")]
-        public string Junro { get; set; }
-
+        public int? Junro { get; set; }
+        */
         [Key]
         [Column("DokuCode")]
         public int? DokuCode { get; set; }
-        
+        /*
         [Column("Name")]
         public string Name { get; set; }
 
@@ -44,7 +44,7 @@ namespace B2003C4.Data
 
         [Column("Build")]
         public string Build { get; set; }
-
+        */
         [Column("Misebi1")]
         public string Misebi1 { get; set; }
 
@@ -83,10 +83,11 @@ namespace B2003C4.Data
 
         [Column("Zu_Bekki")]
         public int? Zu_Bekki { get; set; }
-        */
+        
+        
         [Column("Junro")]
         public int? Junro_K95080 { get; set; }
-
+        
         [Column("KuikiJunro")]
         public int? KuikiJunro { get; set; }
 
@@ -105,7 +106,7 @@ namespace B2003C4.Data
         public string DokuKana { get; set; }
 
         [Column("DokuKbn")]
-        public string DokuKbn { get; set; }
+        public int? DokuKbn { get; set; }
 
         [Column("DokuKbnName")]
         public string DokuKbnName { get; set; }

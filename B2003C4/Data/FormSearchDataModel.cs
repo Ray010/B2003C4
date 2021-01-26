@@ -29,7 +29,7 @@ namespace B2003C4.Data
         public int? Select_TenpoNo;
 
         //ローディング完了？
-        public Boolean LoadingState = true; //trueが完了
+        public Boolean LoadingState = false; //trueが完了
 
         //画面制御用
         public Boolean State { get; set; } = false;

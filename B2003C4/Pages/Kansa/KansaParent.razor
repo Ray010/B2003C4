@@ -25,18 +25,33 @@
 @*https://chrissainty.com/using-javascript-interop-in-razor-components-and-blazor/*@
 
 
+
+
+
 @switch (CurrentPage.PhaseNo)
 {
     case 0:
         goto default;
 
     case 1:
-            <KansaSearchFragment @bind-Phase1Data="CurrentPage" @bind-DBSourceData="DBData" @bind-C_KuikiList="P_KuikiList" />
+
+        @if (P_DokusyaList.Count != 0 && P_KuikiList.Count != 0)
+        {
+            <KansaSearchFragment @bind-Phase1Data="CurrentPage" @bind-DBSourceData="DBData" @bind-C_KuikiList="P_KuikiList" @bind-C_DokusyaList="P_DokusyaList" @bind-C_SearchingList="P_SearchingList" />
+        }
+        else
+        {
+
+        }
+
+
+
+
 
         goto End;
 
     case 2:
-        <SearchActivity @bind-Phase2Data="CurrentPage" @bind-DBSourceData="DBData" @bind-C_DokusyaList="P_DokusyaList" />
+        <SearchActivity @bind-Phase2Data="CurrentPage" @bind-DBSourceData="DBData" @bind-C_SearchingList="P_SearchingList" />
         goto End;
 
     case 11:
@@ -58,13 +73,16 @@
 
     }
 
-    @if(CurrentPage.LoadingState != true)
+@P_SearchingList.Count
+@P_DokusyaList.Count
+
+@*
+    @if (CurrentPage.LoadingState != true)
     {
         CurrentPage.LoadingState = true;
         CurrentPageChanged.InvokeAsync(CurrentPage);
     }
-
-
+*@
 
 @*public EventCallback<string> PageNameChanged { get; set; }で変えた際はyearも変わる*@
 
@@ -74,6 +92,7 @@
     private DummyDataModel DBData = new DummyDataModel();
     //private KoudokuDummyData KoudokuDBData = new KoudokuDummyData();
     private FormSearchDataModel ResultData = new FormSearchDataModel();
+    private List<Dokusya_K95080> P_SearchingList = new List<Dokusya_K95080>();
 
     private List<Dokusya_K95080> P_DokusyaList = new List<Dokusya_K95080>();
     private List<Koudoku_K95080> P_KoudokuList = new List<Koudoku_K95080>();

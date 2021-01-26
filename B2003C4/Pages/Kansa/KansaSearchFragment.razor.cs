@@ -10,6 +10,8 @@ using Microsoft.JSInterop;
 using B2003C4.Data;
 using B2003C4.Class;
 
+using MatBlazor;
+
 
 namespace B2003C4.Pages.Kansa
 { 
@@ -61,50 +63,73 @@ namespace B2003C4.Pages.Kansa
         */
         //public List<Dokusya_K95080> SearchList = new List<Dokusya_K95080>();
 
+        [Inject]
+        protected IMatToaster Toaster { get; set; }
+
         private async Task UpdateModelDataOrPhaseShift()
         {
 
-
-
-
-            C_SearchingList = C_DokusyaList.Where(x => (x.Kuiki == Phase1Data.S_KuikiNo || null == Phase1Data.S_KuikiNo) &&
-                                                            (x.Junro_K95080 >= Phase1Data.S_Junro * 100 || null == Phase1Data.S_Junro) &&
-                                                            (x.KuikiJunro % 100 >= Phase1Data.S_KuikiJunro % 100 || null == Phase1Data.S_KuikiJunro) &&
-                                                            (x.DokuCode == Phase1Data.S_DokuCode || null == Phase1Data.S_DokuCode) &&
-                                                            (null == Phase1Data.S_DokuName || x.DokuName.Contains(Phase1Data.S_DokuName)) &&
-                                                            (null == Phase1Data.S_DokuKana || x.DokuKana.Contains(Phase1Data.S_DokuKana)) &&
-                                                            //区分今のところ未処理
-                                                            (null == Phase1Data.S_Sigai || x.Sigai1.Contains(Phase1Data.S_Sigai)) &&
-                                                            (null == Phase1Data.S_Sigai || x.Sigai2.Contains(Phase1Data.S_Sigai)) &&
-                                                            (null == Phase1Data.S_Sigai || x.Sigai3.Contains(Phase1Data.S_Sigai)) &&
-                                                            (null == Phase1Data.S_Sigai || x.Sigai4.Contains(Phase1Data.S_Sigai)) &&
-                                                            (null == Phase1Data.S_Sigai || x.Sigai5.Contains(Phase1Data.S_Sigai)) &&
-                                                            (null == Phase1Data.S_Sigai || x.Sigai6.Contains(Phase1Data.S_Sigai)) &&
-
-                                                            (null == Phase1Data.S_Tel || x.Tel1.Contains(Phase1Data.S_Tel)) &&
-                                                            (null == Phase1Data.S_Tel || x.Tel2.Contains(Phase1Data.S_Tel)) &&
-                                                            (null == Phase1Data.S_Tel || x.Tel3.Contains(Phase1Data.S_Tel)) &&
-                                                            (null == Phase1Data.S_Tel || x.Tel4.Contains(Phase1Data.S_Tel)) &&
-                                                            (null == Phase1Data.S_Tel || x.Tel5.Contains(Phase1Data.S_Tel)) &&
-                                                            (null == Phase1Data.S_Tel || x.Tel6.Contains(Phase1Data.S_Tel)) &&
-
-                                                            (null == Phase1Data.S_ChomeiCode || x.ChomeiCode == Phase1Data.S_ChomeiCode) &&
-                                                            (null == Phase1Data.S_Banti || x.Banti_Kansa == Phase1Data.S_Banti) &&
-                                                            (null == Phase1Data.S_Gou || x.Gou == Phase1Data.S_Gou) &&
-                                                            (null == Phase1Data.S_BuildName || x.BuildName.Contains(Phase1Data.S_BuildName)) &&
-                                                            (null == Phase1Data.S_BuildKana || x.BuildName.Contains(Phase1Data.S_BuildKana)) &&
-                                                            (null == Phase1Data.S_RoomNo || x.RoomNo.Contains(Phase1Data.S_RoomNo.ToString()))
-                                                            ).ToList();
-            if (C_SearchingList.Count == 0)
+            if( null == Phase1Data.S_KuikiNo && 
+                null == Phase1Data.S_Junro && 
+                null == Phase1Data.S_KuikiJunro && 
+                null == Phase1Data.S_DokuCode && 
+                null == Phase1Data.S_DokuName && 
+                null == Phase1Data.S_DokuKana && 
+                null == Phase1Data.S_Sigai && 
+                null == Phase1Data.S_Tel && 
+                null == Phase1Data.S_ChomeiCode && 
+                null == Phase1Data.S_Banti && 
+                null == Phase1Data.S_Gou && 
+                null == Phase1Data.S_BuildName &&
+                null == Phase1Data.S_BuildKana && 
+                null == Phase1Data.S_RoomNo )
             {
-
+                Toaster.Add("条件を一つ以上選択してください", MatToastType.Danger, "エラー");
             }
             else
             {
-                Console.WriteLine("OK");
-                Phase1Data.PhaseNo = 2;
-                await Phase1DataChanged.InvokeAsync(Phase1Data);
-                StateHasChanged();
+                //検索
+                C_SearchingList = C_DokusyaList.Where(x => (x.Kuiki == Phase1Data.S_KuikiNo || null == Phase1Data.S_KuikiNo) &&
+                                                                (x.Junro_K95080 >= Phase1Data.S_Junro * 100 || null == Phase1Data.S_Junro) &&
+                                                                (x.KuikiJunro % 100 >= Phase1Data.S_KuikiJunro % 100 || null == Phase1Data.S_KuikiJunro) &&
+                                                                (x.DokuCode == Phase1Data.S_DokuCode || null == Phase1Data.S_DokuCode) &&
+                                                                (null == Phase1Data.S_DokuName || x.DokuName.Contains(Phase1Data.S_DokuName)) &&
+                                                                (null == Phase1Data.S_DokuKana || x.DokuKana.Contains(Phase1Data.S_DokuKana)) &&
+                                                                //区分今のところ未処理
+                                                                (null == Phase1Data.S_Sigai || x.Sigai1.Contains(Phase1Data.S_Sigai)) &&
+                                                                (null == Phase1Data.S_Sigai || x.Sigai2.Contains(Phase1Data.S_Sigai)) &&
+                                                                (null == Phase1Data.S_Sigai || x.Sigai3.Contains(Phase1Data.S_Sigai)) &&
+                                                                (null == Phase1Data.S_Sigai || x.Sigai4.Contains(Phase1Data.S_Sigai)) &&
+                                                                (null == Phase1Data.S_Sigai || x.Sigai5.Contains(Phase1Data.S_Sigai)) &&
+                                                                (null == Phase1Data.S_Sigai || x.Sigai6.Contains(Phase1Data.S_Sigai)) &&
+
+                                                                (null == Phase1Data.S_Tel || x.Tel1.Contains(Phase1Data.S_Tel)) &&
+                                                                (null == Phase1Data.S_Tel || x.Tel2.Contains(Phase1Data.S_Tel)) &&
+                                                                (null == Phase1Data.S_Tel || x.Tel3.Contains(Phase1Data.S_Tel)) &&
+                                                                (null == Phase1Data.S_Tel || x.Tel4.Contains(Phase1Data.S_Tel)) &&
+                                                                (null == Phase1Data.S_Tel || x.Tel5.Contains(Phase1Data.S_Tel)) &&
+                                                                (null == Phase1Data.S_Tel || x.Tel6.Contains(Phase1Data.S_Tel)) &&
+                                                                
+                                                                (null == Phase1Data.S_ChomeiCode || x.ChomeiCode == Phase1Data.S_ChomeiCode) &&
+                                                                (null == Phase1Data.S_Banti || x.Banti_Kansa == Phase1Data.S_Banti) &&
+                                                                (null == Phase1Data.S_Gou || x.Gou == Phase1Data.S_Gou) &&
+                                                                (null == Phase1Data.S_BuildName || x.BuildName.Contains(Phase1Data.S_BuildName)) &&
+                                                                (null == Phase1Data.S_BuildKana || x.BuildName.Contains(Phase1Data.S_BuildKana)) &&
+                                                                (null == Phase1Data.S_RoomNo || x.RoomNo.Contains(Phase1Data.S_RoomNo.ToString()))
+                                                                ).ToList();
+            
+                if (C_SearchingList.Count == 0)
+                {
+                    Toaster.Add("存在しませんでした", MatToastType.Danger, "エラー");
+                }
+                else
+                {
+                    Console.WriteLine("OK");
+                    Phase1Data.PhaseNo = 2;
+                    await C_SearchingListChanged.InvokeAsync(C_SearchingList);
+                    await Phase1DataChanged.InvokeAsync(Phase1Data);
+                    StateHasChanged();
+                }
             }
         }
         
@@ -158,45 +183,7 @@ namespace B2003C4.Pages.Kansa
         };
 
 
-        public class Kubun
-        {
-            public string KubunName { get; set; }
-            public string KubunCode { get; set; }
 
-            public Boolean Active;
-
-            public Kubun(string kubunName , string kubunCode , Boolean active)
-            {
-                KubunName = kubunName;
-                KubunCode = kubunCode;
-                Active = active;
-            }
-        }
-
-        public class Chomei
-        {
-            public string ChomeiName { get; set; }
-            public int? ChomeiCode { get; set; }
-
-            public Chomei(string chomeiName, int? chomeiCode)
-            {
-                ChomeiName = chomeiName;
-                ChomeiCode = chomeiCode;
-                
-            }
-        }
-
-        public class Kuiki
-        {
-            public string KuikiName { get; set; }
-            public int? KuikiCode { get; set; }
-
-            public Kuiki(string kuikiName, int? kuikiCode)
-            {
-                KuikiName = kuikiName;
-                KuikiCode = kuikiCode;
-            }
-        }
 
         public string[] CityList = new string[0] { };
         public int CityCount;
@@ -206,89 +193,92 @@ namespace B2003C4.Pages.Kansa
         //チェックボックス生成用
         public List<List<Kubun>> ChkBoxList = new List<List<Kubun>>();
         public int ChkBox_Count = 0;
+
+
+
+        public string Device = "iPhone5s";
+
+        public string Layout_Button;
+
+        public string Layout_Long;
+
+        public string Layout_Middle_M;
+
+        public string Layout_Middle_S;
+
+        public string Layout_Small;
+
+        public string Scroll_Size = "120vw";
+
+        public Boolean TextInputActive = true; //順路、枝番号の制御用
+        
+        public List<Chomei> ChomeiList = new List<Chomei>();
         protected override void OnInitialized()
-        {
-            /*
-            ChkBoxList[ChkBox_Count].Add(new List<Kubun>());
+        {   
+ 
 
-            //区分チェックボックス生成
-            foreach(var kubun in KubunList)
-            {
-                
-                
-                if(ChkBoxList[ChkBox_Count].Count == 4)
+                switch (Device)
                 {
-                    ChkBox_Count++;
+                    case "iPhone5s":
+                        Layout_Button = "mat-layout-grid-cell-span-2";
+                        Layout_Long = "mat-layout-grid-cell-span-12";
+                        Layout_Middle_M = "mat-layout-grid-cell-span-3";
+                        Layout_Middle_S = "mat-layout-grid-cell-span-2";
+                        Layout_Small = "mat-layout-grid-cell-span-1";
+
+                        break;
+
+                    default:
+                        break;
+
                 }
-                ChkBoxList[ChkBox_Count].Add(kubun);
-            }
 
-            */
-
-            /* ????
-            for(int x = 0; x <= Phase1Data.CheckResult.Length ; x++)
-            {
-                foreach(var y in KubunList)
+                foreach (var x in C_DokusyaList)
                 {
-                    try
-                    { 
-                        if(y.KubunCode.Contains(Phase1Data.CheckResult[x]) == true )
-                        {
-                            y.Active = "checked";
-                        }
+                    ChomeiList.Add(new Chomei(x.ChomeiName, x.ChomeiCode));
+                }
+
+                //区域
+                foreach (var Kuiki in C_KuikiList)
+                {
+                    if (Phase1Data.Select_TenpoNo == Kuiki.Tenpo)
+                    {
+                        KuikiList.Add(new Kuiki(Kuiki.Name, Kuiki.Kuiki));
                     }
-                    catch(IndexOutOfRangeException)
-                    { }
+                    else
+                    {
+                        continue;
+                    }
                 }
-            }
-            */
 
 
-            List<Chomei> ChomeiList = new List<Chomei>();
 
-            foreach(var x in C_DokusyaList)
-            {
-                ChomeiList.Add(new Chomei(x.ChomeiName, x.ChomeiCode));
-            }
-
-            //区域
-            foreach(var Kuiki in C_KuikiList)
-            {
-                if (Phase1Data.Select_TenpoNo == Kuiki.Tenpo)
+                foreach (var CityName in DBSourceData.DokusyaList)
                 {
-                    KuikiList.Add(new Kuiki(Kuiki.Name, Kuiki.Kuiki));
+                    if (Array.IndexOf(CityList, CityName.CityName) == -1)
+                    {
+                        Array.Resize(ref CityList, CityList.Length + 1);
+                        CityList[CityList.Length - 1] = CityName.CityName;
+                    }
+
                 }
-                else
+                CityCount = CityList.Count();
+
+                //---------------------------------------------------------
+                //履歴の処理
+                if (Phase1Data.HistoryBackState == false)
                 {
-                    continue;
+                    History.Back_History.Add(Phase1Data.Deep_Copy());   //.Add(CurrentPage);
+                    Phase1DataChanged.InvokeAsync(Phase1Data);
                 }
-            }
-
-
-
-            foreach(var CityName in DBSourceData.DokusyaList)
-            {
-                if(Array.IndexOf(CityList , CityName.CityName) == -1)
+                else if (Phase1Data.HistoryBackState == true)
                 {
-                    Array.Resize(ref CityList, CityList.Length + 1);
-                    CityList[CityList.Length - 1] = CityName.CityName;
+                    Phase1Data.HistoryBackState = false;
+                    Phase1DataChanged.InvokeAsync(Phase1Data);
                 }
-
-            }
-            CityCount = CityList.Count();
-
-            //---------------------------------------------------------
-            //履歴の処理
-            if (Phase1Data.HistoryBackState == false)
-            {
-                History.Back_History.Add(Phase1Data.Deep_Copy());   //.Add(CurrentPage);
-                Phase1DataChanged.InvokeAsync(Phase1Data);
-            }
-            else if (Phase1Data.HistoryBackState == true)
-            {
-                Phase1Data.HistoryBackState = false;
-                Phase1DataChanged.InvokeAsync(Phase1Data);
-            }
+                Phase1Data.LoadingState = true;
+                    Phase1DataChanged.InvokeAsync(Phase1Data);
+            
         }
 
         public void Clear()
@@ -447,6 +437,45 @@ namespace B2003C4.Pages.Kansa
             Phase1Data.S_BuildKana = ConvertText;
 
             StateHasChanged();
+        }
+    }
+    public class Kubun
+    {
+        public string KubunName { get; set; }
+        public string KubunCode { get; set; }
+
+        public Boolean Active;
+
+        public Kubun(string kubunName, string kubunCode, Boolean active)
+        {
+            KubunName = kubunName;
+            KubunCode = kubunCode;
+            Active = active;
+        }
+    }
+
+    public class Chomei
+    {
+        public string ChomeiName { get; set; }
+        public int? ChomeiCode { get; set; }
+
+        public Chomei(string chomeiName, int? chomeiCode)
+        {
+            ChomeiName = chomeiName;
+            ChomeiCode = chomeiCode;
+
+        }
+    }
+
+    public class Kuiki
+    {
+        public string KuikiName { get; set; }
+        public int? KuikiCode { get; set; }
+
+        public Kuiki(string kuikiName, int? kuikiCode)
+        {
+            KuikiName = kuikiName;
+            KuikiCode = kuikiCode;
         }
     }
 }

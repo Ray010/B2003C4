@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace B2003C4.Shared
+namespace B2003C4.Pages.Common
 {
     #line hidden
     using System;
@@ -90,6 +90,13 @@ using B2003C4;
 #line hidden
 #nullable disable
 #nullable restore
+#line 17 "C:\Work\B2003C4\B2003C4\_Imports.razor"
+using B2003C4.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 18 "C:\Work\B2003C4\B2003C4\_Imports.razor"
 using B2003C4.Pages;
 
@@ -110,35 +117,7 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 137 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
-using B2003C4.Data;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 138 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
-using B2003C4.Pages.IriTome;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 139 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
-using B2003C4.Pages.Kako;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 140 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
-using B2003C4.Pages.Kansa;
-
-#line default
-#line hidden
-#nullable disable
-    public partial class MainLayout : LayoutComponentBase
+    public partial class NowLoading : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
