@@ -167,15 +167,17 @@ using Microsoft.AspNetCore.Http;
         {
             __builder.OpenElement(0, "body");
             __builder.AddAttribute(1, "class", "bg-light");
-            __builder.OpenElement(2, "div");
-            __builder.OpenElement(3, "form");
-            __builder.AddAttribute(4, "method", "post");
-            __builder.AddMarkupContent(5, "<h6></h6>\r\n \r\n            ");
-            __builder.AddMarkupContent(6, "<label asp-for=\"Settings.Key_Mobile_No\">サーバーIPアドレス</label>\r\n            ");
-            __builder.OpenElement(7, "input");
-            __builder.AddAttribute(8, "id", "name");
-            __builder.AddAttribute(9, "class", "form-control");
-            __builder.AddAttribute(10, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+            __builder.AddMarkupContent(2, "\r\n\r\n\r\n    ");
+            __builder.OpenElement(3, "div");
+            __builder.AddMarkupContent(4, "\r\n        ");
+            __builder.OpenElement(5, "form");
+            __builder.AddAttribute(6, "method", "post");
+            __builder.AddMarkupContent(7, "\r\n\r\n            <h6></h6>\r\n \r\n            ");
+            __builder.AddMarkupContent(8, "<label asp-for=\"Settings.Key_Mobile_No\">サーバーIPアドレス</label>\r\n            ");
+            __builder.OpenElement(9, "input");
+            __builder.AddAttribute(10, "id", "name");
+            __builder.AddAttribute(11, "class", "form-control");
+            __builder.AddAttribute(12, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #nullable restore
 #line 23 "C:\Work\B2003C4\B2003C4\Pages\MobileSettings\ReceiveSettingsFragment.razor"
                                      MobileIPAddress
@@ -184,14 +186,15 @@ using Microsoft.AspNetCore.Http;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(11, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => MobileIPAddress = __value, MobileIPAddress));
+            __builder.AddAttribute(13, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => MobileIPAddress = __value, MobileIPAddress));
             __builder.SetUpdatesAttributeName("value");
             __builder.CloseElement();
-            __builder.AddMarkupContent(12, "\r\n            <p></p>\r\n            <label class=\"text-white bg-danger\"></label>\r\n\r\n            <input asp-page-handler=\"~/Login\" type=\"submit\" value=\"適用\" class=\"btn btn-danger btn-block\">");
+            __builder.AddMarkupContent(14, "\r\n            <p></p>\r\n            <label class=\"text-white bg-danger\"></label>\r\n\r\n            <input asp-page-handler=\"~/Login\" type=\"submit\" value=\"適用\" class=\"btn btn-danger btn-block\">\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(13, "\r\n\r\n        <p></p>\r\n        ");
-            __builder.AddMarkupContent(14, "<form method=\"post\"><input asp-page-handler=\"~/Login\" type=\"submit\" value=\"戻る\" class=\"btn btn-secondary btn-block\"></form>");
+            __builder.AddMarkupContent(15, "\r\n\r\n        <p></p>\r\n        ");
+            __builder.AddMarkupContent(16, "<form method=\"post\">\r\n            <input asp-page-handler=\"~/Login\" type=\"submit\" value=\"戻る\" class=\"btn btn-secondary btn-block\">\r\n        </form>\r\n\r\n\r\n\r\n\r\n    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(17, "\r\n\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

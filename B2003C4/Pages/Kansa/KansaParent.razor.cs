@@ -57,6 +57,9 @@ namespace B2003C4.Pages.Kansa
             P_KoudokuList = await NewsPaperData.GetKoudoku_K95080_ListAsync();
             P_KuikiList = await NewsPaperData.GetKuiki_K95080_ListAsync();
             P_KakuzaiList = await NewsPaperData.GetKakuzai_K95080_ListAsync();
+
+            CurrentPage.LoadingState = true;
+            await CurrentPageChanged.InvokeAsync(CurrentPage);
         }
     }
 }

@@ -132,7 +132,7 @@ using B2003C4.Pages.Common;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 45 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoParent.razor"
+#line 68 "C:\Work\B2003C4\B2003C4\Pages\Kako\KakoParent.razor"
        
     private DummyDataModel DBData = new DummyDataModel();
     //private KoudokuDummyData KoudokuDummyData = new KoudokuDummyData();

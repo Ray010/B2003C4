@@ -111,28 +111,28 @@ using MatBlazor;
 #line hidden
 #nullable disable
 #nullable restore
-#line 126 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
+#line 137 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
 using B2003C4.Data;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 127 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
+#line 138 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
 using B2003C4.Pages.IriTome;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 128 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
+#line 139 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
 using B2003C4.Pages.Kako;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 129 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
+#line 140 "C:\Work\B2003C4\B2003C4\Shared\MainLayout.razor"
 using B2003C4.Pages.Kansa;
 
 #line default

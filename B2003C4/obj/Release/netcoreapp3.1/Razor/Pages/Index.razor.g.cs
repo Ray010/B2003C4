@@ -128,7 +128,8 @@ using MatBlazor;
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
             __builder.OpenElement(0, "html");
-            __builder.AddMarkupContent(1, "<head><meta charset=\"Shift-JIS\">\r\n    <meta http-equiv=\"content-language\" content=\"ja\">\r\n    <meta name=\"google\" content=\"notranslate\">\r\n\r\n    <style>        .mb-3 { margin-bottom: 0.5rem; }\r\n\r\n        .BackGr {\r\n            background: #80989b;\r\n            width: 100%;\r\n            height: 100%;\r\n            margin: 0px;\r\n            padding: 0px;\r\n            overflow: hidden;\r\n        }\r\n\r\n        .Index_Font_Size{\r\n            font-size:2.5rem;\r\n        }\r\n        .IndexMark_Font_Size {\r\n            font-size: 4rem;\r\n        }\r\n        .IndexSub_Font_Size {\r\n            font-size: 1.5rem;\r\n        }\r\n        .Card_table_Fixed{\r\n            text-align:left;\r\n        }\r\n\r\n        .Button_Margin{\r\n            margin-bottom: 1rem;\r\n        }\r\n        .btn-Base-05 {\r\n            height: 5rem;\r\n            background: linear-gradient( 45deg, #808080 0%, #808080 100%);\r\n        }\r\n\r\n        .btn-Tenpo {\r\n            display: inline-block;\r\n            color: black;\r\n            width: 100%;\r\n            text-align:left;\r\n        }\r\n\r\n\r\n            .btn-Tenpo:not(:disabled):not(.disabled):active,\r\n            .btn-Tenpo:not(:disabled):not(.disabled).active,\r\n            .show > .btn-menu.dropdown-toggle {\r\n                background-color: rgba(0, 0, 0, 0.00);\r\n            }\r\n\r\n        .Tenpo {\r\n            font-size: 1.5rem;\r\n            width: 100%;\r\n        }\r\n\r\n        .mdc-select__selected-text {\r\n            font-size: 1.5rem;\r\n        }\r\n\r\n        .mdc-select:not(.mdc-select--disabled) .mdc-select__anchor {\r\n            background-color: rgba(0, 0, 0, 0.00);\r\n        }\r\n\r\n\r\n\r\n    </style></head>");
+            __builder.AddMarkupContent(1, "\r\n\r\n");
+            __builder.AddMarkupContent(2, "<head>\r\n    <meta charset=\"Shift-JIS\">\r\n    <meta http-equiv=\"content-language\" content=\"ja\">\r\n    <meta name=\"google\" content=\"notranslate\">\r\n\r\n    <style>\r\n        .mb-3 { margin-bottom: 0.5rem; }\r\n\r\n        .BackGr {\r\n            background: #80989b;\r\n            width: 100%;\r\n            height: 100%;\r\n            margin: 0px;\r\n            padding: 0px;\r\n            overflow: hidden;\r\n        }\r\n\r\n        .Index_Font_Size{\r\n            font-size:2.5rem;\r\n        }\r\n        .IndexMark_Font_Size {\r\n            font-size: 4rem;\r\n        }\r\n        .IndexSub_Font_Size {\r\n            font-size: 1.5rem;\r\n        }\r\n        .Card_table_Fixed{\r\n            text-align:left;\r\n        }\r\n\r\n        .Button_Margin{\r\n            margin-bottom: 1rem;\r\n        }\r\n        .btn-Base-05 {\r\n            height: 5rem;\r\n            background: linear-gradient( 45deg, #808080 0%, #808080 100%);\r\n        }\r\n\r\n        .btn-Tenpo {\r\n            display: inline-block;\r\n            color: black;\r\n            width: 100%;\r\n            text-align:left;\r\n        }\r\n\r\n\r\n            .btn-Tenpo:not(:disabled):not(.disabled):active,\r\n            .btn-Tenpo:not(:disabled):not(.disabled).active,\r\n            .show > .btn-menu.dropdown-toggle {\r\n                background-color: rgba(0, 0, 0, 0.00);\r\n            }\r\n\r\n        .Tenpo {\r\n            font-size: 1.5rem;\r\n            width: 100%;\r\n        }\r\n\r\n        .mdc-select__selected-text {\r\n            font-size: 1.5rem;\r\n        }\r\n\r\n        .mdc-select:not(.mdc-select--disabled) .mdc-select__anchor {\r\n            background-color: rgba(0, 0, 0, 0.00);\r\n        }\r\n\r\n\r\n\r\n    </style>\r\n\r\n</head>\r\n");
 #nullable restore
 #line 90 "C:\Work\B2003C4\B2003C4\Pages\Index.razor"
  if (P_TenpoList == null)
@@ -137,7 +138,7 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddMarkupContent(2, "<div>Loading...</div>");
+            __builder.AddMarkupContent(3, "<div>Loading...</div>\r\n");
 #nullable restore
 #line 93 "C:\Work\B2003C4\B2003C4\Pages\Index.razor"
 }
@@ -151,11 +152,14 @@ else
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(3, "body");
-            __builder.OpenElement(4, "div");
-            __builder.AddAttribute(5, "class", " text-left Bg_Color");
+            __builder.OpenElement(4, "body");
+            __builder.AddMarkupContent(5, "\r\n    ");
             __builder.OpenElement(6, "div");
-            __Blazor.B2003C4.Pages.Index.TypeInference.CreateMatSelect_0(__builder, 7, 8, "", 9, "", 10, 
+            __builder.AddAttribute(7, "class", " text-left Bg_Color");
+            __builder.AddMarkupContent(8, "\r\n        \r\n\r\n        ");
+            __builder.OpenElement(9, "div");
+            __builder.AddMarkupContent(10, "\r\n            ");
+            __Blazor.B2003C4.Pages.Index.TypeInference.CreateMatSelect_0(__builder, 11, 12, "", 13, "", 14, 
 #nullable restore
 #line 129 "C:\Work\B2003C4\B2003C4\Pages\Index.razor"
                                                             Tenpo_SelectedValue
@@ -163,7 +167,8 @@ else
 #line default
 #line hidden
 #nullable disable
-            , 11, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Tenpo_SelectedValue = __value, Tenpo_SelectedValue)), 12, () => Tenpo_SelectedValue, 13, (__builder2) => {
+            , 15, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Tenpo_SelectedValue = __value, Tenpo_SelectedValue)), 16, () => Tenpo_SelectedValue, 17, (__builder2) => {
+                __builder2.AddMarkupContent(18, "\r\n");
 #nullable restore
 #line 130 "C:\Work\B2003C4\B2003C4\Pages\Index.razor"
                  foreach (var Temp_Tenpo in P_TenpoList)
@@ -172,7 +177,8 @@ else
 #line default
 #line hidden
 #nullable disable
-                __Blazor.B2003C4.Pages.Index.TypeInference.CreateMatOption_1(__builder2, 14, 15, 
+                __builder2.AddContent(19, "                    ");
+                __Blazor.B2003C4.Pages.Index.TypeInference.CreateMatOption_1(__builder2, 20, 21, 
 #nullable restore
 #line 132 "C:\Work\B2003C4\B2003C4\Pages\Index.razor"
                                        Temp_Tenpo.Tenpo
@@ -180,8 +186,8 @@ else
 #line default
 #line hidden
 #nullable disable
-                , 16, (__builder3) => {
-                    __builder3.AddContent(17, 
+                , 22, (__builder3) => {
+                    __builder3.AddContent(23, 
 #nullable restore
 #line 132 "C:\Work\B2003C4\B2003C4\Pages\Index.razor"
                                                           Temp_Tenpo.TenpoName
@@ -192,6 +198,7 @@ else
                     );
                 }
                 );
+                __builder2.AddMarkupContent(24, "\r\n");
 #nullable restore
 #line 133 "C:\Work\B2003C4\B2003C4\Pages\Index.razor"
                 }
@@ -199,12 +206,14 @@ else
 #line default
 #line hidden
 #nullable disable
+                __builder2.AddContent(25, "            ");
             }
             );
+            __builder.AddMarkupContent(26, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(18, "\r\n\r\n        \r\n        ");
-            __builder.OpenElement(19, "button");
-            __builder.AddAttribute(20, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(27, "\r\n\r\n        \r\n        ");
+            __builder.OpenElement(28, "button");
+            __builder.AddAttribute(29, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 138 "C:\Work\B2003C4\B2003C4\Pages\Index.razor"
                             s => JumpPage("IriTome")
@@ -213,16 +222,27 @@ else
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(21, "type", "button");
-            __builder.AddAttribute(22, "class", "Button_Margin btn-Base btn-Base-01 btn text-dark btn-outline-info");
-            __builder.AddMarkupContent(23, @"<div align=""justify""><table class=""Card_table_Fixed""><tr><td align=""center"" colspan=""2""><span class=""Index_Font_Size oi oi-list-rich""></span></td>
-                        <td align=""left"" colspan=""10"" class=""Index_Font_Size"">入止表</td></tr>
-                    <tr><td colspan=""1"">&nbsp;</td>
-                        <td colspan=""10"" class=""IndexSub_Font_Size"">1区～5区</td></tr></table></div>");
+            __builder.AddAttribute(30, "type", "button");
+            __builder.AddAttribute(31, "class", "Button_Margin btn-Base btn-Base-01 btn text-dark btn-outline-info");
+            __builder.AddMarkupContent(32, "\r\n            ");
+            __builder.AddMarkupContent(33, @"<div align=""justify"">
+                <table class=""Card_table_Fixed"">
+                    <tr>
+                        <td align=""center"" colspan=""2""><span class=""Index_Font_Size oi oi-list-rich""></span></td>
+                        <td align=""left"" colspan=""10"" class=""Index_Font_Size"">入止表</td>
+                    </tr>
+                    <tr>
+                        <td colspan=""1"">&nbsp;</td>
+                        <td colspan=""10"" class=""IndexSub_Font_Size"">1区～5区</td>
+                    </tr>
+                    
+                </table>
+            </div>
+        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(24, "\r\n\r\n\r\n        \r\n        ");
-            __builder.OpenElement(25, "button");
-            __builder.AddAttribute(26, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(34, "\r\n\r\n\r\n        \r\n        ");
+            __builder.OpenElement(35, "button");
+            __builder.AddAttribute(36, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 160 "C:\Work\B2003C4\B2003C4\Pages\Index.razor"
                             s => JumpPage("Kako")
@@ -231,16 +251,27 @@ else
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(27, "type", "button");
-            __builder.AddAttribute(28, "class", "Button_Margin btn-Base btn-Base-02 btn text-dark btn-outline-info");
-            __builder.AddMarkupContent(29, @"<div align=""justify""><table class=""Card_table_Fixed""><tr><td align=""center"" colspan=""2""><span class=""Index_Font_Size oi oi-document""></span></td>
-                        <td align=""left"" colspan=""10"" class=""Index_Font_Size"">過去台帳</td></tr>
-                    <tr><td colspan=""1"">&nbsp;</td>
-                        <td colspan=""10"" class=""IndexSub_Font_Size"">1区～5区</td></tr></table></div>");
+            __builder.AddAttribute(37, "type", "button");
+            __builder.AddAttribute(38, "class", "Button_Margin btn-Base btn-Base-02 btn text-dark btn-outline-info");
+            __builder.AddMarkupContent(39, "\r\n            ");
+            __builder.AddMarkupContent(40, @"<div align=""justify"">
+                <table class=""Card_table_Fixed"">
+                    <tr>
+                        <td align=""center"" colspan=""2""><span class=""Index_Font_Size oi oi-document""></span></td>
+                        <td align=""left"" colspan=""10"" class=""Index_Font_Size"">過去台帳</td>
+                    </tr>
+                    <tr>
+                        <td colspan=""1"">&nbsp;</td>
+                        <td colspan=""10"" class=""IndexSub_Font_Size"">1区～5区</td>
+                    </tr>
+                    
+                </table>
+            </div>
+        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(30, "\r\n\r\n\r\n        \r\n\r\n        ");
-            __builder.OpenElement(31, "button");
-            __builder.AddAttribute(32, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(41, "\r\n\r\n\r\n        \r\n\r\n        ");
+            __builder.OpenElement(42, "button");
+            __builder.AddAttribute(43, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 203 "C:\Work\B2003C4\B2003C4\Pages\Index.razor"
                             s => JumpPage("Kansa")
@@ -249,15 +280,26 @@ else
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(33, "type", "button");
-            __builder.AddAttribute(34, "class", "Button_Margin btn-Base btn-Base-04 btn text-dark btn-outline-info");
-            __builder.AddMarkupContent(35, @"<div align=""justify""><table class=""Card_table_Fixed""><tr><td align=""center"" colspan=""2""><span class=""Index_Font_Size oi oi-eye""></span></td>
-                        <td align=""left"" colspan=""10"" class=""Index_Font_Size"">監査</td></tr>
-                    <tr><td colspan=""1"">&nbsp;</td>
-                        <td colspan=""10"" class=""IndexSub_Font_Size"">1区～5区</td></tr></table></div>");
+            __builder.AddAttribute(44, "type", "button");
+            __builder.AddAttribute(45, "class", "Button_Margin btn-Base btn-Base-04 btn text-dark btn-outline-info");
+            __builder.AddMarkupContent(46, "\r\n            ");
+            __builder.AddMarkupContent(47, @"<div align=""justify"">
+                <table class=""Card_table_Fixed"">
+                    <tr>
+                        <td align=""center"" colspan=""2""><span class=""Index_Font_Size oi oi-eye""></span></td>
+                        <td align=""left"" colspan=""10"" class=""Index_Font_Size"">監査</td>
+                    </tr>
+                    <tr>
+                        <td colspan=""1"">&nbsp;</td>
+                        <td colspan=""10"" class=""IndexSub_Font_Size"">1区～5区</td>
+                    </tr>
+                    
+                </table>
+            </div>
+        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(36, "\r\n        ");
-            __builder.AddContent(37, 
+            __builder.AddMarkupContent(48, "\r\n        ");
+            __builder.AddContent(49, 
 #nullable restore
 #line 240 "C:\Work\B2003C4\B2003C4\Pages\Index.razor"
          Tenpo_SelectedValue
@@ -266,8 +308,8 @@ else
 #line hidden
 #nullable disable
             );
-            __builder.AddMarkupContent(38, "\r\n        ");
-            __builder.AddContent(39, 
+            __builder.AddMarkupContent(50, "\r\n        ");
+            __builder.AddContent(51, 
 #nullable restore
 #line 241 "C:\Work\B2003C4\B2003C4\Pages\Index.razor"
          Tenpo_SelectValue
@@ -276,8 +318,11 @@ else
 #line hidden
 #nullable disable
             );
+            __builder.AddMarkupContent(52, "\r\n    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(53, "\r\n");
             __builder.CloseElement();
+            __builder.AddMarkupContent(54, "\r\n");
 #nullable restore
 #line 244 "C:\Work\B2003C4\B2003C4\Pages\Index.razor"
 }

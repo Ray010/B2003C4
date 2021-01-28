@@ -129,17 +129,22 @@ using Microsoft.AspNetCore.Components;
             __builder.AddMarkupContent(0, "<!DOCTYPE HTML>\r\n");
             __builder.OpenElement(1, "html");
             __builder.AddAttribute(2, "lang", "ja");
-            __builder.AddMarkupContent(3, "<head><meta charset=\"Shift-JIS\">\r\n    <meta http-equiv=\"content-language\" content=\"ja\">\r\n    <meta name=\"google\" content=\"notranslate\">\r\n\r\n    <style>        .mb-3 { margin-bottom: 0.5rem; }\r\n\r\n        .BackGr {\r\n            background: #80989b;\r\n            width: 100%;\r\n            height: 100%;\r\n            margin: 0px;\r\n            padding: 0px;\r\n            overflow: hidden;\r\n            \r\n        }\r\n\r\n        .Btn-Color{\r\n            background-color: #ffffff;\r\n        }\r\n\r\n        .Margin_Bottom{\r\n            margin-bottom: 2rem;\r\n        }\r\n\r\n        .btn-IriButton {\r\n            border-radius: 0;\r\n            background-color: #ffffff;\r\n        }\r\n            .btn-IriButton:not(:disabled):not(.disabled):active,\r\n            .btn-IriButton:not(:disabled):not(.disabled).active,\r\n            .show > .btn-menu.dropdown-toggle {\r\n                \r\n            }\r\n\r\n        .btn-TomeButton {\r\n            border-radius: 0;\r\n            background-color: #ffffff;\r\n        }\r\n\r\n            .btn-IriButton:not(:disabled):not(.disabled):active,\r\n            .btn-IriButton:not(:disabled):not(.disabled).active,\r\n            .show > .btn-menu.dropdown-toggle {\r\n            }\r\n\r\n\r\n        .mdc-select .mdc-select__anchor {\r\n            border-top-left-radius: 0;\r\n            border-top-right-radius: 0;\r\n        }\r\n\r\n        .mdc-select:not(.mdc-select--disabled) .mdc-select__anchor {\r\n            background-color: #FFFFFF;\r\n        }\r\n\r\n        .mdc-select {\r\n            min-width: 50px;\r\n            display: inline-flex;\r\n            position: relative;\r\n        }\r\n\r\n\r\n        label {\r\n            margin-bottom: 0;\r\n        }\r\n\r\n        p {\r\n            height: 0;\r\n        }\r\n    </style></head>\r\n\r\n");
-            __builder.OpenElement(4, "body");
-            __builder.AddAttribute(5, "class", "Bg_Color");
-            __builder.OpenElement(6, "div");
-            __builder.AddAttribute(7, "class", "mat-layout-grid");
-            __builder.AddAttribute(8, "style", "padding:0.5rem;");
-            __builder.OpenElement(9, "div");
-            __builder.AddAttribute(10, "class", "mat-layout-grid-inner");
-            __builder.OpenElement(11, "div");
-            __builder.AddAttribute(12, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-2");
-            __Blazor.B2003C4.Pages.IriTome.MainFragment.TypeInference.CreateMatSelect_0(__builder, 13, 14, "", 15, "", 16, "width:100%;", 17, 
+            __builder.AddMarkupContent(3, "\r\n\r\n");
+            __builder.AddMarkupContent(4, "<head>\r\n    <meta charset=\"Shift-JIS\">\r\n    <meta http-equiv=\"content-language\" content=\"ja\">\r\n    <meta name=\"google\" content=\"notranslate\">\r\n\r\n    <style>\r\n        .mb-3 { margin-bottom: 0.5rem; }\r\n\r\n        .BackGr {\r\n            background: #80989b;\r\n            width: 100%;\r\n            height: 100%;\r\n            margin: 0px;\r\n            padding: 0px;\r\n            overflow: hidden;\r\n            \r\n        }\r\n\r\n        .Btn-Color{\r\n            background-color: #ffffff;\r\n        }\r\n\r\n        .Margin_Bottom{\r\n            margin-bottom: 2rem;\r\n        }\r\n\r\n        .btn-IriButton {\r\n            border-radius: 0;\r\n            background-color: #ffffff;\r\n        }\r\n            .btn-IriButton:not(:disabled):not(.disabled):active,\r\n            .btn-IriButton:not(:disabled):not(.disabled).active,\r\n            .show > .btn-menu.dropdown-toggle {\r\n                \r\n            }\r\n\r\n        .btn-TomeButton {\r\n            border-radius: 0;\r\n            background-color: #ffffff;\r\n        }\r\n\r\n            .btn-IriButton:not(:disabled):not(.disabled):active,\r\n            .btn-IriButton:not(:disabled):not(.disabled).active,\r\n            .show > .btn-menu.dropdown-toggle {\r\n            }\r\n\r\n\r\n        .mdc-select .mdc-select__anchor {\r\n            border-top-left-radius: 0;\r\n            border-top-right-radius: 0;\r\n        }\r\n\r\n        .mdc-select:not(.mdc-select--disabled) .mdc-select__anchor {\r\n            background-color: #FFFFFF;\r\n        }\r\n\r\n        .mdc-select {\r\n            min-width: 50px;\r\n            display: inline-flex;\r\n            position: relative;\r\n        }\r\n\r\n\r\n        label {\r\n            margin-bottom: 0;\r\n        }\r\n\r\n        p {\r\n            height: 0;\r\n        }\r\n    </style>\r\n\r\n\r\n</head>\r\n\r\n");
+            __builder.OpenElement(5, "body");
+            __builder.AddAttribute(6, "class", "Bg_Color");
+            __builder.AddMarkupContent(7, "\r\n\r\n    ");
+            __builder.OpenElement(8, "div");
+            __builder.AddAttribute(9, "class", "mat-layout-grid");
+            __builder.AddAttribute(10, "style", "padding:0.5rem;");
+            __builder.AddMarkupContent(11, "\r\n        ");
+            __builder.OpenElement(12, "div");
+            __builder.AddAttribute(13, "class", "mat-layout-grid-inner");
+            __builder.AddMarkupContent(14, "\r\n            ");
+            __builder.OpenElement(15, "div");
+            __builder.AddAttribute(16, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-2");
+            __builder.AddMarkupContent(17, "\r\n                ");
+            __Blazor.B2003C4.Pages.IriTome.MainFragment.TypeInference.CreateMatSelect_0(__builder, 18, 19, "", 20, "", 21, "width:100%;", 22, 
 #nullable restore
 #line 94 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                                 Kuiki_SelectedValue
@@ -147,7 +152,8 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
-            , 18, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Kuiki_SelectedValue = __value, Kuiki_SelectedValue)), 19, () => Kuiki_SelectedValue, 20, (__builder2) => {
+            , 23, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Kuiki_SelectedValue = __value, Kuiki_SelectedValue)), 24, () => Kuiki_SelectedValue, 25, (__builder2) => {
+                __builder2.AddMarkupContent(26, "\r\n\r\n");
 #nullable restore
 #line 96 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                      foreach (var Temp_Kuiki in C_KuikiList)
@@ -158,8 +164,9 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
-                __builder2.OpenComponent<MatBlazor.MatOption<int?>>(21);
-                __builder2.AddAttribute(22, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<int?>(
+                __builder2.AddContent(27, "                            ");
+                __builder2.OpenComponent<MatBlazor.MatOption<int?>>(28);
+                __builder2.AddAttribute(29, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<int?>(
 #nullable restore
 #line 100 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                              Temp_Kuiki.Kuiki
@@ -168,8 +175,8 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
                 ));
-                __builder2.AddAttribute(23, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment)((__builder3) => {
-                    __builder3.AddContent(24, 
+                __builder2.AddAttribute(30, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment)((__builder3) => {
+                    __builder3.AddContent(31, 
 #nullable restore
 #line 100 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                                                 Temp_Kuiki.Name
@@ -181,6 +188,7 @@ using Microsoft.AspNetCore.Components;
                 }
                 ));
                 __builder2.CloseComponent();
+                __builder2.AddMarkupContent(32, "\r\n");
 #nullable restore
 #line 101 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                         }
@@ -193,13 +201,16 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
+                __builder2.AddContent(33, "                ");
             }
             );
+            __builder.AddMarkupContent(34, "\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(25, "\r\n            ");
-            __builder.OpenElement(26, "div");
-            __builder.AddAttribute(27, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-2");
-            __Blazor.B2003C4.Pages.IriTome.MainFragment.TypeInference.CreateMatSelect_1(__builder, 28, 29, "", 30, "", 31, "width:100%;", 32, 
+            __builder.AddMarkupContent(35, "\r\n            ");
+            __builder.OpenElement(36, "div");
+            __builder.AddAttribute(37, "class", "mat-layout-grid-cell mat-layout-grid-cell-span-2");
+            __builder.AddMarkupContent(38, "\r\n                ");
+            __Blazor.B2003C4.Pages.IriTome.MainFragment.TypeInference.CreateMatSelect_1(__builder, 39, 40, "", 41, "", 42, "width:100%;", 43, 
 #nullable restore
 #line 110 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                                 Nengetu_SelectedValue
@@ -207,9 +218,10 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
-            , 33, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Nengetu_SelectedValue = __value, Nengetu_SelectedValue)), 34, () => Nengetu_SelectedValue, 35, (__builder2) => {
-                __builder2.OpenComponent<MatBlazor.MatOption<int?>>(36);
-                __builder2.AddAttribute(37, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<int?>(
+            , 44, Microsoft.AspNetCore.Components.EventCallback.Factory.Create(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => Nengetu_SelectedValue = __value, Nengetu_SelectedValue)), 45, () => Nengetu_SelectedValue, 46, (__builder2) => {
+                __builder2.AddMarkupContent(47, "\r\n\r\n                    ");
+                __builder2.OpenComponent<MatBlazor.MatOption<int?>>(48);
+                __builder2.AddAttribute(49, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<int?>(
 #nullable restore
 #line 112 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                     0
@@ -218,11 +230,12 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
                 ));
-                __builder2.AddAttribute(38, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment)((__builder3) => {
-                    __builder3.AddMarkupContent(39, "全期間");
+                __builder2.AddAttribute(50, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment)((__builder3) => {
+                    __builder3.AddMarkupContent(51, "全期間");
                 }
                 ));
                 __builder2.CloseComponent();
+                __builder2.AddMarkupContent(52, "\r\n");
 #nullable restore
 #line 113 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                      foreach (var Temp_Nengetu in C_NengetuList)
@@ -233,8 +246,9 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
-                __builder2.OpenComponent<MatBlazor.MatOption<int?>>(40);
-                __builder2.AddAttribute(41, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<int?>(
+                __builder2.AddContent(53, "                            ");
+                __builder2.OpenComponent<MatBlazor.MatOption<int?>>(54);
+                __builder2.AddAttribute(55, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<int?>(
 #nullable restore
 #line 117 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                              Temp_Nengetu.Nengetu
@@ -243,8 +257,8 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
                 ));
-                __builder2.AddAttribute(42, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment)((__builder3) => {
-                    __builder3.AddContent(43, 
+                __builder2.AddAttribute(56, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment)((__builder3) => {
+                    __builder3.AddContent(57, 
 #nullable restore
 #line 117 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                                                     Temp_Nengetu.Name
@@ -256,6 +270,7 @@ using Microsoft.AspNetCore.Components;
                 }
                 ));
                 __builder2.CloseComponent();
+                __builder2.AddMarkupContent(58, "\r\n");
 #nullable restore
 #line 118 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                         }
@@ -268,18 +283,26 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
+                __builder2.AddContent(59, "                ");
             }
             );
+            __builder.AddMarkupContent(60, "\r\n            ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(61, "\r\n        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(62, "\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(44, "\r\n\r\n\r\n\r\n\r\n\r\n    <div></div>\r\n\r\n\r\n    \r\n    ");
-            __builder.OpenElement(45, "div");
-            __builder.AddAttribute(46, "class", "Bg_Color");
-            __builder.OpenElement(47, "table");
-            __builder.AddAttribute(48, "class", "Card_table_Fixed Bg_Color");
-            __builder.OpenElement(49, "tr");
-            __builder.AddAttribute(50, "align", "center");
+            __builder.AddMarkupContent(63, "\r\n\r\n\r\n\r\n\r\n\r\n    ");
+            __builder.AddMarkupContent(64, "<div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n    </div>\r\n\r\n\r\n    \r\n    ");
+            __builder.OpenElement(65, "div");
+            __builder.AddAttribute(66, "class", "Bg_Color");
+            __builder.AddMarkupContent(67, "\r\n        ");
+            __builder.OpenElement(68, "table");
+            __builder.AddAttribute(69, "class", "Card_table_Fixed Bg_Color");
+            __builder.AddMarkupContent(70, "\r\n\r\n            \r\n\r\n            ");
+            __builder.OpenElement(71, "tr");
+            __builder.AddAttribute(72, "align", "center");
+            __builder.AddMarkupContent(73, "\r\n");
 #nullable restore
 #line 278 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                  if (Phase1Data.IriActive == true)
@@ -288,10 +311,12 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(51, "th");
-            __builder.AddAttribute(52, "colspan", "10");
-            __builder.OpenElement(53, "button");
-            __builder.AddAttribute(54, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddContent(74, "                    ");
+            __builder.OpenElement(75, "th");
+            __builder.AddAttribute(76, "colspan", "10");
+            __builder.AddMarkupContent(77, "\r\n                        ");
+            __builder.OpenElement(78, "button");
+            __builder.AddAttribute(79, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 281 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                             s => ButtonActive("Iri")
@@ -300,15 +325,18 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(55, "type", "button");
-            __builder.AddAttribute(56, "class", "btn btn-primary btn-block  ");
-            __builder.OpenElement(57, "table");
-            __builder.AddAttribute(58, "class", "Card_table_Fixed");
-            __builder.OpenElement(59, "tr");
-            __builder.AddMarkupContent(60, "<th colspan=\"2\">入</th>\r\n                                    ");
-            __builder.OpenElement(61, "th");
-            __builder.AddAttribute(62, "colspan", "2");
-            __builder.AddContent(63, 
+            __builder.AddAttribute(80, "type", "button");
+            __builder.AddAttribute(81, "class", "btn btn-primary btn-block  ");
+            __builder.AddMarkupContent(82, "\r\n                            ");
+            __builder.OpenElement(83, "table");
+            __builder.AddAttribute(84, "class", "Card_table_Fixed");
+            __builder.AddMarkupContent(85, "\r\n                                ");
+            __builder.OpenElement(86, "tr");
+            __builder.AddMarkupContent(87, "\r\n                                    ");
+            __builder.AddMarkupContent(88, "<th colspan=\"2\">入</th>\r\n                                    ");
+            __builder.OpenElement(89, "th");
+            __builder.AddAttribute(90, "colspan", "2");
+            __builder.AddContent(91, 
 #nullable restore
 #line 286 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                      C_IriList.FindAll(n => n.Kuiki == Kuiki_SelectedValue).Count
@@ -317,12 +345,17 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             );
-            __builder.AddMarkupContent(64, " 件");
+            __builder.AddMarkupContent(92, " 件");
             __builder.CloseElement();
+            __builder.AddMarkupContent(93, "\r\n                                ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(94, "\r\n                            ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(95, "\r\n                        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(96, "\r\n                    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(97, "\r\n");
 #nullable restore
 #line 291 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                 }
@@ -330,6 +363,7 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddMarkupContent(98, "\r\n");
 #nullable restore
 #line 293 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                  if (Phase1Data.IriActive == true && Phase1Data.TomeActive == true)
@@ -339,7 +373,8 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddMarkupContent(65, "<th>&nbsp;</th>");
+            __builder.AddContent(99, "                    ");
+            __builder.AddMarkupContent(100, "<th>&nbsp;</th>\r\n");
 #nullable restore
 #line 297 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
 
@@ -348,6 +383,7 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddMarkupContent(101, "\r\n\r\n");
 #nullable restore
 #line 301 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                  if (Phase1Data.TomeActive == true)
@@ -356,10 +392,12 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(66, "th");
-            __builder.AddAttribute(67, "colspan", "10");
-            __builder.OpenElement(68, "button");
-            __builder.AddAttribute(69, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddContent(102, "                    ");
+            __builder.OpenElement(103, "th");
+            __builder.AddAttribute(104, "colspan", "10");
+            __builder.AddMarkupContent(105, "\r\n                        ");
+            __builder.OpenElement(106, "button");
+            __builder.AddAttribute(107, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 304 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                             s =>ButtonActive("Tome")
@@ -368,15 +406,18 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(70, "type", "button");
-            __builder.AddAttribute(71, "class", "btn btn-danger btn-block");
-            __builder.OpenElement(72, "table");
-            __builder.AddAttribute(73, "class", "Card_table_Fixed");
-            __builder.OpenElement(74, "tr");
-            __builder.AddMarkupContent(75, "<th colspan=\"2\">止</th>\r\n                                    ");
-            __builder.OpenElement(76, "th");
-            __builder.AddAttribute(77, "colspan", "2");
-            __builder.AddContent(78, 
+            __builder.AddAttribute(108, "type", "button");
+            __builder.AddAttribute(109, "class", "btn btn-danger btn-block");
+            __builder.AddMarkupContent(110, "\r\n                            ");
+            __builder.OpenElement(111, "table");
+            __builder.AddAttribute(112, "class", "Card_table_Fixed");
+            __builder.AddMarkupContent(113, "\r\n                                ");
+            __builder.OpenElement(114, "tr");
+            __builder.AddMarkupContent(115, "\r\n                                    ");
+            __builder.AddMarkupContent(116, "<th colspan=\"2\">止</th>\r\n                                    ");
+            __builder.OpenElement(117, "th");
+            __builder.AddAttribute(118, "colspan", "2");
+            __builder.AddContent(119, 
 #nullable restore
 #line 309 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                      C_TomeList.FindAll(n => n.Kuiki == Kuiki_SelectedValue).Count
@@ -385,12 +426,17 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             );
-            __builder.AddMarkupContent(79, " 件");
+            __builder.AddMarkupContent(120, " 件");
             __builder.CloseElement();
+            __builder.AddMarkupContent(121, "\r\n                                ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(122, "\r\n                            ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(123, "\r\n                        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(124, "\r\n                    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(125, "\r\n");
 #nullable restore
 #line 314 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                 }
@@ -398,9 +444,11 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddContent(126, "            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(80, "\r\n\r\n            \r\n\r\n\r\n            ");
-            __builder.OpenElement(81, "tr");
+            __builder.AddMarkupContent(127, "\r\n\r\n            \r\n\r\n\r\n            ");
+            __builder.OpenElement(128, "tr");
+            __builder.AddMarkupContent(129, "\r\n");
 #nullable restore
 #line 321 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                  if (Phase1Data.IriActive == true)
@@ -409,11 +457,14 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(82, "th");
-            __builder.AddAttribute(83, "class", "Card_VerticalFix Card_parent");
-            __builder.AddAttribute(84, "colspan", "10");
-            __builder.OpenElement(85, "table");
-            __builder.AddAttribute(86, "class", "Card_table_Fixed");
+            __builder.AddContent(130, "                    ");
+            __builder.OpenElement(131, "th");
+            __builder.AddAttribute(132, "class", "Card_VerticalFix Card_parent");
+            __builder.AddAttribute(133, "colspan", "10");
+            __builder.AddMarkupContent(134, "\r\n                        ");
+            __builder.OpenElement(135, "table");
+            __builder.AddAttribute(136, "class", "Card_table_Fixed");
+            __builder.AddMarkupContent(137, "\r\n                            \r\n");
 #nullable restore
 #line 326 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                              foreach (var x in C_IriList)
@@ -434,12 +485,16 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(87, "tr");
-            __builder.OpenElement(88, "td");
-            __builder.OpenElement(89, "div");
-            __builder.AddAttribute(90, "class", "Card_parent");
-            __builder.OpenElement(91, "button");
-            __builder.AddAttribute(92, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddContent(138, "                                    ");
+            __builder.OpenElement(139, "tr");
+            __builder.AddMarkupContent(140, "\r\n                                        ");
+            __builder.OpenElement(141, "td");
+            __builder.AddMarkupContent(142, "\r\n                                            ");
+            __builder.OpenElement(143, "div");
+            __builder.AddAttribute(144, "class", "Card_parent");
+            __builder.AddMarkupContent(145, "\r\n                                                ");
+            __builder.OpenElement(146, "button");
+            __builder.AddAttribute(147, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 336 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                                     s => JumpPageIri(x)
@@ -448,17 +503,21 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(93, "type", "button");
-            __builder.AddAttribute(94, "class", "btn btn-IriButton btn-block Card_NameButtonMargin");
-            __builder.OpenElement(95, "table");
-            __builder.AddAttribute(96, "class", "Card_table_Fixed");
-            __builder.OpenElement(97, "tbody");
-            __builder.OpenElement(98, "tr");
-            __builder.OpenElement(99, "td");
-            __builder.AddAttribute(100, "align", "left");
-            __builder.AddAttribute(101, "class", "fontSizeMAX767");
-            __builder.AddAttribute(102, "colspan", "5");
-            __builder.AddContent(103, 
+            __builder.AddAttribute(148, "type", "button");
+            __builder.AddAttribute(149, "class", "btn btn-IriButton btn-block Card_NameButtonMargin");
+            __builder.AddMarkupContent(150, "\r\n                                                    ");
+            __builder.OpenElement(151, "table");
+            __builder.AddAttribute(152, "class", "Card_table_Fixed");
+            __builder.AddMarkupContent(153, "\r\n                                                        ");
+            __builder.OpenElement(154, "tbody");
+            __builder.AddMarkupContent(155, "\r\n                                                            ");
+            __builder.OpenElement(156, "tr");
+            __builder.AddMarkupContent(157, "\r\n                                                                ");
+            __builder.OpenElement(158, "td");
+            __builder.AddAttribute(159, "align", "left");
+            __builder.AddAttribute(160, "class", "fontSizeMAX767");
+            __builder.AddAttribute(161, "colspan", "5");
+            __builder.AddContent(162, 
 #nullable restore
 #line 341 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                                                                                      x.Name
@@ -467,16 +526,18 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(104, "  ");
+            __builder.AddContent(163, "  ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(164, "\r\n                                                            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(105, "\r\n                                                            ");
-            __builder.OpenElement(106, "tr");
-            __builder.OpenElement(107, "td");
-            __builder.AddAttribute(108, "align", "left");
-            __builder.AddAttribute(109, "class", "fontSizeMAX767");
-            __builder.AddAttribute(110, "colspan", "5");
-            __builder.AddContent(111, 
+            __builder.AddMarkupContent(165, "\r\n                                                            ");
+            __builder.OpenElement(166, "tr");
+            __builder.AddMarkupContent(167, "\r\n                                                                ");
+            __builder.OpenElement(168, "td");
+            __builder.AddAttribute(169, "align", "left");
+            __builder.AddAttribute(170, "class", "fontSizeMAX767");
+            __builder.AddAttribute(171, "colspan", "5");
+            __builder.AddContent(172, 
 #nullable restore
 #line 344 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                                                                                      x.Meig
@@ -485,16 +546,18 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(112, "  ");
+            __builder.AddContent(173, "  ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(174, "\r\n\r\n                                                            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(113, "\r\n                                                            ");
-            __builder.OpenElement(114, "tr");
-            __builder.OpenElement(115, "td");
-            __builder.AddAttribute(116, "align", "left");
-            __builder.AddAttribute(117, "class", "fontSizeMAX767");
-            __builder.AddAttribute(118, "colspan", "4");
-            __builder.AddContent(119, 
+            __builder.AddMarkupContent(175, "\r\n                                                            ");
+            __builder.OpenElement(176, "tr");
+            __builder.AddMarkupContent(177, "\r\n                                                                ");
+            __builder.OpenElement(178, "td");
+            __builder.AddAttribute(179, "align", "left");
+            __builder.AddAttribute(180, "class", "fontSizeMAX767");
+            __builder.AddAttribute(181, "colspan", "4");
+            __builder.AddContent(182, 
 #nullable restore
 #line 348 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                                                                                      x.iri
@@ -503,8 +566,8 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(120, " - ");
-            __builder.AddContent(121, 
+            __builder.AddContent(183, " - ");
+            __builder.AddContent(184, 
 #nullable restore
 #line 348 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                                                                                               x.Tome
@@ -513,15 +576,23 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(122, "   ");
+            __builder.AddContent(185, "   ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(186, "\r\n\r\n                                                            ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(187, "\r\n                                                        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(188, "\r\n                                                    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(189, "\r\n                                                ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(190, "\r\n                                            ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(191, "\r\n                                        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(192, "\r\n                                    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(193, "\r\n");
 #nullable restore
 #line 359 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                 }
@@ -537,8 +608,11 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddMarkupContent(194, "                            \r\n                        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(195, "\r\n                    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(196, "\r\n");
 #nullable restore
 #line 364 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                 }
@@ -546,6 +620,7 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddMarkupContent(197, "\r\n\r\n");
 #nullable restore
 #line 367 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                  if (Phase1Data.IriActive == true && Phase1Data.TomeActive == true)
@@ -554,7 +629,8 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddMarkupContent(123, "<th colspan=\"1\">&nbsp;</th>");
+            __builder.AddContent(198, "                    ");
+            __builder.AddMarkupContent(199, "<th colspan=\"1\">&nbsp;</th>\r\n");
 #nullable restore
 #line 370 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                 }
@@ -562,6 +638,7 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddMarkupContent(200, "\r\n");
 #nullable restore
 #line 372 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                  if (Phase1Data.TomeActive == true)
@@ -570,11 +647,14 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(124, "th");
-            __builder.AddAttribute(125, "class", "Card_VerticalFix Card_parent");
-            __builder.AddAttribute(126, "colspan", "10");
-            __builder.OpenElement(127, "table");
-            __builder.AddAttribute(128, "class", "Card_table_Fixed");
+            __builder.AddContent(201, "                    ");
+            __builder.OpenElement(202, "th");
+            __builder.AddAttribute(203, "class", "Card_VerticalFix Card_parent");
+            __builder.AddAttribute(204, "colspan", "10");
+            __builder.AddMarkupContent(205, "\r\n                        ");
+            __builder.OpenElement(206, "table");
+            __builder.AddAttribute(207, "class", "Card_table_Fixed");
+            __builder.AddMarkupContent(208, "\r\n                            \r\n");
 #nullable restore
 #line 377 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                              foreach (var x in C_TomeList)
@@ -596,12 +676,16 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(129, "tr");
-            __builder.OpenElement(130, "td");
-            __builder.OpenElement(131, "div");
-            __builder.AddAttribute(132, "class", "Card_parent");
-            __builder.OpenElement(133, "button");
-            __builder.AddAttribute(134, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddContent(209, "                                    ");
+            __builder.OpenElement(210, "tr");
+            __builder.AddMarkupContent(211, "\r\n                                        ");
+            __builder.OpenElement(212, "td");
+            __builder.AddMarkupContent(213, "\r\n                                            ");
+            __builder.OpenElement(214, "div");
+            __builder.AddAttribute(215, "class", "Card_parent");
+            __builder.AddMarkupContent(216, "\r\n                                                ");
+            __builder.OpenElement(217, "button");
+            __builder.AddAttribute(218, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 388 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                                     s => JumpPageTome(x)
@@ -610,16 +694,20 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(135, "type", "button");
-            __builder.AddAttribute(136, "class", "btn btn-TomeButton btn-block Card_NameButtonMargin");
-            __builder.OpenElement(137, "table");
-            __builder.OpenElement(138, "tbody");
-            __builder.OpenElement(139, "tr");
-            __builder.OpenElement(140, "td");
-            __builder.AddAttribute(141, "align", "left");
-            __builder.AddAttribute(142, "class", "fontSizeMAX767");
-            __builder.AddAttribute(143, "colspan", "5");
-            __builder.AddContent(144, 
+            __builder.AddAttribute(219, "type", "button");
+            __builder.AddAttribute(220, "class", "btn btn-TomeButton btn-block Card_NameButtonMargin");
+            __builder.AddMarkupContent(221, "\r\n\r\n                                                    ");
+            __builder.OpenElement(222, "table");
+            __builder.AddMarkupContent(223, "\r\n                                                        ");
+            __builder.OpenElement(224, "tbody");
+            __builder.AddMarkupContent(225, "\r\n                                                            ");
+            __builder.OpenElement(226, "tr");
+            __builder.AddMarkupContent(227, "\r\n                                                                ");
+            __builder.OpenElement(228, "td");
+            __builder.AddAttribute(229, "align", "left");
+            __builder.AddAttribute(230, "class", "fontSizeMAX767");
+            __builder.AddAttribute(231, "colspan", "5");
+            __builder.AddContent(232, 
 #nullable restore
 #line 394 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                                                                                      x.Name
@@ -628,16 +716,18 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(145, "  ");
+            __builder.AddContent(233, "  ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(234, "\r\n                                                            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(146, "\r\n                                                            ");
-            __builder.OpenElement(147, "tr");
-            __builder.OpenElement(148, "td");
-            __builder.AddAttribute(149, "align", "left");
-            __builder.AddAttribute(150, "class", "fontSizeMAX767");
-            __builder.AddAttribute(151, "colspan", "5");
-            __builder.AddContent(152, 
+            __builder.AddMarkupContent(235, "\r\n                                                            ");
+            __builder.OpenElement(236, "tr");
+            __builder.AddMarkupContent(237, "\r\n                                                                ");
+            __builder.OpenElement(238, "td");
+            __builder.AddAttribute(239, "align", "left");
+            __builder.AddAttribute(240, "class", "fontSizeMAX767");
+            __builder.AddAttribute(241, "colspan", "5");
+            __builder.AddContent(242, 
 #nullable restore
 #line 397 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                                                                                      x.Meig
@@ -646,16 +736,18 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(153, "  ");
+            __builder.AddContent(243, "  ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(244, "\r\n                                                            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(154, "\r\n                                                            ");
-            __builder.OpenElement(155, "tr");
-            __builder.OpenElement(156, "td");
-            __builder.AddAttribute(157, "align", "left");
-            __builder.AddAttribute(158, "class", "fontSizeMAX767");
-            __builder.AddAttribute(159, "colspan", "4");
-            __builder.AddContent(160, 
+            __builder.AddMarkupContent(245, "\r\n                                                            ");
+            __builder.OpenElement(246, "tr");
+            __builder.AddMarkupContent(247, "\r\n                                                                ");
+            __builder.OpenElement(248, "td");
+            __builder.AddAttribute(249, "align", "left");
+            __builder.AddAttribute(250, "class", "fontSizeMAX767");
+            __builder.AddAttribute(251, "colspan", "4");
+            __builder.AddContent(252, 
 #nullable restore
 #line 400 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                                                                                      x.iri
@@ -664,8 +756,8 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(161, " - ");
-            __builder.AddContent(162, 
+            __builder.AddContent(253, " - ");
+            __builder.AddContent(254, 
 #nullable restore
 #line 400 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                                                                                                               x.tome
@@ -674,15 +766,23 @@ using Microsoft.AspNetCore.Components;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(163, "  ");
+            __builder.AddContent(255, "  ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(256, "\r\n                                                            ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(257, "\r\n                                                        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(258, "\r\n                                                    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(259, "\r\n                                                ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(260, "\r\n                                            ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(261, "\r\n                                        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(262, "\r\n                                    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(263, "\r\n");
 #nullable restore
 #line 410 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                                 }
@@ -698,8 +798,11 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddMarkupContent(264, "                            \r\n                        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(265, "\r\n                    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(266, "\r\n");
 #nullable restore
 #line 415 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
                 }
@@ -707,10 +810,15 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddContent(267, "            ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(268, "\r\n\r\n        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(269, "\r\n    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(270, "\r\n");
             __builder.CloseElement();
+            __builder.AddMarkupContent(271, "\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

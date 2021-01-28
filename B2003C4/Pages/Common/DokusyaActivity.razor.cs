@@ -80,22 +80,22 @@ namespace B2003C4.Pages.Common
 
 
 
-        /*
+        
         //K95080
         [Parameter]
-        public List<Dokusya_K95080> C_Dokusya_K95080_List { get; set; }
+        public List<Dokusya_K95080> C_DokusyaList_K95080 { get; set; }
 
         [Parameter]
-        public EventCallback<List<Dokusya_K95080>> C_Dokusya_K95080_ListChanged { get; set; }
+        public EventCallback<List<Dokusya_K95080>> C_DokusyaList_K95080Changed { get; set; }
 
         [Parameter]
-        public List<Koudoku_K95080> C_Koudoku_K95080_List { get; set; }
+        public List<Koudoku_K95080> C_KoudokuList_K95080 { get; set; }
 
         [Parameter]
-        public EventCallback<List<Koudoku_K95080>> C_Koudoku_K95080_ListChanged { get; set; }
+        public EventCallback<List<Koudoku_K95080>> C_KoudokuList_K95080Changed { get; set; }
 
 
-        */
+
         //DB------------------------------------------------------------------------------------------
 
         public List<Dokusya_K95010> Temp_DokusyaList { get; set; } = new List<Dokusya_K95010>(); //検索済み購読リスト
@@ -119,39 +119,84 @@ namespace B2003C4.Pages.Common
 
         protected override void OnInitialized()
         {
-            var DokusyaList = C_DokusyaList.FirstOrDefault(n => n.DokuCode == CommonPhase1.S_DokuCode);
-
-            KoumokuList[0].Value = DokusyaList.DokuCode.ToString();
-            KoumokuList[1].Value = DokusyaList.Name;
-            KoumokuList[2].Value = DokusyaList.Build;
-            KoumokuList[3].Value = DokusyaList.AddressRyaku + " " + DokusyaList.Banti;
-            KoumokuList[4].Value = DokusyaList.Tel;
-            KoumokuList[5].Value = DokusyaList.Misebi1; //DokusyaList.S_MiseBikou;
-            KoumokuList[6].Value = DokusyaList.Syumemo1; // DokusyaList.S_Junro_Bikou;
-            KoumokuList[7].Value = DokusyaList.Bunrui; //DokusyaList.S_MoneyRemarks;
-            KoumokuList[8].Value = DokusyaList.Rank; //DokusyaList.S_Class;
-                                                     //KoumokuList[9].Value = " "; //DokusyaList.S_Lank;
 
 
 
+            switch (CommonPhase1.IndexURL)
+            {
+                case "IriTome":
+           
+                    goto End;
+
+                case "Kako":
+                    
+                    goto End;
+
+
+
+                case "Kansa":
+                    var DokusyaList_K95080 = C_DokusyaList_K95080.FirstOrDefault(n => n.DokuCode == CommonPhase1.S_DokuCode);
+                    
+                    KoumokuList[0].Value = DokusyaList_K95080.DokuCode.ToString();
+                    KoumokuList[1].Value = DokusyaList_K95080.DokuName;
+                    KoumokuList[2].Value = DokusyaList_K95080.BuildName;
+                    KoumokuList[3].Value = DokusyaList_K95080.ChomeiName + " " + DokusyaList_K95080.Banti_Kansa +"-"+ DokusyaList_K95080.Gou;
+                    KoumokuList[4].Value = DokusyaList_K95080.Tel1;
+                    KoumokuList[5].Value = DokusyaList_K95080.Misebi1; //DokusyaList.S_MiseBikou;
+                    KoumokuList[6].Value = DokusyaList_K95080.Syumemo1; // DokusyaList.S_Junro_Bikou;
+                    KoumokuList[7].Value = DokusyaList_K95080.Bunrui; //DokusyaList.S_MoneyRemarks;
+                    KoumokuList[8].Value = DokusyaList_K95080.Rank; //DokusyaList.S_Class;
+                    //KoumokuList[9].Value = " "; //DokusyaList.S_Lank
+
+                    foreach (var Temp_KoudokuList in C_KoudokuList_K95080)
+                    {
+                        if (CommonPhase1.S_DokuCode == Temp_KoudokuList.DokuCode)
+                        {
+                            S_KoudokuList.Add(Temp_KoudokuList);
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+
+                    break;                                         
+                    
+                End:
+                    var DokusyaList = C_DokusyaList.FirstOrDefault(n => n.DokuCode == CommonPhase1.S_DokuCode);
+
+                    KoumokuList[0].Value = DokusyaList.DokuCode.ToString();
+                    KoumokuList[1].Value = DokusyaList.Name;
+                    KoumokuList[2].Value = DokusyaList.Build;
+                    KoumokuList[3].Value = DokusyaList.AddressRyaku + " " + DokusyaList.Banti;
+                    KoumokuList[4].Value = DokusyaList.Tel;
+                    KoumokuList[5].Value = DokusyaList.Misebi1; //DokusyaList.S_MiseBikou;
+                    KoumokuList[6].Value = DokusyaList.Syumemo1; // DokusyaList.S_Junro_Bikou;
+                    KoumokuList[7].Value = DokusyaList.Bunrui; //DokusyaList.S_MoneyRemarks;
+                    KoumokuList[8].Value = DokusyaList.Rank; //DokusyaList.S_Class;
+
+                    foreach (var Temp_KoudokuList in C_KoudokuList)
+                    {
+                        if (CommonPhase1.S_DokuCode == Temp_KoudokuList.DokuCode)
+                        {
+                            S_KoudokuList.Add(Temp_KoudokuList);
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+
+                    break;                                         //KoumokuList[9].Value = " "; //DokusyaList.S_Lank
+
+
+            }
             /*
             var x = C_Dokusya_K95020_List.Cast<Dokusya_K95010>();
 
             List<Dokusya_K95010> y = x.ToList();
         */
 
-            foreach (var Temp_KoudokuList in C_KoudokuList)
-            {
-                if(CommonPhase1.S_DokuCode == Temp_KoudokuList.DokuCode)
-                {
-                    S_KoudokuList.Add(Temp_KoudokuList);
-                }
-                else
-                {
-                    continue;
-                }
-            }
-            
             if(CommonPhase1.HistoryBackState == false)
             {
                 History.Back_History.Add(CommonPhase1.Deep_Copy());   //.Add(CurrentPage);
@@ -185,57 +230,6 @@ namespace B2003C4.Pages.Common
             new Koumoku ("分類","Class",""),
             new Koumoku ("ランク","Lank",""),
         };
-
-        public class Koumoku //表示情報格納用（仮）
-        {
-            public string Heading; //読者番号
-
-            public string HeadingCode;
-
-            public string Value;
-
-            public Koumoku(string heading , string headingCode , string value)
-            {
-                Heading = heading;
-
-                HeadingCode = headingCode;
-
-                Value = value;
-            }
-
-        }
-
-        public class Meihan
-        {
-
-            public string DokusyaNo; //読者番号
-            public string MeihanName; //銘版
-            public string KeiyakuSt; //契約開始
-            public string KeiyakuEd; //契約終了
-            public string KeiyakusyaName; //契約者
-            public string Tsukisu; //月数
-            public string Hey; //配
-            public string Iririyu; //入理由
-            public string Keiyakubi; //契約日
-            public string Tomeriyu; //止理由
-            public string Tomebi; //止日
-
-            public Meihan(string dokusyaNo , string meihanName, string keiyakuSt, string keiyakuEd, string keiyakusyaName, string tsukisu, string hey , string iririyu , string keiyakubi , string tomeriyu , string tomebi)
-            {
-                DokusyaNo = dokusyaNo;
-                MeihanName = meihanName;
-                KeiyakuSt = keiyakuSt;
-                KeiyakuEd = keiyakuEd;
-                KeiyakusyaName = keiyakusyaName;
-                Tsukisu = tsukisu;
-                Hey = hey;
-                Iririyu = iririyu;
-                Keiyakubi = keiyakubi;
-                Tomeriyu = tomeriyu;
-                Tomebi = tomebi;
-            }
-        }
-
 
 
         [Inject]
@@ -291,4 +285,58 @@ namespace B2003C4.Pages.Common
             }
         }
     }
+
+    public class Koumoku //表示情報格納用（仮）
+    {
+        public string Heading; //読者番号
+
+        public string HeadingCode;
+
+        public string Value;
+
+        public Koumoku(string heading, string headingCode, string value)
+        {
+            Heading = heading;
+
+            HeadingCode = headingCode;
+
+            Value = value;
+        }
+
+    }
+
+    public class Meihan
+    {
+
+        public string DokusyaNo; //読者番号
+        public string MeihanName; //銘版
+        public string KeiyakuSt; //契約開始
+        public string KeiyakuEd; //契約終了
+        public string KeiyakusyaName; //契約者
+        public string Tsukisu; //月数
+        public string Hey; //配
+        public string Iririyu; //入理由
+        public string Keiyakubi; //契約日
+        public string Tomeriyu; //止理由
+        public string Tomebi; //止日
+
+        public Meihan(string dokusyaNo, string meihanName, string keiyakuSt, string keiyakuEd, string keiyakusyaName, string tsukisu, string hey, string iririyu, string keiyakubi, string tomeriyu, string tomebi)
+        {
+            DokusyaNo = dokusyaNo;
+            MeihanName = meihanName;
+            KeiyakuSt = keiyakuSt;
+            KeiyakuEd = keiyakuEd;
+            KeiyakusyaName = keiyakusyaName;
+            Tsukisu = tsukisu;
+            Hey = hey;
+            Iririyu = iririyu;
+            Keiyakubi = keiyakubi;
+            Tomeriyu = tomeriyu;
+            Tomebi = tomebi;
+        }
+    }
+
+
+
+
 }

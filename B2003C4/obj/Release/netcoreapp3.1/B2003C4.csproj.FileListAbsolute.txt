@@ -135,3 +135,5 @@ C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\B2003C4.csproj.CopyComplete
 C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\B2003C4.dll
 C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\B2003C4.pdb
 C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\B2003C4.genruntimeconfig.cache
+C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Common\NowLoading.razor.g.cs
+C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\Razor\Pages\Common\NowLoading.razor.g.cs

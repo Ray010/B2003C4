@@ -156,8 +156,6 @@ namespace B2003C4.Pages.Kansa
             //---------------------------------------------
  
             Phase2Data.S_DokuCode = X.DokuCode;
-
-
             await Phase2DataChanged.InvokeAsync(Phase2Data);
             await PhaseShift(11,"","");
 

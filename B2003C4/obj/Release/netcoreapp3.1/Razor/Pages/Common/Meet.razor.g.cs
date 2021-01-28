@@ -123,14 +123,20 @@ using MatBlazor;
             __builder.AddMarkupContent(0, "<!DOCTYPE HTML>\r\n");
             __builder.OpenElement(1, "html");
             __builder.AddAttribute(2, "lang", "ja");
-            __builder.AddMarkupContent(3, "<head><meta charset=\"Shift-JIS\">\r\n    <meta http-equiv=\"content-language\" content=\"ja\">\r\n    <meta name=\"google\" content=\"notranslate\">\r\n\r\n    <link rel=\"stylesheet\" href=\"./css/bootstrap/bootstrap.min.css\">\r\n    <link rel=\"stylesheet\" href=\"./css/app.css\">\r\n\r\n    <style>        .mb-3 { margin-bottom: 0.5rem; }\r\n\r\n        .BackGr {\r\n            background: #80989b;\r\n            width: 100%;\r\n            height: 100%;\r\n            margin: 0px;\r\n            padding: 0px;\r\n            overflow: hidden;\r\n        }\r\n\r\n        .td_padding_Fixed{\r\n            padding: 0%;\r\n        }\r\n        .td_Card_Fix {\r\n            margin-right: calc(50% - 50vw);\r\n            margin-left: calc(50% - 50vw);\r\n        }\r\n\r\n        .Scroll_Control{\r\n\r\n            height: 13rem;\r\n            overflow:auto\r\n\r\n        }\r\n\r\n        .Card_child {\r\n            position: absolute;\r\n            bottom: 13rem;\r\n\r\n        }\r\n        .Button_Child{\r\n            position: absolute;\r\n            top: 0%;\r\n            right: 0%;\r\n\r\n        }\r\n\r\n        .px-4{\r\n            padding-top\r\n        }\r\n\r\n        .section {\r\n            margin-right: calc(50% - 50vw);\r\n            margin-left: calc(50% - 50vw);\r\n        }\r\n\r\n        .Button_up_Fixed {\r\n            height: 9.5rem;\r\n            margin: 15% 0% 1.5%;\r\n            font-size: 2.5rem;\r\n        }\r\n        .Button_Fixed {\r\n            height: 9.5rem;\r\n            margin: 1.5% 0% 1.5%;\r\n            font-size: 2.5rem;\r\n        }\r\n\r\n        .Button_bottom_Fixed {\r\n            height: 9.5rem;\r\n            margin: 1.5% 0% 15%;\r\n            font-size: 2.5rem;\r\n        }\r\n\r\n\r\n\r\n        .box {\r\n\r\n\r\n            transition: all 300ms 0s ease;\r\n        }\r\n\r\n        .active {\r\n            transform: translateX(101%);\r\n\r\n        }\r\n\r\n\r\n        .divX {\r\n            width: 100px;\r\n            height: 100px;\r\n            background: red;\r\n            transition: width 2s;\r\n        }\r\n\r\n            .divX:hover {\r\n                width: 300px;\r\n            }\r\n\r\n            .overflow_Table{\r\n                overflow: hidden\r\n            }\r\n\r\n    </style></head>\r\n\r\n");
-            __builder.OpenElement(4, "body");
-            __builder.OpenElement(5, "div");
-            __builder.AddAttribute(6, "class", "Card_parent");
+            __builder.AddMarkupContent(3, "\r\n\r\n");
+            __builder.AddMarkupContent(4, "<head>\r\n    <meta charset=\"Shift-JIS\">\r\n    <meta http-equiv=\"content-language\" content=\"ja\">\r\n    <meta name=\"google\" content=\"notranslate\">\r\n\r\n    <link rel=\"stylesheet\" href=\"./css/bootstrap/bootstrap.min.css\">\r\n    <link rel=\"stylesheet\" href=\"./css/app.css\">\r\n\r\n    <style>\r\n        .mb-3 { margin-bottom: 0.5rem; }\r\n\r\n        .BackGr {\r\n            background: #80989b;\r\n            width: 100%;\r\n            height: 100%;\r\n            margin: 0px;\r\n            padding: 0px;\r\n            overflow: hidden;\r\n        }\r\n\r\n        .td_padding_Fixed{\r\n            padding: 0%;\r\n        }\r\n        .td_Card_Fix {\r\n            margin-right: calc(50% - 50vw);\r\n            margin-left: calc(50% - 50vw);\r\n        }\r\n\r\n        .Scroll_Control{\r\n\r\n            height: 13rem;\r\n            overflow:auto\r\n\r\n        }\r\n\r\n        .Card_child {\r\n            position: absolute;\r\n            bottom: 13rem;\r\n\r\n        }\r\n        .Button_Child{\r\n            position: absolute;\r\n            top: 0%;\r\n            right: 0%;\r\n\r\n        }\r\n\r\n        .px-4{\r\n            padding-top\r\n        }\r\n\r\n        .section {\r\n            margin-right: calc(50% - 50vw);\r\n            margin-left: calc(50% - 50vw);\r\n        }\r\n\r\n        .Button_up_Fixed {\r\n            height: 9.5rem;\r\n            margin: 15% 0% 1.5%;\r\n            font-size: 2.5rem;\r\n        }\r\n        .Button_Fixed {\r\n            height: 9.5rem;\r\n            margin: 1.5% 0% 1.5%;\r\n            font-size: 2.5rem;\r\n        }\r\n\r\n        .Button_bottom_Fixed {\r\n            height: 9.5rem;\r\n            margin: 1.5% 0% 15%;\r\n            font-size: 2.5rem;\r\n        }\r\n\r\n\r\n\r\n        .box {\r\n\r\n\r\n            transition: all 300ms 0s ease;\r\n        }\r\n\r\n        .active {\r\n            transform: translateX(101%);\r\n\r\n        }\r\n\r\n\r\n        .divX {\r\n            width: 100px;\r\n            height: 100px;\r\n            background: red;\r\n            transition: width 2s;\r\n        }\r\n\r\n            .divX:hover {\r\n                width: 300px;\r\n            }\r\n\r\n            .overflow_Table{\r\n                overflow: hidden\r\n            }\r\n\r\n    </style>\r\n\r\n\r\n</head>\r\n\r\n");
+            __builder.OpenElement(5, "body");
+            __builder.AddMarkupContent(6, "\r\n    \r\n    ");
             __builder.OpenElement(7, "div");
-            __builder.OpenElement(8, "table");
-            __builder.AddAttribute(9, "class", "Card_table_Fixed overflow_Table");
-            __builder.OpenElement(10, "tr");
+            __builder.AddAttribute(8, "class", "Card_parent");
+            __builder.AddMarkupContent(9, "\r\n        ");
+            __builder.OpenElement(10, "div");
+            __builder.AddMarkupContent(11, "\r\n            ");
+            __builder.OpenElement(12, "table");
+            __builder.AddAttribute(13, "class", "Card_table_Fixed overflow_Table");
+            __builder.AddMarkupContent(14, "\r\n                ");
+            __builder.OpenElement(15, "tr");
+            __builder.AddMarkupContent(16, "\r\n");
 #nullable restore
 #line 139 "C:\Work\B2003C4\B2003C4\Pages\Common\Meet.razor"
                      if (PhaseNo == 0)
@@ -139,8 +145,9 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(11, "td");
-            __builder.AddAttribute(12, "class", "box" + " " + (
+            __builder.AddContent(17, "                    ");
+            __builder.OpenElement(18, "td");
+            __builder.AddAttribute(19, "class", "box" + " " + (
 #nullable restore
 #line 141 "C:\Work\B2003C4\B2003C4\Pages\Common\Meet.razor"
                                      Ani_F
@@ -149,12 +156,16 @@ using MatBlazor;
 #line hidden
 #nullable disable
             ) + " td_Card_Fix");
-            __builder.OpenElement(13, "table");
-            __builder.AddAttribute(14, "class", "Card_table_Fixed");
-            __builder.OpenElement(15, "tr");
-            __builder.OpenElement(16, "td");
-            __builder.OpenElement(17, "button");
-            __builder.AddAttribute(18, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(20, "\r\n                        ");
+            __builder.OpenElement(21, "table");
+            __builder.AddAttribute(22, "class", "Card_table_Fixed");
+            __builder.AddMarkupContent(23, "\r\n                            ");
+            __builder.OpenElement(24, "tr");
+            __builder.AddMarkupContent(25, "\r\n                                ");
+            __builder.OpenElement(26, "td");
+            __builder.AddMarkupContent(27, "\r\n                                    ");
+            __builder.OpenElement(28, "button");
+            __builder.AddAttribute(29, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 145 "C:\Work\B2003C4\B2003C4\Pages\Common\Meet.razor"
                                                         s => Phase(1)
@@ -163,15 +174,24 @@ using MatBlazor;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(19, "class", "btn  btn-primary btn-block Button_up_Fixed");
-            __builder.AddMarkupContent(20, "会えた");
+            __builder.AddAttribute(30, "class", "btn  btn-primary btn-block Button_up_Fixed");
+            __builder.AddMarkupContent(31, "会えた");
             __builder.CloseElement();
+            __builder.AddMarkupContent(32, "\r\n                                ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(33, "\r\n                            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(21, "\r\n\r\n                            ");
-            __builder.AddMarkupContent(22, "<tr><td><button class=\"btn btn-danger btn-block Button_bottom_Fixed\">会えなかった</button></td></tr>");
+            __builder.AddMarkupContent(34, "\r\n\r\n                            ");
+            __builder.AddMarkupContent(35, @"<tr>
+                                <td>
+                                    <button class=""btn btn-danger btn-block Button_bottom_Fixed"">会えなかった</button>
+                                </td>
+                            </tr>
+                        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(36, "\r\n                    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(37, "\r\n");
 #nullable restore
 #line 156 "C:\Work\B2003C4\B2003C4\Pages\Common\Meet.razor"
                     }
@@ -185,8 +205,9 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(23, "td");
-            __builder.AddAttribute(24, "class", "box" + " " + (
+            __builder.AddContent(38, "                    ");
+            __builder.OpenElement(39, "td");
+            __builder.AddAttribute(40, "class", "box" + " " + (
 #nullable restore
 #line 163 "C:\Work\B2003C4\B2003C4\Pages\Common\Meet.razor"
                                     Ani_F
@@ -195,12 +216,16 @@ using MatBlazor;
 #line hidden
 #nullable disable
             ) + " td_Card_Fix");
-            __builder.OpenElement(25, "table");
-            __builder.AddAttribute(26, "class", "Card_table_Fixed");
-            __builder.OpenElement(27, "tr");
-            __builder.OpenElement(28, "td");
-            __builder.OpenElement(29, "button");
-            __builder.AddAttribute(30, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(41, "\r\n                        ");
+            __builder.OpenElement(42, "table");
+            __builder.AddAttribute(43, "class", "Card_table_Fixed");
+            __builder.AddMarkupContent(44, "\r\n                            ");
+            __builder.OpenElement(45, "tr");
+            __builder.AddMarkupContent(46, "\r\n                                ");
+            __builder.OpenElement(47, "td");
+            __builder.AddMarkupContent(48, "\r\n                                    ");
+            __builder.OpenElement(49, "button");
+            __builder.AddAttribute(50, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 167 "C:\Work\B2003C4\B2003C4\Pages\Common\Meet.razor"
                                                         s => Phase(2)
@@ -209,16 +234,20 @@ using MatBlazor;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(31, "class", "btn btn-primary btn-block Button_up_Fixed");
-            __builder.AddMarkupContent(32, "契約");
+            __builder.AddAttribute(51, "class", "btn btn-primary btn-block Button_up_Fixed");
+            __builder.AddMarkupContent(52, "契約");
             __builder.CloseElement();
+            __builder.AddMarkupContent(53, "\r\n                                ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(54, "\r\n                            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(33, "\r\n\r\n                            ");
-            __builder.AddMarkupContent(34, "<tr><td><button class=\"btn btn-warning btn-block Button_Fixed\">保留</button></td></tr>\r\n\r\n                            ");
-            __builder.AddMarkupContent(35, "<tr><td><button class=\"btn btn-danger btn-block Button_bottom_Fixed\">完止め</button></td></tr>");
+            __builder.AddMarkupContent(55, "\r\n\r\n                            ");
+            __builder.AddMarkupContent(56, "<tr>\r\n                                <td>\r\n                                    <button class=\"btn btn-warning btn-block Button_Fixed\">保留</button>\r\n                                </td>\r\n                            </tr>\r\n\r\n                            ");
+            __builder.AddMarkupContent(57, "<tr>\r\n                                <td>\r\n                                    <button class=\"btn btn-danger btn-block Button_bottom_Fixed\">完止め</button>\r\n                                </td>\r\n                            </tr>\r\n                        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(58, "\r\n                    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(59, "\r\n");
 #nullable restore
 #line 184 "C:\Work\B2003C4\B2003C4\Pages\Common\Meet.razor"
                         
@@ -231,8 +260,9 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(36, "td");
-            __builder.AddAttribute(37, "class", "box" + " " + (
+            __builder.AddContent(60, "                        ");
+            __builder.OpenElement(61, "td");
+            __builder.AddAttribute(62, "class", "box" + " " + (
 #nullable restore
 #line 190 "C:\Work\B2003C4\B2003C4\Pages\Common\Meet.razor"
                                         Ani_F
@@ -241,12 +271,30 @@ using MatBlazor;
 #line hidden
 #nullable disable
             ) + " td_Card_Fix");
-            __builder.AddMarkupContent(38, @"<table class=""Card_table_Fixed""><tr><td><button class=""btn btn-primary btn-block Button_up_Fixed"">縛り</button></td></tr>
+            __builder.AddMarkupContent(63, "\r\n                            ");
+            __builder.AddMarkupContent(64, @"<table class=""Card_table_Fixed"">
+                                <tr>
+                                    <td>
+                                        <button class=""btn btn-primary btn-block Button_up_Fixed"">縛り</button>
+                                    </td>
+                                </tr>
 
-                                <tr><td><button class=""btn btn-success btn-block Button_Fixed"">先起し</button></td></tr>
+                                <tr>
+                                    <td>
+                                        <button class=""btn btn-success btn-block Button_Fixed"">先起し</button>
+                                    </td>
+                                </tr>
 
-                                <tr><td><button class=""btn btn-secondary btn-block Button_bottom_Fixed"">その他</button></td></tr></table>");
+                                <tr>
+                                    <td>
+                                        <button class=""btn btn-secondary btn-block Button_bottom_Fixed"">その他</button>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(65, "\r\n");
 #nullable restore
 #line 212 "C:\Work\B2003C4\B2003C4\Pages\Common\Meet.razor"
                     }
@@ -254,11 +302,17 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddMarkupContent(66, "\r\n\r\n                ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(67, "\r\n\r\n            ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(68, "\r\n\r\n        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(69, "\r\n    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(70, "\r\n   \r\n\r\n\r\n");
             __builder.CloseElement();
+            __builder.AddMarkupContent(71, "\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

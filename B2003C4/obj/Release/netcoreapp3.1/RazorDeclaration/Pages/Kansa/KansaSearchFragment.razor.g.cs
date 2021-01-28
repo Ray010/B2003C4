@@ -138,19 +138,6 @@ using MatBlazor;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 280 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaSearchFragment.razor"
-          
-        public void sha()
-        {
-
-        }
-        // @bind-Value:event="oninput"
-    
-
-#line default
-#line hidden
-#nullable disable
     }
 }
 #pragma warning restore 1591

@@ -133,12 +133,20 @@ using B2003C4.Pages.Common;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 63 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaParent.razor"
+#line 90 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaParent.razor"
        
 
     private DummyDataModel DBData = new DummyDataModel();
     //private KoudokuDummyData KoudokuDBData = new KoudokuDummyData();
     private FormSearchDataModel ResultData = new FormSearchDataModel();
+    private List<Dokusya_K95080> P_SearchingList = new List<Dokusya_K95080>();
+
+    private List<Dokusya_K95080> P_DokusyaList = new List<Dokusya_K95080>();
+    private List<Koudoku_K95080> P_KoudokuList = new List<Koudoku_K95080>();
+    private List<Kuiki_K95080> P_KuikiList = new List<Kuiki_K95080>();
+    private List<Nengetu_K95080> P_NengetuList = new List<Nengetu_K95080>();
+    private List<Kakuzai_K95080> P_KakuzaiList = new List<Kakuzai_K95080>();
+
 
 #line default
 #line hidden

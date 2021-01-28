@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace B2003C4.Shared
+namespace B2003C4.Pages.Common
 {
     #line hidden
     using System;
@@ -117,50 +117,13 @@ using MatBlazor;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class NowLoading : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 115 "C:\Work\B2003C4\B2003C4\Shared\NavMenu.razor"
-       
-    private bool collapseNavMenu = true;
-
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private string NavMenuTogle => collapseNavMenu ? null : "active";
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-
-    public List<string> Varsion_History = new List<string>
-    {
-        new string("0.2.201204 -> 戻る進むボタン追加(IriTomeのみ)"),
-        new string("0.3.201204 -> Blazor Server化"),
-        new string("0.4.201209 -> メニュー画面をご指摘いただいた内容に変更"),
-        new string("0.5.201210 -> 入止画面をご指摘いただいた内容に変更"),
-        new string("0.6.201210 -> 入止画面にて入、止めボタンを押した後、戻るボタンが正常に動作しない不具合を修正"),
-        new string("0.7.201211 -> マップアクセス時、新規タブを作成"),
-        new string("0.8.201211 -> マップアクセス時、スマートフォンでアクセスできなかった不具合を修正"),
-        new string("0.9.201211 -> 過去台帳調整"),
-        new string("0.10.201211 -> 戻るボタンを全ページに適用"),
-        new string("0.12.201214 -> iOSにて使用アプリを標準のMAPアプリに変更"),
-        new string("0.13.201221 -> 監査ページレイアウト調整（iPhone5向けに調整）"),
-        new string("0.14.201222 -> 監査ページレイアウト調整2（iPhone5向けに調整）"),
-        new string("0.15.210108 -> データ取得先をSQLServerに一部変更（入止、過去の一部"),
-        new string("0.15.210126 -> 監査ページを調整しました。検索条件に一致もしくはすべて空白の場合に警告を出すように調整しました。"),
-
-    };
-
-
-#line default
-#line hidden
-#nullable disable
     }
 }
 #pragma warning restore 1591

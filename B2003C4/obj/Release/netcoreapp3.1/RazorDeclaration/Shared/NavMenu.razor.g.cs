@@ -125,7 +125,7 @@ using MatBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 114 "C:\Work\B2003C4\B2003C4\Shared\NavMenu.razor"
+#line 115 "C:\Work\B2003C4\B2003C4\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 
@@ -153,6 +153,7 @@ using MatBlazor;
         new string("0.13.201221 -> 監査ページレイアウト調整（iPhone5向けに調整）"),
         new string("0.14.201222 -> 監査ページレイアウト調整2（iPhone5向けに調整）"),
         new string("0.15.210108 -> データ取得先をSQLServerに一部変更（入止、過去の一部"),
+        new string("0.15.210126 -> 監査ページを調整しました。検索条件に一致もしくはすべて空白の場合に警告を出すように調整しました。"),
 
     };
 

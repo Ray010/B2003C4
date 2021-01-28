@@ -133,7 +133,7 @@ using B2003C4.Pages.Common;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 90 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaParent.razor"
+#line 84 "C:\Work\B2003C4\B2003C4\Pages\Kansa\KansaParent.razor"
        
 
     private DummyDataModel DBData = new DummyDataModel();

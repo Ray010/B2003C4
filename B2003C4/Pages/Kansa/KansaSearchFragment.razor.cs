@@ -115,7 +115,8 @@ namespace B2003C4.Pages.Kansa
                                                                 (null == Phase1Data.S_Gou || x.Gou == Phase1Data.S_Gou) &&
                                                                 (null == Phase1Data.S_BuildName || x.BuildName.Contains(Phase1Data.S_BuildName)) &&
                                                                 (null == Phase1Data.S_BuildKana || x.BuildName.Contains(Phase1Data.S_BuildKana)) &&
-                                                                (null == Phase1Data.S_RoomNo || x.RoomNo.Contains(Phase1Data.S_RoomNo.ToString()))
+                                                                (null == Phase1Data.S_RoomNo || x.RoomNo.Contains(Phase1Data.S_RoomNo.ToString())) &&
+                                                                (x.Tenpo == Phase1Data.Select_TenpoNo)
                                                                 ).ToList();
             
                 if (C_SearchingList.Count == 0)
@@ -276,8 +277,7 @@ namespace B2003C4.Pages.Kansa
                     Phase1Data.HistoryBackState = false;
                     Phase1DataChanged.InvokeAsync(Phase1Data);
                 }
-                Phase1Data.LoadingState = true;
-                    Phase1DataChanged.InvokeAsync(Phase1Data);
+
             
         }
 
@@ -308,99 +308,6 @@ namespace B2003C4.Pages.Kansa
             Phase1Data.S_ChomeiName = CityName_SelectedValue;
         }
 
-        /*
-        [Inject]
-        protected NavigationManager Navi { get; set; }
-        
-        public void JumpResultPage(string URLx)
-        {
-            string url = "";
-
-            if (null == DokusyaCode && null == KuikiNo)
-            {
-                MessageForError = "0001：検索条件を１つ以上指定してください";
-            }
-            else {
-
-                if (null == DokusyaCode)
-                {
-                    url += "/DokuCode=" + DokusyaCode;
-                    DokusyaCode = 0; 
-                }
-                if(null == KuikiNo)
-                {
-                    url += "/KuikiNo=" + KuikiNo;
-                    KuikiNo = 0;
-                }
-                if(null == Junro)
-                {
-                    url += "/Junro=" + Junro;
-                    Junro = 0;
-                }
-                if(null == Junro_Sub)
-                {
-                    url += "/Junro_Sub=" + Junro_Sub;
-                    Junro_Sub = 0;
-                }
-                if(null == DokusyaName)
-                {
-                    url += "/DokusyaName=" + DokusyaName;
-                    DokusyaName = "none";
-                }
-                if (null == DokusyaKanaName)
-                {
-                    url += "/DokusyaKanaName=" + DokusyaKanaName;
-                    DokusyaKanaName = "none";
-                }
-                //stringの可能性
-                if (null == PhoneNo)
-                {
-                    url += "/PhoneNo=" + PhoneNo;
-                    PhoneNo = 000;
-                }
-                //stringの可能性
-                if(null == PhoneNo_Sub)
-                {
-                    url += "/PhoneNo_Sub=" + PhoneNo_Sub;
-                    PhoneNo_Sub = "none";
-                }
-                if (null == CityName)
-                {
-                    url += "/CityName=" + CityName;
-                    CityName = "none";
-                }
-
-                if (null == CityAddress)
-                {
-                    url += "/CityAddress=" + CityAddress;
-                    CityAddress = "none";
-                }
-                if(null == BuildingName)
-                {
-                    url += "/BuildingName=" + BuildingName;
-                    BuildingName = "none";
-                }
-                if(null == BuildingKanaName)
-                {
-                    url += "/BuildingKanaName=" + BuildingKanaName;
-                    BuildingKanaName = "none";
-                }
-                if(null == ShitsuBan)
-                {
-                    url += "/ShitsuBan=" + ShitsuBan;
-                    ShitsuBan = 0;
-                }
-
-                Console.Write(url);
-
-                Navi.NavigateTo(URLx + "/" + CheckResult +"$" + DokusyaCode + "$" + KuikiNo + "$" +  Junro + "$" + Junro_Sub + "$" + DokusyaName + "$" + DokusyaKanaName + "$" + PhoneNo + "$" + PhoneNo_Sub + "$" + CityAddress + "$" + BuildingName + "$" + BuildingKanaName + "$" + ShitsuBan);
-
-                //Navi.NavigateTo(URLx + "/" + DokusyaCode + "/" + KuikiNo);
-
-                //Navi.NavigateTo(URLx + "/" + DokusyaCode + "/" + KuikiNo + "/" + Junro + "/" + Junro_Sub + "/" + DokusyaName + "/" + DokusyaKanaName + "/" + PhoneNo + "/" + PhoneNo_Sub + "/" + CityAddress + "/" + BuildingName + "/" + BuildingKanaName + "/" + ShitsuBan + "/" + CheckResult + "/");
-            }
-        }
-        */
         public string CheckResult { get; set; }
 
         public void CheckBoxResulte(string Code)

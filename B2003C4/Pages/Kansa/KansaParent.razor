@@ -38,24 +38,17 @@
         @if (P_DokusyaList.Count != 0 && P_KuikiList.Count != 0)
         {
             <KansaSearchFragment @bind-Phase1Data="CurrentPage" @bind-DBSourceData="DBData" @bind-C_KuikiList="P_KuikiList" @bind-C_DokusyaList="P_DokusyaList" @bind-C_SearchingList="P_SearchingList" />
-        }
-        else
-        {
 
         }
 
-
-
-
-
-        goto End;
+        break;
 
     case 2:
-        <SearchActivity @bind-Phase2Data="CurrentPage" @bind-DBSourceData="DBData" @bind-C_SearchingList="P_SearchingList" />
+        <SearchActivity @bind-Phase2Data="CurrentPage" @bind-DBSourceData="DBData" @bind-C_SearchingList="P_SearchingList"  />
         goto End;
 
     case 11:
-        <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" />
+        <DokusyaActivity @bind-CommonPhase1="CurrentPage" @bind-DBSourceData="DBData" @bind-C_DokusyaList_K95080="P_DokusyaList" @bind-C_KoudokuList_K95080="P_KoudokuList" />
         //@bind-KoudokuList="KoudokuDBData"/>
         goto End;
 
@@ -63,6 +56,7 @@
         <MeihanActivity @bind-CommonPhase2="CurrentPage" />
 
         End:
+
             break;
 
 
