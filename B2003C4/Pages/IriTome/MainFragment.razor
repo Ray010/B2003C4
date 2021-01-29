@@ -81,6 +81,13 @@
         p {
             height: 0;
         }
+
+
+        .KeiyakuNext{
+
+
+        }
+
     </style>
 
 
@@ -323,17 +330,16 @@
                     <th class="Card_VerticalFix Card_parent" colspan="10">
                         <table class="Card_table_Fixed">
                             <!--foreath-->
+                            
                             @foreach (var x in C_IriList)
                             {
-
-
                                 @if (Kuiki_SelectedValue == x.Kuiki &&
                                 (SelectValue == x.iri || SelectValue == null))
                                 {
                                     <tr>
                                         <td>
                                             <div class="Card_parent">
-                                                <button @onclick="@(s => JumpPageIri(x))" type="button" class="btn btn-IriButton btn-block Card_NameButtonMargin">
+                                                <button @onclick="@(s => JumpPageIri(x))" type="button" class="btn btn-IriButton btn-block Card_NameButtonMargin KeiyakuNext">
                                                     @*JumpPage("./Common/DokusyaActivity")*@
                                                     <table class="Card_table_Fixed">
                                                         <tbody>

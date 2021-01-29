@@ -95,7 +95,7 @@ namespace B2003C4.Pages.Kansa
                                                                 (x.DokuCode == Phase1Data.S_DokuCode || null == Phase1Data.S_DokuCode) &&
                                                                 (null == Phase1Data.S_DokuName || x.DokuName.Contains(Phase1Data.S_DokuName)) &&
                                                                 (null == Phase1Data.S_DokuKana || x.DokuKana.Contains(Phase1Data.S_DokuKana)) &&
-                                                                //区分今のところ未処理
+
                                                                 (null == Phase1Data.S_Sigai || x.Sigai1.Contains(Phase1Data.S_Sigai)) &&
                                                                 (null == Phase1Data.S_Sigai || x.Sigai2.Contains(Phase1Data.S_Sigai)) &&
                                                                 (null == Phase1Data.S_Sigai || x.Sigai3.Contains(Phase1Data.S_Sigai)) &&
@@ -116,7 +116,21 @@ namespace B2003C4.Pages.Kansa
                                                                 (null == Phase1Data.S_BuildName || x.BuildName.Contains(Phase1Data.S_BuildName)) &&
                                                                 (null == Phase1Data.S_BuildKana || x.BuildName.Contains(Phase1Data.S_BuildKana)) &&
                                                                 (null == Phase1Data.S_RoomNo || x.RoomNo.Contains(Phase1Data.S_RoomNo.ToString())) &&
-                                                                (x.Tenpo == Phase1Data.Select_TenpoNo)
+                                                                (x.Tenpo == Phase1Data.Select_TenpoNo) &&
+
+                                                                ((true == KubunList[0].Active && x.DokuKbn == KubunList[0].KubunCode)) ||
+                                                                ((true == KubunList[1].Active && x.DokuKbn == KubunList[1].KubunCode)) ||
+                                                                ((true == KubunList[2].Active && x.DokuKbn == KubunList[2].KubunCode)) ||
+                                                                ((true == KubunList[3].Active && x.DokuKbn == KubunList[3].KubunCode)) ||
+                                                                ((true == KubunList[4].Active && x.DokuKbn == KubunList[4].KubunCode)) ||
+                                                                ((true == KubunList[5].Active && x.DokuKbn == KubunList[5].KubunCode)) ||
+                                                                ((true == KubunList[6].Active && x.DokuKbn == KubunList[6].KubunCode)) ||
+                                                                ((true == KubunList[7].Active && x.DokuKbn == KubunList[7].KubunCode)) ||
+                                                                ((true == KubunList[8].Active && x.DokuKbn == KubunList[8].KubunCode)) ||
+                                                                ((true == KubunList[9].Active && x.DokuKbn == KubunList[9].KubunCode)) ||
+                                                                ((true == KubunList[10].Active && x.DokuKbn == KubunList[10].KubunCode))
+                                                                
+                                                                
                                                                 ).ToList();
             
                 if (C_SearchingList.Count == 0)
@@ -170,17 +184,17 @@ namespace B2003C4.Pages.Kansa
 
         List<Kubun> KubunList = new List<Kubun>()
         {
-            new Kubun("未読","Midoku",true),
-            new Kubun("現読","Gendoku",true),
-            new Kubun("予約","Yoyaku",true),
-            new Kubun("止め","Tome",true),
-            new Kubun("休読","Kyudoku",true),
-            new Kubun("保留","Horyu",true),
-            new Kubun("発証","Hassyo",true),
-            new Kubun("順路","Junro",true),
-            new Kubun("不良","Huryo",true),
-            new Kubun("空家","Akiya",true),
-            new Kubun("他現","Tagen",true),
+            new Kubun("未読",0,true),
+            new Kubun("現読",1,true),
+            new Kubun("予約",2,true),
+            new Kubun("止め",3,true),
+            new Kubun("休読",4,true),
+            new Kubun("保留",5,true),
+            new Kubun("発証",6,true),
+            new Kubun("順路",7,true),
+            new Kubun("不良",8,true),
+            new Kubun("空家",9,true),
+            new Kubun("他現",10,true),
         };
 
 
@@ -349,11 +363,11 @@ namespace B2003C4.Pages.Kansa
     public class Kubun
     {
         public string KubunName { get; set; }
-        public string KubunCode { get; set; }
+        public int? KubunCode { get; set; }
 
         public Boolean Active;
 
-        public Kubun(string kubunName, string kubunCode, Boolean active)
+        public Kubun(string kubunName, int? kubunCode, Boolean active)
         {
             KubunName = kubunName;
             KubunCode = kubunCode;

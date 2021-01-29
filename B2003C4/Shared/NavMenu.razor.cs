@@ -26,6 +26,7 @@ namespace B2003C4.Shared
         {
             CurrentPage.CurrentURL = CurrentPage.IndexURL;
             CurrentPage.IndexURL = URLx;
+            CurrentPage.PhaseNo = 1;
             await CurrentPageChanged.InvokeAsync(CurrentPage);
             StateHasChanged();
         }
