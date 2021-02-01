@@ -128,17 +128,88 @@ namespace B2003C4.Pages.IriTome
         List<DummyDataModel.Dokusya> IriDokusyaList = new List<DummyDataModel.Dokusya>();
         List<DummyDataModel.Dokusya> TomeDokusyaList = new List<DummyDataModel.Dokusya>();
 
+        List<Lists> IriTomeList = new List<Lists>();
+
+        public class Lists
+        {
+            public Iri_K95010 IriList;
+            public Tome_K95010 TomeList;
+
+            public Lists(Iri_K95010 iriList,Tome_K95010 tomeList)
+            {
+                IriList = iriList;
+                TomeList = tomeList;
+            }
+        }
+
+
         public int Count = 0;
         protected override void OnInitialized()
         {
-            //---------------------------------------------------------
-            //履歴の処理
+            for (int Count = 0; true; Count++)
+            {
+                if (C_IriList[Count] != null && C_TomeList[Count] != null)
+                {
+                    IriTomeList.Add(new Lists(C_IriList[Count], C_TomeList[Count]));
+                }
+                else if (C_IriList[Count] == null)
+                {
+                    IriTomeList.Add(new Lists(null, C_TomeList[Count]));
+                }
+                else if (C_TomeList[Count] == null)
+                {
+                    IriTomeList.Add(new Lists(C_IriList[Count], null));
+                }
+                else
+                {
+                    break;
+                }
+            }
+
 
             /*
-            Phase1Data.Back_History.Add(Phase1Data);
-            Phase1DataChanged.InvokeAsync(Phase1Data);
+            foreach (var x in C_IriList)
+            {
+                if (Kuiki_SelectedValue == x.Kuiki &&
+                  (SelectValue == x.iri || SelectValue == null))
+
+                //if (Kuiki_SelectedValue == x.Kuiki)
+                {
+                    IriTomeList.Add(new Lists(x, null));
+                    IriCount++;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            foreach (var x in C_TomeList)
+            {
+                if (Kuiki_SelectedValue == x.Kuiki &&
+                    (SelectValue == x.tome || SelectValue == null))
+
+                //if (Kuiki_SelectedValue == x.Kuiki)
+                {
+                    IriTomeList.Add(new Lists(null, x));
+                    TomeCount++;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
             */
-            if (Phase1Data.HistoryBackState == false)
+
+
+                //---------------------------------------------------------
+                //履歴の処理
+
+                /*
+                Phase1Data.Back_History.Add(Phase1Data);
+                Phase1DataChanged.InvokeAsync(Phase1Data);
+                */
+                if (Phase1Data.HistoryBackState == false)
             {
                 History.Back_History.Add(Phase1Data.Deep_Copy());   //.Add(CurrentPage);
                 Phase1DataChanged.InvokeAsync(Phase1Data);
@@ -175,6 +246,32 @@ namespace B2003C4.Pages.IriTome
                 SelectedFlg = true;
             }
 
+
+            for(int Count = 0; true ; Count++)
+            {
+                if(C_IriList[Count] != null && C_TomeList[Count] != null)
+                {
+                    IriTomeList.Add(new Lists(C_IriList[Count], C_TomeList[Count]));
+                }
+                else if(C_IriList[Count] == null)
+                {
+                    IriTomeList.Add(new Lists(null, C_TomeList[Count]));
+                }
+                else if (C_TomeList[Count] == null)
+                {
+                    IriTomeList.Add(new Lists(C_IriList[Count], null));
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+
+
+
+
+            /*
             foreach (var x in C_IriList)
             {
                 if (Kuiki_SelectedValue == x.Kuiki &&
@@ -182,6 +279,7 @@ namespace B2003C4.Pages.IriTome
 
                 //if (Kuiki_SelectedValue == x.Kuiki)
                 {
+                    IriTomeList.Add(new Lists(x,null));
                     IriCount++;
                 }
                 else
@@ -196,6 +294,7 @@ namespace B2003C4.Pages.IriTome
 
                 //if (Kuiki_SelectedValue == x.Kuiki)
                 {
+                    IriTomeList.Insert(new Lists(, x));
                     TomeCount++;
                 }
                 else
@@ -203,6 +302,7 @@ namespace B2003C4.Pages.IriTome
                     continue;
                 }
             }
+            */
         }
         //年月終わり
 

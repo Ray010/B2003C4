@@ -268,7 +268,6 @@ C:\Work\B2003C4\B2003C4\obj\Debug\netcoreapp3.1\B2003C4.dll
 C:\Work\B2003C4\B2003C4\obj\Debug\netcoreapp3.1\B2003C4.pdb
 C:\Work\B2003C4\B2003C4\obj\Debug\netcoreapp3.1\B2003C4.genruntimeconfig.cache
 C:\Work\B2003C4\B2003C4\obj\Debug\netcoreapp3.1\B2003C4.csprojAssemblyReference.cache
-C:\Work\B2003C4\B2003C4\obj\Debug\netcoreapp3.1\B2003C4.RazorComponent.output.cache
-C:\Work\B2003C4\B2003C4\obj\Debug\netcoreapp3.1\scopedcss\bundle\B2003C4.styles.css
 C:\Work\B2003C4\B2003C4\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Common\NowLoading.razor.g.cs
 C:\Work\B2003C4\B2003C4\obj\Debug\netcoreapp3.1\Razor\Pages\Common\NowLoading.razor.g.cs
+C:\Work\B2003C4\B2003C4\bin\Debug\netcoreapp3.1\Properties\launchSettings.json

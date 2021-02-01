@@ -25,7 +25,7 @@
             margin: 0px;
             padding: 0px;
             overflow: hidden;
-            
+
         }
 
         .Btn-Color{
@@ -43,7 +43,7 @@
             .btn-IriButton:not(:disabled):not(.disabled):active,
             .btn-IriButton:not(:disabled):not(.disabled).active,
             .show > .btn-menu.dropdown-toggle {
-                
+
             }
 
         .btn-TomeButton {
@@ -57,7 +57,7 @@
             }
 
 
-        @*Select*@ 
+        @*Select*@
         .mdc-select .mdc-select__anchor {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
@@ -83,9 +83,14 @@
         }
 
 
-        .KeiyakuNext{
+                .KeiyakuNext_Case0{
 
-
+        }
+        .KeiyakuNext_Case1 {
+            background-color: #CFECFF;
+        }
+        .KeiyakuNext_Case2 {
+            background-color: #B0F7C3;
         }
 
     </style>
@@ -98,7 +103,7 @@
     <div class="mat-layout-grid" style="padding:0.5rem;">
         <div class="mat-layout-grid-inner">
             <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                <MatSelect HelperText="" Label="" @bind-Value="@Kuiki_SelectedValue" style="width:100%;" >
+                <MatSelect HelperText="" Label="" @bind-Value="@Kuiki_SelectedValue" style="width:100%;">
 
                     @foreach (var Temp_Kuiki in C_KuikiList)
                     {
@@ -113,8 +118,8 @@
                     }
                 </MatSelect>
             </div>
-            <div  class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                <MatSelect HelperText="" Label="" @bind-Value="@Nengetu_SelectedValue" style="width:100%;" >
+            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                <MatSelect HelperText="" Label="" @bind-Value="@Nengetu_SelectedValue" style="width:100%;">
 
                     <MatOption TValue="int?" Value="0">全期間</MatOption>
                     @foreach (var Temp_Nengetu in C_NengetuList)
@@ -134,68 +139,68 @@
     </div>
 
     @*
-        <table class="Card_table_Fixed Margin_Bottom Bg_Color">
-            <tr>
-                <td colspan="10">
-                    <div>
+            <table class="Card_table_Fixed Margin_Bottom Bg_Color">
+                <tr>
+                    <td colspan="10">
+                        <div>
 
-                        <MatSelect HelperText="" Label="" @bind-Value="@Kuiki_SelectedValue">
+                            <MatSelect HelperText="" Label="" @bind-Value="@Kuiki_SelectedValue">
 
-                            @foreach (var Temp_Kuiki in C_KuikiList)
-                            {
-                                if (Phase1Data.Select_TenpoNo == Temp_Kuiki.Tenpo)
+                                @foreach (var Temp_Kuiki in C_KuikiList)
                                 {
-                                    <MatOption TValue="int?" Value="@Temp_Kuiki.Kuiki">@Temp_Kuiki.Name</MatOption>
+                                    if (Phase1Data.Select_TenpoNo == Temp_Kuiki.Tenpo)
+                                    {
+                                        <MatOption TValue="int?" Value="@Temp_Kuiki.Kuiki">@Temp_Kuiki.Name</MatOption>
+                                    }
+                                    else
+                                    {
+                                        continue;
+                                    }
                                 }
-                                else
+                            </MatSelect>
+
+                        </div>
+                    </td>
+
+                    <td>&nbsp;</td>
+
+                    <td colspan="10">
+                        <div>
+
+                            <MatSelect HelperText="" Label="" @bind-Value="@Nengetu_SelectedValue">
+
+                                <MatOption TValue="int?" Value="0">全期間</MatOption>
+                                @foreach (var Temp_Nengetu in C_NengetuList)
                                 {
-                                    continue;
+                                    if (Phase1Data.Select_TenpoNo == Temp_Nengetu.Tenpo)
+                                    {
+                                        <MatOption TValue="int?" Value="@Temp_Nengetu.Nengetu">@Temp_Nengetu.Name</MatOption>
+                                    }
+                                    else
+                                    {
+                                        continue;
+                                    }
                                 }
-                            }
-                        </MatSelect>
+                            </MatSelect>
 
-                    </div>
-                </td>
-
-                <td>&nbsp;</td>
-
-                <td colspan="10">
-                    <div>
-
-                        <MatSelect HelperText="" Label="" @bind-Value="@Nengetu_SelectedValue">
-
-                            <MatOption TValue="int?" Value="0">全期間</MatOption>
-                            @foreach (var Temp_Nengetu in C_NengetuList)
-                            {
-                                if (Phase1Data.Select_TenpoNo == Temp_Nengetu.Tenpo)
-                                {
-                                    <MatOption TValue="int?" Value="@Temp_Nengetu.Nengetu">@Temp_Nengetu.Name</MatOption>
-                                }
-                                else
-                                {
-                                    continue;
-                                }
-                            }
-                        </MatSelect>
-
-                    </div>
+                        </div>
 
 
 
-                    @*
-                        <form>
-                            <select name="Nengetsu" class="form-control" @onchange="@OnChangeEventNengetuX">
-                                <option value=null>全期間</option>
-                                @foreach (var Nengetu in NengetuList)
-                                {
-                                    <option value="@Nengetu.nengetu"> @Nengetu.dispNengetu </option>
-                                }
-                            </select>
-                        </form>
-    *
-    </td>
-    </tr>
-    </table>
+                        @*
+                            <form>
+                                <select name="Nengetsu" class="form-control" @onchange="@OnChangeEventNengetuX">
+                                    <option value=null>全期間</option>
+                                    @foreach (var Nengetu in NengetuList)
+                                    {
+                                        <option value="@Nengetu.nengetu"> @Nengetu.dispNengetu </option>
+                                    }
+                                </select>
+                            </form>
+        *
+        </td>
+        </tr>
+        </table>
     *@
 
 
@@ -276,6 +281,43 @@
     *@
 
     <!--デモ用に海老沼が仮で作りましたｶﾘｶﾘ-->
+    <!--MatBlazor化-->
+    <div class="mat-layout-grid" style="padding:0rem;">
+        <div class="mat-layout-grid-inner">
+            <!--入り止めボタン-->
+            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                <MatButton>Text</MatButton>
+            </div>
+            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                <MatButton>Text2</MatButton>
+            </div>
+
+            <!--入り止めリスト-->
+            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                <div class="Card_parent">
+                    <button type="button" class="btn btn-IriButton btn-block Card_NameButtonMargin KeiyakuNext" style="text-align:left;">
+                            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+                                Name
+                            </div>
+                            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+                                Meig
+                            </div>
+                            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+                                Iri-Tome
+                            </div>
+                    </button>
+                </div>
+            </div>
+
+
+
+            <div class="mat-layout-grid-cell"></div>
+        </div>
+    </div>
+
+    <!--MatBlazor化終わり-->
+
+
     <div class="Bg_Color">
         <table class="Card_table_Fixed Bg_Color">
 
@@ -323,18 +365,31 @@
 
             <!--入止ボタンで画面いっぱいに表示-->
 
-
             <tr>
                 @if (Phase1Data.IriActive == true)
                 {
                     <th class="Card_VerticalFix Card_parent" colspan="10">
                         <table class="Card_table_Fixed">
                             <!--foreath-->
-                            
+
                             @foreach (var x in C_IriList)
                             {
+                                switch (x.NextKeiyaku)
+                                {
+                                    case 0:
+                                        ButtonColor = "KeiyakuNext_Case0";
+                                        break;
+
+                                    case 1:
+                                        ButtonColor = "KeiyakuNext_Case1";
+                                        break;
+
+                                    case 2:
+                                        ButtonColor = "KeiyakuNext_Case2";
+                                        break;
+                                }
                                 @if (Kuiki_SelectedValue == x.Kuiki &&
-                                (SelectValue == x.iri || SelectValue == null))
+                            (SelectValue == x.iri || SelectValue == null))
                                 {
                                     <tr>
                                         <td>
@@ -382,16 +437,31 @@
                             <!--foreath-->
                             @foreach (var x in C_TomeList)
                             {
+                                switch (x.NextKeiyaku)
+                                {
+                                    case 0:
+                                        ButtonColor = "KeiyakuNext_Case0";
+                                        break;
+
+                                    case 1:
+                                        ButtonColor = "KeiyakuNext_Case1";
+                                        break;
+
+                                    case 2:
+                                        ButtonColor = "KeiyakuNext_Case2";
+                                        break;
+                                }
+
                                 @if (Kuiki_SelectedValue == x.Kuiki)
                                 /*&&
-                                (SelectValue -1 == x.KeiyakuEd  || SelectValue == null))
-                             */
+(SelectValue -1 == x.KeiyakuEd  || SelectValue == null))
+*/
                                 {
 
                                     <tr>
                                         <td>
                                             <div class="Card_parent">
-                                                <button @onclick="@(s => JumpPageTome(x))" type="button" class="btn btn-TomeButton btn-block Card_NameButtonMargin">
+                                                <button @onclick="@(s => JumpPageTome(x))" type="button" class="btn btn-TomeButton btn-block Card_NameButtonMargin @ButtonColor">
 
                                                     @*JumpPage("./Common/DokusyaActivity")*@
                                                     <table>
@@ -422,6 +492,11 @@
             </tr>
 
         </table>
+        @foreach (var x in IriTomeList)
+        {
+            <div>@x.IriList.DokuCode</div>
+            <div>@x.TomeList.DokuCode</div>
+        }
     </div>
 </body>
 </html>
@@ -430,28 +505,31 @@
 @*
     @functions {
 
-        void OnChangeEventNengetu(ChangeEventArgs e)
-        {
-            Model.KeepNengetu = e.Value.ToString();
+                                void OnChangeEventNengetu(ChangeEventArgs e)
+                                {
+                                    Model.KeepNengetu = e.Value.ToString();
 
-            // 読者情報の取得(読者番号:完全一致）
-            Model.IriList = Model.RtnIriList();
+                                    // 読者情報の取得(読者番号:完全一致）
+                                    Model.IriList = Model.RtnIriList();
 
-            Model.TomeList = Model.RtnTomeList();
-        }
+                                    Model.TomeList = Model.RtnTomeList();
+                                }
 
-        void OnChangeEventKuiki(ChangeEventArgs e)
-        {
-            Model.KeepKuiki = e.Value.ToString();
+                                void OnChangeEventKuiki(ChangeEventArgs e)
+                                {
+                                    Model.KeepKuiki = e.Value.ToString();
 
-            // 読者情報の取得(読者番号:完全一致）
-            Model.IriList = Model.RtnIriList();
+                                    // 読者情報の取得(読者番号:完全一致）
+                                    Model.IriList = Model.RtnIriList();
 
-            Model.TomeList = Model.RtnTomeList();
-        }
+                                    Model.TomeList = Model.RtnTomeList();
+                                }
 
 
-    }
+                            }
 
-*@
+                            *@
 
+@code{
+    public string ButtonColor;
+}
