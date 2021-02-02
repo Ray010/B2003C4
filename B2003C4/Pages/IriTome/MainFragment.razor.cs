@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System.Runtime.CompilerServices;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 using B2003C4.Class;
 using B2003C4.Data;
@@ -142,31 +143,91 @@ namespace B2003C4.Pages.IriTome
             }
         }
 
+        public List<Iri_K95010> IriList = new List<Iri_K95010>();
+        public List<Tome_K95010> TomeList = new List<Tome_K95010>();
 
         public int Count = 0;
-        protected override void OnInitialized()
+
+        public int x;
+
+        public void ListSort()
         {
-            for (int Count = 0; true; Count++)
+
+            IriList = C_IriList.Where(x => x.Kuiki == Kuiki_SelectedValue)
+                .ToList();
+
+            for (; x < IriList.Count; x++)
             {
-                if (C_IriList[Count] != null && C_TomeList[Count] != null)
+                if(IriList[x].NextKeiyaku == 1)
                 {
-                    IriTomeList.Add(new Lists(C_IriList[Count], C_TomeList[Count]));
+                    IriList[x].NextKeiyaku = 13626623;
                 }
-                else if (C_IriList[Count] == null)
+                else if (IriList[x].NextKeiyaku == 2)
                 {
-                    IriTomeList.Add(new Lists(null, C_TomeList[Count]));
-                }
-                else if (C_TomeList[Count] == null)
-                {
-                    IriTomeList.Add(new Lists(C_IriList[Count], null));
+                    IriList[x].NextKeiyaku = 11597763;
                 }
                 else
                 {
-                    break;
+                    IriList[x].NextKeiyaku = 16777215;
                 }
             }
+        }
+        public object Convert(int? x)
+        {
+            if (x == null)
+            {
+                X = 0;
+            }
+            else
+            {
+                X = (int)x;
+
+            }
+            ColorCode = X.ToString("X4");
+            return ColorCode;
+        }
 
 
+
+        protected override void OnInitialized()
+        {
+
+
+            ListSort();
+
+
+
+
+            /* 保留
+            if (C_IriList.Count <= C_TomeList.Count)
+            {
+                for (int Count = 0; Count < C_TomeList.Count; Count++)
+                {
+                    if (Count < C_IriList.Count)
+                    {
+                        IriTomeList.Add(new Lists(C_IriList[Count], C_TomeList[Count]));
+                    }
+                    else
+                    {
+                        IriTomeList.Add(new Lists(null, C_TomeList[Count]));
+                    }
+                }
+            }
+            else
+            {
+                for (int Count = 0; Count < C_IriList.Count; Count++)
+                {
+                    if (Count < C_TomeList.Count)
+                    {
+                        IriTomeList.Add(new Lists(C_IriList[Count], C_TomeList[Count]));
+                    }
+                    else
+                    {
+                        IriTomeList.Add(new Lists(C_IriList[Count], null ));
+                    }
+                }
+            }
+            */
             /*
             foreach (var x in C_IriList)
             {

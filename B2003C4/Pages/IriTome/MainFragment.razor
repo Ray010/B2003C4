@@ -293,24 +293,55 @@
             </div>
 
             <!--入り止めリスト-->
+
+
+
+
             <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                <div class="Card_parent">
-                    <button type="button" class="btn btn-IriButton btn-block Card_NameButtonMargin KeiyakuNext" style="text-align:left;">
+                @foreach (var x in IriList)
+                {
+
+                    @Convert(x.NextKeiyaku)
+                    <style>
+
+                        .NextKeiyaku { background-color: #@Convert(x.NextKeiyaku) ;}
+                    </style>
+                    <div class="Card_parent" style="padding-bottom: 0.3rem;">
+                        <button type="button" class="mat-elevation-z3 btn btn-IriButton btn-block Card_NameButtonMargin NextKeiyaku" style="text-align:left; border: solid;">
                             <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-                                Name
+                                @x.Name
                             </div>
                             <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-                                Meig
+                                @x.Meig
                             </div>
                             <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-                                Iri-Tome
+                                @x.iri - @x.Tome
                             </div>
-                    </button>
-                </div>
+                        </button>
+                    </div>
+                }
             </div>
 
 
+            @foreach (var x in IriTomeList)
+            {
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                    <div class="Card_parent">
+                        <button type="button" class="mat-elevation-z3 btn btn-IriButton btn-block Card_NameButtonMargin KeiyakuNext" style="text-align:left; border: solid;">
+                            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+                                @x.TomeList.Name
+                            </div>
+                            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+                                @x.TomeList.Meig
+                            </div>
+                            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+                                @x.TomeList.iri - @x.TomeList.tome
+                            </div>
+                        </button>
+                    </div>
+                </div>
 
+            }
             <div class="mat-layout-grid-cell"></div>
         </div>
     </div>
@@ -350,7 +381,7 @@
                 @if (Phase1Data.TomeActive == true)
                 {
                     <th colspan="10">
-                        <button @onclick="@(s =>ButtonActive("Tome"))" type="button" class="btn btn-danger btn-block">
+                        <button @onclick="@(s => ButtonActive("Tome"))" type="button" class="btn btn-danger btn-block">
                             @*<button @onclick="TomeButtonActive" type="button" class="btn btn-danger btn-block">*@
                             <table class="Card_table_Fixed">
                                 <tr>
@@ -389,7 +420,7 @@
                                         break;
                                 }
                                 @if (Kuiki_SelectedValue == x.Kuiki &&
-                            (SelectValue == x.iri || SelectValue == null))
+(SelectValue == x.iri || SelectValue == null))
                                 {
                                     <tr>
                                         <td>
@@ -454,8 +485,8 @@
 
                                 @if (Kuiki_SelectedValue == x.Kuiki)
                                 /*&&
-(SelectValue -1 == x.KeiyakuEd  || SelectValue == null))
-*/
+                                (SelectValue -1 == x.KeiyakuEd  || SelectValue == null))
+                                */
                                 {
 
                                     <tr>
@@ -494,8 +525,7 @@
         </table>
         @foreach (var x in IriTomeList)
         {
-            <div>@x.IriList.DokuCode</div>
-            <div>@x.TomeList.DokuCode</div>
+            <div>@x.IriList.DokuCode @x.TomeList.DokuCode</div>
         }
     </div>
 </body>
@@ -528,8 +558,15 @@
 
                             }
 
-                            *@
+*@
 
 @code{
     public string ButtonColor;
+}
+@code{
+    public string ColorCode;
+
+    public int X;
+
+
 }
