@@ -22,7 +22,7 @@ namespace B2003C4.Pages.Kako
         //区域関連
         public Boolean Kuiki_SelectedFlag { get; set; } = false;
 
-        uint Kuiki_SelectedValue = 1; //選択された区域（数値のみ）
+        int? Kuiki_SelectedValue = 1; //選択された区域（数値のみ）
 
         string Kuiki_SelectValue { get => SelectedValue; set { SelectedValue = value; } } //選択された区域（”区”こみ）
 
@@ -66,6 +66,26 @@ namespace B2003C4.Pages.Kako
         List<DummyDataModel.Dokusya> TomeDokusyaList = new List<DummyDataModel.Dokusya>();
 
         string TenpoNo { get; set; } = "0"; //仮
+
+
+        /*レイアウト*/
+        public string Device = "iPhone5s";
+
+        public string Layout_Button;
+
+        public string Layout_Long;
+
+        public string Layout_Middle_L;
+
+        public string Layout_Middle_M;
+
+        public string Layout_Middle_S;
+
+        public string Layout_Small;
+
+        public string Active_Layout_Middle_S;
+
+
 
 
         //仮データ
@@ -124,10 +144,80 @@ namespace B2003C4.Pages.Kako
             }
         }
 
+        public List<Tome_K95020> TomeList = new List<Tome_K95020>();
+        public void ListSort()
+        {
+            TomeList = C_TomeList.Where(x => x.Kuiki == Kuiki_SelectedValue)
+                .ToList();
+
+            for (int TomeCount = 0; TomeCount < TomeList.Count; TomeCount++)
+            {
+                if (TomeList[TomeCount].NextKeiyaku == 1)
+                {
+                    TomeList[TomeCount].NextKeiyaku = 13626623;
+                }
+                else if (TomeList[TomeCount].NextKeiyaku == 2)
+                {
+                    TomeList[TomeCount].NextKeiyaku = 11597763;
+                }
+                else if (TomeList[TomeCount].NextKeiyaku == 0)
+                {
+                    TomeList[TomeCount].NextKeiyaku = 16777215;
+                }
+
+
+                if (TomeList[TomeCount].Tantokbn == 1)
+                {
+                    TomeList[TomeCount].Tantokbn = 16711680;
+                }
+                else if (TomeList[TomeCount].Tantokbn != 16711680)
+                {
+                    TomeList[TomeCount].Tantokbn = 0;
+                }
+            }
+        }
+
+        public string ColorCode;
+        public object Convert(int? x)
+        {
+            int X;
+            if (x == null)
+            {
+                X = 0;
+            }
+            else
+            {
+                X = (int)x;
+            }
+            ColorCode = X.ToString("X4");
+            return ColorCode;
+        }
+
+
         //検索総数(ページ開始直後)
         protected override void OnInitialized()
         {
-            foreach(var Kuiki in C_KuikiList)
+
+            switch (Device)
+            {
+                case "iPhone5s":
+                    Layout_Button = "mat-layout-grid-cell-span-2";
+                    Layout_Long = "mat-layout-grid-cell-span-12";
+                    Layout_Middle_L = "mat-layout-grid-cell-span-4";
+                    Layout_Middle_M = "mat-layout-grid-cell-span-3";
+                    Layout_Middle_S = "mat-layout-grid-cell-span-2";
+                    Layout_Small = "mat-layout-grid-cell-span-1";
+                    Active_Layout_Middle_S = Layout_Middle_S;
+                    break;
+
+                default:
+                    break;
+
+            }
+
+            ListSort();
+
+            foreach (var Kuiki in C_KuikiList)
             {
                 if(Kuiki.Tenpo == Phase1Data.Select_TenpoNo)
                 {
@@ -174,7 +264,7 @@ namespace B2003C4.Pages.Kako
         public void OnChangeEventKuiki(ChangeEventArgs f)
         {
             Count = 0;
-            Kuiki_SelectedValue = uint.Parse(f.Value.ToString());
+            Kuiki_SelectedValue = int.Parse(f.Value.ToString());
             Kuiki_SelectedFlag = true;
             TomeDokusyaList.Clear();
 

@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\Haitatsu\**" />
+    <Content Remove="Pages\Haitatsu\**" />
+    <EmbeddedResource Remove="Pages\Haitatsu\**" />
+    <None Remove="Pages\Haitatsu\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Data\Koudoku.cs" />
     <Compile Remove="Data\KoudokuDummyData.cs" />
     <Compile Remove="Data\LocalNewsPaperContext.cs" />

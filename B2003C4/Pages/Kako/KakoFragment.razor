@@ -63,6 +63,30 @@
             .show > .btn-menu.dropdown-toggle {
             }
 
+
+        @*Select*@ .mdc-select .mdc-select__anchor {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .mdc-select:not(.mdc-select--disabled) .mdc-select__anchor {
+            background-color: #FFFFFF;
+        }
+
+        .mdc-select {
+            min-width: 50px;
+            display: inline-flex;
+            position: relative;
+        }
+
+
+        label {
+            margin-bottom: 0;
+        }
+
+        p {
+            height: 0;
+        }
     </style>
 
 
@@ -74,60 +98,73 @@
         @* 年月リストの表示（セレクトリスト） *@
         @* @onchange : クラスから処理を呼び出せる *@
         @* select内で設定したoptionのvalueを引数として持たせることが出来る *@
-        <table>
-            <tr>
-                <td colspan="5">
-                    <select class="form-control" @onchange="@OnChangeEventKuiki">
 
-                        @foreach (var x in TenpoKuiki)
+
+        <div class="mat-layout-grid" style="padding:0.5rem;">
+            <div class="mat-layout-grid-inner">
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                    <MatSelect HelperText="" Label="" @bind-Value="@Kuiki_SelectedValue" style="width:100%;">
+
+                        @foreach (var Temp_Kuiki in C_KuikiList)
                         {
-                            <option value="@x.KuikiNo"> @x.KuikiName </option>
-                        }
-                    </select>
-                </td>
-                <td align="right" colspan="5">
-
-                    @Count 件
-                    @*
-                        <select class="form-control" @onchange="@OnChangeEventNengetu">
-                            @foreach (var Nengetu in NengetuList)
+                            if (Phase1Data.Select_TenpoNo == Temp_Kuiki.Tenpo)
                             {
-                                <option value="@Nengetu.dispNengetu"> @Nengetu.dispNengetu </option>
+                                <MatOption TValue="int?" Value="@Temp_Kuiki.Kuiki">@Temp_Kuiki.Name</MatOption>
                             }
-                        </select>
-                    *@
-                </td>
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                    </MatSelect>
+                </div>
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                    <div align="right">@Count 件</div>
+                </div>
 
-            </tr>
-            @*
-            <tr>
-                <p>@SelectedValue</p>
-                <p>@Kuiki_SelectedValue</p>
+                <div class="mat-layout-grid-cell @Layout_Middle_L">
+                    @foreach (var x in TomeList)
+                    {
+                        <div class="Card_parent" style="padding-bottom: 0.3rem;">
+                            <button type="button" @onclick="@(s => JumpPage(x))" class="mat-elevation-z3 btn btn-IriButton btn-block Card_NameButtonMargin Button_Layout" style=" border-color: #@Convert(x.Tantokbn); background-color: #@Convert(x.NextKeiyaku);">
+                                <table>
+                                    <tr>
+                                        <td colspan="9" align="left">@x.Name</td>
+                                        <td colspan="1">@x.MgNo</td>
+                                    </tr>
+                                    <tr align="left">
+                                        <td colspan="8">@x.Address</td>
 
-                @if (SelectedFlag == true)
-                {
-                    <p>選択されたの @SelectValue です</p>
-                }
+                                        <td colspan="2">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" align="left">x.B</td>
+                                        <td colspan="6" align="left">@x.iri - @x.tome</td>
+
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                    }
+                </div>
 
 
-                @* 区域リストの表示（セレクトリスト
+            </div>
+        </div>
 
-            <select onchange="OnChangeEventKuiki">
-            @foreach (var item in Model.KuikiList)
-            {
-            <option value=@item.kuiki>@item.name</option>
-            }
-            </select>
 
-            </tr>
-            *@
-        </table>
+
+
+
+
+
+ 
 
         <table class="Card_parent Bg_Color">
             @foreach (var x in C_TomeList)
             {
-                if(x.Tenpo == Phase1Data.Select_TenpoNo && x.Kuiki == Kuiki_SelectedValue)
-                { 
+                if (x.Tenpo == Phase1Data.Select_TenpoNo && x.Kuiki == Kuiki_SelectedValue)
+                {
                     <tr>
                         <td>
                             <div class="Card_parent">

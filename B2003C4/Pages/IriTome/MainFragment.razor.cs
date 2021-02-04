@@ -148,27 +148,81 @@ namespace B2003C4.Pages.IriTome
 
         public int Count = 0;
 
-        public int x;
+        /*レイアウト*/
+        public string Device = "iPhone5s";
+
+        public string Layout_Button;
+
+        public string Layout_Long;
+
+        public string Layout_Middle_M;
+
+        public string Layout_Middle_S;
+
+        public string Layout_Small;
+
+        public string Active_Layout_Middle_S;
+
+
+
 
         public void ListSort()
         {
-
             IriList = C_IriList.Where(x => x.Kuiki == Kuiki_SelectedValue)
                 .ToList();
 
-            for (; x < IriList.Count; x++)
+            for (IriCount = 0 ; IriCount < IriList.Count; IriCount++)
             {
-                if(IriList[x].NextKeiyaku == 1)
+                if(IriList[IriCount].NextKeiyaku == 1)
                 {
-                    IriList[x].NextKeiyaku = 13626623;
+                    IriList[IriCount].NextKeiyaku = 13626623;
                 }
-                else if (IriList[x].NextKeiyaku == 2)
+                else if (IriList[IriCount].NextKeiyaku == 2)
                 {
-                    IriList[x].NextKeiyaku = 11597763;
+                    IriList[IriCount].NextKeiyaku = 11597763;
                 }
-                else
+                else if(IriList[IriCount].NextKeiyaku == 0)
                 {
-                    IriList[x].NextKeiyaku = 16777215;
+                    IriList[IriCount].NextKeiyaku = 16777215;
+                }
+
+
+                if(IriList[IriCount].Tantokbn == 1)
+                {
+                    IriList[IriCount].Tantokbn = 16711680;
+                }
+                else if( IriList[IriCount].Tantokbn != 16711680)
+                {
+                    IriList[IriCount].Tantokbn = 0;
+                }
+            }
+
+            TomeList = C_TomeList.Where(x => x.Kuiki == Kuiki_SelectedValue)
+                .ToList();
+
+            for (TomeCount = 0; TomeCount < TomeList.Count; TomeCount++)
+            {
+                if (TomeList[TomeCount].NextKeiyaku == 1)
+                {
+                    TomeList[TomeCount].NextKeiyaku = 13626623;
+                }
+                else if (TomeList[TomeCount].NextKeiyaku == 2)
+                {
+                    TomeList[TomeCount].NextKeiyaku = 11597763;
+                }
+                else if (TomeList[TomeCount].NextKeiyaku == 0)
+                {
+                    TomeList[TomeCount].NextKeiyaku = 16777215;
+                }
+
+
+                if (TomeList[TomeCount].Tantokbn == 1)
+                {
+                    TomeList[TomeCount].Tantokbn = 16711680;
+                }
+                else if (TomeList[TomeCount].Tantokbn != 16711680)
+                {
+                    TomeList[TomeCount].Tantokbn = 0;
                 }
             }
         }
@@ -181,7 +235,6 @@ namespace B2003C4.Pages.IriTome
             else
             {
                 X = (int)x;
-
             }
             ColorCode = X.ToString("X4");
             return ColorCode;
@@ -191,77 +244,23 @@ namespace B2003C4.Pages.IriTome
 
         protected override void OnInitialized()
         {
+            switch (Device)
+            {
+                case "iPhone5s":
+                    Layout_Button = "mat-layout-grid-cell-span-2";
+                    Layout_Long = "mat-layout-grid-cell-span-12";
+                    Layout_Middle_M = "mat-layout-grid-cell-span-3";
+                    Layout_Middle_S = "mat-layout-grid-cell-span-2";
+                    Layout_Small = "mat-layout-grid-cell-span-1";
+                    Active_Layout_Middle_S = Layout_Middle_S;
+                    break;
 
+                default:
+                    break;
+
+            }
 
             ListSort();
-
-
-
-
-            /* 保留
-            if (C_IriList.Count <= C_TomeList.Count)
-            {
-                for (int Count = 0; Count < C_TomeList.Count; Count++)
-                {
-                    if (Count < C_IriList.Count)
-                    {
-                        IriTomeList.Add(new Lists(C_IriList[Count], C_TomeList[Count]));
-                    }
-                    else
-                    {
-                        IriTomeList.Add(new Lists(null, C_TomeList[Count]));
-                    }
-                }
-            }
-            else
-            {
-                for (int Count = 0; Count < C_IriList.Count; Count++)
-                {
-                    if (Count < C_TomeList.Count)
-                    {
-                        IriTomeList.Add(new Lists(C_IriList[Count], C_TomeList[Count]));
-                    }
-                    else
-                    {
-                        IriTomeList.Add(new Lists(C_IriList[Count], null ));
-                    }
-                }
-            }
-            */
-            /*
-            foreach (var x in C_IriList)
-            {
-                if (Kuiki_SelectedValue == x.Kuiki &&
-                  (SelectValue == x.iri || SelectValue == null))
-
-                //if (Kuiki_SelectedValue == x.Kuiki)
-                {
-                    IriTomeList.Add(new Lists(x, null));
-                    IriCount++;
-                }
-                else
-                {
-                    continue;
-                }
-            }
-            foreach (var x in C_TomeList)
-            {
-                if (Kuiki_SelectedValue == x.Kuiki &&
-                    (SelectValue == x.tome || SelectValue == null))
-
-                //if (Kuiki_SelectedValue == x.Kuiki)
-                {
-                    IriTomeList.Add(new Lists(null, x));
-                    TomeCount++;
-                }
-                else
-                {
-                    continue;
-                }
-            }
-
-            */
-
 
                 //---------------------------------------------------------
                 //履歴の処理
@@ -294,9 +293,6 @@ namespace B2003C4.Pages.IriTome
         //年月
         public void OnChangeEventNengetuX(ChangeEventArgs e)
         {
-            IriCount = 0;
-            TomeCount = 0;
-
             if ("null" == e.Value.ToString())
             {
                 SelectedValue = null;
@@ -307,63 +303,7 @@ namespace B2003C4.Pages.IriTome
                 SelectedFlg = true;
             }
 
-
-            for(int Count = 0; true ; Count++)
-            {
-                if(C_IriList[Count] != null && C_TomeList[Count] != null)
-                {
-                    IriTomeList.Add(new Lists(C_IriList[Count], C_TomeList[Count]));
-                }
-                else if(C_IriList[Count] == null)
-                {
-                    IriTomeList.Add(new Lists(null, C_TomeList[Count]));
-                }
-                else if (C_TomeList[Count] == null)
-                {
-                    IriTomeList.Add(new Lists(C_IriList[Count], null));
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-
-
-
-
-            /*
-            foreach (var x in C_IriList)
-            {
-                if (Kuiki_SelectedValue == x.Kuiki &&
-                  (SelectValue == x.iri || SelectValue == null))
-
-                //if (Kuiki_SelectedValue == x.Kuiki)
-                {
-                    IriTomeList.Add(new Lists(x,null));
-                    IriCount++;
-                }
-                else
-                {
-                    continue;
-                }
-            }
-            foreach (var x in C_TomeList)
-            {
-                if (Kuiki_SelectedValue == x.Kuiki &&
-                    (SelectValue  == x.tome || SelectValue == null))
-
-                //if (Kuiki_SelectedValue == x.Kuiki)
-                {
-                    IriTomeList.Insert(new Lists(, x));
-                    TomeCount++;
-                }
-                else
-                {
-                    continue;
-                }
-            }
-            */
+            ListSort();
         }
         //年月終わり
 
@@ -373,10 +313,12 @@ namespace B2003C4.Pages.IriTome
             {
                 if (Phase1Data.TomeActive == true)
                 {
+                    Active_Layout_Middle_S = "mat-layout-grid-cell-span-4";
                     Phase1Data.TomeActive = false;
                 }
                 else
                 {
+                    Active_Layout_Middle_S = "mat-layout-grid-cell-span-2";
                     Phase1Data.TomeActive = true;
                 }
             }
@@ -384,10 +326,12 @@ namespace B2003C4.Pages.IriTome
             {
                 if (Phase1Data.IriActive == true)
                 {
+                    Active_Layout_Middle_S = "mat-layout-grid-cell-span-4";
                     Phase1Data.IriActive = false;
                 }
                 else
                 {
+                    Active_Layout_Middle_S = "mat-layout-grid-cell-span-2";
                     Phase1Data.IriActive = true;
                 }
             }
@@ -401,10 +345,8 @@ namespace B2003C4.Pages.IriTome
             }
             else
             {
-
                 History.Back_History[History.Back_History.Count-1].ButtonState = true;
-                History.Back_History.Add(Phase1Data.Deep_Copy());
-                
+                History.Back_History.Add(Phase1Data.Deep_Copy());   
             }
             Phase1DataChanged.InvokeAsync(Phase1Data);
         }

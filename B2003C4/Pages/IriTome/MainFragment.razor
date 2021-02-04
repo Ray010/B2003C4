@@ -93,6 +93,13 @@
             background-color: #B0F7C3;
         }
 
+        .Button_Layout {
+            width:100%;
+            text-align: left;
+            border: solid;
+            border-width: 0.15rem;
+        }
+
     </style>
 
 
@@ -138,427 +145,85 @@
         </div>
     </div>
 
-    @*
-            <table class="Card_table_Fixed Margin_Bottom Bg_Color">
-                <tr>
-                    <td colspan="10">
-                        <div>
-
-                            <MatSelect HelperText="" Label="" @bind-Value="@Kuiki_SelectedValue">
-
-                                @foreach (var Temp_Kuiki in C_KuikiList)
-                                {
-                                    if (Phase1Data.Select_TenpoNo == Temp_Kuiki.Tenpo)
-                                    {
-                                        <MatOption TValue="int?" Value="@Temp_Kuiki.Kuiki">@Temp_Kuiki.Name</MatOption>
-                                    }
-                                    else
-                                    {
-                                        continue;
-                                    }
-                                }
-                            </MatSelect>
-
-                        </div>
-                    </td>
-
-                    <td>&nbsp;</td>
-
-                    <td colspan="10">
-                        <div>
-
-                            <MatSelect HelperText="" Label="" @bind-Value="@Nengetu_SelectedValue">
-
-                                <MatOption TValue="int?" Value="0">全期間</MatOption>
-                                @foreach (var Temp_Nengetu in C_NengetuList)
-                                {
-                                    if (Phase1Data.Select_TenpoNo == Temp_Nengetu.Tenpo)
-                                    {
-                                        <MatOption TValue="int?" Value="@Temp_Nengetu.Nengetu">@Temp_Nengetu.Name</MatOption>
-                                    }
-                                    else
-                                    {
-                                        continue;
-                                    }
-                                }
-                            </MatSelect>
-
-                        </div>
 
 
-
-                        @*
-                            <form>
-                                <select name="Nengetsu" class="form-control" @onchange="@OnChangeEventNengetuX">
-                                    <option value=null>全期間</option>
-                                    @foreach (var Nengetu in NengetuList)
-                                    {
-                                        <option value="@Nengetu.nengetu"> @Nengetu.dispNengetu </option>
-                                    }
-                                </select>
-                            </form>
-        *
-        </td>
-        </tr>
-        </table>
-    *@
-
-
-
-
-    <div>
-
-        @* 年月リストの表示（セレクトリスト） *@
-        @* @onchange : クラスから処理を呼び出せる *@
-        @* select内で設定したoptionのvalueを引数として持たせることが出来る *@
-
-
-        @*
-            <p>@SelectedValue</p>
-
-            @if (SelectedFlg == true)
-            {<p>選択されたの @SelectValue です</p>}
-        *@
-
-        @* 区域リストの表示（セレクトリスト） *@
-
-        @*
-            <select onchange="OnChangeEventKuiki">
-                @foreach (var item in Model.KuikiList)
-                {
-                    <option value=@item.kuiki>@item.name</option>
-                }
-            </select>
-        *@
-
-    </div>
-
-    @* 取得した読者のリストを展開 *@
-    @*
-        @foreach (var item in Model.DokusyaList)
-        {
-            // 区域と順路の切り抜き処理
-            string kuiki = "";
-            string jun = "";
-
-            // 読者リストがnullではないかの判定
-            if (item != null)
-            {
-                // 区域の後ろに「区」を追加
-                kuiki = item.kuiki + "区";
-
-                // 順路の「.」を判定して前後で切り抜きを行い、間に「-」を挿入する。
-                // また、頭の0詰めを無くす
-                // 例） 「0001.00」 → 「1-00」
-
-                // 2020/10/01 藤原 upd
-                // もしも順路内に「.」が存在しない場合は、そのまま表示させる
-                if (item.junro.IndexOf('.') == -1)
-                {
-                    jun = item.junro;
-                }
-                else
-                {
-                    jun = item.junro.Substring(0, item.junro.IndexOf('.')).TrimStart('0')
-                    + "-" +
-                    item.junro.Substring(item.junro.LastIndexOf('.') + 1);
-                }
-            }
-
-            <a asp-page="./Detail" asp-route-id="@item.dokuCode" type="button" class="search-btn btn btn-outline-dark btn-block">
-                <span class="Kuiki">@kuiki</span>
-                <span class="Junro">@jun</span>
-                <span class="dokuCode">No.@Html.DisplayFor(modelItem => item.dokuCode)</span>
-                <span class="Name">@Html.DisplayFor(modelItem => item.name)</span>
-                <br />
-                <span class="address">@Html.DisplayFor(modelItem => item.addressRyaku)</span>
-                <span class="Banti">@Html.DisplayFor(modelItem => item.banti)</span>
-                <span class="Build">@Html.DisplayFor(modelItem => item.build)</span>
-                <br />
-                <span class="Tel">@Html.DisplayFor(modelItem => item.tel)</span>
-            </a>
-        }
-    *@
 
     <!--デモ用に海老沼が仮で作りましたｶﾘｶﾘ-->
     <!--MatBlazor化-->
     <div class="mat-layout-grid" style="padding:0rem;">
         <div class="mat-layout-grid-inner">
             <!--入り止めボタン-->
-            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                <MatButton>Text</MatButton>
-            </div>
-            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                <MatButton>Text2</MatButton>
-            </div>
-
+            @if (Phase1Data.IriActive == true)
+            {
+                <div class="mat-layout-grid-cell @Active_Layout_Middle_S">
+                    <MatButton @onclick="@(s => ButtonActive("Iri"))" Outlined=true class="btn-block">入　@IriList.FindAll(n => n.Kuiki == Kuiki_SelectedValue).Count 件</MatButton>
+                </div>
+            }
+            @if (Phase1Data.TomeActive == true)
+            {
+                <div class="mat-layout-grid-cell @Active_Layout_Middle_S">
+                    <MatButton @onclick="@(s => ButtonActive("Tome"))" Outlined=true class="btn-block">止　@TomeList.FindAll(n => n.Kuiki == Kuiki_SelectedValue).Count 件</MatButton>
+                </div>
+            }
             <!--入り止めリスト-->
 
 
 
-
-            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                @foreach (var x in IriList)
-                {
-
-                    @Convert(x.NextKeiyaku)
-                    <style>
-
-                        .NextKeiyaku { background-color: #@Convert(x.NextKeiyaku) ;}
-                    </style>
-                    <div class="Card_parent" style="padding-bottom: 0.3rem;">
-                        <button type="button" class="mat-elevation-z3 btn btn-IriButton btn-block Card_NameButtonMargin NextKeiyaku" style="text-align:left; border: solid;">
-                            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-                                @x.Name
-                            </div>
-                            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-                                @x.Meig
-                            </div>
-                            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-                                @x.iri - @x.Tome
-                            </div>
-                        </button>
-                    </div>
-                }
-            </div>
-
-
-            @foreach (var x in IriTomeList)
+            @if (Phase1Data.IriActive == true)
             {
-                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
-                    <div class="Card_parent">
-                        <button type="button" class="mat-elevation-z3 btn btn-IriButton btn-block Card_NameButtonMargin KeiyakuNext" style="text-align:left; border: solid;">
-                            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-                                @x.TomeList.Name
-                            </div>
-                            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-                                @x.TomeList.Meig
-                            </div>
-                            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
-                                @x.TomeList.iri - @x.TomeList.tome
-                            </div>
-                        </button>
-                    </div>
+                <div class="mat-layout-grid-cell @Active_Layout_Middle_S">
+                    @foreach (var x in IriList)
+                    {
+                        <div class="Card_parent" style="padding-bottom: 0.3rem;">
+                            <button type="button" @onclick="@(s => JumpPageIri(x))" class="mat-elevation-z3 btn btn-IriButton btn-block Card_NameButtonMargin Button_Layout" style=" border-color: #@Convert(x.Tantokbn); background-color: #@Convert(x.NextKeiyaku);">
+                                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+                                    @x.Name
+                                </div>
+                                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+                                    @x.Meig
+                                </div>
+                                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+                                    @x.iri - @x.Tome
+                                </div>
+                            </button>
+                        </div>
+                    }
                 </div>
-
             }
+
+
+            @if (Phase1Data.TomeActive == true)
+            {
+                <div class="mat-layout-grid-cell @Active_Layout_Middle_S">
+                    @foreach (var x in TomeList)
+                    {
+                        <div class="Card_parent" style="padding-bottom: 0.3rem;">
+                            <button type="button" @onclick="@(s => JumpPageTome(x))" class="mat-elevation-z3 btn btn-IriButton btn-block Card_NameButtonMargin Button_Layout" style=" border-color: #@Convert(x.Tantokbn); background-color: #@Convert(x.NextKeiyaku);">
+                                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+                                    @x.Name
+                                </div>
+                                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+                                    @x.Meig
+                                </div>
+                                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+                                    @x.iri - @x.tome
+                                </div>
+                            </button>
+                        </div>
+                    }
+                </div>
+            }
+
             <div class="mat-layout-grid-cell"></div>
         </div>
     </div>
 
     <!--MatBlazor化終わり-->
-
-
-    <div class="Bg_Color">
-        <table class="Card_table_Fixed Bg_Color">
-
-            <!--入止ボタンで画面いっぱいに表示-->
-
-            <tr align="center">
-                @if (Phase1Data.IriActive == true)
-                {
-                    <th colspan="10">
-                        <button @onclick="@(s => ButtonActive("Iri"))" type="button" class="btn btn-primary btn-block  ">
-                            @*<button @onclick="IriButtonActive" type="button" class="btn btn-primary btn-block">*@
-                            <table class="Card_table_Fixed">
-                                <tr>
-                                    <th colspan="2">入</th>
-                                    <th colspan="2">@C_IriList.FindAll(n => n.Kuiki == Kuiki_SelectedValue).Count 件</th>
-                                </tr>
-                            </table>
-                        </button>
-                    </th>
-                }
-
-                @if (Phase1Data.IriActive == true && Phase1Data.TomeActive == true)
-                {
-
-                    <th>&nbsp;</th>
-
-                }
-
-
-                @if (Phase1Data.TomeActive == true)
-                {
-                    <th colspan="10">
-                        <button @onclick="@(s => ButtonActive("Tome"))" type="button" class="btn btn-danger btn-block">
-                            @*<button @onclick="TomeButtonActive" type="button" class="btn btn-danger btn-block">*@
-                            <table class="Card_table_Fixed">
-                                <tr>
-                                    <th colspan="2">止</th>
-                                    <th colspan="2">@C_TomeList.FindAll(n => n.Kuiki == Kuiki_SelectedValue).Count 件</th>
-                                </tr>
-                            </table>
-                        </button>
-                    </th>
-                }
-            </tr>
-
-            <!--入止ボタンで画面いっぱいに表示-->
-
-            <tr>
-                @if (Phase1Data.IriActive == true)
-                {
-                    <th class="Card_VerticalFix Card_parent" colspan="10">
-                        <table class="Card_table_Fixed">
-                            <!--foreath-->
-
-                            @foreach (var x in C_IriList)
-                            {
-                                switch (x.NextKeiyaku)
-                                {
-                                    case 0:
-                                        ButtonColor = "KeiyakuNext_Case0";
-                                        break;
-
-                                    case 1:
-                                        ButtonColor = "KeiyakuNext_Case1";
-                                        break;
-
-                                    case 2:
-                                        ButtonColor = "KeiyakuNext_Case2";
-                                        break;
-                                }
-                                @if (Kuiki_SelectedValue == x.Kuiki &&
-(SelectValue == x.iri || SelectValue == null))
-                                {
-                                    <tr>
-                                        <td>
-                                            <div class="Card_parent">
-                                                <button @onclick="@(s => JumpPageIri(x))" type="button" class="btn btn-IriButton btn-block Card_NameButtonMargin KeiyakuNext">
-                                                    @*JumpPage("./Common/DokusyaActivity")*@
-                                                    <table class="Card_table_Fixed">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td align="left" class="fontSizeMAX767" colspan="5">@x.Name &nbsp;</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td align="left" class="fontSizeMAX767" colspan="5">@x.Meig &nbsp;</td>
-
-                                                            </tr>
-                                                            <tr>
-                                                                <td align="left" class="fontSizeMAX767" colspan="4">@x.iri - @x.Tome  &nbsp;</td>
-
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </button>
-                                                @*<button type="button" class="btn btnW btn bg-success Card_NameButtonMarginChild Card_fontSizeMAX767 Card_child">訪</button>*@
-                                                @*@onclick="@(s => JumpPage("./Common/Meet"))"*@
-                                            </div>
-                                        </td>
-                                    </tr>
-                                }
-                            }
-                            <!--foreathEnd-->
-                        </table>
-                    </th>
-                }
-
-
-                @if (Phase1Data.IriActive == true && Phase1Data.TomeActive == true)
-                {
-                    <th colspan="1">&nbsp;</th>
-                }
-
-                @if (Phase1Data.TomeActive == true)
-                {
-                    <th class="Card_VerticalFix Card_parent" colspan="10">
-                        <table class="Card_table_Fixed">
-                            <!--foreath-->
-                            @foreach (var x in C_TomeList)
-                            {
-                                switch (x.NextKeiyaku)
-                                {
-                                    case 0:
-                                        ButtonColor = "KeiyakuNext_Case0";
-                                        break;
-
-                                    case 1:
-                                        ButtonColor = "KeiyakuNext_Case1";
-                                        break;
-
-                                    case 2:
-                                        ButtonColor = "KeiyakuNext_Case2";
-                                        break;
-                                }
-
-                                @if (Kuiki_SelectedValue == x.Kuiki)
-                                /*&&
-                                (SelectValue -1 == x.KeiyakuEd  || SelectValue == null))
-                                */
-                                {
-
-                                    <tr>
-                                        <td>
-                                            <div class="Card_parent">
-                                                <button @onclick="@(s => JumpPageTome(x))" type="button" class="btn btn-TomeButton btn-block Card_NameButtonMargin @ButtonColor">
-
-                                                    @*JumpPage("./Common/DokusyaActivity")*@
-                                                    <table>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td align="left" class="fontSizeMAX767" colspan="5">@x.Name &nbsp;</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td align="left" class="fontSizeMAX767" colspan="5">@x.Meig &nbsp;</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td align="left" class="fontSizeMAX767" colspan="4">@x.iri - @x.tome &nbsp;</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </button>
-                                                @*<button  type="button" class="btn btnW bg-success Card_NameButtonMarginChild Card_fontSizeMAX767 Card_child">訪</button> 訪問ボタン *@
-                                                @*@onclick="@(s => JumpPage("./Common/Meet"))"*@
-                                            </div>
-                                        </td>
-                                    </tr>
-                                }
-                            }
-                            <!--foreathEnd-->
-                        </table>
-                    </th>
-                }
-            </tr>
-
-        </table>
-        @foreach (var x in IriTomeList)
-        {
-            <div>@x.IriList.DokuCode @x.TomeList.DokuCode</div>
-        }
-    </div>
 </body>
 </html>
 
 
-@*
-    @functions {
 
-                                void OnChangeEventNengetu(ChangeEventArgs e)
-                                {
-                                    Model.KeepNengetu = e.Value.ToString();
-
-                                    // 読者情報の取得(読者番号:完全一致）
-                                    Model.IriList = Model.RtnIriList();
-
-                                    Model.TomeList = Model.RtnTomeList();
-                                }
-
-                                void OnChangeEventKuiki(ChangeEventArgs e)
-                                {
-                                    Model.KeepKuiki = e.Value.ToString();
-
-                                    // 読者情報の取得(読者番号:完全一致）
-                                    Model.IriList = Model.RtnIriList();
-
-                                    Model.TomeList = Model.RtnTomeList();
-                                }
-
-
-                            }
-
-*@
 
 @code{
     public string ButtonColor;
