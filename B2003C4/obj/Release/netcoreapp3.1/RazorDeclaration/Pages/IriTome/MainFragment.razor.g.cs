@@ -131,6 +131,26 @@ using Microsoft.AspNetCore.Components;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 228 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
+      
+    public string ButtonColor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 231 "C:\Work\B2003C4\B2003C4\Pages\IriTome\MainFragment.razor"
+      
+    public string ColorCode;
+
+    public int X;
+
+
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

@@ -74,7 +74,6 @@ C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Common\
 C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Common\Meet.razor.g.cs
 C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Common\MeihanActivity.razor.g.cs
 C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Counter.razor.g.cs
-C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Haitatsu\SelJunroActivity.razor.g.cs
 C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\IdentityX.razor.g.cs
 C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Index.razor.g.cs
 C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\IriTome\IriTomeParent.razor.g.cs
@@ -103,7 +102,6 @@ C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\Razor\Pages\Common\DokusyaActi
 C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\Razor\Pages\Common\Meet.razor.g.cs
 C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\Razor\Pages\Common\MeihanActivity.razor.g.cs
 C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\Razor\Pages\Counter.razor.g.cs
-C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\Razor\Pages\Haitatsu\SelJunroActivity.razor.g.cs
 C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\Razor\Pages\IdentityX.razor.g.cs
 C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\Razor\Pages\Index.razor.g.cs
 C:\Work\B2003C4\B2003C4\obj\Release\netcoreapp3.1\Razor\Pages\IriTome\IriTomeParent.razor.g.cs
